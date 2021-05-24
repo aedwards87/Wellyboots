@@ -1,0 +1,100 @@
+import { createGlobalStyle } from 'styled-components';
+
+const Typography = createGlobalStyle`
+
+  :root {
+    /* Family */
+    --fontPrimaryFamily: 'Ubuntu', Helvetica, Arial, sans-serif;
+    --fontSecondaryFamily: 'Delius', cursive;
+
+    /* Size */
+    --fontSizeBase: 10px;
+    --fontSizeBody: 1.8rem;
+    --fontSizeNav: 1.5rem;
+    --fontSizeHero: calc(var(--fontSizeBody) * 3.213);
+    --fontSizeh1: calc(var(--fontSizeBody) * 2.441);
+    --fontSizeh2: calc(var(--fontSizeBody) * 1.953);
+    --fontSizeh3: calc(var(--fontSizeBody) * 1.563);
+    --fontSizeh4: calc(var(--fontSizeBody) * 1.25);
+    --fontSizeh5: calc(var(--fontSizeBody) * 1);
+    --fontSizeLarge: 2.2rem;
+    --fontSizeMedium: 2rem;
+    --fontSizeSmall: 1.6rem;
+    --fontSizeSmallest: 1.4rem;
+
+    /* Weight */
+    --fontWeightLight: 300;
+    --fontWeightNormal: 400;
+    --fontWeightMedium: 500;
+    --fontWeightBold: 700;
+    
+    /* Coupled font styles */
+    --heroFont: var(--fontSizeHero) var(--fontSecondaryFamily);
+    --ctaFont: var(--fontWeightMedium) calc(var(--fontSizeBody) * 2) var(--fontFamily);
+    --inputFont: var(--fontWeightNormal) var(--fontSizeBody * 1.8) var(--fontFamily);
+
+  }
+
+  html {
+    font-family: var(--fontPrimaryFamily);
+    font-size: var(--fontSizeBase);
+    color: var(--colorText, gray);
+  }
+
+  body {
+    font-size: var(--fontSizeBody);
+  }
+
+  p, li {
+    letter-spacing: 0.3px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+    color: var(--colorText, gray);
+    font-weight: var(--fontWeightNormal); 
+  }
+
+  h1 {
+    font-family: var(--fontSecondaryFamily);
+    font-size: var(--fontSizeh1);
+  }
+
+  h2 {
+    font-family: var(--fontSecondaryFamily);
+    font-size: var(--fontSizeh2);
+  }
+
+  h3 {
+    font-size: var(--fontSizeh3);
+  }
+
+  h4 {
+    font-size: var(--fontSizeh4);
+  }
+
+  h5 {
+    font-size: var(--fontSizeh5);
+  }
+
+  a {
+    color: (var(--colorPrimaryTwo));
+    text-decoration-skip-ink: none; 
+  }
+
+  mark, .mark {
+    background: var(--colorHighlight, yellow);
+    padding: 0 2px 2px 2px;
+    margin: 0;
+    display: inline;
+    line-height: 1;
+  }
+
+  .textCenter {
+    text-align: center;
+  }
+`;
+
+export { Typography };

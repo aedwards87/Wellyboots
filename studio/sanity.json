@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "project": {
+    "name": "Wellyboots Studio"
+  },
+  "api": {
+    "projectId": "wc5d2m7h",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "@sanity/color-input",
+    "@sanity/dashboard",
+    "@sanity/google-maps-input",
+    "dashboard-widget-netlify",
+    "dashboard-widget-document-list",
+    "dashboard-widget-structure-menu",
+    "inline-svg"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./src/structure/deskStructure.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./src/dashboardConfig.js"
+    }
+  ]
+}
