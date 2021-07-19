@@ -7,9 +7,12 @@ import {
   Frame,
   Row,
   Column,
-  ImageCarousel,
+  ImageContainer,
+  Image,
   Title,
   Text,
+  ButtonContainer,
+  Button
 } from './AboutUsStyles'
 
 // Imported helpers
@@ -42,24 +45,26 @@ AboutUs.Column = function AboutUsColumn({ children, className, ...props }) {
   return (<Column className={className} {...props}>{children}</Column>)
 }
 
-AboutUs.ImageCarousel = function AboutUsImageCarousel({ children, className, ...props }) {
-  return (<ImageCarousel className={className} {...props}>{children}</ImageCarousel>)
+AboutUs.ImageContainer = function AboutUsImageContainer({ children, className, ...props }) {
+  return (<ImageContainer className={className} {...props}>{children}</ImageContainer>)
 }
 
-AboutUs.Title = function AboutUsTitle({ children, className, lineColor, ...props }) {
-  return (
-    <Title
-      className={className}
-      style={{
-        '--lineColor': lineColor && `var(--color${capitilise(lineColor)})`
-      }}
-      {...props}
-    >
-      {children}
-    </Title>
-  )
+AboutUs.Image = function AboutUsImage({ children, className, ...props }) {
+  return (<Image className={className} {...props}>{children}</Image>)
+}
+
+AboutUs.Title = function AboutUsTitle({ children, className, ...props }) {
+  return (<Title className={className} {...props}>{children}</Title>)
 }
 
 AboutUs.Text = function AboutUsText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
+}
+
+AboutUs.ButtonContainer = function AboutUsButtonContainer({ children, className, ...props }) {
+  return (<ButtonContainer className={className} {...props}>{children}</ButtonContainer>)
+}
+
+AboutUs.Button = function AboutUsButton({ children, className, ...props }) {
+  return (<Button className={className} {...props}>{children}</Button>)
 }

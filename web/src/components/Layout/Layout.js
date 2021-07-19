@@ -5,15 +5,16 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 // Imported Styles
 import { GlobalStyles, Typography } from '../../styles/index'
+import Layout from './LayoutStyles'
 
 // Imported Components
-import Header from '../Header/Header'
-// import Footer from '../footer/footer'
+import Header from '../Header'
+import Footer from '../Footer'
 
 //Imported custom hooks
 import { useCompanyBrandQuery } from '../../hooks'
 
-const Layout = ({ children }) => {
+const LayoutIndex = ({ children }) => {
   const { brandColors } = useCompanyBrandQuery()
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -26,13 +27,13 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <Layout>
       <GlobalStyles brandColors={brandColors.nodes} />
       <Typography />
       <Header siteTitle={site.title} location={location} />
       <main >{children}</main>
-      {/* <Footer /> */}
-    </>
+      <Footer />
+    </Layout>
   )
 }
 
@@ -41,4 +42,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default LayoutIndex

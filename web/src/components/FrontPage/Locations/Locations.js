@@ -1,4 +1,4 @@
-// Imported packages
+// Imported dependencies
 import React from 'react'
 
 // Imported components
@@ -7,10 +7,13 @@ import {
   Frame,
   Row,
   Column,
-  ImageCarousel,
+  Slider,
   Title,
   Text,
+  SVGDividerTop,
+  SVGDividerBottom,
 } from './LocationsStyles'
+import LocationCard from '../../Reusable/LocationCard'
 
 // Imported helpers
 import { capitilise } from '../../../utils/helpers'
@@ -42,24 +45,43 @@ Locations.Column = function LocationsColumn({ children, className, ...props }) {
   return (<Column className={className} {...props}>{children}</Column>)
 }
 
-Locations.ImageCarousel = function LocationsImageCarousel({ children, className, ...props }) {
-  return (<ImageCarousel className={className} {...props}>{children}</ImageCarousel>)
-}
-
-Locations.Title = function LocationsTitle({ children, className, lineColor, ...props }) {
+Locations.Slider = function LocationsSlider({ children, className, data, ...props }) {
   return (
-    <Title
+    <Slider
       className={className}
-      style={{
-        '--lineColor': lineColor && `var(--color${capitilise(lineColor)})`
-      }}
       {...props}
     >
-      {children}
-    </Title>
+      <LocationCard data={data}>
+        {children}
+      </LocationCard>
+      <LocationCard data={data}>
+        {children}
+      </LocationCard>
+      <LocationCard data={data}>
+        {children}
+      </LocationCard>
+      <LocationCard data={data}>
+        {children}
+      </LocationCard>
+      <LocationCard data={data}>
+        {children}
+      </LocationCard>
+    </Slider>
   )
+}
+
+Locations.Title = function LocationsTitle({ children, className, ...props }) {
+  return (<Title className={className} {...props}>{children}</Title>)
 }
 
 Locations.Text = function LocationsText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
+}
+
+Locations.SVGDividerTop = function LocationsSVGDivider({ children, className, ...props }) {
+  return (<SVGDividerTop className={className} {...props}>{children}</SVGDividerTop>)
+}
+
+Locations.SVGDividerBottom = function LocationsSVGDivider({ children, className, ...props }) {
+  return (<SVGDividerBottom className={className} {...props}>{children}</SVGDividerBottom>)
 }

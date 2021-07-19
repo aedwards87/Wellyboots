@@ -8,10 +8,12 @@ import {
   Row,
   Column,
   ImageCarousel,
+  SVG,
   Title,
   Text,
   ButtonContainer,
-  Button
+  Button,
+  SVGFootPrints,
 } from './HeroStyles'
 
 export default function Hero({ children, className, bgColor, ...props }) {
@@ -40,8 +42,20 @@ Hero.Column = function HeroColumn({ children, className, ...props }) {
   return (<Column className={className} {...props}>{children}</Column>)
 }
 
-Hero.ImageCarousel = function HeroImageCarousel({ children, className, ...props }) {
-  return (<ImageCarousel className={className} {...props}>{children}</ImageCarousel>)
+Hero.ImageCarousel = function HeroImageCarousel({ children, className, src, alt, ...props }) {
+  return (
+    <ImageCarousel className={className} {...props}>
+      <img src={src} alt={alt} />
+    </ImageCarousel>
+  )
+}
+
+Hero.SVG = function HeroSVG({ children, className, ...props }) {
+  return (<SVG className={className} {...props}>{children}</SVG>)
+}
+
+Hero.SVGFootPrints = function HeroSVGFootPrints({ children, className, ...props }) {
+  return (<SVGFootPrints className={className} {...props}>{children}</SVGFootPrints>)
 }
 
 Hero.Title = function HeroTitle({ children, className, ...props }) {

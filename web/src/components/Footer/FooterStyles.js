@@ -1,0 +1,132 @@
+// Imported Packages
+import styled, { css } from 'styled-components/macro';
+
+// Imported Components
+import {
+  Frame as FrameMod,
+  Row as RowMod,
+  Column as ColumnMod,
+  Button as ButtonMod,
+  TextHeading,
+  TextParagraph,
+  TextLink,
+} from '../Reusable/index'
+
+import {
+  Arrow,
+  Phone,
+  Home,
+  Email,
+  Locations,
+  Link as LinkIcon,
+  FooterBlob
+} from '../../assets/svg'
+
+// Styles
+export const Container = styled.section`
+  font-size: 1.5rem;
+  ${({ sectionBgColor }) => sectionBgColor &&
+    css`background-color: var(--sectionBgColor);`
+  };
+  @media(max-width: 420px) {
+    svg {
+      transform: scale(.9);
+    }
+  }
+`
+export const Frame = styled(FrameMod)`
+  overflow: hidden;
+  @media(min-width: 420px) {
+    ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad)})`};
+  }
+`
+export const Row = styled(RowMod)`
+  position: relative;
+  align-items: start;
+  grid-template-columns: 1fr;
+  @media(min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+    ${({ custom }) => custom && css`grid-template-columns: 1fr;`}
+    ${({ columns }) => columns === 1 && css`grid-template-columns: 1fr`};
+  }
+  @media(min-width: 1100px) {
+    grid-template-columns: 1fr 2fr;
+    ${({ custom }) => custom && css`grid-template-columns: 1fr 1fr;`}
+    ${({ columns }) => columns === 1 && css`grid-template-columns: 1fr`};
+  }
+`
+export const Column = styled(ColumnMod)``
+export const Group = styled.div`
+  display: grid;
+  ${({ columns }) =>
+    columns === 2
+      ? css`grid-template-columns: auto 1fr`
+      : css`grid-template-columns: 1fr`
+  };
+  grid-column-gap: var(--s4);
+  grid-row-gap: var(--s2);
+  > a:first-child {
+    padding-top: 13.5px;
+  }
+  @media(min-width: 420px) {
+    grid-column-gap: var(--s5);
+  }
+`
+export const Title = styled(TextHeading)``
+export const Text = styled(TextParagraph)`
+  align-self: center;
+`
+export const ALink = styled.a`
+  text-decoration: none;
+  align-self: center;
+  :hover {
+    color: rgb(var(--colorPink));
+  }
+`
+export const Link = styled(TextLink)`
+  display: block;
+  
+`
+export const Button = styled(ButtonMod)`
+  display: none;
+  position: absolute;
+  right: 0;
+  @media(min-width: 580px) {
+    display: block;
+  }
+`
+export const ArrowSVG = styled(Arrow)`
+  transform: rotate(-90deg);
+`
+export const PhoneSVG = styled(Phone)``
+export const EmailSVG = styled(Email)``
+export const HomeSVG = styled(Home)``
+export const LocationsSVG = styled(Locations)``
+export const LinkSVG = styled(LinkIcon)``
+export const FooterBlobSVG = styled(FooterBlob)`
+  position: absolute;
+  bottom: -160px;
+  right: -350px;
+`
+export const Signature = styled.ul`
+  list-style: none;
+  position: absolute;
+  bottom: -135px;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  li {
+    color: white;
+  }
+  a{
+    text-decoration: none;
+    :hover {
+      color: rgb(var(--colorBlue));
+    }
+  }
+  @media(min-width: 420px) {
+    text-align: right;
+    right: 0;
+  }
+`

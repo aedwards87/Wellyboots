@@ -5,11 +5,11 @@ const Typography = createGlobalStyle`
   :root {
     /* Family */
     --fontPrimaryFamily: 'Ubuntu', Helvetica, Arial, sans-serif;
-    --fontSecondaryFamily: 'Delius', cursive;
+    --fontSecondaryFamily: 'Delius', Helvetica, Arial, sans-serif;
 
     /* Size */
     --fontSizeBase: 10px;
-    --fontSizeBody: 1.8rem;
+    --fontSizeBody: 1.6rem;
     --fontSizeNav: 1.5rem;
     --fontSizeHero: calc(var(--fontSizeBody) * 3.213);
     --fontSizeh1: calc(var(--fontSizeBody) * 2.441);
@@ -27,34 +27,52 @@ const Typography = createGlobalStyle`
     --fontWeightNormal: 400;
     --fontWeightMedium: 500;
     --fontWeightBold: 700;
+
+    /* Line height */
+    --fontBaseLineHeight: 1.5;
     
-    /* Coupled font styles */
-    --heroFont: var(--fontSizeHero) var(--fontSecondaryFamily);
+    /* Coupled font styles min(max(38px, 12vw), 80px)*/
+    --heroFont:  min(max(38px, 12vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
     --ctaFont: var(--fontWeightMedium) calc(var(--fontSizeBody) * 2) var(--fontFamily);
     --inputFont: var(--fontWeightNormal) var(--fontSizeBody * 1.8) var(--fontFamily);
 
   }
 
+  @media(min-width: 420px) {
+    :root {
+      --fontSizeBody: 1.8rem;
+    }
+  }
+
+  /* @media(min-width: 980px) {
+    :root {
+      --heroFont:  min(max(38px, 4.4vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
+    }
+  } */
+
   html {
     font-family: var(--fontPrimaryFamily);
     font-size: var(--fontSizeBase);
-    color: var(--colorText, gray);
+    color: rgb(var(--colorText));
   }
 
   body {
     font-size: var(--fontSizeBody);
   }
 
-  p, li {
+  p, a, li {
     letter-spacing: 0.3px;
+    line-height: 1.5;
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.35;
     letter-spacing: 0.3px;
-    color: var(--colorText, gray);
-    font-weight: var(--fontWeightNormal); 
+    color: rgb(var(--colorText));
+    > span {
+      line-height: 1.3;
+    }
   }
 
   h1 {

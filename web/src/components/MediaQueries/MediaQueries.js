@@ -15,9 +15,14 @@ const Tablet = ({ children }) => {
   return matches ? children : null
 }
 
-const Mobile = ({ children }) => {
+const SmallScreen = ({ children }) => {
   const matches = useMediaQuery({ maxWidth: 767 })
   return matches ? children : null
 }
 
-export { Desktop, Laptop, Tablet, Mobile }
+const Mobile = ({ children }) => {
+  const matches = useMediaQuery({ maxWidth: 420 })
+  return matches ? children : null
+}
+
+export { Desktop, Laptop, Tablet, SmallScreen, Mobile }

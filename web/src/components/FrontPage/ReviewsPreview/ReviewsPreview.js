@@ -7,9 +7,15 @@ import {
   Frame,
   Row,
   Column,
-  ImageCarousel,
   Title,
   Text,
+  QuoteMarkSVG,
+  Line,
+  ButtonContainer,
+  Button,
+  ArrowSVG,
+  SVGDividerTop,
+  SVGDividerBottom,
 } from './ReviewsPreviewStyles'
 
 // Imported helpers
@@ -42,24 +48,38 @@ ReviewsPreview.Column = function ReviewsPreviewColumn({ children, className, ...
   return (<Column className={className} {...props}>{children}</Column>)
 }
 
-ReviewsPreview.ImageCarousel = function ReviewsPreviewImageCarousel({ children, className, ...props }) {
-  return (<ImageCarousel className={className} {...props}>{children}</ImageCarousel>)
-}
-
-ReviewsPreview.Title = function ReviewsPreviewTitle({ children, className, lineColor, ...props }) {
-  return (
-    <Title
-      className={className}
-      style={{
-        '--lineColor': lineColor && `var(--color${capitilise(lineColor)})`
-      }}
-      {...props}
-    >
-      {children}
-    </Title>
-  )
+ReviewsPreview.Title = function ReviewsPreviewTitle({ children, className, ...props }) {
+  return (<Title className={className} {...props}>{children}</Title>)
 }
 
 ReviewsPreview.Text = function ReviewsPreviewText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
+}
+
+ReviewsPreview.QuoteMarkSVG = function ReviewsPreviewQuoteMarkSVG({ children, className, ...props }) {
+  return (<QuoteMarkSVG className={className} {...props}>{children}</QuoteMarkSVG>)
+}
+
+ReviewsPreview.Line = function ReviewsPreviewLine({ children, className, ...props }) {
+  return (<Line className={className} {...props}>{children}</Line>)
+}
+
+ReviewsPreview.ButtonContainer = function ReviewsPreviewButtonContainer({ children, className, ...props }) {
+  return (<ButtonContainer className={className} {...props}>{children}</ButtonContainer>)
+}
+
+ReviewsPreview.Button = function ReviewsPreviewButton({ children, className, ...props }) {
+  return (<Button className={className} {...props}>{children}</Button>)
+}
+
+ReviewsPreview.ArrowSVG = function ReviewsPreviewArrowSVG({ children, className, ...props }) {
+  return (<ArrowSVG className={className} {...props}>{children}</ArrowSVG>)
+}
+
+ReviewsPreview.SVGDividerTop = function ReviewsPreviewSVGDivider({ children, className, ...props }) {
+  return (<SVGDividerTop className={className} {...props}>{children}</SVGDividerTop>)
+}
+
+ReviewsPreview.SVGDividerBottom = function ReviewsPreviewSVGDivider({ children, className, ...props }) {
+  return (<SVGDividerBottom className={className} {...props}>{children}</SVGDividerBottom>)
 }

@@ -1,10 +1,10 @@
 // Imported Packages
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/macro";
 import Image from 'gatsby-image'
 import { motion } from 'framer-motion'
 
 // Imported Components
-import TextLink from "../../Mods/TextLink"
+import TextLink from "../../Reusable/TextLink"
 
 // Styles
 export const Container = styled.nav`
@@ -38,6 +38,7 @@ export const ListContainer = styled(motion.div)`
     overflow: hidden;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 100vh;
   }
@@ -67,7 +68,7 @@ export const List = styled(motion.ul)`
     flex-direction: row;
     align-items: baseline;
     padding-top: 0;
-    gap: 30px;
+    gap: 27px;
   }
 `
 
@@ -86,6 +87,7 @@ export const Link = styled(TextLink)`
   };
   ${({ dropdown }) => dropdown &&
     css`
+      font-size: 1.4rem;
       min-height: 6.5ch;
       justify-content: start;
       align-items: center;
@@ -107,14 +109,14 @@ export const Link = styled(TextLink)`
       padding: 0;
     `
   };
-  @media (max-width: 980px) {
+  @media (max-width: 979px) {
     font-size: 1.7em;
   }
 `
 
 export const Button = styled.button`
   height: 100%;
-  color: var(--colorText);
+  color: rgb(var(--colorText));
   border: none;
   cursor: pointer;
   margin-left: -10px;
@@ -165,7 +167,7 @@ export const Span = styled.span`
   &::before {
     content: "";
     position: absolute;
-    bottom: -3px;
+    bottom: 0;
     left: 0;
     height: 9px;
     width: 100%;
@@ -174,9 +176,9 @@ export const Span = styled.span`
     z-index: -1;
 
   }
-  @media (max-width: 980px) {
+  @media (max-width: 979px) {
     &::before {
-      bottom: -4px;
+      bottom: 1px;
       left: 0;
       width: 100%;
       height: .5em;
@@ -200,7 +202,7 @@ export const ListItem = styled(motion.li)`
   /* ${Link}[aria-current="page"] {
     color: var(--colorNeutralOne)
   } */
-  @media (max-width: 980px) {
+  @media (max-width: 979px) {
     width: 85%;
   }
 `
@@ -219,6 +221,7 @@ export const Body = styled.div`
 
 export const SVG = styled.div`
   display: flex;
+  /* transform: scale(.9); */
   > svg {
     height: 35px;
     width: 30px;
@@ -231,11 +234,11 @@ export const Dropdown = styled(motion.div)`
   position: absolute;
   top: 3.8rem;
   left: calc(50% - 10px);
-  min-width: 34ch;
+  min-width: 45ch;
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: .5em;
+  gap: .7em;
   ${({ pad }) => css`padding: var(--s${pad}, var(--dropdownMenuSpacing))`};
   ${({ tPad }) => tPad && css`padding-top: var(--s${tPad})`};
   ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};

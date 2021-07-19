@@ -1,23 +1,29 @@
 // Imported packages
 import React from 'react'
-import PropTypes from "prop-types"
 
 // Imported components
-import Header from './HeaderComponents'
-import Nav from './Nav/Nav'
+import {
+  Container,
+  Frame
+} from './HeaderStyles'
 
-const HeaderIndex = ({ siteTitle }) => {
+export default function Header({ classname, color, background, height, position, children, ...props }) {
   return (
-    <Header>
-      <Header.Frame yPad={0}>
-        <Nav />
-      </Header.Frame>
-    </Header>
+    <Container
+      classname={classname}
+      style={{
+        '--color': color,
+        '--background': background,
+        '--height': height,
+        '--position': position,
+      }}
+      {...props}
+    >
+      {children}
+    </Container>
   )
 }
 
-HeaderIndex.propTypes = {
-  siteTitle: PropTypes.string,
+Header.Frame = function HeaderFrame({ children, className, ...props }) {
+  return (<Frame className={className} {...props}>{children}</Frame>)
 }
-
-export default HeaderIndex

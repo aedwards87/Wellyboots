@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
 
   :root {
     --colorLight: 255,255,255;
-    --colorDark: #232A31;
+    --colorDark: 35, 42, 49;
     /* 
       dynamically create variable colours from cms data
           --colorYellow, --colorDarkPink, --colorDarkBlue, --colorPurple, 
@@ -55,11 +55,15 @@ const GlobalStyles = createGlobalStyle`
     --s11: ${space[11]}px;
     --s12: ${space[12]}px;
     --s13: ${space[13]}px;
+    --s14: ${space[14]}px;
+    --s15: ${space[15]}px;
+    --s16: ${space[16]}px;
 
-    /* --colorNeutralOne: grey; */
+    --colorGray: 135, 150, 165;
+    --colorGrey: var(--colorGray);
     --colorText: var(--colorDark);
     --colorAlert: var(--colorOrange);
-    --colorError: rgb(255, 71, 71);
+    --colorError: 255, 71, 71;
     --colorSuccess: rgb(--colorGreen);
     --colorHighlight: var(--colorYellow);
 
@@ -79,7 +83,7 @@ const GlobalStyles = createGlobalStyle`
     /* Elevations */
     --level1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --level2: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    --level3: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --level3: 0 4px 6px 0px rgba(0, 0, 0, 0.1), 0 2px 4px 0px rgba(0, 0, 0, 0.06);
     --level4: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --level5: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --level6: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -87,7 +91,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
+    scroll-behavior: smooth;
     overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   html, body, blockquote, figure, h1, h2, h3, h4, h5, h6, p, pre {

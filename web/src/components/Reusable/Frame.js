@@ -7,7 +7,7 @@ const Frame = ({
   className,
   children,
   xGap = '5vw',
-  yGap = '7',
+  yGap = 10,
   gap = '5vw',
   pad,
   tPad,
@@ -25,8 +25,8 @@ const Frame = ({
       className={className}
       style={{
         '--gap': gap,
-        '--xGap': regExp.test(xGap) ? xGap : `var(--s${xGap})`,
-        '--yGap': regExp.test(yGap) ? yGap : `var(--s${yGap})`,
+        '--frameXGap': regExp.test(xGap) ? xGap : `var(--s${xGap})`,
+        '--frameYGap': regExp.test(yGap) ? yGap : `var(--s${yGap})`,
       }}
       tPad={tPad || yPad}
       bPad={bPad || yPad}
@@ -45,11 +45,10 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 
     1fr 
-    min(var(--desktopMaxWidth), calc(100% - (var(--xGap) * 2)))
+    min(var(--desktopMaxWidth), calc(100% - (var(--frameXGap) * 2)))
     1fr;
-  grid-column-gap: var(--xGap);
-  grid-row-gap: var(--yGap);
-  
+  grid-column-gap: var(--frameXGap);
+  grid-row-gap: var(--frameYGap);
   ${({ pad }) => pad && css`padding: var(--s${pad})`};
   ${({ tPad }) => tPad && css`padding-top: var(--s${tPad})`};
   ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};
@@ -61,6 +60,21 @@ const Container = styled.div`
   > .fullBleed {
     width: 100%;
     grid-column: 1 / -1;
+  }
+  @media(min-width: 420px) {
+    ${({ pad }) => pad && css`padding: var(--s${(pad + 2)}) var(--s${pad})`};
+    ${({ tPad }) => tPad && css`padding-top: var(--s${(tPad + 2)})`};
+    ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad + 2)})`};
+  }
+  @media(min-width: 980px) {
+    grid-column-gap: var(--frameXGap);
+    grid-row-gap: var(--frameYGap);
+    /* && {
+      ${({ pad }) => pad && css`padding: var(--s${(pad + 2)}) var(--s${pad})`};
+      ${({ tPad }) => tPad && css`padding-top: var(--s${(tPad + 2)})`};
+      ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad + 2)})`};
+    } */
+    
   }
 `
 

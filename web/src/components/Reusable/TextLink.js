@@ -5,8 +5,6 @@ import { Link } from "gatsby";
 import { capitilise } from '../../utils/helpers'
 
 const TextLink = ({ className, children, underline, style, to, light, normal, medium, color = 'Text', bold, hoverColor, ...props }) => {
-
-  // console.log({ style })
   return (
     <Container
       className={className}
@@ -30,7 +28,7 @@ const TextLink = ({ className, children, underline, style, to, light, normal, me
 const Container = styled(Link)`
   text-decoration: var(--underline, none);
   font-weight: var(--fontWeight);
-  color: ${({ color }) => `rgb(var(--color${color}))`};
+  color: ${({ color }) => `rgb(var(--color${capitilise(color)}))`};
 `
 
 export default TextLink
