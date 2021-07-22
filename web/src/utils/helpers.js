@@ -9,3 +9,4 @@ export const capitilise = function capitilise(str) {
     return txt.charAt(0).toUpperCase() + txt.substr(1);
   }).replace(/\s/g, "");
 }
+

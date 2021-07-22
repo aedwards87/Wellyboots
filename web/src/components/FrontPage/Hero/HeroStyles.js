@@ -10,6 +10,7 @@ import TextHeading from '../../Reusable/TextHeading';
 import ButtonMod from '../../Reusable/Button';
 import { Blob } from '../../../assets/svg/index';
 import FootPrints from '../../../assets/svg/FootPrints'
+import { motion } from 'framer-motion';
 
 // Styles
 export const Container = styled.section`

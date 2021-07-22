@@ -8,12 +8,12 @@ import {
   Row,
   Column,
   Slider,
+  Card,
   Title,
   Text,
   SVGDividerTop,
   SVGDividerBottom,
 } from './LocationsStyles'
-import LocationCard from '../../Reusable/LocationCard'
 
 // Imported helpers
 import { capitilise } from '../../../utils/helpers'
@@ -46,28 +46,47 @@ Locations.Column = function LocationsColumn({ children, className, ...props }) {
 }
 
 Locations.Slider = function LocationsSlider({ children, className, data, ...props }) {
+  const breakpoints = [
+    {
+      breakpoint: 420,
+      settings: {
+        slidesToShow: 1
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2
+      }
+    }
+  ];
+
+  let settings = {
+    sideSize: 0,
+    slidesToScroll: 1,
+    slidesToShow: 3,
+    scrollOnDevice: true,
+    lazyLoad: false,
+    swipe: true,
+    breakpoints: breakpoints,
+    // slidesSpacing: 50,
+    animationDuration: 650,
+    // autoCycle: true
+    // nextArrow: <svg>Next</svg>
+  };
   return (
     <Slider
       className={className}
+      {...settings}
       {...props}
     >
-      <LocationCard data={data}>
-        {children}
-      </LocationCard>
-      <LocationCard data={data}>
-        {children}
-      </LocationCard>
-      <LocationCard data={data}>
-        {children}
-      </LocationCard>
-      <LocationCard data={data}>
-        {children}
-      </LocationCard>
-      <LocationCard data={data}>
-        {children}
-      </LocationCard>
+      {children}
     </Slider>
   )
+}
+
+Locations.Card = function LocationsCard({ children, className, data, ...props }) {
+  return (<Card className={className} data={data} {...props}>{children}</Card>)
 }
 
 Locations.Title = function LocationsTitle({ children, className, ...props }) {

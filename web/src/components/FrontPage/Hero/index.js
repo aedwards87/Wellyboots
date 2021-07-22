@@ -1,8 +1,10 @@
 // Imported packages
+import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 
 // Imported components
 import Hero from './Hero'
+import { framerMotionAPI, HeroHeadingVariants } from './HeroAnimations'
 // Data to come in from CMS
 // const data = "A positive, safe and secure environment for every childA positive, safe and secure environment for every child"
 // const firstHighlight = 'positive'
@@ -14,8 +16,13 @@ export const HeroIndex = () => {
     <Hero>
       <Hero.Frame tPad={7} bPad={12}>
         <Hero.Row columns={2} xGap={11} yGap={10}>
-          <Hero.Column columnOrder={2} yGap={5}>
-            <Hero.Title heading="hero">
+
+          <Hero.Column
+            columnOrder={2}
+            yGap={5}
+
+          >
+            <Hero.Title heading="hero" >
               A <span>positive</span>, <span>safe</span> and <span><span>secure</span> <span>environment</span></span> for every child
             </Hero.Title>
             <Hero.Text>Wraparound childcare</Hero.Text>
@@ -25,6 +32,7 @@ export const HeroIndex = () => {
             </Hero.ButtonContainer>
             <Hero.SVGFootPrints />
           </Hero.Column>
+
           <Hero.Column rowOrder={1} xItemsAlign="center">
             <Hero.SVG />
             <Hero.ImageCarousel src="https://i.imgur.com/z8wxU66.jpg" />
