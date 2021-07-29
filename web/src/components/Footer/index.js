@@ -10,54 +10,57 @@ const footLinks = ['Play theory', 'Locations', 'Curriculum', 'Reviews', 'About u
 const FooterIndex = () => {
   return (
     <Footer>
-      <Footer.Frame tPad={8} bPad={14}>
+      <Footer.Frame tPad={11} bPad={15}>
         <Footer.Row columns={1}>
           <Footer.Column columns={2}>
-            <Footer.Title heading="h1" lineColor="blue">
+            <Footer.Title heading="h2" lineColor="blue">
               Company details
             </Footer.Title>
-            <Footer.Button model={1} color="light" yPad={3} xPad={3}>
+            <Footer.Button to="/" model={1} color="light" yPad={3} xPad={3}>
               <Footer.ArrowSVG color="dark green" />
             </Footer.Button>
           </Footer.Column>
         </Footer.Row>
 
-        <Footer.Row xGap="5vw" yGap={7}>
+        <Footer.Row xGap="5vw" yGap={5}>
 
-          <Footer.Column yGap={7}>
+          <Footer.Column yGap={4}>
             <Footer.Group columns={2}>
               <Footer.PhoneSVG />
-              <Footer.ALink href="tel:+447967028418">07967 028418</Footer.ALink>
+              <Footer.ExternalLink href="tel:+447967028418">
+                07967 028418
+              </Footer.ExternalLink>
             </Footer.Group>
             <Footer.Group columns={2}>
               <Footer.EmailSVG />
-              <Footer.ALink href="mailto:wellyboots2009@gmail.com">wellyboots2009@gmail.com</Footer.ALink>
+              <Footer.ExternalLink href="mailto:wellyboots2009@gmail.com">
+                wellyboots2009@gmail.com
+              </Footer.ExternalLink>
             </Footer.Group>
             <Footer.Group columns={2}>
               <Footer.HomeSVG />
-              <Footer.ALink
-                href="https://goo.gl/maps/JALFdSucj7WPZvwD6"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Roodlands Farm,<br />
-                Roodlands Lane,<br />
-                Four Elms, Edenbridge,<br />
-                TN8 6PD<br />
-              </Footer.ALink>
+              <Footer.Group>
+                <Footer.ExternalLink
+                  href="https://goo.gl/maps/JALFdSucj7WPZvwD6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Roodlands Farm,<br />
+                  Roodlands Lane,<br />
+                  Four Elms, Edenbridge,<br />
+                  TN8 6PD<br />
+                </Footer.ExternalLink>
+              </Footer.Group>
             </Footer.Group>
           </Footer.Column>
 
-          <Footer.Row custom>
+          <Footer.Row custom yGap={5}>
             <Footer.Column>
               <Footer.Group columns={2}>
                 <Footer.LocationsSVG />
                 <Footer.Group>
                   {schoolData.map(school =>
-                    <Footer.Link
-                      key={school}
-                      to="/"
-                    >
+                    <Footer.Link key={school} to="/">
                       {school}
                     </Footer.Link>
                   )}
@@ -70,10 +73,7 @@ const FooterIndex = () => {
                 <Footer.LinkSVG />
                 <Footer.Group>
                   {footLinks.map(link =>
-                    <Footer.Link
-                      key={link}
-                      to="/"
-                    >
+                    <Footer.Link key={link} to="/">
                       {link}
                     </Footer.Link>
                   )}

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components/macro'
 import { capitilise } from '../../utils/helpers'
 
 const FooterBlob = ({ className, width = "918", height = "126", color = "dark pink", ...props }) => {

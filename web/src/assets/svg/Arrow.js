@@ -1,7 +1,7 @@
 // Imported dependencies
 import React from 'react'
 // Imported dependencies
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 // Imported helpers
 import { capitilise } from '../../utils/helpers'
 
@@ -24,11 +24,15 @@ const Arrow = ({ className, width = 30, height = 14, color = "light", direction,
 }
 
 const Container = styled.svg`
-  
+  ${({ direction }) => direction === 'left' &&
+    css`
+      transform: rotate(180deg);
+    `
+  } 
   ${({ color }) =>
     css`
       .colorArrowFill {
-        fill: rgb(var(--color${capitilise(color)}))
+        fill: rgb(var(--color${capitilise(color)}));
       }
     `
   } 

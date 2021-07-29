@@ -1,15 +1,15 @@
 import React from 'react'
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
+import { regExpLetterChecker } from '../../utils/helpers'
+
 
 const Column = ({ className, children, xGap, yGap, columnOrder, xAlign = "start", xItemsAlign, yAlign, yItemsAlign, rowOrder, ...props }) => {
-  // Using .test on regExp searches for any letter found within input, to help determine whether it's a strict value or a selection from a CSS variable value 
-  const regExp = /[a-zA-Z]/g
   return (
     <Container
       className={className}
       style={{
-        '--columnXGap': regExp.test(xGap) ? xGap : `var(--s${xGap})`,
-        '--columnYGap': regExp.test(yGap) ? yGap : `var(--s${yGap})`,
+        '--columnXGap': regExpLetterChecker.test(xGap) ? [xGap] : [`var(--s${xGap})`, `var(--s${xGap + 2})`],
+        '--columnYGap': regExpLetterChecker.test(yGap) ? [yGap] : [`var(--s${yGap})`, `var(--s${yGap + 2})`],
         '--xAlign': xAlign,
         '--xItemsAlign': xItemsAlign,
         '--yAlign': yAlign,
@@ -26,15 +26,17 @@ const Column = ({ className, children, xGap, yGap, columnOrder, xAlign = "start"
 
 const Container = styled.div`
   display: grid;
-  grid-row-gap: var(--columnYGap);
-  grid-column-gap: var(--columnXGap);
-  justify-items: var(--xItemsAlign);
-  justify-content: var(--xAlign);
-  align-items: var(--yItemsAlign);
-  align-content: var(--yAlign);
+  ${({ style }) => style['--columnYGap'][0] && css`grid-row-gap: ${style['--columnYGap'][0]};`}
+  ${({ style }) => style['--columnXGap'][0] && css`grid-column-gap: ${style['--columnXGap'][0]};`}
+  ${({ style }) => style['--xItemsAlign'] && css`justify-items: var(--xItemsAlign);`}
+  ${({ style }) => style['--xAlign'] && css`justify-content: var(--xAlign);`}
+  ${({ style }) => style['--yItemsAlign'] && css`align-items: var(--yItemsAlign);`}
+  ${({ style }) => style['--yAlign'] && css`align-content: var(--yAlign);`}
   @media(min-width: 980px) {
-    grid-column: var(--columnOrder);
-    grid-row: var(--rowOrder);
+    ${({ style }) => (style['--columnYGap'][1]) && css`grid-row-gap: ${style['--columnYGap'][1]};`}
+    ${({ style }) => (style['--columnXGap'][1]) && css`grid-column-gap: ${style['--columnXGap'][1]};`}
+    ${({ style }) => style['--columnOrder'] && css`grid-column: var(--columnOrder);`}
+    ${({ style }) => style['--rowOrder'] && css`grid-row: var(--rowOrder);`}
   }
 `
 

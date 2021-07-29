@@ -15,14 +15,10 @@ export const HeroIndex = () => {
   return (
     <Hero>
       <Hero.Frame tPad={7} bPad={12}>
-        <Hero.Row columns={2} xGap={11} yGap={10}>
+        <Hero.Row columns={2} xGap={9} yGap={8}>
 
-          <Hero.Column
-            columnOrder={2}
-            yGap={5}
-
-          >
-            <Hero.Title heading="hero" >
+          <Hero.Column columnOrder={2} yGap={5}>
+            <Hero.Title heading="hero">
               A <span>positive</span>, <span>safe</span> and <span><span>secure</span> <span>environment</span></span> for every child
             </Hero.Title>
             <Hero.Text>Wraparound childcare</Hero.Text>

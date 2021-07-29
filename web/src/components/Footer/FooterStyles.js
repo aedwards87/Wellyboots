@@ -24,20 +24,24 @@ import {
 
 // Styles
 export const Container = styled.section`
-  font-size: 1.5rem;
+  font-size: var(--fontSizeFooter);
   ${({ sectionBgColor }) => sectionBgColor &&
     css`background-color: var(--sectionBgColor);`
   };
   @media(max-width: 420px) {
     svg {
-      transform: scale(.9);
+      width: 45px;
     }
   }
 `
 export const Frame = styled(FrameMod)`
   overflow: hidden;
   @media(min-width: 420px) {
+    ${({ tPad }) => tPad && css`padding-top: var(--s${(tPad)})`};
     ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad)})`};
+  }
+  @media(min-width: 1100px) {
+    ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad - 1)})`};
   }
 `
 export const Row = styled(RowMod)`
@@ -76,7 +80,7 @@ export const Title = styled(TextHeading)``
 export const Text = styled(TextParagraph)`
   align-self: center;
 `
-export const ALink = styled.a`
+export const ExternalLink = styled.a`
   text-decoration: none;
   align-self: center;
   :hover {
@@ -98,20 +102,26 @@ export const Button = styled(ButtonMod)`
 export const ArrowSVG = styled(Arrow)`
   transform: rotate(-90deg);
 `
+export const LinkSVG = styled(LinkIcon)``
 export const PhoneSVG = styled(Phone)``
 export const EmailSVG = styled(Email)``
 export const HomeSVG = styled(Home)``
 export const LocationsSVG = styled(Locations)``
-export const LinkSVG = styled(LinkIcon)``
 export const FooterBlobSVG = styled(FooterBlob)`
+  && {
+    width: auto;
+  }
   position: absolute;
-  bottom: -160px;
-  right: -350px;
+  bottom: -193px;
+  right: -400px;
+  @media(min-width: 1100px) {
+    bottom: -160px;
+  }
 `
 export const Signature = styled.ul`
   list-style: none;
   position: absolute;
-  bottom: -135px;
+  bottom: -170px;
   right: 0;
   text-align: center;
   width: 100%;
@@ -128,5 +138,8 @@ export const Signature = styled.ul`
   @media(min-width: 420px) {
     text-align: right;
     right: 0;
+  }
+  @media(min-width: 1100px) {
+    bottom: -135px;
   }
 `

@@ -10,3 +10,5 @@ export const capitilise = function capitilise(str) {
   }).replace(/\s/g, "");
 }
 
+// Using .test on regExp searches for any letter found (e.g. 'px, vw') within input, to help determine whether it's a strict value or a selection from a CSS variable value 
+export const regExpLetterChecker = /[a-zA-Z]/g

@@ -9,10 +9,10 @@ const imageArray = [0, 1, 2, 3, 4, 5]
 const AboutUsIndex = () => {
   return (
     <AboutUs>
-      <AboutUs.Frame yPad={8}>
-        <AboutUs.Row columns={2} xGap={11} yGap={9}>
-          <AboutUs.Column columnOrder={2}>
-            <AboutUs.Title heading="h1" lineColor="blue">
+      <AboutUs.Frame yPad={6} bPad={9}>
+        <AboutUs.Row columns={2} xGap={9} yGap={7} rowOrder={1}>
+          <AboutUs.Column columnOrder={2} custom>
+            <AboutUs.Title heading="h2" lineColor="blue">
               A little about us
             </AboutUs.Title>
           </AboutUs.Column>

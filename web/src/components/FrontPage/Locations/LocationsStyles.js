@@ -10,6 +10,8 @@ import TextHeading from '../../Reusable/TextHeading';
 import WaveLocationTop from '../../../assets/svg/Waves/WaveLocationTop';
 import WaveLocationBottomTwo from '../../../assets/svg/Waves/WaveLocationBottomTwo';
 import LocationCard from '../../Reusable/Cards/LocationCard';
+import ButtonMod from '../../Reusable/Button';
+import { Arrow } from '../../../assets/svg';
 
 // Styles
 export const Container = styled.section`
@@ -17,40 +19,42 @@ export const Container = styled.section`
 `
 
 export const Frame = styled(FrameMod)`
+  /* padding-bottom: var(--s12); */
+  ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};
+  @media (min-width: 420px) {
+    ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};
+  }
   .InfiniteCarousel {
     width: 100%;
-    height: calc(100% + 400px);
+    height: 205%;
     display: flex;
     align-items: center;
     overflow: hidden;
     z-index: 2;
     transform: translateY(-20%);
-    /* margin-left: calc(-3.9vw - 10px); */
-    /* margin-left: calc(-5vw - 10px); */
+    @media (min-width: 420px) {
+      height: 190%;
+    }
   }
   .InfiniteCarouselFrame {
     overflow: unset;
   }
   button.InfiniteCarouselArrow {
     position: absolute;
-    top: 78%;
-    background: white;
-    padding: 20px 40px;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    transition: left .3s ease;
+    top: 81%;
     box-shadow: var(--level3);
   }
   button.InfiniteCarouselArrowPrev {
     left: 50%;
     transform: translateX(-100%);
     border-radius: 13px 0 0 13px;
+    box-shadow: -2px 4px 6px 0px rgba(0, 0, 0, 0.1), -3px 2px 4px 0px rgba(0, 0, 0, 0.06);
   }
   button.InfiniteCarouselArrowNext {
     left: 50%;
     transform: translateX(0);
     border-radius: 0 13px 13px 0;
+    box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.1), 3px 2px 4px 0px rgba(0, 0, 0, 0.06);
   }
   @media (min-width: 420px) {
     button.InfiniteCarouselArrow {
@@ -59,18 +63,19 @@ export const Frame = styled(FrameMod)`
   }
   @media (min-width: 768px) {
     button.InfiniteCarouselArrow {
-      top: calc(66% + 9vw);
+      top: calc(70% + 9vw);
     }
   }
   @media (min-width: 980px) {
     button.InfiniteCarouselArrow {
-      left: calc(50% + 145px + 1vw);
+      left: calc(50% + 133px + 1vw);
+      top: calc(41% + 26vw);
     }
   }
   @media (min-width: 1200px) {
     button.InfiniteCarouselArrow {
       top: calc(78.5% + 2vw);
-      left: calc(50% + 157px);
+      left: calc(50% + 145px);
     }
   }
 `
@@ -163,3 +168,23 @@ export const Title = styled(TextHeading)``
 export const Text = styled.p``
 export const SVGDividerTop = styled(WaveLocationTop)``
 export const SVGDividerBottom = styled(WaveLocationBottomTwo)``
+export const ButtonContainer = styled.div`
+  display: flex;
+  border-radius: 12px;
+  box-shadow: var(--level3);
+`
+export const Button = styled(ButtonMod)`
+transition: transform .3s ease;
+  ${({ model }) => model === "left" && css`
+    &&:hover,
+    &&:focus {
+      transform: translateY(-3%) translateX(-100%);
+    }
+    &&:active {
+      transform: translateY(0) translateX(-100%) ;
+    }
+  `}
+`
+export const ArrowSVG = styled(Arrow)`
+  ${({ direction }) => direction === 'left' && css`transform: rotate(-180deg)`} 
+`

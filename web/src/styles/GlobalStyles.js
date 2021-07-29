@@ -101,6 +101,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     *::selection {
       background: rgb(var(--colorHighlight));
+      mix-blend-mode: multiply;
     }
   }
 

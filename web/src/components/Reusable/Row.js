@@ -1,17 +1,17 @@
 import React from 'react'
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
+import { regExpLetterChecker } from '../../utils/helpers'
+
 
 const Row = ({ className, children, yGap, xGap = '5vw', rowOrder, columns = "1", ...props }) => {
-  // Using .test on regExp searches for any letter found within input, to help determine whether it's a strict value or a selection from a CSS variable value 
-  const regExp = /[a-zA-Z]/g
   return (
     <Container
       className={className}
       style={{
-        '--rowXGap': regExp.test(xGap) ? xGap : `var(--s${xGap})`,
-        '--rowYGap': regExp.test(yGap) ? yGap : `var(--s${yGap})`,
+        '--rowXGap': regExpLetterChecker.test(xGap) ? [xGap] : [`var(--s${xGap})`, `var(--s${xGap + 2})`],
+        '--rowYGap': regExpLetterChecker.test(yGap) ? [yGap] : [`var(--s${yGap})`, `var(--s${yGap + 2})`],
         '--rowOrder': rowOrder,
-        '--columns': columns
+        '--columns': columns,
       }}
       {...props}
     >
@@ -22,14 +22,17 @@ const Row = ({ className, children, yGap, xGap = '5vw', rowOrder, columns = "1",
 
 const Container = styled.div`
   display: grid;
-  grid-column-gap: var(--rowXGap);
-  grid-row-gap: var(--rowYGap);
   grid-template-columns: 1fr;
-  grid-row: var(--rowOrder);
+  ${({ style }) => style['--rowYGap'][0] && css`grid-row-gap: ${style['--rowYGap'][0]};`}
+  ${({ style }) => style['--rowXGap'][0] && css`grid-column-gap: ${style['--rowXGap'][0]};`}
+  ${({ style }) => style['--rowOrder'] && css`grid-row: var(--rowOrder);`}
+  @media(min-width: 420px) {
+    ${({ style }) => style['--rowYGap'][1] && css`grid-row-gap: ${style['--rowYGap'][1]};`}
+    ${({ style }) => style['--rowXGap'][1] && css`grid-column-gap: ${style['--rowXGap'][1]};`}
   @media(min-width: 980px) {
-    grid-template-columns: repeat(var(--columns), minmax(calc((100% / var(--columns)) - (var(--rowXGap) * 2)), 1fr));
-    grid-column-gap: var(--rowXGap);
-    grid-row-gap: var(--rowYGap);
+    ${({ style }) => style['--columns'] && css`grid-template-columns: repeat(var(--columns), 1fr);`}
+    ${({ style }) => style['--rowYGap'][1] && css`grid-row-gap: ${style['--rowYGap'][1]};`}
+    ${({ style }) => style['--rowXGap'][1] && css`grid-column-gap: ${style['--rowXGap'][1]};`}
   }
 `
 

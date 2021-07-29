@@ -139,7 +139,13 @@ export const ButtonContainer = styled.div`
   display: grid;
   gap: 20px;
   margin-top: min(max(var(--s1), 3vw), var(--s3));
-  @media(min-width: 375px) {
+  @media(max-width: 375px) {
+    > button {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+  }
+  @media(min-width: 395px) {
     display: flex;
     justify-content: center;
   }

@@ -1,5 +1,5 @@
 // Imported Packages
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components/macro';
 // import Image from 'gatsby-image';
 
 // Imported Components
@@ -14,35 +14,39 @@ import ButtonMob from '../../Reusable/Button';
 export const Container = styled.section`
   ${({ sectionBgColor }) => sectionBgColor && css`background-color: var(--sectionBgColor);`};
 `
-
 export const Frame = styled(FrameMod)``
 export const Row = styled(RowMod)`
-  @media(max-width: 979px) {
-    justify-items: center;
-  }
+  
 `
-export const Column = styled(ColumnMod)``
+export const Column = styled(ColumnMod)`
+
+  @media(min-width: 420px) and (max-width: 979px) {
+    justify-items: start;
+    justify-content: center;
+  }
+  
+`
 export const ImageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* grid-template-columns: repeat(3, 80px); */
   gap: var(--s5);
   @media(min-width: 980px) {
     width: 80%;
   }
 `
 export const Image = styled.img`
-  width: 80px;
+  width: min(max(60px, 18vw), 80px);
 `
 export const Title = styled(TextHeading)``
 export const Text = styled(TextParagraph)`max-width: 50ch;`
 export const ButtonContainer = styled.div`
-  margin-top: var(--s6);
+  margin-top: var(--s7);
   justify-self: center;
   width: 100%;
   @media(min-width: 420px) {
     width: auto;
+    margin-top: var(--s9);
   }
   @media(min-width: 980px) {
     justify-self: start;

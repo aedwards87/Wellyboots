@@ -11,7 +11,7 @@ import {
   Title,
   Text,
   Link,
-  ALink,
+  ExternalLink,
   Button,
   ArrowSVG,
   PhoneSVG,
@@ -73,8 +73,8 @@ Footer.Link = function FooterLink({ children, className, ...props }) {
   return (<Link className={className} {...props}>{children}</Link>)
 }
 
-Footer.ALink = function FooterALink({ children, className, ...props }) {
-  return (<ALink className={className} {...props}>{children}</ALink>)
+Footer.ExternalLink = function FooterExternalLink({ children, className, ...props }) {
+  return (<ExternalLink className={className} {...props}>{children}</ExternalLink>)
 }
 
 Footer.Button = function FooterButton({ children, className, ...props }) {

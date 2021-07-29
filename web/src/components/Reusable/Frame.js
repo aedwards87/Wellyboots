@@ -1,14 +1,14 @@
 // Imported packages
 import React from 'react'
-import styled, { css } from 'styled-components'
-
+import styled, { css } from 'styled-components/macro'
+import { regExpLetterChecker } from '../../utils/helpers'
 
 const Frame = ({
   className,
   children,
-  xGap = '5vw',
-  yGap = 10,
-  gap = '5vw',
+  xGap = ['7vw', '7vw'],
+  yGap = 8,
+  gap,
   pad,
   tPad,
   rPad,
@@ -18,21 +18,18 @@ const Frame = ({
   yPad = 8,
   ...props
 }) => {
-  // Using .test on regExp searches for any letter found within input, to help determine whether it's a strict value or a selection from a CSS variable value 
-  const regExp = /[a-zA-Z]/g
+
   return (
     <Container
       className={className}
-      style={{
-        '--gap': gap,
-        '--frameXGap': regExp.test(xGap) ? xGap : `var(--s${xGap})`,
-        '--frameYGap': regExp.test(yGap) ? yGap : `var(--s${yGap})`,
-      }}
       tPad={tPad || yPad}
       bPad={bPad || yPad}
       rPad={rPad || xPad}
       lPad={lPad || xPad}
       pad={pad}
+      xGap={xGap}
+      yGap={yGap}
+      gap={gap}
       {...props}
     >
       {children}
@@ -40,15 +37,15 @@ const Frame = ({
   )
 }
 
-
 const Container = styled.div`
   display: grid;
   grid-template-columns: 
     1fr 
-    min(var(--desktopMaxWidth), calc(100% - (var(--frameXGap) * 2)))
+    min(var(--desktopMaxWidth), calc(100% - (${({ xGap }) => xGap[0]} * 2)))
     1fr;
-  grid-column-gap: var(--frameXGap);
-  grid-row-gap: var(--frameYGap);
+  ${({ gap }) => gap && css`grid-gap: ${gap}`};
+  ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker.test(xGap) ? xGap[0] : `var(--s${xGap})`}`};
+  ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker.test(yGap) ? yGap : `var(--s${yGap})`}`};
   ${({ pad }) => pad && css`padding: var(--s${pad})`};
   ${({ tPad }) => tPad && css`padding-top: var(--s${tPad})`};
   ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};
@@ -65,16 +62,18 @@ const Container = styled.div`
     ${({ pad }) => pad && css`padding: var(--s${(pad + 2)}) var(--s${pad})`};
     ${({ tPad }) => tPad && css`padding-top: var(--s${(tPad + 2)})`};
     ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad + 2)})`};
+    ${({ gap }) => gap && css`grid-gap: ${gap}`};
+    ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker.test(xGap) ? xGap[1] : `var(--s${xGap + 2})`}`};
+    ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker.test(yGap) ? yGap : `var(--s${yGap + 2})`}`};
+    grid-template-columns: 
+      1fr 
+      min(var(--desktopMaxWidth), calc(100% - (${({ xGap }) => xGap[1]} * 2)))
+      1fr;
   }
   @media(min-width: 980px) {
-    grid-column-gap: var(--frameXGap);
-    grid-row-gap: var(--frameYGap);
-    /* && {
-      ${({ pad }) => pad && css`padding: var(--s${(pad + 2)}) var(--s${pad})`};
-      ${({ tPad }) => tPad && css`padding-top: var(--s${(tPad + 2)})`};
-      ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad + 2)})`};
-    } */
-    
+    ${({ gap }) => gap && css`grid-gap: ${gap}`};
+    ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker.test(xGap) ? xGap[1] : `var(--s${xGap + 2})`}`};
+    ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker.test(yGap) ? yGap : `var(--s${yGap + 2})`}`};
   }
 `
 

@@ -1,7 +1,7 @@
 // Imported dependencies
 import React from 'react'
 // Imported dependencies
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const WaveReviewsPreviewTop = ({ className, ...props }) => {
   return (

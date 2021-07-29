@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 const FootPrints = ({ className, width = "25", height = "227", color = "dark pink", ...props }) => {
   return (
@@ -75,7 +75,7 @@ const Container = styled.div`
   z-index: 1;
   @media(min-width: 980px) {
     display: block;
-    bottom: -250px;
+    bottom: -260px;
   }
 `
 

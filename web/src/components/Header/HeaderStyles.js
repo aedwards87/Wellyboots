@@ -1,5 +1,5 @@
 // Imported packages
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 // Imported components
 import FrameMod from '../Reusable/Frame'

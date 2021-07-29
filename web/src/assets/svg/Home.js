@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components/macro'
 import { capitilise } from '../../utils/helpers'
 
 const Home = ({ className, width = "55", height = "50", colorOne = "pink", colorTwo = "blue", ...props }) => {

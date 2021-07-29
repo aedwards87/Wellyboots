@@ -20,7 +20,7 @@ const LocationCard = ({ className, children, style, show = false, name, ...props
   const data = useCompanyLocationsQuery()
   const location = data.locations.nodes.filter(l => l.name.includes(name))
   const colors = location[0].subBrandColors.map(color => color.title)
-  const newName = name.split(' ').slice(0, 2).join(' ');
+  const shortName = name.split(' ').slice(0, 2).join(' ');
   const [isHovered, toggle, bind] = useNavToggle()
   return (
     <Container
@@ -38,14 +38,22 @@ const LocationCard = ({ className, children, style, show = false, name, ...props
               variants={LocationCardVariants}
               {...framerMotionAPI}
             >
-              <img src="https://picsum.photos/id/237/200/300" alt="Building of School" />
-              <Type variants={SpanVariants} {...framerMotionAPI}>Pre School</Type>
+              <img
+                src="https://picsum.photos/id/237/200/300"
+                alt="Building of School"
+              />
+              <Type
+                variants={SpanVariants}
+                {...framerMotionAPI}
+              >
+                Pre School
+              </Type>
             </ImageContainer>
           }
         </AnimatePresence>
       </Hero>
       <Footer>
-        <span>{newName}</span>
+        <span>{shortName}</span>
       </Footer>
     </Container>
   )

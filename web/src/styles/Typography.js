@@ -11,8 +11,10 @@ const Typography = createGlobalStyle`
     --fontSizeBase: 10px;
     --fontSizeBody: 1.6rem;
     --fontSizeNav: 1.5rem;
+    --fontSizeFooter: 1.5rem;
     --fontSizeHero: calc(var(--fontSizeBody) * 3.213);
     --fontSizeh1: calc(var(--fontSizeBody) * 2.441);
+    --fontSizeh2XL: calc(var(--fontSizeBody) * 2.441);
     --fontSizeh2: calc(var(--fontSizeBody) * 1.953);
     --fontSizeh3: calc(var(--fontSizeBody) * 1.563);
     --fontSizeh4: calc(var(--fontSizeBody) * 1.25);
@@ -32,10 +34,12 @@ const Typography = createGlobalStyle`
     --fontBaseLineHeight: 1.5;
     
     /* Coupled font styles min(max(38px, 12vw), 80px)*/
-    --heroFont:  min(max(38px, 12vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
+    --heroFont:  min(max(39px, 12vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
     --ctaFont: var(--fontWeightMedium) calc(var(--fontSizeBody) * 2) var(--fontFamily);
     --inputFont: var(--fontWeightNormal) var(--fontSizeBody * 1.8) var(--fontFamily);
 
+
+    font-size: var(--fontSizeBase);
   }
 
   @media(min-width: 420px) {
@@ -44,15 +48,15 @@ const Typography = createGlobalStyle`
     }
   }
 
-  /* @media(min-width: 980px) {
+  @media(min-width: 980px) {
     :root {
-      --heroFont:  min(max(38px, 4.4vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
+      --heroFont:  min(max(39px, 4.3vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
     }
-  } */
+  }
 
   html {
     font-family: var(--fontPrimaryFamily);
-    font-size: var(--fontSizeBase);
+    font-size: var(--fontSizeBody);
     color: rgb(var(--colorText));
   }
 
@@ -100,6 +104,10 @@ const Typography = createGlobalStyle`
   a {
     color: (var(--colorPrimaryTwo));
     text-decoration-skip-ink: none; 
+  }
+
+  button {
+    font-size: calc(var(--fontSizeBody) + .2rem);
   }
 
   mark, .mark {

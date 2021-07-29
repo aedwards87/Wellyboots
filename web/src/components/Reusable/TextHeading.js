@@ -7,6 +7,7 @@ import { capitilise } from '../../utils/helpers';
 const TextHeading = ({ className, children, style, heading, lineColor, weight = 'normal', color, textAlign, small, ...props }) => {
   const htmlElement = heading === 'Hero' || heading === 'hero' ? 'h1' : heading
   const topHeading = heading === 'Hero' || heading === 'hero' || lineColor
+  const h2XL = heading === 'h2' && lineColor
   return (
     <Container
       className={className}
@@ -17,6 +18,7 @@ const TextHeading = ({ className, children, style, heading, lineColor, weight = 
       small={small}
       style={style, {
         ...lineColor && { '--lineColor': `var(--color${capitilise(lineColor)})` },
+        ...h2XL && { fontSize: `var(--fontSizeh2XL` },
         '--headingFontWeight': `var(--fontWeight${capitilise(weight)})`,
       }}
       {...props}
@@ -40,7 +42,7 @@ const Container = styled.h1`
     }
   `};
   font-weight: var(--headingFontWeight);
-  z-index: 2;
+  z-index: 3;
   span {
     position: relative;
   }

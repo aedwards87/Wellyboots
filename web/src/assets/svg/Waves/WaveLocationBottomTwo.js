@@ -23,13 +23,12 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   overflow: hidden;
-  margin-bottom: -40px;
   svg {
     min-width: 700px;
   }
-  @media(min-width: 1100px) {
+  /* @media(min-width: 1100px) {
     margin-bottom: -4vw;
-  }
+  } */
   .colorYellow {
     fill: rgb(var(--colorYellow));
   }

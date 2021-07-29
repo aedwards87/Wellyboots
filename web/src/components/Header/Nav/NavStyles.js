@@ -68,7 +68,7 @@ export const List = styled(motion.ul)`
     flex-direction: row;
     align-items: baseline;
     padding-top: 0;
-    gap: 27px;
+    gap: 26px;
   }
 `
 

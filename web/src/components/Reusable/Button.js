@@ -17,7 +17,7 @@ const Button = ({ className, children, to, pad, tPad, rPad, bPad, lPad, xPad, yP
       rPad={rPad || xPad}
       lPad={lPad || xPad}
       pad={pad}
-      onClick={() => navigate(camalise(to))}
+      onClick={() => to && navigate(camalise(to))}
       {...props}
     >
       {children}
@@ -29,6 +29,7 @@ const Container = styled.button`
   font-weight: var(--fontWeightNormal);
   padding: var(--s3) var(--s5);
   z-index: 1;
+  transition: transform .3s ease;
   ${({ pad }) => pad && css`padding: var(--s${pad})`};
   ${({ tPad }) => tPad && css`padding-top: var(--s${tPad})`};
   ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};
@@ -76,20 +77,22 @@ const Container = styled.button`
             background-color: rgb(var(--color${capitilise(color)}));
             border: none;
             border-radius: 12px 0 0 12px;
+            transition: all .3s ease;
             svg {
               transition: all .3s ease;
             }
-            :hover {
+            &&:hover,
+            &&:focus {
               box-shadow: var(--level4);
               transform: translateY(-3%);
-              z-index: 1;
+              z-index: 2;
               svg {
                 transform: translateX(-5px) rotate(-180deg);
               }
             }
-            :active {
-              transform: translateY(0);
-              box-shadow: none;
+            &&:active {
+              transform: translateY(0) ;
+              box-shadow: var(--level3);
               transition: transform .1s ease;
             }
           `
@@ -101,17 +104,18 @@ const Container = styled.button`
               svg {
                 transition: all .3s ease;
               }
-              :hover {
+              &&:hover,
+              &&:focus {
                 box-shadow: var(--level4);
                 transform: translateY(-3%);
-                z-index: 1;
+                z-index: 2;
                 svg {
                   transform: translateX(5px);
                 }
               }
-              :active {
+              &&:active {
                 transform: translateY(0);
-                box-shadow: none;
+                box-shadow: var(--level3);
                 transition: transform .1s ease;
               }
             `
