@@ -1,34 +1,39 @@
-import { motion } from 'framer-motion';
+// Imported dependencies 
 import React from 'react'
 import styled, { css } from "styled-components/macro";
+import { motion } from 'framer-motion';
+// Imported helpers 
 import { capitilise } from '../../utils/helpers';
-
 
 const TextHeading = ({ className, children, style, heading, lineColor, weight = 'normal', color, textAlign, small, ...props }) => {
   const htmlElement = heading === 'Hero' || heading === 'hero' ? 'h1' : heading
   const topHeading = heading === 'Hero' || heading === 'hero' || lineColor
   const h2XL = heading === 'h2' && lineColor
+  // console.log({ lineColor });
   return (
-    <Container
-      className={className}
-      as={htmlElement}
-      heading={heading}
-      color={color}
-      textAlign={textAlign}
-      small={small}
-      style={style, {
-        ...lineColor && { '--lineColor': `var(--color${capitilise(lineColor)})` },
-        ...h2XL && { fontSize: `var(--fontSizeh2XL` },
-        '--headingFontWeight': `var(--fontWeight${capitilise(weight)})`,
-      }}
-      {...props}
-    >
-      {topHeading ?
-        <span>{children}</span>
-        :
-        <>{children}</>
-      }
-    </Container>
+    <motion.div {...props}>
+      <Container
+        className={className}
+        as={htmlElement}
+        heading={heading}
+        color={color}
+        textAlign={textAlign}
+        small={small}
+        style={style, {
+          ...lineColor && { '--lineColor': `var(--color${capitilise(lineColor)})` },
+          ...h2XL && { fontSize: `var(--fontSizeh2XL` },
+          '--headingFontWeight': `var(--fontWeight${capitilise(weight)})`,
+        }}
+        lineColor={lineColor}
+        {...props}
+      >
+        {topHeading ?
+          <span>{children}</span>
+          :
+          <>{children}</>
+        }
+      </Container>
+    </motion.div>
   )
 }
 
@@ -42,9 +47,10 @@ const Container = styled.h1`
     }
   `};
   font-weight: var(--headingFontWeight);
-  z-index: 3;
+  z-index: -1;
   span {
     position: relative;
+    z-index: 1;
   }
   span:after {
     content: '';

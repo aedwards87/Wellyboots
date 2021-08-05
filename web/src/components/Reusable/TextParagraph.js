@@ -1,6 +1,8 @@
+// Imported dependencies 
 import React from 'react'
 import styled, { css } from "styled-components/macro";
-
+import { motion } from 'framer-motion';
+// Imported helpers 
 import { capitilise } from '../../utils/helpers'
 
 const TextParagraph = ({ className, children, underline, style, weight = 'normal', color = 'Text', hoverColor, ...props }) => {
@@ -18,7 +20,7 @@ const TextParagraph = ({ className, children, underline, style, weight = 'normal
   )
 }
 
-const Container = styled.p`
+const Container = styled(motion.p)`
   font-weight: var(--paraFontWeight);
   color: rgb(var(--paraFontColor));
   ${({ text }) => text && css`text-align: ${text}`};

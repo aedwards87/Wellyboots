@@ -1,3 +1,4 @@
+// Imported dependencies 
 import React from 'react'
 import styled from "styled-components/macro";
 import { Link } from "gatsby";
