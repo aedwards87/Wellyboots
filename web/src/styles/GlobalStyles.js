@@ -74,11 +74,13 @@ const GlobalStyles = createGlobalStyle`
     --dropdownMenuSpacing: var(--s6);
 
     /* Static Page Themes */
-    --playTheory: var(--colorOrange);
-    --locations: var(--colorGreen);
-    --cirriculum: var(--colorBlue);
-    --reviews: var(--colorYellow);
-    --aboutUs: var(--colorPink);
+    --colorPlayTheory: var(--colorOrange);
+    --colorLocations: var(--colorGreen);
+    --colorCirriculum: var(--colorBlue);
+    --colorReviews: var(--colorYellow);
+    --colorAboutUs: var(--colorPink);
+    --colorContactUs: var(--colorDarkGreen);
+    --colorPoliciesProcedures: var(--colorPurple);
 
     /* Elevations */
     --level1: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
