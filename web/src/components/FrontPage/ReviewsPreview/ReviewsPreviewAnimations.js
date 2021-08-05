@@ -8,7 +8,10 @@ export const variants = {
   initial: (direction) => {
     return {
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.5
+      }
     };
   },
   animate: {
@@ -25,31 +28,20 @@ export const variants = {
   }
 };
 
-const swipeConfidenceThreshold = 10000;
-const swipePower = (offset, velocity) => {
-  return Math.abs(offset) * velocity;
-};
-
 export const animateAPI = {
-  custom: direction,
   variants: variants,
-  initial: "enter",
-  animate: "center",
+  initial: "initial",
+  animate: "animate",
   exit: "exit",
   transition: {
-    x: { type: "spring", stiffness: 300, damping: 30 },
+    x: {
+      type: "spring", stiffness: 700,
+      damping: 200,
+    },
     opacity: { duration: 0.2 }
   },
   drag: "x",
   dragConstraints: { left: 0, right: 0 },
   dragElastic: 1,
-  onDragEnd: (e, { offset, velocity }) => {
-    const swipe = swipePower(offset.x, velocity.x);
 
-    if (swipe < -swipeConfidenceThreshold) {
-      paginate(1);
-    } else if (swipe > swipeConfidenceThreshold) {
-      paginate(-1);
-    }
-  }
 }

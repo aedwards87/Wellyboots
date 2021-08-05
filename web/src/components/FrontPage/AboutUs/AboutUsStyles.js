@@ -16,10 +16,11 @@ export const Container = styled.section`
 `
 export const Frame = styled(FrameMod)``
 export const Row = styled(RowMod)`
-  
+  @media(min-width: 980px) {
+    grid-row-gap: var(--s9);
+  }
 `
 export const Column = styled(ColumnMod)`
-
   @media(min-width: 420px) and (max-width: 979px) {
     justify-items: start;
     justify-content: center;
@@ -32,7 +33,7 @@ export const ImageContainer = styled.div`
   justify-content: center;
   gap: var(--s5);
   @media(min-width: 980px) {
-    width: 80%;
+    width: 82%;
   }
 `
 export const Image = styled.img`
@@ -46,10 +47,10 @@ export const ButtonContainer = styled.div`
   width: 100%;
   @media(min-width: 420px) {
     width: auto;
-    margin-top: var(--s9);
   }
   @media(min-width: 980px) {
     justify-self: start;
+    margin-top: var(--s9);
   }
 `
 export const Button = styled(ButtonMob)` width: 100%;`

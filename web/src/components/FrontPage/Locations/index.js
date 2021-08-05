@@ -7,6 +7,7 @@ import { useCompanyLocationsQuery } from '../../../hooks'
 
 const LocationsIndex = () => {
   const data = useCompanyLocationsQuery()
+  const heading = 'Our locations'
   return (
     <Locations id="locations" bgColor="yellow">
       <Locations.SVGDividerTop />
@@ -14,7 +15,7 @@ const LocationsIndex = () => {
         <Locations.Row rGap={5}>
           <Locations.Column>
             <Locations.Title heading="h2" lineColor="light">
-              Our locations
+              {heading}
             </Locations.Title>
           </Locations.Column>
         </Locations.Row>

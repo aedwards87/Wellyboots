@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import styled, { css } from 'styled-components/macro'
 import { regExpLetterChecker } from '../../utils/helpers'
@@ -24,7 +25,7 @@ const Column = ({ className, children, xGap, yGap, columnOrder, xAlign = "start"
   )
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: grid;
   ${({ style }) => style['--columnYGap'][0] && css`grid-row-gap: ${style['--columnYGap'][0]};`}
   ${({ style }) => style['--columnXGap'][0] && css`grid-column-gap: ${style['--columnXGap'][0]};`}

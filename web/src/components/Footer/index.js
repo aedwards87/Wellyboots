@@ -1,13 +1,23 @@
-// Imported packages
+// Imported dependencies
 import React from 'react'
-
 // Imported components
 import Footer from './Footer'
+import { TextUnderlineLink } from '../Reusable'
+// Imported hooks
+import { useCompanyLocationsQuery } from '../../hooks'
 
-const schoolData = ['St Stephens', 'Crockham Hill', 'Roodlands Farm', 'Four Elms Primary School', 'Hever C of E Primary School']
+// Temp data
+const schoolData = ['Crockham Hill', 'Four Elms', 'Hever', 'St Stephens', 'Roodlands Farm',]
 const footLinks = ['Play theory', 'Locations', 'Curriculum', 'Reviews', 'About us', 'Contact us', 'Policies & Procedures',]
+import footerLinks from '../../data/footerLinks'
+import { camalise } from '../../utils/helpers'
+
 
 const FooterIndex = () => {
+  const data = useCompanyLocationsQuery()
+
+  console.log(data)
+
   return (
     <Footer>
       <Footer.Frame tPad={11} bPad={15}>
@@ -59,11 +69,14 @@ const FooterIndex = () => {
               <Footer.Group columns={2}>
                 <Footer.LocationsSVG />
                 <Footer.Group>
-                  {schoolData.map(school =>
-                    <Footer.Link key={school} to="/">
-                      {school}
-                    </Footer.Link>
-                  )}
+                  {/* Change to be short name */}
+                  {data.locations.nodes
+                    .map(({ name, title, subBrandColors }) =>
+                      <TextUnderlineLink key={name} to="/" lineColor={subBrandColors}>
+                        {name || title}
+                      </TextUnderlineLink>
+                    )
+                  }
                 </Footer.Group>
               </Footer.Group>
             </Footer.Column>
@@ -72,10 +85,10 @@ const FooterIndex = () => {
               <Footer.Group columns={2}>
                 <Footer.LinkSVG />
                 <Footer.Group>
-                  {footLinks.map(link =>
-                    <Footer.Link key={link} to="/">
-                      {link}
-                    </Footer.Link>
+                  {footerLinks.map(link =>
+                    <TextUnderlineLink key={link.title} to="/" lineColor={[link]} >
+                      {link.title}
+                    </TextUnderlineLink>
                   )}
                 </Footer.Group>
               </Footer.Group>

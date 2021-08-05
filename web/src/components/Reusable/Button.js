@@ -27,7 +27,8 @@ const Button = ({ className, children, to, pad, tPad, rPad, bPad, lPad, xPad, yP
 
 const Container = styled.button`
   font-weight: var(--fontWeightNormal);
-  padding: var(--s3) var(--s5);
+  padding: 14px 22px;
+  /* padding: var(--s3) var(--s4); */
   z-index: 1;
   transition: transform .3s ease;
   ${({ pad }) => pad && css`padding: var(--s${pad})`};

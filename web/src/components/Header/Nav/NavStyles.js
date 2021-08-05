@@ -68,7 +68,7 @@ export const List = styled(motion.ul)`
     flex-direction: row;
     align-items: baseline;
     padding-top: 0;
-    gap: 26px;
+    gap: min(max(var(--s3), 2.5vw), var(--s5));
   }
 `
 
@@ -174,7 +174,6 @@ export const Span = styled.span`
     transition: .3s ease-out;
     transform: translateY(4px);
     z-index: -1;
-
   }
   @media (max-width: 979px) {
     &::before {
@@ -199,9 +198,6 @@ export const ListItem = styled(motion.li)`
       transform: translateY(0);
     }
   }
-  /* ${Link}[aria-current="page"] {
-    color: var(--colorNeutralOne)
-  } */
   @media (max-width: 979px) {
     width: 85%;
   }
@@ -221,7 +217,6 @@ export const Body = styled.div`
 
 export const SVG = styled.div`
   display: flex;
-  /* transform: scale(.9); */
   > svg {
     height: 35px;
     width: 30px;
@@ -234,11 +229,11 @@ export const Dropdown = styled(motion.div)`
   position: absolute;
   top: 3.8rem;
   left: calc(50% - 10px);
-  min-width: 45ch;
+  min-width: 47ch;
   height: auto;
   display: flex;
   flex-direction: column;
-  gap: .7em;
+  gap: .3em;
   ${({ pad }) => css`padding: var(--s${pad}, var(--dropdownMenuSpacing))`};
   ${({ tPad }) => tPad && css`padding-top: var(--s${tPad})`};
   ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};

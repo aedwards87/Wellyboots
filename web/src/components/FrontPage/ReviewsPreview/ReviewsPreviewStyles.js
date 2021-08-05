@@ -1,5 +1,6 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
+import { motion } from 'framer-motion';
 // import Image from 'gatsby-image';
 
 // Imported Components
@@ -9,7 +10,7 @@ import ColumnMod from '../../Reusable/Column'
 import TextHeading from '../../Reusable/TextHeading';
 import TextParagraph from '../../Reusable/TextParagraph';
 import ButtonMod from '../../Reusable/Button';
-import { QuoteMark, FaceDrawing, HeartDrawing, CrownDrawing, CarDrawing, Arrow } from '../../../assets/svg/index';
+import { QuoteMark, Crown, Car, Girl, Heart, Arrow } from '../../../assets/svg/index';
 import WaveReviewsPreviewTop from '../../../assets/svg/Waves/WaveReviewsPreviewTop';
 import WaveReviewsPreviewBottom from '../../../assets/svg/Waves/WaveReviewsPreviewBottom';
 
@@ -19,8 +20,21 @@ export const Container = styled.section`
 `
 
 export const Frame = styled(FrameMod)``
-export const Row = styled(RowMod)``
-export const Column = styled(ColumnMod)``
+export const Row = styled(RowMod)`
+  position: relative;
+  width: 100%;
+  ${({ custom }) =>
+    custom && css`height: 220px;`
+  }
+`
+export const Column = styled(ColumnMod)`
+  grid-template-columns: 1fr;
+  ${({ custom }) => custom && css`
+    @media(min-width: 980px) {
+      grid-row-gap: var(--s6);
+    }
+  `}
+`
 export const Title = styled(TextHeading)`
   @media(max-width: 594px) {
     > span:after {
@@ -47,6 +61,8 @@ export const Title = styled(TextHeading)`
 `
 export const Text = styled(TextParagraph)`
   max-width: 730px;
+  font-size: 1.6rem !important;
+  line-height: 1.45;
 `
 export const QuoteMarkSVG = styled(QuoteMark)``
 // export const FaceDrawing = styled(FaceDrawing)``
@@ -71,6 +87,17 @@ export const ArrowSVG = styled(Arrow)`
 `
 export const SVGDividerTop = styled(WaveReviewsPreviewTop)``
 export const SVGDividerBottom = styled(WaveReviewsPreviewBottom)``
+export const CrownSVG = styled(Crown)``
+export const CarSVG = styled(Car)``
+export const GirlSVG = styled(Girl)``
+export const HeartSVG = styled(Heart)``
+export const SliderAnimation = styled(motion.div)`
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  cursor: grab;
+`
 
 
 

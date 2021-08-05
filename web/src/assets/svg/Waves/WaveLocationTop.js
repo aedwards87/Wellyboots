@@ -1,6 +1,5 @@
 // Imported dependencies
 import React from 'react'
-// Imported dependencies
 import styled from 'styled-components/macro';
 
 const WaveLocationTop = ({ className, ...props }) => {
@@ -36,12 +35,6 @@ const Container = styled.div`
   .colorLight {
     fill: rgb(var(--colorLight));
   }
-  @media(min-width: 375px) {
-    margin-top: -4rem;
-  }
-  /* @media(min-width: 980px) {
-    margin-top: -1rem;
-  } */
   @media(min-width: 1600px) {
     margin-top: calc(55px - 6vw);;
   }

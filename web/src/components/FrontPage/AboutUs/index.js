@@ -10,7 +10,7 @@ const AboutUsIndex = () => {
   return (
     <AboutUs>
       <AboutUs.Frame yPad={6} bPad={9}>
-        <AboutUs.Row columns={2} xGap={9} yGap={7} rowOrder={1}>
+        <AboutUs.Row columns={2} xGap='94px' yGap={9} rowOrder={1}>
           <AboutUs.Column columnOrder={2} custom>
             <AboutUs.Title heading="h2" lineColor="blue">
               A little about us
@@ -26,7 +26,7 @@ const AboutUsIndex = () => {
               <AboutUs.Button to="about us" model={1} color="dark pink">Read more</AboutUs.Button>
             </AboutUs.ButtonContainer>
           </AboutUs.Column>
-          <AboutUs.Column rowOrder={1} xAlign="center">
+          <AboutUs.Column rowOrder={1} xAlign="center" yItemsAlign="end">
             <AboutUs.Title heading="h2" weight="medium" color="gray" small>
               Our accreditations
             </AboutUs.Title>
@@ -34,13 +34,17 @@ const AboutUsIndex = () => {
           <AboutUs.Column rowOrder={2} xAlign="center" xItemsAlign="center" yAlign="start">
             <AboutUs.ImageContainer>
               {imageArray.map(image =>
-                <AboutUs.Image key={image} src="https://i.imgur.com/P6wA9d9.png" /* alt={iamge.alt} */ />
+                <AboutUs.Image
+                  key={image}
+                  src="https://i.imgur.com/P6wA9d9.png"
+                /* alt={iamge.alt} */
+                />
               )}
             </AboutUs.ImageContainer>
           </AboutUs.Column>
         </AboutUs.Row>
       </AboutUs.Frame>
-    </AboutUs >
+    </AboutUs>
   )
 }
 

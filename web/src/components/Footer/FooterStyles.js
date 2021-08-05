@@ -83,13 +83,14 @@ export const Text = styled(TextParagraph)`
 export const ExternalLink = styled.a`
   text-decoration: none;
   align-self: center;
-  :hover {
+  transition: color .2s ease;
+  :hover,
+  :focus {
     color: rgb(var(--colorPink));
   }
 `
 export const Link = styled(TextLink)`
   display: block;
-  
 `
 export const Button = styled(ButtonMod)`
   display: none;

@@ -135,7 +135,7 @@ Nav.ListItem = function NavListItem({ children, className, navLinks, ...props })
       <ListItem
         className={className}
         variants={ListItemVariants}
-        style={{ '--lineColor': `var(--${camalise(navLinks.title)})` }}
+        style={{ '--lineColor': `var(--color${capitilise(navLinks.title)})` }}
         aria-haspopup={navLinks.hasDropdown}
         aria-expanded={isHovered}
         {...bind}
@@ -166,8 +166,11 @@ Nav.Button = function NavButton({ children, className, ...props }) {
 
 Nav.Link = function NavLink({ children, className, home, to, hoverColor, dropdown, ...props }) {
   const [isOpen, toggle] = useNavMenuToggleContext()
+  // if type is a string, it has been manually added
   const isString = typeof to === 'string'
+  // Checking to see if the data is being dymanically imported via database/cms
   const hasSlug = typeof to === 'object' && to.current
+  // Checking to see if the link is to be inside a dropdown
   const hasDropdown = typeof to === 'object' && to.hasDropdown
   return (
     <Link

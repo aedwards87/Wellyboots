@@ -113,7 +113,7 @@ Footer.Signature = function FooterSignature({ children, className, ...props }) {
   return (
     <Signature className={className} {...props}>
       <li>© Wellyboots Daycare Ltd</li>
-      <li>Website by: <a href="https://www.facebook.com/adam.edwards.1650" target="_blank" rel="noopener noreferrer">Adam Edwards</a></li>
+      <li>Website by: <Footer.ExternalLink href="https://www.facebook.com/adam.edwards.1650" target="_blank" rel="noopener noreferrer">Adam Edwards</Footer.ExternalLink></li>
     </Signature>
   )
 }

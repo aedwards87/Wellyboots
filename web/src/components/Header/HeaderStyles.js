@@ -17,6 +17,9 @@ export const Container = styled.header`
   z-index: 9;
   transition: margin .5s ease;
   @media (min-width: 980px) {
+    margin-top: 20px;
+  }
+  @media (min-width: 1200px) {
     margin-top: 40px;
   }
 `
