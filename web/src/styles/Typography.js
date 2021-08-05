@@ -10,8 +10,8 @@ const Typography = createGlobalStyle`
     /* Size */
     --fontSizeBase: 10px;
     --fontSizeBody: 1.6rem;
-    --fontSizeNav: 1.5rem;
-    --fontSizeFooter: 1.5rem;
+    --fontSizeNav: 1.4rem;
+    --fontSizeFooter: 1.4rem;
     --fontSizeHero: calc(var(--fontSizeBody) * 3.213);
     --fontSizeh1: calc(var(--fontSizeBody) * 2.441);
     --fontSizeh2XL: calc(var(--fontSizeBody) * 2.441);
@@ -31,7 +31,8 @@ const Typography = createGlobalStyle`
     --fontWeightBold: 700;
 
     /* Line height */
-    --fontBaseLineHeight: 1.5;
+    --fontHeadingHeight: 1.5;
+    --fontTextHeight: 1.35;
     
     /* Coupled font styles min(max(38px, 12vw), 80px)*/
     --heroFont:  min(max(39px, 12vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
@@ -44,13 +45,13 @@ const Typography = createGlobalStyle`
 
   @media(min-width: 420px) {
     :root {
-      --fontSizeBody: 1.8rem;
+      --fontSizeBody: 1.7rem;
     }
   }
 
   @media(min-width: 980px) {
     :root {
-      --heroFont:  min(max(39px, 4.3vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
+      --heroFont:  min(max(39px, 4.15vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
     }
   }
 
@@ -66,12 +67,12 @@ const Typography = createGlobalStyle`
 
   p, a, li {
     letter-spacing: 0.3px;
-    line-height: 1.5;
+    line-height: var(--fontTextHeight);
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    line-height: 1.35;
+    line-height: var(--fontHeadingHeight);
     letter-spacing: 0.3px;
     color: rgb(var(--colorText));
     > span {
