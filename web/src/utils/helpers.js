@@ -12,3 +12,15 @@ export const capitilise = function capitilise(str) {
 
 // Using .test on regExp searches for any letter found (e.g. 'px, vw') within input, to help determine whether it's a strict value or a selection from a CSS variable value 
 export const regExpLetterChecker = /[a-zA-Z]/g
+
+export const blackOrWhite = function blackOrWhite(str) {
+  const capStr = capitilise(str)
+  if (str === undefined) { return }
+  if (capStr === 'White') { return 'Light' }
+  if (capStr === 'Black') { return 'Dark' } else { return str }
+}
+
+// Random number generator
+export function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
