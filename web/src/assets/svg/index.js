@@ -1,4 +1,4 @@
-export { default as Blob } from './Blob';
+export { default as Blob } from './Blob3';
 export { default as QuoteMark } from './QuoteMark';
 export { default as Arrow } from './Arrow';
 export { default as Phone } from './Phone';

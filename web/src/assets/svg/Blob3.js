@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { blackOrWhite, capitilise } from '../../utils/helpers'
 
-const Blob = ({ className, width = "1200", height = "1110", color = "Blue", ...props }) => {
+const Blob = ({ className, width = "876", height = "793", color = "Blue", ...props }) => {
   return (
     <Container
       className={className}
@@ -13,12 +13,12 @@ const Blob = ({ className, width = "1200", height = "1110", color = "Blue", ...p
       <svg
         width={width}
         height={height}
-        viewBox="0 0 770 628"
+        viewBox="0 0 876 793"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         {...props}
       >
-        <path d="M429.897 57.8203C372 61 302.679 56.3456 209.933 12.3467C117.068 -31.7751 -60.2379 52.4939 20.9492 188.995C102.136 325.496 124.701 329.277 136.481 432.308C148.21 535.436 157.187 601.249 239.822 609.3C322.407 617.448 383.402 479.205 459.378 482.212C568.802 486.594 683.562 508.821 749.053 342.702C777.715 269.942 782.491 194.302 721.551 139.657C639.287 65.8852 535.452 51.7716 429.897 57.8203Z" fill={color} className="colorBlob" />
+        <path d="M436.875 188.81C341.744 207.117 301.505 208.002 207.507 195.002C113.508 182.002 18.5131 268.004 43.0066 363.502C67.5 459 116.499 438.001 147.006 579.002C165.339 686.963 200.196 720.363 272.506 723.502C359.978 727.3 412.313 635.413 492.524 634.179C608.052 632.454 730.234 649.219 789.6 470.425C815.577 392.115 810.368 305.037 743.005 251.002C652.068 178.054 532.007 170.503 436.875 188.81Z" className="colorBlob" />
       </svg>
     </Container>
   )
