@@ -28,6 +28,7 @@ const Container = styled(motion.div)`
   .colorBlob {
     fill: rgb(var(--colorBlob))
   }
+  z-index: 1;
 `
 
 export default Blob
