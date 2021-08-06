@@ -30,6 +30,14 @@ const Container = styled.button`
   padding: 14px 22px;
   /* padding: var(--s3) var(--s4); */
   z-index: 1;
+  outline-offset: 4px;
+  &&:hover,
+  &&:focus {
+    z-index: 2;
+  }
+  &&:active {
+    transition: transform .1s ease;
+  }
   transition: transform .3s ease;
   ${({ pad }) => pad && css`padding: var(--s${pad})`};
   ${({ tPad }) => tPad && css`padding-top: var(--s${tPad})`};
@@ -43,34 +51,38 @@ const Container = styled.button`
         color: rgb(var(--colorLight));
         border: none;
         border: 2px solid rgb(var(--color${capitilise(color)}));
-        transition: transform .3s ease;
         :hover {
           filter: brightness(110%);
           box-shadow: var(--level4);
           border: 2px solid rgb(var(--color${capitilise(color)}));
           transform: translateY(-10%)
         }
+        :focus {
+          background-color: rgb(var(--color${capitilise(color)}));
+          color: rgb(var(--colorLight));
+        }
         :active {
           transform: translateY(0);
           box-shadow: none;
-          transition: transform .1s ease;
         }
       `
       : model === 2 ?
         css`
           border: 2px solid rgb(var(--color${capitilise(color)}));
           color: rgb(var(--color${capitilise(color)}));
-          transition: transform .3s ease;
           :hover {
             background-color: rgb(var(--color${capitilise(color)}));
             color: rgb(var(--colorLight));
             box-shadow: var(--level4);
             transform: translateY(-10%)
           }
+          :focus {
+            background-color: rgb(var(--color${capitilise(color)}));
+            color: rgb(var(--colorLight));
+          }
           :active {
             transform: translateY(0);
             box-shadow: none;
-            transition: transform .1s ease;
           }
         `
         : model === "left" ?
@@ -78,23 +90,15 @@ const Container = styled.button`
             background-color: rgb(var(--color${capitilise(color)}));
             border: none;
             border-radius: 12px 0 0 12px;
-            transition: all .3s ease;
-            svg {
-              transition: all .3s ease;
-            }
-            &&:hover,
-            &&:focus {
+            svg { transition: transform .3s ease; }
+            &&:hover {
               box-shadow: var(--level4);
               transform: translateY(-3%);
-              z-index: 2;
-              svg {
-                transform: translateX(-5px) rotate(-180deg);
-              }
+              svg { transform: translateX(-5px) rotate(-180deg); }
             }
             &&:active {
               transform: translateY(0) ;
               box-shadow: var(--level3);
-              transition: transform .1s ease;
             }
           `
           : model === "right" ?
@@ -102,22 +106,15 @@ const Container = styled.button`
               background-color: rgba(var(--color${capitilise(color)}));
               border: none;
               border-radius: 0 12px 12px 0;
-              svg {
-                transition: all .3s ease;
-              }
-              &&:hover,
-              &&:focus {
+              svg { transition: transform .3s ease; }
+              &&:hover {
                 box-shadow: var(--level4);
                 transform: translateY(-3%);
-                z-index: 2;
-                svg {
-                  transform: translateX(5px);
-                }
+                svg { transform: translateX(5px); }
               }
               &&:active {
                 transform: translateY(0);
                 box-shadow: var(--level3);
-                transition: transform .1s ease;
               }
             `
             : null
