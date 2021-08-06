@@ -108,7 +108,7 @@ const Container = styled.div`
   z-index: 1;
   @media(min-width: 980px) {
     display: block;
-    bottom: -260px;
+    bottom: -245px;
   }
 `
 
