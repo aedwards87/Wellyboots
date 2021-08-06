@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 // Imported helpers 
 import { capitilise } from '../../utils/helpers';
 
-const TextHeading = ({ className, children, style, heading, lineColor, weight = 'normal', color, textAlign, small, ...props }) => {
+const TextHeading = ({ className, children, style, heading, lineColor, weight = 'normal', color, textAlign, small, zIndex, ...props }) => {
   const htmlElement = heading === 'Hero' || heading === 'hero' ? 'h1' : heading
   const topHeading = heading === 'Hero' || heading === 'hero' || lineColor
   const h2XL = heading === 'h2' && lineColor
@@ -19,6 +19,7 @@ const TextHeading = ({ className, children, style, heading, lineColor, weight = 
         color={color}
         textAlign={textAlign}
         small={small}
+        zIndex={zIndex}
         style={style, {
           ...lineColor && { '--lineColor': `var(--color${capitilise(lineColor)})` },
           ...h2XL && { fontSize: `var(--fontSizeh2XL` },
@@ -50,7 +51,7 @@ const Container = styled.h1`
   z-index: -1;
   span {
     position: relative;
-    z-index: 1;
+    ${({ zIndex }) => css`z-index: ${zIndex}`};
   }
   span:after {
     content: '';
