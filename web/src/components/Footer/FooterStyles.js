@@ -76,7 +76,16 @@ export const Group = styled.div`
     grid-column-gap: var(--s5);
   }
 `
-export const Title = styled(TextHeading)``
+export const Title = styled(TextHeading)`
+  @media(max-width: 347px) {
+    > span {
+      display: inline-block
+    }
+    > span:after {
+      width: 4.6ch;
+    }
+  }
+`
 export const Text = styled(TextParagraph)`
   align-self: center;
 `

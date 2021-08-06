@@ -125,6 +125,7 @@ export const Title = styled(TextHeading)`
     }
     > span:nth-child(3):after {
       background: rgba(var(--colorYellow));
+      width: 90%;
     }
     > span:nth-child(3) {
       span:after {

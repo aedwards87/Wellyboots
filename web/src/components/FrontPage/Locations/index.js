@@ -14,7 +14,7 @@ const LocationsIndex = () => {
       <Locations.Frame yPad={8} bPad={11} yGap={3}>
         <Locations.Row rGap={5}>
           <Locations.Column>
-            <Locations.Title heading="h2" lineColor="light">
+            <Locations.Title heading="h2" lineColor="light" zIndex="1">
               {heading}
             </Locations.Title>
           </Locations.Column>
