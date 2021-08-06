@@ -68,7 +68,8 @@ export const List = styled(motion.ul)`
     flex-direction: row;
     align-items: baseline;
     padding-top: 0;
-    gap: min(max(var(--s3), 2.5vw), var(--s5));
+    /* gap: min(max(var(--s3), 2.5vw), var(--s5)); */
+    gap: var(--navSpacing);
   }
 `
 
@@ -80,6 +81,7 @@ export const Link = styled(TextLink)`
   width: 100%;
   justify-content: center;
   display: flex;
+  outline-offset: 4px;
   &:hover,
   &:focus {
     color: ${({ hoverColor }) => `rgb(var(--color${hoverColor}))`};
@@ -96,7 +98,8 @@ export const Link = styled(TextLink)`
       &[aria-current="page"] {
         color: var(--colorNeutralOne)
       }
-      &:hover {
+      &:hover,
+      &:focus {
         svg {
           transform: scale(1.3) rotate(-.03turn)
         }
@@ -229,7 +232,7 @@ export const Dropdown = styled(motion.div)`
   position: absolute;
   top: 3.8rem;
   left: calc(50% - 10px);
-  min-width: 47ch;
+  min-width: 42ch;
   height: auto;
   display: flex;
   flex-direction: column;

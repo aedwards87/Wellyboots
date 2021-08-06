@@ -14,7 +14,6 @@ import { camalise } from '../../../utils/helpers'
 
 const NavIndex = () => {
   const data = useCompanyLocationsQuery()
-  console.log({ data });
   return (
     <Nav>
       <Nav.Link home>
