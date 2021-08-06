@@ -33,7 +33,7 @@ const ReviewsPreviewIndex = () => {
       <ReviewsPreview.Frame yPad={8} yGap={6}>
         <ReviewsPreview.Row>
           <ReviewsPreview.Column xAlign="center">
-            <ReviewsPreview.Title heading="h2" lineColor="purple" color="light" textAlign="center">
+            <ReviewsPreview.Title heading="h2" lineColor="purple" color="light" textAlign="center" zIndex="1">
               {heading}
             </ReviewsPreview.Title>
           </ReviewsPreview.Column>

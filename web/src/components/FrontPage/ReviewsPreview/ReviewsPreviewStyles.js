@@ -23,8 +23,16 @@ export const Frame = styled(FrameMod)``
 export const Row = styled(RowMod)`
   position: relative;
   width: 100%;
+  
   ${({ custom }) =>
-    custom && css`height: 220px;`
+    custom && css`
+      height: calc(30em + -38vw);
+      max-height: 380px;
+      ${'' /* height: calc(25em + -15vw); */}
+      @media (min-width: 768px) {
+        height: 260px;
+      } 
+    `
   }
 `
 export const Column = styled(ColumnMod)`
