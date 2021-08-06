@@ -36,7 +36,7 @@ const Container = styled.div`
     fill: rgb(var(--colorLight));
   }
   @media(min-width: 1600px) {
-    margin-top: calc(96px - 6vw);
+    margin-top: calc(100px - 6vw);
   }
 `
 
