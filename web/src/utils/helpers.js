@@ -20,7 +20,19 @@ export const blackOrWhite = function blackOrWhite(str) {
   if (capStr === 'Black') { return 'Dark' } else { return str }
 }
 
+let lastNumber
+
 // Random number generator
 export function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+  const result = Math.floor(Math.random() * max)
+  if (result === lastNumber) {
+    getRandomInt(max)
+  }
+  return result;
 }
+
+// export function getRandomInt(max) {
+//   const result = Math.floor(Math.random() * max)
+//   if (result === )
+//   return Math.floor(Math.random() * max);
+// }
