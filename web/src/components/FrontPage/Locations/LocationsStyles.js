@@ -174,10 +174,9 @@ export const ButtonContainer = styled.div`
   box-shadow: var(--level3);
 `
 export const Button = styled(ButtonMod)`
-transition: transform .3s ease;
+  transition: transform .3s ease;
   ${({ model }) => model === "left" && css`
-    &&:hover,
-    &&:focus {
+    &&:hover {
       transform: translateY(-3%) translateX(-100%);
     }
     &&:active {
