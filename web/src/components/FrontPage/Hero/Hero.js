@@ -69,15 +69,15 @@ Hero.ImageCarousel = function HeroImageCarousel({ children, className, src, alt,
     enter: {
       x: '-100%',
       opacity: 0,
-      y: '-50%',
+      // y: '-50%',
       rotate: '-45deg',
       scale: 1.4,
     },
     center: {
-      x: '-63%', /* large screens */
+      x: '-0%', /* large screens */
       // x: '-50%',
       opacity: 1,
-      y: '-50%', /* large screens */
+      // y: '-50%', /* large screens */
       // y: '-59.5%',
       scale: 1,
       rotate: `-${numberArray}deg`,

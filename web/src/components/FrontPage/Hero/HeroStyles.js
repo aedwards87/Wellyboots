@@ -19,21 +19,19 @@ export const Container = styled.section`
 
 export const Frame = styled(FrameMod)`
   overflow: hidden;
-  padding-bottom: 26vw;
+  padding-bottom: 28vw;
   @media(max-width: 285px) {
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
   }
   @media(min-width: 980px) {
     overflow: unset;
     && {
-      padding-bottom: calc(var(--s16) - 4vw);
+      padding-bottom: calc(var(--s15) - 4vw);
     }
   }
 `
 export const Row = styled(RowMod)`
-  @media(min-width: 395px) {
-    grid-row-gap: calc(var(--s5) + 18vw);
-  }
+  grid-row-gap: calc(var(--s4) + 18vw);
 `
 
 export const Column = styled(ColumnMod)`
@@ -50,11 +48,11 @@ export const Column = styled(ColumnMod)`
 
 export const ImageCarousel = styled(motion.div)`
   position: absolute;
-  width: 102%;
-  top: 50%;
-  transform: translateY(-50%) translateX(-50%) rotate(-3deg);
+  width: 100%;
+  /* top: 50%; */
+  /* transform: translateY(-50%) translateX(-50%) rotate(-3deg); */
   /* right: var(--s4); */
-  left: 50%;
+  /* left: 50%; */
   transform: rotate(-3deg);
   border: var(--s2) solid rgb(var(--colorLight));
   box-shadow: var(--level5);
@@ -68,6 +66,7 @@ export const ImageCarousel = styled(motion.div)`
   }
   @media(min-width: 395px) {
     width: 95%;
+    height: 120%;
   }
   @media(min-width: 420px) {
     margin-left: calc(0px - var(--s1));
@@ -78,7 +77,7 @@ export const ImageCarousel = styled(motion.div)`
     width: 550px;
     height: 360px;
     position: absolute;
-    top: 50%;
+    /* top: 50%; */
     transform: translateY(-50%) rotate(-3deg);
     right: var(--s4);
     margin-top: 0;
@@ -87,46 +86,27 @@ export const ImageCarousel = styled(motion.div)`
 
 export const SVG = styled(Blob)`
   position: absolute;
-  z-index: 1;
-  /* width: 115vw; */
-  width: 160%;
-  height: 148%;
-  height: 158%;
-  /* top: 50%; */
-  /* transform: translateY(-50%) rotate(-3deg); */
-  transform: scale(1.07);
-  display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: 384px;
-  /* > svg {
-    height: 134%;
-  } */
-  > svg {
-    height: 124%;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  /* height: 592px; */
+  /* bottom: 0; */
+  /* right: calc(var(--s4) * 1px); */
+  transform: translateX(0);
+  width: 126%;
+  height: 226%;
+  right: 0;
+  svg {
+    width: 119%;
+    height: 113%;
   }
-  @media(min-width: 395px) {
-    /* width: 105vw; */
-    width: 110vw;
-    /* height: 132%; */
-    transform: scale(1);
-    /* > svg {
-      height: 146%;
-    } */
-  }
-  @media(min-width: 596px) {
-    /* width: 105vw; */
-  }
-  @media(min-width: 980px) {
-    /* margin-top: 10px; */
-    /* display: inline; */
-    width: 735px;
-    height: 124%;
-    right: -22px;
-    /* transform: translateY(-48.5%) rotate(-3deg); */
-    > svg {
-      height: 770px;
-      /* width: 735px; */
+  @media (min-width: 980px) {
+    width: 720px;
+    height: 832px;
+    right: 0;
+    svg {
+      width: 112%;
     }
   }
 `

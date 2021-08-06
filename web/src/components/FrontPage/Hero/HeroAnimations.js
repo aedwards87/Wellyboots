@@ -61,15 +61,16 @@ export const buttonVariants = {
   }
 }
 
-export const svgVariants = {
+export const blobVariants = {
   initial: {
-    // y: '-46%',
-    rotate: '-6deg',
+    y: '-8.5%',
+    // rotate: '-6deg',
     opacity: 0,
   },
   animate: {
+    y: '-8.5%',
     scale: [.5, 1.065, 1],
-    rotate: '-6deg',
+    // rotate: '-6deg',
     opacity: 1,
   },
   transition: {

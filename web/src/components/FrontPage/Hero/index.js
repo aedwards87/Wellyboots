@@ -9,10 +9,11 @@ const data = [
   { src: 'https://i.imgur.com/z8wxU66.jpg' },
 ]
 
-
+import Blob2 from '../../../assets/svg/Blob2'
+import Blob3 from '../../../assets/svg/Blob3'
 // Imported components
 import Hero from './Hero'
-import { headingVariants, textVariants, buttonVariants, svgVariants } from './HeroAnimations'
+import { headingVariants, textVariants, buttonVariants, blobVariants } from './HeroAnimations'
 // Data to come in from CMS
 // const data = "A positive, safe and secure environment for every childA positive, safe and secure environment for every child"
 // const firstHighlight = 'positive'
@@ -23,7 +24,7 @@ export const HeroIndex = () => {
   return (
     <Hero>
       <Hero.Frame tPad={7}>
-        <Hero.Row columns={2} xGap='94px' yGap={11}>
+        <Hero.Row columns={2} xGap='94px'>
 
           <Hero.Column columnOrder={2} yGap={3}>
             <Hero.Title heading="hero" {...headingVariants}>
@@ -37,8 +38,15 @@ export const HeroIndex = () => {
             <Hero.SVGFootPrints />
           </Hero.Column>
 
-          <Hero.Column rowOrder={1} xItemsAlign="center" custom>
-            <Hero.SVG {...svgVariants} />
+          <Hero.Column
+            rowOrder={1}
+            xItemsAlign="center"
+            xAlign="center"
+            yItemsAlign="center"
+            yAlign="center"
+            custom
+          >
+            <Hero.SVG {...blobVariants} />
             <Hero.ImageCarousel data={data} />
           </Hero.Column>
         </Hero.Row>
