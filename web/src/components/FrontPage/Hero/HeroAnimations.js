@@ -74,12 +74,13 @@ export const blobVariants = {
     opacity: 1,
   },
   transition: {
-    duration: 1,
-    delay: 1,
+    duration: 1.6,
+    delay: 1.3,
     type: 'spring',
-    mass: 6,
-    stiffness: 150,
+    // mass: 10,
+    stiffness: 300,
+    // stiffness: 150,
     damping: 20,
-    times: [0, 0.3, 0.45, 0.6, 1],
+    // times: [0, 0.3, 0.45, 0.6, 1],
   }
 }
