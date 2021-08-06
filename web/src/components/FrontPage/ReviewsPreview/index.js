@@ -14,8 +14,13 @@ const data = [
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ac mattis nullam tortor, viverra pulvinar vitae nisl facilisi egestas. In sed mauris massa in. Nulla nec tellus, nunc, sed risus, dui, convallis sed. Mattis nunc neque morbi cum bibendum justo ultrices commodo.'
   },
   {
-    name: 'Bob sinclair',
+    name: 'Bob Sinclair',
     content: `We have worked with Steve at SW for around 10 years on maintenance, refurbishment and small development projects, and we have found him honest, reliable and fun to work with. We cannot provide a better recommendation than to hand over the keys to our home and to go away whilst he did some work for us, and on completion everything was impeccable. 5 star plus review from us over 10 years!
+    `
+  },
+  {
+    name: 'Elisha Gamoire',
+    content: `We have worked with Steve at SW for around 10 years on maintenance, refurbishment and small development projects, and we have found him honest, reliable and fun to work with.
     `
   }
 ]

@@ -37,6 +37,7 @@ export const Row = styled(RowMod)`
 `
 export const Column = styled(ColumnMod)`
   grid-template-columns: 1fr;
+  row-gap: var(--s6);
   ${({ custom }) => custom && css`
     @media(min-width: 980px) {
       grid-row-gap: var(--s6);
@@ -44,39 +45,29 @@ export const Column = styled(ColumnMod)`
   `}
 `
 export const Title = styled(TextHeading)`
-  @media(max-width: 594px) {
+  @media(max-width: 621px) {
     > span:after {
       width: 1.8ch;
       left: 50% !important;
       transform: translateX(-50%);
     }
   }
-  @media(max-width: 530px) {
+  @media(max-width: 555px) {
     > span:after {
       width: 6.2ch;
     }
   }
-  @media(max-width: 347px) {
+  @media(max-width: 363px) {
     > span:after {
       width: 9ch;
     }
   }
-  /* @media(max-width: 283px) {
-    > span:after {
-      width: 100%;
-    }
-  } */
 `
 export const Text = styled(TextParagraph)`
   max-width: 730px;
-  font-size: 1.6rem !important;
   line-height: 1.45;
 `
 export const QuoteMarkSVG = styled(QuoteMark)``
-// export const FaceDrawing = styled(FaceDrawing)``
-// export const HeartDrawing = styled(HeartDrawing)``
-// export const CrownDrawing = styled(CrownDrawing)``
-// export const CarDrawing = styled(CarDrawing)``
 
 export const Line = styled.div`
   width: 50px;
