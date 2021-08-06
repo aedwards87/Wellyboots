@@ -16,8 +16,6 @@ import { camalise } from '../../utils/helpers'
 const FooterIndex = () => {
   const data = useCompanyLocationsQuery()
 
-  console.log(data)
-
   return (
     <Footer>
       <Footer.Frame tPad={11} bPad={15}>

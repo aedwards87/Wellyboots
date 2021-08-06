@@ -70,7 +70,7 @@ export const Group = styled.div`
   grid-column-gap: var(--s4);
   grid-row-gap: var(--s2);
   > a:first-child {
-    padding-top: 13.5px;
+    margin-top: 13.5px;
   }
   @media(min-width: 420px) {
     grid-column-gap: var(--s5);
