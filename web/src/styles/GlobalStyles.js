@@ -72,6 +72,7 @@ const GlobalStyles = createGlobalStyle`
     --desktopMaxWidth: 1200px;
     --navHeight: var(--s10);
     --dropdownMenuSpacing: var(--s6);
+    --navSpacing: min(max(var(--s3),1.85vw), 27px);
 
     /* Static Page Themes */
     --colorPlayTheory: var(--colorOrange);
@@ -125,6 +126,13 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+
+  button, a {
+    outline-offset: 4px;
+  }
+
 `
+
+
 
 export { GlobalStyles }
