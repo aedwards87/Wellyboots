@@ -31,8 +31,8 @@ const Typography = createGlobalStyle`
     --fontWeightBold: 700;
 
     /* Line height */
-    --fontHeadingHeight: 1.5;
-    --fontTextHeight: 1.35;
+    --headingLineHeight: 1.5;
+    --textLineHeight: 1.4;
     
     /* Coupled font styles min(max(38px, 12vw), 80px)*/
     --heroFont:  min(max(39px, 12vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
@@ -67,12 +67,12 @@ const Typography = createGlobalStyle`
 
   p, a, li {
     letter-spacing: 0.3px;
-    line-height: var(--fontTextHeight);
+    line-height: var(--textLineHeight);
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    line-height: var(--fontHeadingHeight);
+    line-height: var(--headingLineHeight);
     letter-spacing: 0.3px;
     color: rgb(var(--colorText));
     > span {
