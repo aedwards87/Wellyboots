@@ -17,6 +17,7 @@ const Button = ({ className, children, to, pad, tPad, rPad, bPad, lPad, xPad, yP
       rPad={rPad || xPad}
       lPad={lPad || xPad}
       pad={pad}
+      type="button"
       onClick={() => to && navigate(camalise(to))}
       {...props}
     >
@@ -36,7 +37,7 @@ const Container = styled.button`
     z-index: 2;
   }
   &&:active {
-    transition: transform .1s ease;
+    transition: transform .1s ease, box-shadow .1s ease;
   }
   transition: transform .3s ease;
   ${({ pad }) => pad && css`padding: var(--s${pad})`};
@@ -98,7 +99,7 @@ const Container = styled.button`
             }
             &&:active {
               transform: translateY(0) ;
-              box-shadow: var(--level3);
+              box-shadow: none;
             }
           `
           : model === "right" ?
@@ -114,7 +115,7 @@ const Container = styled.button`
               }
               &&:active {
                 transform: translateY(0);
-                box-shadow: var(--level3);
+                box-shadow: none;
               }
             `
             : null
