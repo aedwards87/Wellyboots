@@ -232,7 +232,7 @@ export const Dropdown = styled(motion.div)`
   position: absolute;
   top: 3.8rem;
   left: calc(50% - 10px);
-  min-width: 42ch;
+  min-width: 44ch;
   height: auto;
   display: flex;
   flex-direction: column;
