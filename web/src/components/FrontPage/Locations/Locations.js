@@ -15,13 +15,12 @@ import {
   SVGDividerBottom,
   ButtonContainer,
   Button,
-  ArrowSVG
+  ArrowSVG,
 } from './LocationsStyles'
+import { LargeScreen, SmallScreen } from '../../MediaQueries/MediaQueries'
 
 // Imported helpers
 import { capitilise } from '../../../utils/helpers'
-import { Arrow } from '../../../assets/svg'
-
 
 export default function Locations({ children, className, bgColor, ...props }) {
   return (
@@ -67,77 +66,79 @@ Locations.SVGDividerBottom = function LocationsSVGDivider({ children, className,
   return (<SVGDividerBottom className={className} {...props}>{children}</SVGDividerBottom>)
 }
 
-Locations.ButtonContainer = function LocationsButtonContainer({ children, className, ...props }) {
-  return (<ButtonContainer className={className} {...props}>{children}</ButtonContainer>)
-}
-
-Locations.Button = function LocationsButton({ children, className, ...props }) {
-  return (<Button className={className} {...props}>{children}</Button>)
-}
-
-Locations.ArrowSVG = function LocationsArrowSVG({ children, className, ...props }) {
-  return (<ArrowSVG className={className} {...props}>{children}</ArrowSVG>)
+Locations.ButtonContainer = function LocationsButtonContainer({ children, className, next, previous, ...props }) {
+  return (
+    <ButtonContainer className={className} {...props}>
+      <Button
+        model="left"
+        name="previous"
+        yPad={3}
+        xPad={5}
+        color="light"
+        onClick={() => previous()}
+      >
+        <ArrowSVG color="dark" direction="left" />
+      </Button>
+      <Button
+        model="right"
+        name="next"
+        yPad={3}
+        xPad={5}
+        color="light"
+        onClick={() => next()}
+      >
+        <ArrowSVG color="dark" />
+      </Button>
+    </ButtonContainer>
+  )
 }
 
 Locations.Slider = function LocationsSlider({ children, className, data, ...props }) {
-  const breakpoints = [
-    {
-      breakpoint: 420,
-      settings: { slidesToShow: 1 }
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 769 },
+      items: 3,
     },
-    {
-      breakpoint: 768,
-      settings: { slidesToShow: 2 }
+    tablet: {
+      breakpoint: { max: 768, min: 501 },
+      items: 2,
+      partialVisibilityGutter: 30
+    },
+    mobile: {
+      breakpoint: { max: 500, min: 0 },
+      items: 1,
+      partialVisibilityGutter: 70
     }
-  ];
-
-  let settings = {
-    sideSize: 0,
-    slidesToScroll: 1,
-    slidesToShow: 3,
-    scrollOnDevice: true,
-    lazyLoad: false,
-    swipe: true,
-    breakpoints: breakpoints,
-    // slidesSpacing: 50,
-    animationDuration: 650,
-    // autoCycle: true
-    nextArrow: (
-      <Locations.Button
-        model="right"
-        yPad={3}
-        xPad={5}
-        color="light"
-        name="infinite-carousel-button-next"
-        data-testid="infinite-carousel-button-next"
-        className="InfiniteCarouselArrow InfiniteCarouselArrowNext"
-        type="button"
-      >
-        <Locations.ArrowSVG color="dark" />
-      </Locations.Button>
-    ),
-    prevArrow: (
-      <Locations.Button
-        model="left"
-        yPad={3}
-        xPad={5}
-        color="light"
-        name="infinite-carousel-button-previous"
-        data-testid="infinite-carousel-button-previous"
-        className="InfiniteCarouselArrow InfiniteCarouselArrowPrev"
-        type="button"
-      >
-        <Locations.ArrowSVG color="dark" direction="left" />
-      </Locations.Button>
-    )
   };
   return (
-    <Slider
-      className={className}
-      {...settings}
-      {...props}
-    >
-      {children}
-    </Slider>
+    <>
+      <LargeScreen>
+        <Slider
+          className={className}
+          itemClass="image-item"
+          responsive={responsive}
+          infinite={true}
+          arrows={false}
+          renderButtonGroupOutside={true}
+          {...props}
+        >
+          {children}
+        </Slider>
+      </LargeScreen>
+      <SmallScreen>
+        <Slider
+          className={className}
+          itemClass="image-item"
+          responsive={responsive}
+          infinite={true}
+          partialVisible
+          arrows={false}
+          renderButtonGroupOutside={true}
+          {...props}
+        >
+          {children}
+        </Slider>
+      </SmallScreen>
+    </>
   )
 }

@@ -1,7 +1,5 @@
-// Imported packages
+// Imported dependencies
 import React from 'react'
-import { Link } from 'gatsby'
-
 // Imported components
 import SEO from '../components/seo'
 import { Hero, Locations, AboutUs, ReviewsPreview } from '../components/FrontPage'

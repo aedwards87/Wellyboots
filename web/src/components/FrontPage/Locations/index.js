@@ -2,7 +2,7 @@
 import React from 'react'
 // Imported components
 import Locations from './Locations'
-// IMported hooks
+// Imported hooks
 import { useCompanyLocationsQuery } from '../../../hooks'
 
 const LocationsIndex = () => {
@@ -11,7 +11,7 @@ const LocationsIndex = () => {
   return (
     <Locations id="locations" bgColor="yellow">
       <Locations.SVGDividerTop />
-      <Locations.Frame yPad={8} bPad={11} yGap={3}>
+      <Locations.Frame yPad={8} bPad={10} yGap={3}>
         <Locations.Row rGap={5}>
           <Locations.Column>
             <Locations.Title heading="h2" lineColor="light" zIndex="1">
@@ -19,9 +19,9 @@ const LocationsIndex = () => {
             </Locations.Title>
           </Locations.Column>
         </Locations.Row>
-        <Locations.Row xGap={11} yGap={5}>
+        <Locations.Row xGap={11} yGap={5} custom>
           <Locations.Column xAlign="stretch" custom>
-            <Locations.Slider>
+            <Locations.Slider customButtonGroup={<Locations.ButtonContainer />}>
               {data.locations.nodes.map(({ name }) =>
                 <Locations.Card key={name} name={name} />
               )}
