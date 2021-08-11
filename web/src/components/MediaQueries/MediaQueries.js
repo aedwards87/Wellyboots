@@ -10,13 +10,24 @@ const Laptop = ({ children }) => {
   return matches ? children : null
 }
 
-const Tablet = ({ children }) => {
-  const matches = useMediaQuery({ minWidth: 768, maxWidth: 1024, minHeight: 1000 })
+const LargeScreen = ({ children }) => {
+  const matches = useMediaQuery({ minWidth: 769 })
   return matches ? children : null
 }
 
 const SmallScreen = ({ children }) => {
-  const matches = useMediaQuery({ maxWidth: 767 })
+  const matches = useMediaQuery({ maxWidth: 768 })
+  return matches ? children : null
+}
+
+const LargeTablet = ({ children }) => {
+  const matches = useMediaQuery({ minWidth: 768, maxWidth: 1024, minHeight: 1000 })
+  return matches ? children : null
+}
+
+
+const SmallTablet = ({ children }) => {
+  const matches = useMediaQuery({ minWidth: 420, maxWidth: 767 })
   return matches ? children : null
 }
 
@@ -25,4 +36,4 @@ const Mobile = ({ children }) => {
   return matches ? children : null
 }
 
-export { Desktop, Laptop, Tablet, SmallScreen, Mobile }
+export { Desktop, Laptop, LargeScreen, LargeTablet, SmallTablet, SmallScreen, Mobile }
