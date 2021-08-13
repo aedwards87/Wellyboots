@@ -36,7 +36,19 @@ export default {
       title: `Name`,
       type: 'string',
       description: 'What is the name of the location',
-      validation: Rule => Rule.required().max(100)
+      options: {
+        maxLength: 96
+      },
+      validation: Rule => Rule.required().max(96)
+    },
+    {
+      name: 'shortName',
+      title: `Short name`,
+      type: 'string',
+      description: 'If the location has a shortened name, please insert here',
+      options: {
+        maxLength: 96
+      },
     },
     {
       name: 'slug',
@@ -48,6 +60,21 @@ export default {
         maxLength: 96
       },
       validation: Rule => Rule.required().error('A slug is required for this location to have it\'s own page')
+    },
+    {
+      name: 'type',
+      title: `Type`,
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'What type of daycare definition is this location?',
+      options: {
+        list: [ 
+          { title: 'Pre-school', value: 'pre-school' },
+          { title: 'After school club', value: 'after school club' },
+          { title: 'Childminding', value: 'childminding' },
+        ]
+      },
+      validation: Rule => Rule.required().error('Every location has a type of daycare they perform')
     },
     {
       name: 'introduction',
