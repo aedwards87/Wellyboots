@@ -51,7 +51,7 @@ const Typography = createGlobalStyle`
 
   @media(min-width: 980px) {
     :root {
-      --heroFont:  min(max(39px, 4.15vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
+      --heroFont:  min(max(39px, 4.1vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
     }
   }
 

@@ -131,6 +131,10 @@ const GlobalStyles = createGlobalStyle`
     outline-offset: 4px;
   }
 
+  p + p {
+    margin-top: 2rem;
+  }
+
 `
 
 
