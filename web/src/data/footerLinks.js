@@ -4,6 +4,7 @@ const footerLinks = [
   },
   {
     title: 'Locations',
+    hasDropdown: true
   },
   {
     title: 'Cirriculum',
