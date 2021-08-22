@@ -11,9 +11,10 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
-    title: `Wellyboots Day Care`,
+    title: `Wellyboots Daycare Ltd`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: ``,
+    author: `Kelly Page`,
+    // siteUrl: 'wellybootsdaycare.co.uk'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
