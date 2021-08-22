@@ -66,12 +66,12 @@ export default {
       title: `Type`,
       type: 'array',
       of: [{type: 'string'}],
-      description: 'What type of daycare definition is this location?',
+      description: 'What type of daycare is performed at this location?',
       options: {
         list: [ 
-          { title: 'Pre-school', value: 'pre-school' },
-          { title: 'After school club', value: 'after school club' },
-          { title: 'Childminding', value: 'childminding' },
+          { title: 'Pre-school', value: 'Pre-school' },
+          { title: 'After school club', value: 'After school club' },
+          { title: 'Childminding', value: 'Childminding' },
         ]
       },
       validation: Rule => Rule.required().error('Every location has a type of daycare they perform')
@@ -82,6 +82,11 @@ export default {
       type: 'bioPortableText',
       description: 'Tell us a bit about the location',
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'introd',
+      title: `Introd`,
+      type: 'bodyPortableText',
     },
     {
       name: 'subBrandLogo',
@@ -164,12 +169,27 @@ export default {
     //       .unique()
     //       .error('Check quantities, there is a minimum of 2 and maximum of 10 required')
     // },
+
+    {
+      name: 'contactDetails',
+      title: `Contact Details`,
+      type: 'locationContactDetails',
+      description: 'Please fill in this locations contact details',
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'address',
+      title: `Address`,
+      type: 'address',
+      description: 'Please fill in this locations address details',
+      validation: Rule => Rule.required('Every location requires an address')
+    },
     {
       name: 'geoLocation',
       title: `Location`,
       type: 'geopoint',
-      description: 'Where is this location located',
-      validation: Rule => Rule.required()
+      description: 'Pinpoint this location on the map',
+      validation: Rule => Rule.required('Pinpointing the exact location will ensure users of the website find the location without fail')
     },
     {
       name: 'dayAndTime',

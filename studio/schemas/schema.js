@@ -33,6 +33,8 @@ import dayAndTime from './objects/dayAndTime'
 import aboutOwner from './objects/aboutOwner'
 import socialMediaHandle from './objects/socialMediaHandle'
 import colors from './objects/colors'
+import address from './objects/address'
+import locationContactDetails from './objects/locationContactDetails'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -67,7 +69,9 @@ export default createSchema({
     brandColors,
     colors,
     logo,
-    svgUploadPreview
+    svgUploadPreview,
+    address,
+    locationContactDetails
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

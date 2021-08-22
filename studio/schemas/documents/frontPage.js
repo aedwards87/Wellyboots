@@ -6,7 +6,7 @@ export default {
   fields: [
     {
       name: 'heading',
-      type: 'text',
+      type: 'string',
       title: 'Headline',
       description: 'Your unqiue selling point. This will be one of the main focal points when users enter your website'
     },
@@ -15,12 +15,6 @@ export default {
       type: 'string',
       title: 'Sub-headline',
       description: 'A brief description of what you do/offer'
-    },
-    {
-      name: 'accreditations',
-      type: 'array',
-      description: 'Any logos your company is accredited to',
-      of: [{ type: 'imageModal' }]
     },
     {
       name: 'primaryCTA',
@@ -35,7 +29,19 @@ export default {
       title: 'Secondary call to action',
       description: 'The label for your secondary cta button',
       validation: Rule => Rule.min(2).max(20)
-    }
+    },
+    {
+      name: 'imageGallery',
+      title: `Carousel images`,
+      description: 'Select upto a maximum of 6 images to display in the carousel',
+      type: 'array',
+      of: [{
+        type: 'reference',
+        to: [{ type: 'imageGallery' }]
+      }],
+      validation: Rule => Rule.required().min(2).max(6).unique()
+    },
+    
   ]
 
 }

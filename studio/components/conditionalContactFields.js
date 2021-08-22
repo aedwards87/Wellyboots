@@ -15,7 +15,7 @@ class ConditionalContactFields extends React.Component {
       // and ensure this input's value exists
       onChange(fieldPatchEvent.prefixAll(field.name).prepend(setIfMissing({ _type: type.name })))
     }
-    console.log({ type })
+    // console.log({ type })
 
     return (
       <Fieldset
