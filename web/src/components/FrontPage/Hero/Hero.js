@@ -1,7 +1,6 @@
 // Imported dependencies
 import React, { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { wrap } from 'popmotion'
 // Imported components
 import {
   Container,
@@ -12,12 +11,18 @@ import {
   SVG,
   Title,
   Text,
-  ButtonContainer,
-  Button,
+  LinkContainer,
+  Link,
+  FootPrintsSVG,
   SVGFootPrints,
+  Image,
 } from './HeroStyles'
+// Imported animations
+import { carouselVariants } from './HeroAnimations'
 // Imported helpers
-import { getRandomInt } from '../../../utils/helpers'
+import { usePaginate } from '../../../hooks/usePaginate'
+import { useRandomNumberGenerator } from '../../../hooks/useRandomNumberGenerator'
+
 
 export default function Hero({ children, className, bgColor, ...props }) {
   return (
@@ -43,77 +48,26 @@ Hero.Column = function HeroColumn({ children, className, ...props }) {
   return (<Column className={className} {...props}>{children}</Column>)
 }
 
-Hero.ImageCarousel = function HeroImageCarousel({ children, className, src, alt, data = [0], ...props }) {
-  const [numberArray, setNumberArray] = useState([0]);
-  const [[page, direction], setPage] = useState([0, 0]);
-  const carouselIndex = wrap(0, data.length, page);
-  const paginate = (newDirection) => {
-    setPage([page + newDirection, newDirection]);
-  };
-
-  // Timer to change images after 4 seconds
-  // useEffect(() => {
-  //   const Timer = setInterval(() => {
-  //     // setIndex(state => (state + 1) % data.length)
-  //     paginate(1)
-  //   }, 6000)
-  //   return () => clearInterval(Timer)
-  // })
-
-  useEffect(() => {
-    const num = getRandomInt(data.length * 3);
-    setNumberArray([num]);
-  }, [page]);
-
-  const variants = {
-    enter: {
-      x: '-100%',
-      opacity: 0,
-      // y: '-50%',
-      rotate: '-45deg',
-      scale: 1.4,
-    },
-    center: {
-      x: '-0%', /* large screens */
-      // x: '-50%',
-      opacity: 1,
-      // y: '-50%', /* large screens */
-      // y: '-59.5%',
-      scale: 1,
-      rotate: `-${numberArray}deg`,
-      transition: {
-        delay: 1,
-        velocity: 1,
-        type: "spring",
-        mass: 5,
-        stiffness: 140,
-        damping: 40,
-      },
-    },
-    exit: {
-      x: 0, /* large screens */
-      // x: '-50%',
-      opacity: 0,
-      transition: {
-        delay: 8
-      }
-    }
-  };
-
+Hero.ImageCarousel = function HeroImageCarousel({ children, className, src, alt, images, ...props }) {
+  const [page, direction, paginate, carouselIndex] = usePaginate(images /*, timer */)
+  const [number] = useRandomNumberGenerator(images, page)
   return (
-    <AnimatePresence custom={direction}>
+    <AnimatePresence>
       <ImageCarousel
         key={page}
         className={className}
-        custom={direction}
-        variants={variants}
-        initial="enter"
-        animate="center"
+        custom={number}
+        initial="initial"
+        animate="animate"
         exit="exit"
+        variants={carouselVariants}
         onClick={() => paginate(1)}
         {...props}
       >
-        <motion.img src={data[carouselIndex].src} alt={alt} />
+        <Image
+          fluid={images[carouselIndex].image.asset.fluid}
+          alt={images[carouselIndex].image.alt}
+        />
       </ImageCarousel>
     </AnimatePresence>
   )
@@ -123,8 +77,8 @@ Hero.SVG = function HeroSVG({ children, className, ...props }) {
   return (<SVG className={className} {...props}>{children}</SVG>)
 }
 
-Hero.SVGFootPrints = function HeroSVGFootPrints({ children, className, ...props }) {
-  return (<SVGFootPrints className={className} {...props}>{children}</SVGFootPrints>)
+Hero.FootPrintsSVG = function HeroFootPrintsSVG({ children, className, ...props }) {
+  return (<FootPrintsSVG className={className} {...props}>{children}</FootPrintsSVG>)
 }
 
 Hero.Title = function HeroTitle({ children, className, ...props }) {
@@ -135,17 +89,10 @@ Hero.Text = function HeroText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
 }
 
-Hero.ButtonContainer = function HeroButtonContainer({ children, className, ...props }) {
-  return (<ButtonContainer className={className} {...props}>{children}</ButtonContainer>)
+Hero.LinkContainer = function HeroLinkContainer({ children, className, ...props }) {
+  return (<LinkContainer className={className} {...props}> {children} </LinkContainer>)
 }
 
-Hero.Button = function HeroButton({ children, className, ...props }) {
-  return (
-    <Button
-      className={className}
-      {...props}
-    >
-      {children}
-    </Button>
-  )
+Hero.Link = function HeroLink({ children, className, ...props }) {
+  return (<Link className={className} {...props}> {children} </Link>)
 }

@@ -10,7 +10,7 @@ const HeaderIndex = ({ siteTitle }) => {
   return (
     <Header>
       <Header.Frame yPad={0}>
-        <Nav />
+        <Nav siteTitle={siteTitle} />
       </Header.Frame>
     </Header>
   )

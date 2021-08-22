@@ -5,15 +5,16 @@ import { motion } from 'framer-motion';
 // Imported helpers 
 import { capitilise } from '../../utils/helpers';
 
-const TextHeading = ({ className, children, style, heading, lineColor, weight = 'normal', color, textAlign, small, zIndex, ...props }) => {
+const TextHeading = ({ className, children, style, heading, lineColor, weight = 'normal', color, textAlign, small, zIndex, innerRef, ...props }) => {
   const htmlElement = heading === 'Hero' || heading === 'hero' ? 'h1' : heading
   const topHeading = heading === 'Hero' || heading === 'hero' || lineColor
   const h2XL = heading === 'h2' && lineColor
-  // console.log({ lineColor });
+
   return (
     <motion.div {...props}>
       <Container
         className={className}
+        ref={innerRef}
         as={htmlElement}
         heading={heading}
         color={color}
@@ -38,7 +39,7 @@ const TextHeading = ({ className, children, style, heading, lineColor, weight = 
   )
 }
 
-const Container = styled.h1`
+const Container = styled(motion.h1)`
   ${({ color }) => color && css`color: rgb(var(--color${capitilise(color)}))`};
   ${({ heading }) => heading === 'hero' && css`font: var(--heroFont)`};
   ${({ textAlign }) => textAlign && css`

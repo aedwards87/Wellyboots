@@ -1,8 +1,12 @@
+// Imported dependencies
+import styled from "styled-components/macro"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
-import styled from "styled-components/macro"
-import { capitilise } from "../../../utils/helpers"
+import { default as GatsbyImage } from 'gatsby-image'
+// Imported components
 import TextHeading from "../TextHeading"
+// Imported helpers
+import { capitilise } from "../../../utils/helpers"
 
 
 export const Container = styled(Link)`
@@ -21,7 +25,6 @@ export const Container = styled(Link)`
   font-size: min(max(18px, calc((40vw / 1) * .14)), 14vw);
   font-weight: 500;
   transition: transform .4s ease-out;
-  
   @media (min-width: 501px) {
     width: 100%;
     padding-top: 115%;
@@ -64,7 +67,7 @@ export const Hero = styled.div`
     left: 0;
     z-index: -1;
     width: 100%;
-    background: ${({ colors }) => `rgb(var(--color${capitilise(colors[0])}))`};
+    background-color: ${({ colors }) => `rgb(var(--color${capitilise(colors[0].title)}))`};
   }
   :before {
     top: 0;
@@ -79,7 +82,13 @@ export const Hero = styled.div`
 `
 export const Footer = styled.div``
 
-export const Heading = styled(TextHeading)`
+export const Image = styled(GatsbyImage)`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+`
+
+export const Title = styled(TextHeading)`
   font-size: min(max(18px, calc((40vw / 1) * .14)), 14vw);
   @media (min-width: 501px) {
     font-size: calc((40vw / 2) * .14);
@@ -95,28 +104,37 @@ export const ImageContainer = styled(motion.div)`
   left: 0;
   height: 100%;
   width: 100%;
-  > img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+`
+
+export const TextContainer = styled(motion.div)`
+  position: absolute;
+  bottom: -7%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  padding-left: var(--s2);
+  padding-right: var(--s2);
 `
 
 export const Text = styled(motion.span)`
-  position: absolute;
-  bottom: -7.5%;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 6px 12px;
-  background-color: rgb(var(--colorYellow));
+  color: ${({ colors }) =>
+    !colors[1].title.includes('Dark') || colors[1].title.includes('green') ? `rgb(var(--colorDark))` : `rgb(var(--colorLight))`
+  };
+  background-color: ${({ colors }) => `rgb(var(--color${capitilise(colors[1].title)}))`};
   border-radius: 5px;
   box-shadow: var(--level2);
   font-size: min(max(1rem, calc((40vw / 1) * .09)), 1.5rem);
   @media (min-width: 501px) {
-    font-size: calc((40vw / 2) * .09);
+    font-size: calc((40vw / 2) * .08);
   }
   @media (min-width: 769px) {
-    font-size: min(max(1rem, calc((40vw / 3) * .09)), 1.5rem);
+    font-size: min(max(1rem, calc((40vw / 3) * .08)), 1.5rem);
   }
 `
 

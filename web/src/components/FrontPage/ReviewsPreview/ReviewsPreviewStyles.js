@@ -4,38 +4,44 @@ import { motion } from 'framer-motion';
 // import Image from 'gatsby-image';
 
 // Imported Components
-import FrameMod from '../../Reusable/Frame'
-import RowMod from '../../Reusable/Row'
-import ColumnMod from '../../Reusable/Column'
-import TextHeading from '../../Reusable/TextHeading';
-import TextParagraph from '../../Reusable/TextParagraph';
-import ButtonMod from '../../Reusable/Button';
-import { QuoteMark, Crown, Car, Girl, Heart, Arrow } from '../../../assets/svg/index';
-import WaveReviewsPreviewTop from '../../../assets/svg/Waves/WaveReviewsPreviewTop';
-import WaveReviewsPreviewBottom from '../../../assets/svg/Waves/WaveReviewsPreviewBottom';
+import {
+  Frame as FrameOrigin,
+  Row as RowOrigin,
+  Column as ColumnOrigin,
+  TextHeading,
+  TextParagraph,
+  Button as ButtonOrigin,
+} from '../../Reusable';
+import {
+  QuoteMark,
+  Crown,
+  Car,
+  Girl,
+  Heart,
+  Arrow,
+  WaveReviewsPreviewTop,
+  WaveReviewsPreviewBottom
+} from '../../../assets/svg';
 
 // Styles
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
 `
-
-export const Frame = styled(FrameMod)``
-export const Row = styled(RowMod)`
+export const Frame = styled(FrameOrigin)``
+export const Row = styled(RowOrigin)`
   position: relative;
   width: 100%;
   
   ${({ custom }) =>
     custom && css`
-      height: calc(30em + -38vw);
-      max-height: 380px;
-      ${'' /* height: calc(25em + -15vw); */}
+      height: calc(36em + -37vw);
       @media (min-width: 768px) {
-        height: 260px;
+        height: 380px;
       } 
     `
   }
 `
-export const Column = styled(ColumnMod)`
+export const Column = styled(ColumnOrigin)`
   grid-template-columns: 1fr;
   row-gap: var(--s6);
   ${({ custom }) => custom && css`
@@ -45,14 +51,14 @@ export const Column = styled(ColumnMod)`
   `}
 `
 export const Title = styled(TextHeading)`
-  @media(max-width: 621px) {
+  @media(max-width: 639px) {
     > span:after {
       width: 1.8ch;
       left: 50% !important;
       transform: translateX(-50%);
     }
   }
-  @media(max-width: 555px) {
+  @media(max-width: 572px) {
     > span:after {
       width: 6.2ch;
     }
@@ -62,6 +68,13 @@ export const Title = styled(TextHeading)`
       width: 9ch;
     }
   }
+`
+export const TextContainer = styled.div`
+  font-weight: var(--paraFontWeight);
+  color: rgb(var(--paraFontColor));
+  max-width: 730px;
+  line-height: 1.45;
+  text-align: center;
 `
 export const Text = styled(TextParagraph)`
   max-width: 730px;
@@ -75,12 +88,14 @@ export const Line = styled.div`
   background: rgb(var(--colorLight));
 `
 
-export const ButtonContainer = styled.div`
+export const ButtonContainer = styled(motion.div)`
   display: flex;
   border-radius: 12px;
   box-shadow: var(--level3);
+  justify-self: center;
+  align-self: flex-end;
 `
-export const Button = styled(ButtonMod)``
+export const Button = styled(ButtonOrigin)``
 export const ArrowSVG = styled(Arrow)`
   ${({ direction }) => direction === 'left' && css`transform: rotate(-180deg)`} 
 `
@@ -92,10 +107,15 @@ export const GirlSVG = styled(Girl)``
 export const HeartSVG = styled(Heart)``
 export const SliderAnimation = styled(motion.div)`
   position: absolute;
-  display: flex;
+  display: grid;
   width: 100%;
+  height: 100%;
   justify-content: center;
+  align-items: start;
   cursor: grab;
+  :active {
+    cursor: grabbing;
+  }
 `
 
 

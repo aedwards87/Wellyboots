@@ -1,6 +1,6 @@
-// Imported packages
+// Imported dependencies
 import React from 'react'
-
+import InView from 'react-intersection-observer'
 // Imported components
 import {
   Container,
@@ -10,13 +10,14 @@ import {
   ImageContainer,
   Image,
   Title,
-  Text,
-  ButtonContainer,
-  Button
+  PortableText,
+  LinkContainer,
+  Link
 } from './AboutUsStyles'
-
 // Imported helpers
 import { capitilise } from '../../../utils/helpers'
+// Imported animations
+import { rowVariants, columnVariants, linkContainerVariants } from './AboutUsAnimations'
 
 
 export default function AboutUs({ children, className, bgColor, ...props }) {
@@ -38,11 +39,26 @@ AboutUs.Frame = function AboutUsFrame({ children, className, ...props }) {
 }
 
 AboutUs.Row = function AboutUsRow({ children, className, ...props }) {
-  return (<Row className={className} {...props}>{children}</Row>)
+  return (
+    <InView threshold=".3">
+      {({ inView, ref }) =>
+        <Row
+          className={className}
+          innerRef={ref}
+          initial="initial"
+          animate={inView && "animate"}
+          variants={rowVariants}
+          {...props}
+        >
+          {children}
+        </Row>
+      }
+    </InView>
+  )
 }
 
 AboutUs.Column = function AboutUsColumn({ children, className, ...props }) {
-  return (<Column className={className} {...props}>{children}</Column>)
+  return (<Column className={className} variants={columnVariants} {...props}>{children}</Column>)
 }
 
 AboutUs.ImageContainer = function AboutUsImageContainer({ children, className, ...props }) {
@@ -57,14 +73,34 @@ AboutUs.Title = function AboutUsTitle({ children, className, ...props }) {
   return (<Title className={className} {...props}>{children}</Title>)
 }
 
-AboutUs.Text = function AboutUsText({ children, className, ...props }) {
-  return (<Text className={className} {...props}>{children}</Text>)
+AboutUs.PortableText = function AboutUsPortableText({ children, className, ...props }) {
+  return (<PortableText className={className} {...props}>{children}</PortableText>)
 }
 
-AboutUs.ButtonContainer = function AboutUsButtonContainer({ children, className, ...props }) {
-  return (<ButtonContainer className={className} {...props}>{children}</ButtonContainer>)
+AboutUs.LinkContainer = function AboutUsLinkContainer({ children, className, ...props }) {
+  return (
+    <InView threshold=".3">
+      {({ inView, ref }) =>
+        <LinkContainer
+          ref={ref}
+          className={className}
+          initial="initial"
+          animate={inView && "animate"}
+          variants={linkContainerVariants}
+          {...props}
+        >
+          {children}
+        </LinkContainer>
+      }
+    </InView>
+  )
 }
 
-AboutUs.Button = function AboutUsButton({ children, className, ...props }) {
-  return (<Button className={className} {...props}>{children}</Button>)
+AboutUs.Link = function AboutUsLink({ children, className, ...props }) {
+  return (
+    <Link
+      className={className}
+      {...props}
+    >{children}</Link>
+  )
 }

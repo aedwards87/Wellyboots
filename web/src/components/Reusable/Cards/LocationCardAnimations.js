@@ -28,7 +28,7 @@ export const SpanVariants = {
   closed: {
     opacity: 0,
     y: 25,
-    x: '-50%',
+    // x: '-50%',
     transition: {
       duration: .2,
     }
@@ -36,7 +36,7 @@ export const SpanVariants = {
   open: {
     opacity: 1,
     y: 0,
-    x: '-50%',
+    // x: '-50%',
     transition: {
       type: 'spring',
       stiffness: 500,
@@ -46,3 +46,4 @@ export const SpanVariants = {
     }
   },
 }
+

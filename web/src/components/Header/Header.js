@@ -1,5 +1,6 @@
 // Imported packages
 import React from 'react'
+import { useScroll } from '../../hooks/useScroll'
 
 // Imported components
 import {
@@ -8,6 +9,7 @@ import {
 } from './HeaderStyles'
 
 export default function Header({ classname, color, background, height, position, children, ...props }) {
+  const scrollPos = useScroll()
   return (
     <Container
       classname={classname}
@@ -17,6 +19,7 @@ export default function Header({ classname, color, background, height, position,
         '--height': height,
         '--position': position,
       }}
+      scrollPos={scrollPos}
       {...props}
     >
       {children}

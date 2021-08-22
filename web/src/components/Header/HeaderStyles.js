@@ -1,8 +1,8 @@
 // Imported packages
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 
 // Imported components
-import FrameMod from '../Reusable/Frame'
+import FrameOrigin from '../Reusable/Frame'
 
 // Styles
 export const Container = styled.header`
@@ -13,9 +13,14 @@ export const Container = styled.header`
   top: 0;
   left: 0;
   color: var(--color, var(--textColor));
-  background: var(--background, rgb(var(--colorLight)));
-  z-index: 9;
-  transition: margin .5s ease;
+  background: transparent;
+  ${({ scrollPos }) => scrollPos >= 40 &&
+    css`
+      background: rgb(var(--colorLight));
+    `
+  }
+  z-index: 11;
+  transition: margin .5s ease, background 1s ease;
   @media (min-width: 980px) {
     margin-top: 20px;
   }
@@ -23,5 +28,4 @@ export const Container = styled.header`
     margin-top: 40px;
   }
 `
-
-export const Frame = styled(FrameMod)``
+export const Frame = styled(FrameOrigin)``

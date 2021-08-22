@@ -1,5 +1,6 @@
 // Imported dependencies
 import React from 'react'
+import { InView } from "react-intersection-observer";
 
 // Imported components
 import {
@@ -13,7 +14,8 @@ import {
   Text,
   SVGDividerTop,
   SVGDividerBottom,
-  ButtonContainer,
+  ButtonOuterContainer,
+  ButtonInnerContainer,
   Button,
   ArrowSVG,
 } from './LocationsStyles'
@@ -21,6 +23,8 @@ import { LargeScreen, SmallScreen } from '../../MediaQueries/MediaQueries'
 
 // Imported helpers
 import { capitilise } from '../../../utils/helpers'
+import { buttonContainerVariants, columnVariants, titleVariants } from './LocationsAnimations';
+
 
 export default function Locations({ children, className, bgColor, ...props }) {
   return (
@@ -43,7 +47,22 @@ Locations.Row = function LocationsRow({ children, className, ...props }) {
 }
 
 Locations.Column = function LocationsColumn({ children, className, ...props }) {
-  return (<Column className={className} {...props}>{children}</Column>)
+  return (
+    <InView threshold=".2">
+      {({ inView, ref }) =>
+        <Column
+          className={className}
+          innerRef={ref}
+          initial="initial"
+          animate={inView && "animate"}
+          variants={props.custom && columnVariants}
+          {...props}
+        >
+          {children}
+        </Column>
+      }
+    </InView>
+  )
 }
 
 Locations.Card = function LocationsCard({ children, className, data, ...props }) {
@@ -51,8 +70,24 @@ Locations.Card = function LocationsCard({ children, className, data, ...props })
 }
 
 Locations.Title = function LocationsTitle({ children, className, ...props }) {
-  return (<Title className={className} {...props}>{children}</Title>)
+  return (
+    <InView threshold=".5">
+      {({ inView, ref }) =>
+        <Title
+          className={className}
+          innerRef={ref}
+          initial="initial"
+          animate={inView && "animate"}
+          variants={titleVariants}
+          {...props}
+        >
+          {children}
+        </Title>
+      }
+    </InView>
+  )
 }
+
 
 Locations.Text = function LocationsText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
@@ -68,28 +103,41 @@ Locations.SVGDividerBottom = function LocationsSVGDivider({ children, className,
 
 Locations.ButtonContainer = function LocationsButtonContainer({ children, className, next, previous, ...props }) {
   return (
-    <ButtonContainer className={className} {...props}>
-      <Button
-        model="left"
-        name="previous"
-        yPad={3}
-        xPad={5}
-        color="light"
-        onClick={() => previous()}
-      >
-        <ArrowSVG color="dark" direction="left" />
-      </Button>
-      <Button
-        model="right"
-        name="next"
-        yPad={3}
-        xPad={5}
-        color="light"
-        onClick={() => next()}
-      >
-        <ArrowSVG color="dark" />
-      </Button>
-    </ButtonContainer>
+    <InView threshold="1">
+      {({ inView, ref }) =>
+        <ButtonOuterContainer>
+          <ButtonInnerContainer
+            className={className}
+            ref={ref}
+            initial="initial"
+            animate={inView && "animate"}
+            variants={buttonContainerVariants}
+            {...props}
+          >
+            <Button
+              model="left"
+              name="previous"
+              yPad={3}
+              xPad={5}
+              color="light"
+              onClick={() => previous()}
+            >
+              <ArrowSVG color="dark" direction="left" />
+            </Button>
+            <Button
+              model="right"
+              name="next"
+              yPad={3}
+              xPad={5}
+              color="light"
+              onClick={() => next()}
+            >
+              <ArrowSVG color="dark" />
+            </Button>
+          </ButtonInnerContainer>
+        </ButtonOuterContainer>
+      }
+    </InView>
   )
 }
 

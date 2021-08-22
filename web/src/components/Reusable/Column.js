@@ -4,13 +4,14 @@ import styled, { css } from 'styled-components/macro'
 import { regExpLetterChecker } from '../../utils/helpers'
 
 
-const Column = ({ className, children, xGap, yGap, columnOrder, xAlign = "start", xItemsAlign, yAlign, yItemsAlign, rowOrder, ...props }) => {
+const Column = ({ className, children, xGap, yGap, columnOrder, xAlign = "start", xItemsAlign, yAlign, yItemsAlign, rowOrder, innerRef, ...props }) => {
   return (
     <Container
       className={className}
+      ref={innerRef}
       style={{
-        '--columnXGap': regExpLetterChecker.test(xGap) ? [xGap] : [`var(--s${xGap})`, `var(--s${xGap + 2})`],
-        '--columnYGap': regExpLetterChecker.test(yGap) ? [yGap] : [`var(--s${yGap})`, `var(--s${yGap + 2})`],
+        '--columnXGap': regExpLetterChecker(xGap) ? [xGap] : [`var(--s${xGap})`, `var(--s${xGap + 2})`],
+        '--columnYGap': regExpLetterChecker(yGap) ? [yGap] : [`var(--s${yGap})`, `var(--s${yGap + 2})`],
         '--xAlign': xAlign,
         '--xItemsAlign': xItemsAlign,
         '--yAlign': yAlign,

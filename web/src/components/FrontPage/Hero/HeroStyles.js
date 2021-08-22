@@ -1,27 +1,31 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
 import { motion } from 'framer-motion';
-
+import { default as GatsbyImage } from 'gatsby-image'
 // Imported Components
-import FrameMod from '../../Reusable/Frame'
-import RowMod from '../../Reusable/Row'
-import ColumnMod from '../../Reusable/Column'
-import TextHeading from '../../Reusable/TextHeading';
-import TextParagraph from '../../Reusable/TextParagraph';
-import ButtonMod from '../../Reusable/Button';
-import { Blob } from '../../../assets/svg/index';
-import FootPrints from '../../../assets/svg/FootPrints'
+import {
+  Frame as FrameOrigin,
+  Row as RowOrigin,
+  Column as ColumnOrigin,
+  TextHeading,
+  TextParagraph,
+  Link as LinkOrigin,
+} from '../../Reusable';
+import {
+  Blob,
+  FootPrints
+} from '../../../assets/svg';
+
 
 // Styles
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
 `
 
-export const Frame = styled(FrameMod)`
+export const Frame = styled(FrameOrigin)`
   overflow: hidden;
   padding-bottom: 28vw;
   @media(max-width: 285px) {
-    /* padding-bottom: 100px; */
   }
   @media(min-width: 980px) {
     overflow: unset;
@@ -30,11 +34,11 @@ export const Frame = styled(FrameMod)`
     }
   }
 `
-export const Row = styled(RowMod)`
+export const Row = styled(RowOrigin)`
   grid-row-gap: calc(var(--s4) + 18vw);
 `
 
-export const Column = styled(ColumnMod)`
+export const Column = styled(ColumnOrigin)`
   position: relative;
   grid-row-gap: var(--s5);
   align-items: center;
@@ -49,10 +53,6 @@ export const Column = styled(ColumnMod)`
 export const ImageCarousel = styled(motion.div)`
   position: absolute;
   width: 100%;
-  /* top: 50%; */
-  /* transform: translateY(-50%) translateX(-50%) rotate(-3deg); */
-  /* right: var(--s4); */
-  /* left: 50%; */
   transform: rotate(-3deg);
   border: var(--s2) solid rgb(var(--colorLight));
   box-shadow: var(--level5);
@@ -77,23 +77,22 @@ export const ImageCarousel = styled(motion.div)`
     width: 550px;
     height: 360px;
     position: absolute;
-    /* top: 50%; */
     transform: translateY(-50%) rotate(-3deg);
     right: var(--s4);
     margin-top: 0;
   }
 `
-
+export const Image = styled(GatsbyImage)`
+  width: 100%;
+  height: 100%;
+`
 export const SVG = styled(Blob)`
   position: absolute;
-  align-items: center;
+  /* align-items: center;
   justify-items: center;
   align-content: center;
   justify-content: center;
-  /* height: 592px; */
-  /* bottom: 0; */
-  /* right: calc(var(--s4) * 1px); */
-  transform: translateX(0);
+  transform: translateX(0); */
   width: 126%;
   height: 226%;
   right: 0;
@@ -142,7 +141,7 @@ export const Text = styled(TextParagraph)`
   }
 `
 
-export const ButtonContainer = styled(motion.div)`
+export const LinkContainer = styled(motion.div)`
   display: grid;
   gap: 20px;
   margin-top: min(max(var(--s1), 3vw), var(--s3));
@@ -160,6 +159,5 @@ export const ButtonContainer = styled(motion.div)`
     justify-content: start;
   }
 `
-export const Button = styled(ButtonMod)``
-export const SVGFootPrints = styled(FootPrints)`
-`
+export const Link = styled(LinkOrigin)``
+export const FootPrintsSVG = styled(FootPrints)``

@@ -1,26 +1,22 @@
 // Imported dependencies
 import React from 'react'
-
-const data = [
-  { src: 'https://i.imgur.com/z8wxU66.jpg' },
-  { src: 'https://i.imgur.com/z8wxU66.jpg' },
-  { src: 'https://i.imgur.com/z8wxU66.jpg' },
-  { src: 'https://i.imgur.com/z8wxU66.jpg' },
-  { src: 'https://i.imgur.com/z8wxU66.jpg' },
-]
-
-import Blob2 from '../../../assets/svg/Blob2'
-import Blob3 from '../../../assets/svg/Blob3'
 // Imported components
 import Hero from './Hero'
-import { headingVariants, textVariants, buttonVariants, blobVariants } from './HeroAnimations'
-// Data to come in from CMS
-// const data = "A positive, safe and secure environment for every childA positive, safe and secure environment for every child"
-// const firstHighlight = 'positive'
-// const secondHighlight = 'safe'
-// const thirdHighlight = 'secure environment's
+// Imported animations
+import {
+  headingVariants,
+  textVariants,
+  buttonVariants,
+  blobVariants
+} from './HeroAnimations'
+// Imported hooks
+import { useHeroQuery } from '../../../hooks'
 
+// The component
+//
 export const HeroIndex = () => {
+  const { hero: { nodes } } = useHeroQuery()
+  const hero = nodes[0]
   return (
     <Hero>
       <Hero.Frame tPad={7}>
@@ -30,12 +26,24 @@ export const HeroIndex = () => {
             <Hero.Title heading="hero" {...headingVariants}>
               A <span>positive</span>, <span>safe</span> and <span><span>secure</span> <span>environment</span></span> for every child
             </Hero.Title>
-            <Hero.Text {...textVariants}>Wraparound childcare</Hero.Text>
-            <Hero.ButtonContainer {...buttonVariants}>
-              <Hero.Button model={1} color="dark green">Contact us</Hero.Button>
-              <Hero.Button model={2} color="dark blue">Book a visit</Hero.Button>
-            </Hero.ButtonContainer>
-            <Hero.SVGFootPrints />
+            <Hero.Text {...textVariants}>{hero.subHeading}</Hero.Text>
+            <Hero.LinkContainer {...buttonVariants}>
+              <Hero.Link
+                model={1}
+                to={hero.primaryCTA}
+                color="dark green"
+              >
+                {hero.primaryCTA}
+              </Hero.Link>
+              <Hero.Link
+                model={2}
+                to={hero.secondaryCTA}
+                color="dark blue"
+              >
+                {hero.secondaryCTA}
+              </Hero.Link>
+            </Hero.LinkContainer>
+            <Hero.FootPrintsSVG />
           </Hero.Column>
 
           <Hero.Column
@@ -47,8 +55,9 @@ export const HeroIndex = () => {
             custom
           >
             <Hero.SVG {...blobVariants} />
-            <Hero.ImageCarousel data={data} />
+            <Hero.ImageCarousel images={hero.imageGallery} />
           </Hero.Column>
+
         </Hero.Row>
       </Hero.Frame>
     </Hero>

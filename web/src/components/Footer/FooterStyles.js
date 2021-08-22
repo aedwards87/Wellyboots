@@ -70,7 +70,7 @@ export const Group = styled.div`
   grid-column-gap: var(--s4);
   grid-row-gap: var(--s2);
   > a:first-child {
-    margin-top: 13.5px;
+    margin-top: 16px;
   }
   @media(min-width: 420px) {
     grid-column-gap: var(--s5);
@@ -98,9 +98,7 @@ export const ExternalLink = styled.a`
     color: rgb(var(--colorPink));
   }
 `
-export const Link = styled(TextLink)`
-  display: block;
-`
+export const Link = styled(TextLink)``
 export const Button = styled(ButtonMod)`
   display: none;
   position: absolute;

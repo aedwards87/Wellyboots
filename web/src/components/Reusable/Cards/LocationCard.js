@@ -1,72 +1,77 @@
 // Imported dependencies
 import React, { useState } from 'react'
-// Imported components
 import { AnimatePresence } from 'framer-motion'
+// Imported components
 import {
   Container,
   Hero,
   SVGContainer,
   Footer,
   ImageContainer,
-  Heading,
-  Text
+  Title,
+  TextContainer,
+  Text,
+  Image
 } from './LocationCardStyles'
-// Imported hooks
-import { useCompanyLocationsQuery, useNavToggle } from '../../../hooks';
 // Imported animations
 import {
   framerMotionAPI,
   LocationCardVariants,
   SpanVariants
 } from './LocationCardAnimations';
+// Imported hooks
+import { useHoverToggle } from '../../../hooks';
+// Imported helpers
+import { camalise } from '../../../utils/helpers';
+import { useIsSwiping } from '../../../hooks/useIsSwiping';
 
 
-const LocationCard = ({ className, children, style, show = false, name, ...props }) => {
-  const data = useCompanyLocationsQuery()
-  const location = data.locations.nodes.filter(l => l.name.includes(name))
-  const colors = location[0].subBrandColors.map(color => color.title)
-  const shortName = name.split(' ').slice(0, 2).join(' ');
-  const [isHovered, toggle, bind] = useNavToggle()
+const LocationCard = ({ className, children, to = '/', data, ...props }) => {
+  const [isHovered, toggle, bindToggle] = useHoverToggle()
+  const [isSwiping, bindSwiping] = useIsSwiping()
   /* draggable="false" stops the individual link/img being dragged, thus allowing the carousel to drag as a whole properly. This however disables any drag handlers. If a card is selected during the drag, it's click event is triggered, to prevent this, I've used mousedown and mousemove event handlers to determine whether a drag or click is being proformed, using useState to store true or false, if isSwiping="true" we prevent the click from trigggering by using e.PreventDetault() within the click handler. */
-  const [isSwiping, setSwiping] = useState(false);
-
   return (
     <Container
       className={className}
-      to={"/"}
-      style={style, {}}
-      draggable="false"
+      to={`/locations/${data.slug.current}` || `/locations/${camalise(to)}`}
+      onDragStart={(e) => e.preventDefault()}
       onClick={(e) => isSwiping && e.preventDefault()}
-      onMouseDown={() => setSwiping(false)}
-      onMouseMove={() => setSwiping(true)}
-      onTouchStart={() => setSwiping(false)}
-      onTouchMove={() => setSwiping(true)}
+      {...bindSwiping}
+      {...bindToggle}
       {...props}
-      {...bind}
     >
       <div>
-        <Hero colors={colors}>
-          <SVGContainer dangerouslySetInnerHTML={{ __html: location[0].subBrandLogo }} />
+        <Hero colors={data.subBrandColors}>
+          <SVGContainer dangerouslySetInnerHTML={{ __html: data.subBrandLogo }} />
           <AnimatePresence>
             {isHovered &&
               <ImageContainer
                 variants={LocationCardVariants}
                 {...framerMotionAPI}
               >
-                <img
-                  src="https://picsum.photos/id/237/200/300"
-                  alt="Building of School"
-                  draggable="false"
+                <Image
+                  fluid={data.mainImage.image.asset.fluid}
+                  alt={data.mainImage.alt}
+                  onDragStart={(e) => e.preventDefault()}
                 />
-                <Text variants={SpanVariants} {...framerMotionAPI}>
-                  Pre School
-                </Text>
+                <TextContainer variants={SpanVariants} {...framerMotionAPI}>
+                  {data.type.map(type =>
+                    <Text
+                      key={type}
+                      colors={data.subBrandColors}
+                      variants={SpanVariants}
+                      {...framerMotionAPI}
+                    >
+                      {type}
+                    </Text>
+                  )}
+                </TextContainer>
               </ImageContainer>
             }
           </AnimatePresence>
         </Hero>
         <Footer>
-          <Heading heading="h3" weight="medium">{shortName}</Heading>
+          <Title heading="h3" weight="medium">{data.shortName || data.name}</Title>
         </Footer>
       </div>
     </Container>

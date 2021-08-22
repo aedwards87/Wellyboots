@@ -1,23 +1,20 @@
 // Imported packages
 import React from 'react'
-
 // Imported components
 import Nav from './Nav'
-
 // Imported data
 import navLinks from '../../../data/navLinks'
-import { useCompanyLocationsQuery } from '../../../hooks'
-
+import { useLocationsQuery } from '../../../hooks'
 // Imported helpers
 import { camalise } from '../../../utils/helpers'
 
 
-const NavIndex = () => {
-  const data = useCompanyLocationsQuery()
+const NavIndex = ({ siteTitle }) => {
+  const data = useLocationsQuery()
   return (
     <Nav>
       <Nav.Link home>
-        <Nav.Logo />
+        <Nav.Logo title={siteTitle} />
       </Nav.Link>
       <Nav.Menu>
         <Nav.Burger />
@@ -34,17 +31,20 @@ const NavIndex = () => {
                   {link.hasDropdown &&
                     <Nav.Dropdown title={link.title} data={data}>
                       {data[`${camalise(link.title)}`].nodes
-                        .map(({ name, title, slug, subBrandColors, subBrandLogo }) =>
-                          <Nav.Body key={name} dropdown>
-                            <Nav.Link
-                              to={slug}
-                              hoverColor={subBrandColors}
-                              dropdown
-                            >
-                              <Nav.SVG subBrandLogo={subBrandLogo} />
-                              {name || title}
-                            </Nav.Link>
-                          </Nav.Body>
+                        .map(({ name, title, slug, subBrandColors, subBrandLogo }) => {
+                          return (
+                            <Nav.Body key={name} dropdown>
+                              <Nav.Link
+                                to={`/${link.title.toLowerCase()}/${slug.current}`}
+                                color={subBrandColors}
+                                dropdown
+                              >
+                                <Nav.SVG subBrandLogo={subBrandLogo} />
+                                {name || title}
+                              </Nav.Link>
+                            </Nav.Body>
+                          )
+                        }
                         )
                       }
                     </Nav.Dropdown>

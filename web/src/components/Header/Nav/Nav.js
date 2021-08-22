@@ -1,4 +1,4 @@
-// Imported packages
+// Imported dependencies
 import React from 'react'
 import { AnimatePresence } from 'framer-motion'
 
@@ -31,13 +31,12 @@ import { camalise, capitilise } from '../../../utils/helpers'
 
 //Imported custom hooks
 import {
-  useNavToggle,
+  useHoverToggle,
   useDropdownToggleContext,
   DropdownToggleProvider,
   useNavMenuToggleContext,
   useCompanyBrandQuery
 } from '../../../hooks'
-
 
 
 export default function Nav({ children, className, height, fontSize, ...props }) {
@@ -93,7 +92,6 @@ Nav.Burger = function NavBurger({ children, className, ...props }) {
   )
 }
 
-
 Nav.ListContainer = function NavListContainer({ children, className, ...props }) {
   const [isOpen, _] = useNavMenuToggleContext()
   return (
@@ -123,13 +121,12 @@ Nav.List = function NavList({ children, className, ...props }) {
   )
 }
 
-
 Nav.Body = function NavBody({ children, className, ...props }) {
   return (<Body className={className} {...props}>{children}</Body>)
 }
 
 Nav.ListItem = function NavListItem({ children, className, navLinks, ...props }) {
-  const [isHovered, toggle, bind] = useNavToggle()
+  const [isHovered, toggle, bind] = useHoverToggle()
   return (
     <DropdownToggleProvider value={{ isHovered, toggle }}>
       <ListItem
@@ -138,6 +135,7 @@ Nav.ListItem = function NavListItem({ children, className, navLinks, ...props })
         style={{ '--lineColor': `var(--color${capitilise(navLinks.title)})` }}
         aria-haspopup={navLinks.hasDropdown}
         aria-expanded={isHovered}
+        onClick={toggle}
         {...bind}
         {...props}
       >
@@ -155,7 +153,7 @@ Nav.Button = function NavButton({ children, className, ...props }) {
         as={Button}
         className={className}
         onClick={toggle}
-        aria-label="View sub-navigation items"
+        aria-label="View sub-navigation links"
         {...props}
       >
         {children}
@@ -164,9 +162,9 @@ Nav.Button = function NavButton({ children, className, ...props }) {
   )
 }
 
-Nav.Link = function NavLink({ children, className, home, to, hoverColor, dropdown, ...props }) {
+Nav.Link = function NavLink({ children, className, home, to, color, dropdown, ...props }) {
   const [isOpen, toggle] = useNavMenuToggleContext()
-  // if type is a string, it has been manually added
+  // if type is a string, it has been purposely added
   const isString = typeof to === 'string'
   // Checking to see if the data is being dymanically imported via database/cms
   const hasSlug = typeof to === 'object' && to.current
@@ -184,9 +182,9 @@ Nav.Link = function NavLink({ children, className, home, to, hoverColor, dropdow
           : null
       }
       onClick={isOpen ? toggle : null}
-      home={home ? 1 : 0}
-      dropdown={hasSlug ? to.current : null}
-      hoverColor={hasSlug ? `${capitilise(hoverColor[0].title)}` : null}
+      $home={home}
+      $dropdown={dropdown}
+      hoverColor={color}
       {...props}
     >
       {children}

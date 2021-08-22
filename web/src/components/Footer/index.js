@@ -2,20 +2,21 @@
 import React from 'react'
 // Imported components
 import Footer from './Footer'
-import { TextUnderlineLink } from '../Reusable'
+import { TextLink } from '../Reusable'
 // Imported hooks
-import { useCompanyLocationsQuery } from '../../hooks'
+import { useLocationsQuery, useSiteDetailsQuery } from '../../hooks'
 
 // Temp data
-const schoolData = ['Crockham Hill', 'Four Elms', 'Hever', 'St Stephens', 'Roodlands Farm',]
-const footLinks = ['Play theory', 'Locations', 'Curriculum', 'Reviews', 'About us', 'Contact us', 'Policies & Procedures',]
 import footerLinks from '../../data/footerLinks'
-import { camalise } from '../../utils/helpers'
+import { addSpaceToString, camalise, replaceAmpersand } from '../../utils/helpers'
 
 
 const FooterIndex = () => {
-  const data = useCompanyLocationsQuery()
-
+  const { locations: { nodes: locations } } = useLocationsQuery()
+  const { siteDetails: { nodes } } = useSiteDetailsQuery()
+  const siteDetails = nodes[0]
+  const conactDetails = siteDetails.contactDetails.location.contactDetails
+  const address = siteDetails.contactDetails.location.address
   return (
     <Footer>
       <Footer.Frame tPad={11} bPad={15}>
@@ -24,7 +25,7 @@ const FooterIndex = () => {
             <Footer.Title heading="h2" lineColor="blue">
               Company details
             </Footer.Title>
-            <Footer.Button to="/" model={1} color="light" yPad={3} xPad={3}>
+            <Footer.Button model={1} color="light" yPad={3} xPad={3} scrollTop>
               <Footer.ArrowSVG color="dark green" />
             </Footer.Button>
           </Footer.Column>
@@ -35,28 +36,44 @@ const FooterIndex = () => {
           <Footer.Column yGap={4}>
             <Footer.Group columns={2}>
               <Footer.PhoneSVG />
-              <Footer.ExternalLink href="tel:+447967028418">
-                07967 028418
+              {/* <Footer.ExternalLinkConainer>
+                {conactDetails.telephoneNumber && 
+                  <Footer.ExternalLink href={`tel:+44${conactDetails.telephoneNumber.slice(1)}`}>
+                    {addSpaceToString(conactDetails.telephoneNumber)}
+                  </Footer.ExternalLink>
+                } */}
+              <Footer.ExternalLink href={`tel:+44${conactDetails.mobileNumber.slice(1)}`}>
+                {addSpaceToString(conactDetails.mobileNumber)}
               </Footer.ExternalLink>
+              {/* </Footer.ExternalLinkConainer> */}
             </Footer.Group>
             <Footer.Group columns={2}>
               <Footer.EmailSVG />
-              <Footer.ExternalLink href="mailto:wellyboots2009@gmail.com">
-                wellyboots2009@gmail.com
+              {/* <Footer.ExternalLinkConainer>
+                {conactDetails.emailAddressTwo && 
+                  <Footer.ExternalLink href={`mailto:${conactDetails.emailAddressTwo}`}>
+                    {conactDetails.emailAddressTwo}
+                  </Footer.ExternalLink>
+                } */}
+              <Footer.ExternalLink href={`mailto:${conactDetails.emailAddressOne}`}>
+                {conactDetails.emailAddressOne}
               </Footer.ExternalLink>
+              {/* </Footer.ExternalLinkConainer> */}
             </Footer.Group>
             <Footer.Group columns={2}>
               <Footer.HomeSVG />
               <Footer.Group>
                 <Footer.ExternalLink
-                  href="https://goo.gl/maps/JALFdSucj7WPZvwD6"
+                  href="https://www.google.com/maps/place/51%C2%B012'51.0%22N+0%C2%B006'51.1%22E/@51.2141732,0.1119981,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d51.2141732!4d0.1141868"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Roodlands Farm,<br />
-                  Roodlands Lane,<br />
-                  Four Elms, Edenbridge,<br />
-                  TN8 6PD<br />
+                  {address.nameOrNumber && <> {address.nameOrNumber}, <br /> </>}
+                  {address.addressLineOne && <> {address.addressLineOne}, <br /> </>}
+                  {address.addressLineTwo && <> {address.addressLineTwo}, <br /> </>}
+                  {address.townOrCity && <> {address.townOrCity}, <br /> </>}
+                  {address.county && <> {address.county}, <br /> </>}
+                  {address.postCode && address.postCode}
                 </Footer.ExternalLink>
               </Footer.Group>
             </Footer.Group>
@@ -67,14 +84,11 @@ const FooterIndex = () => {
               <Footer.Group columns={2}>
                 <Footer.LocationsSVG />
                 <Footer.Group>
-                  {/* Change to be short name */}
-                  {data.locations.nodes
-                    .map(({ name, title, subBrandColors }) =>
-                      <TextUnderlineLink key={name} to="/" lineColor={subBrandColors}>
-                        {name || title}
-                      </TextUnderlineLink>
-                    )
-                  }
+                  {locations.map(({ name, title, slug, subBrandColors }) =>
+                    <TextLink key={name} to={`/locations/${slug.current}`} lineColor={subBrandColors}>
+                      {name || title}
+                    </TextLink>
+                  )}
                 </Footer.Group>
               </Footer.Group>
             </Footer.Column>
@@ -84,9 +98,15 @@ const FooterIndex = () => {
                 <Footer.LinkSVG />
                 <Footer.Group>
                   {footerLinks.map(link =>
-                    <TextUnderlineLink key={link.title} to="/" lineColor={[link]} >
+                    <Footer.Link
+                      key={link.title}
+                      to={link.hasDropdown
+                        ? `/#${camalise(link.title)}`
+                        : `/${camalise(replaceAmpersand(link.title))}`}
+                      lineColor={[link]}
+                    >
                       {link.title}
-                    </TextUnderlineLink>
+                    </Footer.Link>
                   )}
                 </Footer.Group>
               </Footer.Group>

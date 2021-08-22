@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 
 // Imported Components
 import TextLink from "../../Reusable/TextLink"
+import { capitilise } from "../../../utils/helpers";
 
 // Styles
 export const Container = styled.nav`
@@ -33,8 +34,12 @@ export const Menu = styled.div`
 export const ListContainer = styled(motion.div)`
   @media (max-width: 981px) {
     position: fixed;
-    background: rgba(255,255,255,.85);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,.97);
+    /* if backdrop support: very transparent and blurred */
+    @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(10px);
+    }
     overflow: hidden;
     top: 0;
     left: 0;
@@ -68,8 +73,12 @@ export const List = styled(motion.ul)`
     flex-direction: row;
     align-items: baseline;
     padding-top: 0;
-    /* gap: min(max(var(--s3), 2.5vw), var(--s5)); */
     gap: var(--navSpacing);
+  }
+  @media (max-height: 540px) and (max-width: 980px) {
+    gap: 6vh;
+    gap: min(max(2rem, 6vh), 40rem);
+    min-height: 340px;
   }
 `
 
@@ -86,35 +95,48 @@ export const Link = styled(TextLink)`
   &:focus {
     color: ${({ hoverColor }) => `rgb(var(--color${hoverColor}))`};
   };
+  ${({ hoverColor }) =>
+    hoverColor && css`
+      &:hover,
+      &:focus {
+        color: rgb(var(--color${hoverColor}))};
+      }
+    `
   };
-  ${({ dropdown }) => dropdown &&
+  @media (max-width: 979px) {
+    font-size: 1.7em;
+  }
+  @media (max-height: 540px) and (max-width: 980px) {
+    font-size: min(max(1.6rem, 6vh), 2.55rem);
+    padding: 0;
+  }
+
+  ${({ $dropdown, hoverColor }) => $dropdown &&
     css`
-      font-size: 1.4rem;
+      font-size: var(--fontSizeNav);
       min-height: 6.5ch;
       justify-content: start;
       align-items: center;
       gap: 20px;
       padding: 0;
       &[aria-current="page"] {
-        color: var(--colorNeutralOne)
+        color: rgb(var(--color${capitilise(hoverColor[0].title)}))};
       }
       &:hover,
       &:focus {
         svg {
-          transform: scale(1.3) rotate(-.03turn)
+          transform: scale(1.25) rotate(-.03turn)
         }
+        color: rgb(var(--color${capitilise(hoverColor[0].title)}))};
       }
     `
   };
-  ${({ home }) => home &&
+  ${({ $home }) => $home &&
     css`
       width: auto;
       padding: 0;
     `
   };
-  @media (max-width: 979px) {
-    font-size: 1.7em;
-  }
 `
 
 export const Button = styled.button`
@@ -221,7 +243,7 @@ export const Body = styled.div`
 export const SVG = styled.div`
   display: flex;
   > svg {
-    height: 35px;
+    height: 40px;
     width: 30px;
     margin-left: -2px;
     transition: transform ease .3s;
@@ -232,7 +254,7 @@ export const Dropdown = styled(motion.div)`
   position: absolute;
   top: 3.8rem;
   left: calc(50% - 10px);
-  min-width: 44ch;
+  min-width: 46ch;
   height: auto;
   display: flex;
   flex-direction: column;

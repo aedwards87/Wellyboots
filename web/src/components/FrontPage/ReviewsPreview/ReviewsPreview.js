@@ -1,6 +1,7 @@
-// Imported packages
+// Imported dependencies
 import React from 'react'
-
+import InView from 'react-intersection-observer'
+import { AnimatePresence } from 'framer-motion'
 // Imported components
 import {
   Container,
@@ -8,6 +9,7 @@ import {
   Row,
   Column,
   Title,
+  TextContainer,
   Text,
   QuoteMarkSVG,
   Line,
@@ -22,11 +24,11 @@ import {
   GirlSVG,
   HeartSVG,
 } from './ReviewsPreviewStyles'
-
 // Imported helpers
 import { capitilise } from '../../../utils/helpers'
-import { AnimatePresence } from 'framer-motion'
-import { animateAPI, framerMotionAPI } from './ReviewsPreviewAnimations'
+// Imported animations
+import { animateAPI, columnVariants, rowVariants } from './ReviewsPreviewAnimations'
+import { buttonContainerVariants } from './ReviewsPreviewAnimations'
 
 
 export default function ReviewsPreview({ children, className, bgColor, ...props }) {
@@ -48,15 +50,60 @@ ReviewsPreview.Frame = function ReviewsPreviewFrame({ children, className, ...pr
 }
 
 ReviewsPreview.Row = function ReviewsPreviewRow({ children, className, ...props }) {
-  return (<Row className={className} {...props}>{children}</Row>)
+  return (
+    <InView threshold="0.05">
+      {({ inView, ref }) =>
+        <Row
+          innerRef={ref}
+          className={className}
+          initial="initial"
+          animate={inView && "animate"}
+          variants={rowVariants}
+          {...props}
+        >
+          {children}
+        </Row>
+      }
+    </InView>
+  )
 }
 
 ReviewsPreview.Column = function ReviewsPreviewColumn({ children, className, ...props }) {
-  return (<Column className={className} {...props}>{children}</Column>)
+  return (
+    <InView threshold=".3">
+      {({ inView, ref }) =>
+        <Column
+          innerRef={ref}
+          className={className}
+          initial="initial"
+          animate={inView && "animate"}
+          variants={columnVariants}
+          {...props}
+        >
+          {children}
+        </Column>
+      }
+    </InView>
+  )
 }
 
 ReviewsPreview.Title = function ReviewsPreviewTitle({ children, className, ...props }) {
   return (<Title className={className} {...props}>{children}</Title>)
+}
+
+ReviewsPreview.TextContainer = function ReviewsPreviewTextContainer({ children, className, weight, color, ...props }) {
+  return (
+    <TextContainer
+      className={className}
+      style={{
+        '--paraFontWeight': `var(--fontWeight${capitilise(weight)})`,
+        '--paraFontColor': `var(--color${capitilise(color)})`
+      }}
+      {...props}
+    >
+      {children}
+    </TextContainer>
+  )
 }
 
 ReviewsPreview.Text = function ReviewsPreviewText({ children, className, ...props }) {
@@ -72,8 +119,24 @@ ReviewsPreview.Line = function ReviewsPreviewLine({ children, className, ...prop
 }
 
 ReviewsPreview.ButtonContainer = function ReviewsPreviewButtonContainer({ children, className, ...props }) {
-  return (<ButtonContainer className={className} {...props}>{children}</ButtonContainer>)
+  return (
+    <InView threshold=".3">
+      {({ inView, ref }) =>
+        <ButtonContainer
+          ref={ref}
+          className={className}
+          initial="initial"
+          animate={inView && "animate"}
+          variants={buttonContainerVariants}
+          {...props}
+        >
+          {children}
+        </ButtonContainer>
+      }
+    </InView>
+  )
 }
+
 
 ReviewsPreview.Button = function ReviewsPreviewButton({ children, className, ...props }) {
   return (<Button className={className} {...props}>{children}</Button>)
@@ -134,7 +197,6 @@ ReviewsPreview.SliderAnimation = function ReviewsPreviewSliderAnimation({
             paginate(-1);
           }
         }}
-        {...framerMotionAPI}
         {...animateAPI}
         {...props}
       >

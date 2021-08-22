@@ -44,8 +44,8 @@ const Container = styled.div`
     min(var(--desktopMaxWidth), calc(100% - (${({ xGap }) => xGap[0]} * 2)))
     1fr;
   ${({ gap }) => gap && css`grid-gap: ${gap}`};
-  ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker.test(xGap) ? xGap[0] : `var(--s${xGap})`}`};
-  ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker.test(yGap) ? yGap : `var(--s${yGap})`}`};
+  ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker(xGap) ? xGap[0] : `var(--s${xGap})`}`};
+  ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker(yGap) ? yGap : `var(--s${yGap})`}`};
   ${({ pad }) => pad && css`padding: var(--s${pad})`};
   ${({ tPad }) => tPad && css`padding-top: var(--s${tPad})`};
   ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};
@@ -63,8 +63,8 @@ const Container = styled.div`
     ${({ tPad }) => tPad && css`padding-top: var(--s${(tPad + 2)})`};
     ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad + 2)})`};
     ${({ gap }) => gap && css`grid-gap: ${gap}`};
-    ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker.test(xGap) ? xGap[1] : `var(--s${xGap + 2})`}`};
-    ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker.test(yGap) ? yGap : `var(--s${yGap + 2})`}`};
+    ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker(xGap) ? xGap[1] : `var(--s${xGap + 2})`}`};
+    ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker(yGap) ? yGap : `var(--s${yGap + 2})`}`};
     grid-template-columns: 
       1fr 
       min(var(--desktopMaxWidth), calc(100% - (${({ xGap }) => xGap[1]} * 2)))
@@ -72,8 +72,8 @@ const Container = styled.div`
   }
   @media(min-width: 980px) {
     ${({ gap }) => gap && css`grid-gap: ${gap}`};
-    ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker.test(xGap) ? xGap[1] : `var(--s${xGap + 2})`}`};
-    ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker.test(yGap) ? yGap : `var(--s${yGap + 2})`}`};
+    ${({ xGap }) => xGap && css`grid-column-gap: ${regExpLetterChecker(xGap) ? xGap[1] : `var(--s${xGap + 2})`}`};
+    ${({ yGap }) => yGap && css`grid-row-gap: ${regExpLetterChecker(yGap) ? yGap : `var(--s${yGap + 2})`}`};
   }
 `
 
