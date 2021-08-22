@@ -14,4 +14,11 @@ export { default as Heart } from './Heart';
 export { default as Girl } from './Girl';
 
 
-
+// Waves
+export { default as WaveLocationTop } from './Waves/WaveLocationTop';
+export { default as WaveLocationBottom } from './Waves/WaveLocationBottom';
+export { default as WaveLocationBottomTwo } from './Waves/WaveLocationBottomTwo';
+export { default as WaveReviewsPreviewTop } from './Waves/WaveReviewsPreviewTop';
+export { default as WaveReviewsPreviewBottom } from './Waves/WaveReviewsPreviewBottom';
+export { default as WaveStaffTop } from './Waves/WaveStaffTop';
+export { default as WaveStaffBottom } from './Waves/WaveStaffBottom';
