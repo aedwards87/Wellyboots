@@ -13,12 +13,14 @@ import {
   FootPrintsSVG,
   WellybootSVG,
   ImageContainer,
-  // ImageCarousel,
+  ImageCarousel,
   Image,
   ButtonContainer,
   Button,
   Link,
 } from './HeroStyles'
+// Imported hooks
+import { usePaginate } from '../../../hooks'
 
 
 export default function Hero({ children, className, bgColor, ...props }) {
@@ -82,9 +84,48 @@ Hero.ImageContainer = function HeroImageContainer({ children, className, ...prop
   return (<ImageContainer className={className} {...props}> {children} </ImageContainer>)
 }
 
-// Hero.ImageCarousel = function HeroImageCarousel({ children, className, ...props }) {
-//   return (<ImageCarousel className={className} {...props}> {children} </ImageCarousel>)
-// }
+Hero.ImageCarousel = function HeroImageCarousel({ children, className, carousel, alt, images, ...props }) {
+  const [page, direction, paginate, carouselIndex] = usePaginate(images.nodes /*, timer */)
+  const [pageTwo, directionTwo, paginateTwo, carouselIndexTwo, setPage] = usePaginate(images.nodes)
+  // const x = carousel === 1 ? carouselIndex : carouselIndexTwo
+  // console.log({ x })
+  // const x = () => {
+  //   paginateTwo(1)
+  // }
+
+  useEffect(() => {
+    paginateTwo(Math.floor(images.nodes.length / 2))
+  }, [])
+
+  return (
+    <AnimatePresence>
+      <ImageCarousel
+        className={className}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        // variants={carouselVariants}
+        onClick={() => {
+          paginateTwo(1)
+          paginate(1)
+        }}
+        carousel={carousel}
+        {...props}
+      >
+        <Image
+          carouselImage={1}
+          fluid={images.nodes[carouselIndex].image.asset.fluid}
+          alt={images.nodes[carouselIndex].image.alt}
+        />
+        <Image
+          carouselImage={2}
+          fluid={images.nodes[carouselIndexTwo].image.asset.fluid}
+          alt={images.nodes[carouselIndexTwo].image.alt}
+        />
+      </ImageCarousel>
+    </AnimatePresence>
+  )
+}
 
 Hero.Image = function HeroImage({ children, className, ...props }) {
   return (<Image className={className} {...props}> {children} </Image>)

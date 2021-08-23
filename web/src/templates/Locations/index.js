@@ -1,35 +1,23 @@
 // Imported packages
 import React from 'react'
+import { graphql } from 'gatsby'
 // Imported components
 import Hero from './1_Hero'
 import Staff from './2_Staff'
 import Routine from './3_Routine'
 import Details from './4_Details'
 import { SEO, Prospectus } from '../../components/Reusable'
-import { graphql } from 'gatsby'
 
 // Component
-const LocationsTemplateIndex = ({ data: { location }, ...props }) => {
-  console.log({ location, props })
+const LocationsTemplateIndex = ({ data, ...props }) => {
   return (
     <>
       {/* <SEO title="Location" /> */}
-      <Hero
-        name={[location.shortName, location.name]}
-        intro={location._rawIntroduction}
-        subBrandColors={location.subBrandColors}
-        subBrandLogo={location.subBrandLogo}
-        type={location.type}
-        mainImage={location.mainImage}
-      />
-      {/* <Staff staff={person} />
-      <Routine dailyRoutine={dailyRoutine} />
-      <Details
-        contailDetails={contailDetails}
-        address={address}
-        geoLocation={geoLocation}
-      />
-      <Prospectus prospectus={prospectus} /> */}
+      <Hero data={data} />
+      <Staff data={data} />
+      {/* <Routine data={data} /> */}
+      {/* <Details data={data}/> */}
+      {/* <Prospectus prospectus={prospectus} /> */}
     </>
   )
 }
@@ -106,6 +94,18 @@ export const LocationsTemplateQuery = graphql`
               fluid {
                 base64
               }
+            }
+          }
+        }
+      }
+    }
+    imageGallery: allSanityImageGallery(filter: { location: { slug: { current: { eq: $slug }}}}) {
+      nodes {
+        image {
+          alt
+          asset {
+            fluid(maxWidth: 400) {
+              ...GatsbySanityImageFluid
             }
           }
         }

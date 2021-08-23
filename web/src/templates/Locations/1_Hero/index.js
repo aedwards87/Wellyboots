@@ -6,8 +6,16 @@ import PortableText from "react-portable-text"
 import { Link } from '../../../components/Reusable'
 
 // Component
-const HeroIndex = ({ name, intro, subBrandLogo, type, mainImage, subBrandColors }) => {
-  console.log({ mainImage })
+const HeroIndex = ({ data: { location: {
+  name,
+  shortName,
+  _rawIntroduction,
+  subBrandLogo,
+  type,
+  mainImage,
+  subBrandColors
+}, imageGallery
+} }) => {
   return (
     <Hero>
       <Hero.Frame>
@@ -18,31 +26,28 @@ const HeroIndex = ({ name, intro, subBrandLogo, type, mainImage, subBrandColors 
           </Hero.Column>
 
           <Hero.Column column={2}>
-            <Hero.Title
-              heading="hero"
-              lineColor={subBrandColors[0].title}
-            >
-              {name[0] || name[1]}
+            <Hero.Title heading="hero" lineColor={subBrandColors[0].title} >
+              {shortName || name}
             </Hero.Title>
           </Hero.Column>
 
           <Hero.Column column={3}>
-            <Hero.PortableText content={intro} lineColor={subBrandColors[1].title} />
+            <Hero.PortableText content={_rawIntroduction} lineColor={subBrandColors[1].title} />
           </Hero.Column>
 
-          <Hero.Column column={4}>
+          <Hero.Column column={4} yAlign="start">
             <Hero.ImageContainer>
-              <Hero.Image
-                fluid={mainImage.image.asset.fluid}
-                alt={mainImage.alt}
-                aspectRatio={3 / 1}
-              />
-              {/* <Hero.ImageCarousel carousel={1} />
-              <Hero.ImageCarousel carousel={2} /> */}
+              <Hero.Image fluid={mainImage.image.asset.fluid} alt={mainImage.alt} />
             </Hero.ImageContainer>
+            <Hero.ImageCarousel images={imageGallery} />
           </Hero.Column>
 
-          <Hero.Column column={5}>
+          <Hero.Column column={5} yAlign="start" gap={3}>
+            <Hero.Title heading="h3" color="gray" small>Jump to</Hero.Title>
+            <Hero.Link to="#Staff" lineColor={subBrandColors[1].title} $custom>Staff</Hero.Link>
+            <Hero.Link to="#Daily Routine" lineColor={subBrandColors[0].title} $custom>Daily Routine</Hero.Link>
+            <Hero.Link to={`#${shortName || name} details`} lineColor={subBrandColors[1].title} $custom>{shortName || name} details</Hero.Link>
+            <Hero.FootPrintsSVG />
           </Hero.Column>
 
         </Hero.Row>
