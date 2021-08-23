@@ -13,6 +13,7 @@ const Link = ({
   underline,
   style,
   to = '/',
+  home,
   light,
   normal,
   medium,
@@ -32,9 +33,18 @@ const Link = ({
   ...props
 }) => {
 
+  const isString = typeof to === 'string'
+  // Checking to see if the data is being dymanically imported via database/cms
+  const hasSlug = typeof to === 'object' && to.current
+  // Checking to see if the link is to be inside a dropdown
+  const hasDropdown = typeof to === 'object' && to.hasDropdown
+  const hasHash = typeof to === 'string' && to.includes('#')
+
   if (lineColor && model) {
     console.error('You can\'t combine an underline and button style link, please choose one or the other')
   }
+
+  console.log({ hasHash });
 
   return (
     <Container
@@ -53,7 +63,15 @@ const Link = ({
         }
       }}
       color={capitilise(color)}
-      to={`/${camalise(to)}`}
+      to={home
+        ? "/"
+        : to
+          ? hasHash ? `#${camalise(to)}`
+            : isString ? `/${camalise(to)}`
+              : hasSlug ? to.current
+                : hasDropdown ? `/#${camalise(to.title)}` : `/${camalise(to.title)}`
+          : null
+      }
       model={model}
       $tPad={tPad || yPad}
       $bPad={bPad || yPad}
