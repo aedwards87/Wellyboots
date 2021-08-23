@@ -29,7 +29,7 @@ const AboutUsIndex = () => {
             </AboutUs.LinkContainer>
           </AboutUs.Column>
           <AboutUs.Column rowOrder={1} xAlign="center" yItemsAlign="end">
-            <AboutUs.Title heading="h2" weight="medium" color="gray" small>
+            <AboutUs.Title heading="h3" weight="medium" color="gray" small>
               Our accreditations
             </AboutUs.Title>
           </AboutUs.Column>

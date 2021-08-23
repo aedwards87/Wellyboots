@@ -88,11 +88,6 @@ export const Image = styled(GatsbyImage)`
 `
 export const SVG = styled(Blob)`
   position: absolute;
-  /* align-items: center;
-  justify-items: center;
-  align-content: center;
-  justify-content: center;
-  transform: translateX(0); */
   width: 126%;
   height: 226%;
   right: 0;

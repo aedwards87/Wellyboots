@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { wrap } from 'popmotion';
 
-export const usePaginate = (data, timer) => {
+export const usePaginate = (data, start = 0, timer) => {
   const [[page, direction], setPage] = useState([0, 0]);
-  const carouselIndex = wrap(0, data.length, page);
+  const carouselIndex = wrap(start, data.length, page);
   const paginate = (newDirection) => {
     setPage([page + newDirection, newDirection]);
   };
@@ -18,5 +18,5 @@ export const usePaginate = (data, timer) => {
     })
   }
 
-  return [page, direction, paginate, carouselIndex]
+  return [page, direction, paginate, carouselIndex, setPage]
 }
