@@ -1,10 +1,12 @@
-// Imported Packages
+// Imported dependencies
 import styled, { css } from "styled-components/macro";
 import Image from 'gatsby-image'
 import { motion } from 'framer-motion'
-
-// Imported Components
-import TextLink from "../../Reusable/TextLink"
+// Imported components
+import {
+  Link as LinkOrigin,
+} from '../../Reusable';
+// Imported helpers
 import { capitilise } from "../../../utils/helpers";
 
 // Styles
@@ -82,7 +84,7 @@ export const List = styled(motion.ul)`
   }
 `
 
-export const Link = styled(TextLink)`
+export const Link = styled(LinkOrigin)`
   padding: 10px;
   position: relative;
   transition: .3s ease;

@@ -29,7 +29,9 @@ import { useIsSwiping } from '../../../hooks/useIsSwiping';
 const LocationCard = ({ className, children, to = '/', data, ...props }) => {
   const [isHovered, toggle, bindToggle] = useHoverToggle()
   const [isSwiping, bindSwiping] = useIsSwiping()
+  const isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
   /* draggable="false" stops the individual link/img being dragged, thus allowing the carousel to drag as a whole properly. This however disables any drag handlers. If a card is selected during the drag, it's click event is triggered, to prevent this, I've used mousedown and mousemove event handlers to determine whether a drag or click is being proformed, using useState to store true or false, if isSwiping="true" we prevent the click from trigggering by using e.PreventDetault() within the click handler. */
+
   return (
     <Container
       className={className}
@@ -42,9 +44,9 @@ const LocationCard = ({ className, children, to = '/', data, ...props }) => {
     >
       <div>
         <Hero colors={data.subBrandColors}>
-          <SVGContainer dangerouslySetInnerHTML={{ __html: data.subBrandLogo }} />
+          <SVGContainer isTouch={isTouch} dangerouslySetInnerHTML={{ __html: data.subBrandLogo }} />
           <AnimatePresence>
-            {isHovered &&
+            {(isHovered || isTouch) &&
               <ImageContainer
                 variants={LocationCardVariants}
                 {...framerMotionAPI}

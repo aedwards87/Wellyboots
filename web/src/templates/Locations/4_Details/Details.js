@@ -9,19 +9,18 @@ import {
   Column,
   Title,
   Text,
-  ButtonContainer,
-  Button,
   Link,
-  WaveTopSVG,
-  WaveBottomSVG,
+  DividerTopSVG,
+  DividerBottomSVG,
 } from './DetailsStyles'
-
+// Imported helpers
+import { capitilise } from '../../../utils/helpers'
 
 export default function Details({ children, className, bgColor, ...props }) {
   return (
     <Container
       className={className}
-      style={{ '--sectionBgColor': bgColor }}
+      style={{ '--sectionBgColor': `rgb(var(--color${capitilise(bgColor)}))` }}
       {...props}
     >
       {children}
@@ -41,10 +40,6 @@ Details.Column = function DetailsColumn({ children, className, ...props }) {
   return (<Column className={className} {...props}>{children}</Column>)
 }
 
-Details.FootPrintsSVG = function DetailsFootPrintsSVG({ children, className, ...props }) {
-  return (<FootPrintsSVG className={className} {...props}>{children}</FootPrintsSVG>)
-}
-
 Details.Title = function DetailsTitle({ children, className, ...props }) {
   return (<Title className={className} {...props}>{children}</Title>)
 }
@@ -53,22 +48,14 @@ Details.Text = function DetailsText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
 }
 
-Details.ButtonContainer = function DetailsButtonContainer({ children, className, ...props }) {
-  return (<ButtonContainer className={className} {...props}> {children} </ButtonContainer>)
-}
-
-Details.Button = function DetailsButton({ children, className, ...props }) {
-  return (<Button className={className} {...props}> {children} </Button>)
-}
-
 Details.Link = function DetailsLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
 }
 
-Locations.WaveTopSVG = function LocationsWaveTopSVG({ children, className, ...props }) {
-  return (<WaveTopSVG className={className} {...props}>{children}</WaveTopSVG>)
+Details.DividerTopSVG = function DetailsDividerTopSVG({ children, className, ...props }) {
+  return (<DividerTopSVG className={className} {...props}> {children} </DividerTopSVG>)
 }
 
-Locations.WaveBottomSVG = function LocationsWaveBottomSVG({ children, className, ...props }) {
-  return (<WaveBottomSVG className={className} {...props}>{children}</WaveBottomSVG>)
+Details.DividerBottomSVG = function DetailsDividerBottomSVG({ children, className, ...props }) {
+  return (<DividerBottomSVG className={className} {...props}> {children} </DividerBottomSVG>)
 }

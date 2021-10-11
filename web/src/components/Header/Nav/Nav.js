@@ -162,26 +162,14 @@ Nav.Button = function NavButton({ children, className, ...props }) {
   )
 }
 
-Nav.Link = function NavLink({ children, className, home, to, color, dropdown, ...props }) {
+Nav.Link = function NavLink({ children, className, home, color, dropdown, ...props }) {
   const [isOpen, toggle] = useNavMenuToggleContext()
-  // if type is a string, it has been purposely added
-  const isString = typeof to === 'string'
-  // Checking to see if the data is being dymanically imported via database/cms
-  const hasSlug = typeof to === 'object' && to.current
-  // Checking to see if the link is to be inside a dropdown
-  const hasDropdown = typeof to === 'object' && to.hasDropdown
   return (
     <Link
       className={className}
-      to={home
-        ? "/"
-        : to
-          ? isString ? to
-            : hasSlug ? to.current
-              : hasDropdown ? `/#${camalise(to.title)}` : `/${camalise(to.title)}`
-          : null
-      }
       onClick={isOpen ? toggle : null}
+      home={home}
+      dropdown={dropdown}
       $home={home}
       $dropdown={dropdown}
       hoverColor={color}

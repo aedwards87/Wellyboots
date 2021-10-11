@@ -1,5 +1,5 @@
 // Imported dependencies
-import styled from "styled-components/macro"
+import styled, { css } from "styled-components/macro"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
 import { default as GatsbyImage } from 'gatsby-image'
@@ -146,4 +146,17 @@ export const SVGContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  ${({ isTouch }) => isTouch && css`
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 25%;
+    padding-top: 6%;
+    padding-bottom: 8%;
+    padding-right: 3%;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 50px;
+    filter: drop-shadow(2px 2px 4px rgba(var(--colorDarkBlue), .7));
+  `}
 `

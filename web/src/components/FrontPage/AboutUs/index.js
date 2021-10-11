@@ -10,7 +10,7 @@ import { useALittleAboutUsQuery } from '../../../hooks/Queries/useAlittleAboutUs
 const AboutUsIndex = () => {
   const { aLittleAboutUs: { nodes } } = useALittleAboutUsQuery()
   const aLittleAboutUs = nodes[0]
-  console.log(aLittleAboutUs.frontPageDescription[0])
+  // console.log(aLittleAboutUs.frontPageDescription[0])
   return (
     <AboutUs>
       <AboutUs.Frame yPad={6} bPad={9}>

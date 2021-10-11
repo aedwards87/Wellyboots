@@ -53,7 +53,7 @@ export const DropdownVariants = {
     opacity: 0,
     y: 20,
     x: '-45%',
-    rotateX: '-10deg',
+    rotateX: '-30deg',
     transition: {
       ease: 'easeOut',
       duration: .3

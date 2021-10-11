@@ -1,6 +1,5 @@
 // Imported dependencies
 import React from 'react'
-// Imported dependencies
 import styled from 'styled-components/macro';
 
 const WaveLocationBottom = ({ className, ...props }) => {
@@ -48,6 +47,7 @@ const Container = styled.div`
   margin-bottom: -60px;
   svg {
     min-width: 700px;
+    width: 100%;
   }
   .colorYellow {
     fill: rgb(var(--colorYellow));

@@ -4,15 +4,15 @@ import styled, { css } from 'styled-components/macro';
 
 // Imported Components
 import {
-  FrameOrigin,
-  RowOrigin,
-  ColumnOrigin,
+  Frame as FrameOrigin,
+  Row as RowOrigin,
+  Column as ColumnOrigin,
   TextHeading,
   TextParagraph,
-  LinkOrigin,
-  ButtonOrigin,
-} from '../../Reusable';
-import { WaveStaffTop, WaveStaffBottom, FootPrints } from '../../../assets/svg';
+  ProfileCard as ProfileCardOrigin,
+  Link as LinkOrigin,
+} from '../../../components/Reusable';
+import { WaveStaffTop, WaveStaffBottom } from '../../../assets/svg';
 import { motion } from 'framer-motion';
 
 
@@ -20,18 +20,26 @@ import { motion } from 'framer-motion';
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
 `
-export const Frame = styled(FrameOrigin)`
+export const Frame = styled(FrameOrigin)``
+export const Row = styled(RowOrigin)``
+export const Column = styled(ColumnOrigin)``
+export const Columns = styled.div`
+  > * {
+    padding-bottom: var(--s9);
+  }
+  @media (min-width: 768px) {
+    column-count: 2;
+    column-gap: 94px;
+  }
 `
-export const Row = styled(RowOrigin)`
-`
-export const Column = styled(ColumnOrigin)`
+export const Group = styled.div`
+  /* display: inline-block; */
+  width: 100%;
+  column-break-inside: avoid;
 `
 export const Title = styled(TextHeading)``
 export const Text = styled(TextParagraph)``
 export const Link = styled(LinkOrigin)``
-export const WaveTopSVG = styled(WaveStaffTop)``
-export const WaveBottomSVG = styled(WaveStaffBottom)``
-export const ButtonContainer = styled(motion.div)`
-`
-export const Button = styled(ButtonOrigin)``
-export const FootPrintsSVG = styled(FootPrints)``
+export const DividerTopSVG = styled(WaveStaffTop)``
+export const DividerBottomSVG = styled(WaveStaffBottom)``
+export const ProfileCard = styled(ProfileCardOrigin)``

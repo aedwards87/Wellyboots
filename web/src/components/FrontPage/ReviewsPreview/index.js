@@ -13,7 +13,7 @@ import { usePaginate, useReviewsQuery } from '../../../hooks/';
 const ReviewsPreviewIndex = () => {
   const { allReviews: { nodes: allReviews } } = useReviewsQuery()
   const [page, direction, paginate, carouselIndex] = usePaginate(allReviews)
-  console.log({ allReviews });
+  // console.log({ allReviews });
   return (
     <ReviewsPreview bgColor="dark purple">
       <ReviewsPreview.SVGDividerTop />

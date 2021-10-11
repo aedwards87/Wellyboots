@@ -27,6 +27,7 @@ const Container = styled.div`
   overflow: hidden;
   position: relative;
   svg {
+    width: 100%;
     min-width: 700px;
   }
   .colorYellow {

@@ -23,8 +23,9 @@ const space = [0, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 100, 128, 138, 154, 192,
 const GlobalStyles = createGlobalStyle`
 
   :root {
-    --colorLight: 255,255,255;
+    --colorLight: 255, 255, 255;
     --colorDark: 35, 42, 49;
+    --colorDark: 18, 33, 53;
     /* 
       dynamically create variable colours from cms data
           --colorYellow, --colorDarkPink, --colorDarkBlue, --colorPurple, 

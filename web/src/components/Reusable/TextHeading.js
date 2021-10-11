@@ -57,7 +57,11 @@ const Container = styled(motion.h1)`
   span:after {
     content: '';
     position: absolute;
-    background-color: rgba(var(--lineColor), .8);
+    background-color: ${({ style }) =>
+    (style['--lineColor'] && style['--lineColor'].includes("Light"))
+      ? css`rgba(var(--lineColor), .5);`
+      : css`rgba(var(--lineColor), .7);`
+  };
     width: 100%;
     height: .4em;
     bottom: 2px;

@@ -2,8 +2,6 @@
 import React from 'react'
 // Imported components
 import Hero from './Hero'
-import PortableText from "react-portable-text"
-import { Link } from '../../../components/Reusable'
 
 // Component
 const HeroIndex = ({ data: { location: {

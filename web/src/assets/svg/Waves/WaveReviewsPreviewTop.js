@@ -1,6 +1,5 @@
 // Imported dependencies
 import React from 'react'
-// Imported dependencies
 import styled from 'styled-components/macro';
 
 const WaveReviewsPreviewTop = ({ className, ...props }) => {
@@ -29,6 +28,7 @@ const Container = styled.div`
   top: -1px;
   > svg {
     min-width: 700px;
+    width: 100%;
   }
   .colorDarkPurple {
     fill: rgb(var(--colorDarkPurple));

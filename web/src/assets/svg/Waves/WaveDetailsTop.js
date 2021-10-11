@@ -4,19 +4,21 @@ import styled from 'styled-components/macro';
 // Imported helpers
 import { capitilise } from '../../../utils/helpers';
 
-const WaveStaffBottom = ({ className, style, bgColor = 'dark', ...props }) => {
+const WaveDetalsTop = ({ className, style, bgColor = 'dark', ...props }) => {
   return (
     <Container>
       <svg
         className={className}
-        viewBox="0 0 1440 183"
+        viewBox="0 0 1440 180"
         fill="none"
-        style={style, { '--colorStaff': `var(--color${capitilise(bgColor)})` }}
+        style={style, { '--colorDetails': `var(--color${capitilise(bgColor)})` }}
         xmlns="http://www.w3.org/2000/svg"
         {...props}
       >
-        <rect y="3" width="1440" height="180" className="colorLight" />
-        <path d="M1395 16.19C1410.9 19.1767 1425.9 22.2667 1440 25.46V0H0V102.54C129.4 157.48 252.63 178.48 370.46 179.19H383C769.41 176.86 1097.6 -39.69 1395 16.19Z" className="colorStaff" />
+        <rect width="1440" height="177" className="colorLight" />
+        <path
+          d="M275.61 99.68C157.87 92.27 64 109.62 0 130.57V179.5H1440V2C1189.94 19.43 1044.09 150.74 894.61 168.94C714.27 190.9 514.11 114.68 275.61 99.68Z" className="colorDetails"
+        />
       </svg>
     </Container>
   )
@@ -31,12 +33,12 @@ const Container = styled.div`
     width: 100%;
     min-width: 700px;
   }
-  .colorStaff {
-      fill: rgb(var(--colorStaff))
+  .colorDetails {
+      fill: rgb(var(--colorDetails))
   }
   .colorLight {
     fill: rgb(var(--colorLight));
   }
 `
 
-export default WaveStaffBottom
+export default WaveDetalsTop

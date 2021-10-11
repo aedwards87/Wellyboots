@@ -1,6 +1,5 @@
 // Imported dependencies
 import React from 'react'
-// Imported dependencies
 import styled from 'styled-components/macro';
 
 const WaveLocationTop = ({ className, ...props }) => {
@@ -24,6 +23,7 @@ const Container = styled.div`
   justify-content: center;
   overflow: hidden;
   svg {
+    width: 100%;
     min-width: 700px;
   }
   /* @media(min-width: 1100px) {

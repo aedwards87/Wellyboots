@@ -22,3 +22,7 @@ export { default as WaveReviewsPreviewTop } from './Waves/WaveReviewsPreviewTop'
 export { default as WaveReviewsPreviewBottom } from './Waves/WaveReviewsPreviewBottom';
 export { default as WaveStaffTop } from './Waves/WaveStaffTop';
 export { default as WaveStaffBottom } from './Waves/WaveStaffBottom';
+export { default as WaveAboutUsTop } from './Waves/WaveAboutUsUsTop';
+export { default as WaveAboutUsBottom } from './Waves/WaveAboutUsBottom';
+export { default as WaveDetailsTop } from './Waves/WaveDetailsTop';
+export { default as WaveDetailsBottom } from './Waves/WaveDetailsBottom';

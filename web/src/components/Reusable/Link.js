@@ -21,6 +21,7 @@ const Link = ({
   color = 'Text',
   hoverColor,
   lineColor,
+  dropdown,
   model,
   pad,
   tPad,
@@ -44,8 +45,6 @@ const Link = ({
     console.error('You can\'t combine an underline and button style link, please choose one or the other')
   }
 
-  console.log({ hasHash });
-
   return (
     <Container
       className={className}
@@ -67,7 +66,8 @@ const Link = ({
         ? "/"
         : to
           ? hasHash ? `#${camalise(to)}`
-            : isString ? `/${camalise(to)}`
+            // : isString ? `/${camalise(to)}`
+            : isString ? to
               : hasSlug ? to.current
                 : hasDropdown ? `/#${camalise(to.title)}` : `/${camalise(to.title)}`
           : null
@@ -117,16 +117,23 @@ const Container = styled(motion.custom(GatsbyLink))`
         }
         ${({ style, $fixed }) =>
           (style['--lineColor'] && $fixed) ? css`
+            > span { display: inline-block; };
             > span::before {
-              background: rgba(var(--lineColor), .8);
+              background: rgba(var(--lineColor), .7);
               transform: translateY(.18em);
             }
           `
             : (style['--lineColor'] && !$fixed) ? css`
+              &[aria-current="page"] {
+                > span::before {
+                  background: rgba(var(--lineColor), .7);
+                  transform: translateY(.18em);
+                }
+              }
               &:hover,
               &:focus {
                 > span::before {
-                  background: rgba(var(--lineColor), .8);
+                  background: rgba(var(--lineColor), .7);
                   transform: translateY(.18em);
                 }
               }
@@ -157,7 +164,9 @@ const Container = styled(motion.custom(GatsbyLink))`
       ${({ model, color }) =>
         model === 1 ? css`
           background-color: rgb(var(--color${capitilise(color)}));
-          color: rgb(var(--colorLight));
+          color: ${({ color }) =>
+            color.includes("Dark") || color.includes("dark")
+              ? `rgb(var(--colorLight))` : `rgb(var(--colorDark))`};
           :hover {
             box-shadow: var(--level4);
             border: 2px solid rgb(var(--color${capitilise(color)}));
@@ -165,7 +174,7 @@ const Container = styled(motion.custom(GatsbyLink))`
           }
           :hover,
           :focus {
-            filter: brightness(110%);
+            filter: brightness(103%);
           }
         `
           : model === 2 ? css`

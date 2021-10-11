@@ -7,21 +7,23 @@ import {
   Frame,
   Row,
   Column,
+  Columns,
   Title,
   Text,
-  ButtonContainer,
-  Button,
+  Group,
+  ProfileCard,
   Link,
-  WaveTopSVG,
-  WaveBottomSVG,
+  DividerTopSVG,
+  DividerBottomSVG,
 } from './StaffStyles'
+import { capitilise } from '../../../utils/helpers'
 
 
 export default function Staff({ children, className, bgColor, ...props }) {
   return (
     <Container
       className={className}
-      style={{ '--sectionBgColor': bgColor }}
+      style={{ '--sectionBgColor': `rgb(var(--color${capitilise(bgColor)}))` }}
       {...props}
     >
       {children}
@@ -41,8 +43,12 @@ Staff.Column = function StaffColumn({ children, className, ...props }) {
   return (<Column className={className} {...props}>{children}</Column>)
 }
 
-Staff.FootPrintsSVG = function StaffFootPrintsSVG({ children, className, ...props }) {
-  return (<FootPrintsSVG className={className} {...props}>{children}</FootPrintsSVG>)
+Staff.Columns = function StaffColumns({ children, className, ...props }) {
+  return (<Columns className={className} {...props}>{children}</Columns>)
+}
+
+Staff.Group = function StaffGroup({ children, className, ...props }) {
+  return (<Group className={className} {...props}>{children}</Group>)
 }
 
 Staff.Title = function StaffTitle({ children, className, ...props }) {
@@ -53,22 +59,18 @@ Staff.Text = function StaffText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
 }
 
-Staff.ButtonContainer = function StaffButtonContainer({ children, className, ...props }) {
-  return (<ButtonContainer className={className} {...props}> {children} </ButtonContainer>)
-}
-
-Staff.Button = function StaffButton({ children, className, ...props }) {
-  return (<Button className={className} {...props}> {children} </Button>)
-}
-
 Staff.Link = function StaffLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
 }
 
-Locations.WaveTopSVG = function LocationsWaveTopSVG({ children, className, ...props }) {
-  return (<WaveTopSVG className={className} {...props}>{children}</WaveTopSVG>)
+Staff.DividerTopSVG = function StaffDividerTopSVG({ children, className, ...props }) {
+  return (<DividerTopSVG className={className} {...props}>{children}</DividerTopSVG>)
 }
 
-Locations.WaveBottomSVG = function LocationsWaveBottomSVG({ children, className, ...props }) {
-  return (<WaveBottomSVG className={className} {...props}>{children}</WaveBottomSVG>)
+Staff.DividerBottomSVG = function StaffDividerBottomSVG({ children, className, ...props }) {
+  return (<DividerBottomSVG className={className} {...props}>{children}</DividerBottomSVG>)
+}
+
+Staff.ProfileCard = function StaffProfileCard({ children, className, ...props }) {
+  return (<ProfileCard className={className} {...props}>{children}</ProfileCard>)
 }

@@ -35,7 +35,7 @@ const Typography = createGlobalStyle`
     --textLineHeight: 1.4;
     
     /* Coupled font styles min(max(38px, 12vw), 80px)*/
-    --heroFont:  min(max(39px, 12vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
+    --heroFont:  min(max(39px, 9vw), var(--fontSizeHero)) var(--fontSecondaryFamily);
     --ctaFont: var(--fontWeightMedium) calc(var(--fontSizeBody) * 2) var(--fontFamily);
     --inputFont: var(--fontWeightNormal) var(--fontSizeBody * 1.8) var(--fontFamily);
 
