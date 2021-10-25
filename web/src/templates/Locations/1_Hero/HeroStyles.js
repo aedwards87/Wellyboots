@@ -66,6 +66,7 @@ export const Column = styled(ColumnOrigin)`
         @media (min-width: 980px) {
           grid-row: 2;
           grid-column: 2 / span 2;
+          padding-bottom: var(--s6);
         }
     ` : column === 4 ? css`
         grid-column: span 2;
@@ -136,7 +137,7 @@ export const Image = styled(GatsbyImage)`
   height: 50vw;
   min-width: 275px;
   min-height: 180px;
-  border: var(--s2) solid rgb(var(--colorLight));
+  border: min(max(8px,2vw),10px) solid rgb(var(--colorLight));
   background: rgb(var(--colorLight));
   box-shadow: var(--level6);
   z-index: 2;

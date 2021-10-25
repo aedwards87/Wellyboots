@@ -21,6 +21,7 @@ import {
 } from './HeroStyles'
 // Imported hooks
 import { usePaginate } from '../../../hooks'
+import { camalise } from '../../../utils/helpers'
 
 
 export default function Hero({ children, className, bgColor, ...props }) {
@@ -70,8 +71,8 @@ Hero.PortableText = function HeroPortableText({ children, className, lineColor, 
       serializers={{
         link: ({ children, href }) =>
           href.includes('www.')
-            ? <a href={href}>{children}</a>
-            : <Link to={href} lineColor={lineColor} fixed>{children}</Link>
+            ? <a href={href} rel="noopener noreferrer">{children}</a>
+            : <Link to={`/${camalise(href)}`} lineColor={lineColor} fixed>{children}</Link>
       }}
       {...props}
     >

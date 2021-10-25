@@ -19,10 +19,10 @@ const Typography = createGlobalStyle`
     --fontSizeh3: calc(var(--fontSizeBody) * 1.563);
     --fontSizeh4: calc(var(--fontSizeBody) * 1.25);
     --fontSizeh5: calc(var(--fontSizeBody) * 1);
-    --fontSizeLarge: 2.2rem;
-    --fontSizeMedium: 2rem;
-    --fontSizeSmall: 1.6rem;
-    --fontSizeSmallest: 1.4rem;
+    --fontSizeLarge: 2rem;
+    --fontSizeMedium: 1.8rem;
+    --fontSizeSmall: 1.4rem;
+    --fontSizeSmallest: 1.2rem;
 
     /* Weight */
     --fontWeightLight: 300;
@@ -46,6 +46,10 @@ const Typography = createGlobalStyle`
   @media(min-width: 420px) {
     :root {
       --fontSizeBody: 1.8rem;
+      --fontSizeLarge: 2.2rem;
+      --fontSizeMedium: 2rem;
+      --fontSizeSmall: 1.6rem;
+      --fontSizeSmallest: 1.4rem;
     }
   }
 
@@ -65,7 +69,7 @@ const Typography = createGlobalStyle`
     font-size: var(--fontSizeBody);
   }
 
-  p, a, li, span {
+  p, a, li, span, td, blockquote {
     letter-spacing: 0.3px;
     line-height: var(--textLineHeight);
   }

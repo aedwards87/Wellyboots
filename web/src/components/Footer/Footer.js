@@ -11,6 +11,7 @@ import {
   Title,
   Text,
   Link,
+  NewLink,
   ExternalLink,
   Button,
   ArrowSVG,

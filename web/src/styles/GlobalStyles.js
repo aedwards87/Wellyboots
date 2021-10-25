@@ -95,9 +95,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    scroll-behavior: smooth;
+    ${'' /* scroll-behavior: smooth; */}
     overflow-y: scroll;
     overflow-x: hidden;
+  }
+
+  .smooth {
+    scroll-behavior: smooth;
   }
 
   html, body, blockquote, figure, h1, h2, h3, h4, h5, h6, p, pre {

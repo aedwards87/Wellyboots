@@ -4,9 +4,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 // Imported components
 import {
   Container,
-  Frame,
-  Row,
-  Column,
   Title,
   Text,
   Image,
@@ -15,9 +12,10 @@ import {
   ImageContainer,
   PortableText,
 } from './ProfileCardStyles'
-import { capitilise } from '../../../../utils/helpers'
 // Imported helpers
+import { capitilise } from '../../../../utils/helpers'
 
+// Compound components
 export default function ProfileCard({ children, className, bgColor, ...props }) {
   return (
     <Container

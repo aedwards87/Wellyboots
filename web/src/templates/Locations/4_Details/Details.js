@@ -9,7 +9,14 @@ import {
   Column,
   Title,
   Text,
+  Group,
   Link,
+  Address,
+  PhoneSVG,
+  ClockSVG,
+  EmailSVG,
+  SunSVG,
+  GoogleMap,
   DividerTopSVG,
   DividerBottomSVG,
 } from './DetailsStyles'
@@ -48,8 +55,36 @@ Details.Text = function DetailsText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
 }
 
+Details.Group = function DetailsGroup({ children, className, ...props }) {
+  return (<Group className={className} {...props}>{children}</Group>)
+}
+
+Details.GoogleMap = function DetailsGoogleMap({ children, className, ...props }) {
+  return (<GoogleMap className={className} {...props}> {children} </GoogleMap>)
+}
+
+Details.Address = function DetailsAddress({ children, className, ...props }) {
+  return (<Address className={className} {...props}> {children} </Address>)
+}
+
 Details.Link = function DetailsLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
+}
+
+Details.PhoneSVG = function DetailsPhoneSVG({ children, className, ...props }) {
+  return (<PhoneSVG className={className} {...props}>{children}</PhoneSVG>)
+}
+
+Details.ClockSVG = function DetailsClockSVG({ children, className, ...props }) {
+  return (<ClockSVG className={className} {...props}>{children}</ClockSVG>)
+}
+
+Details.EmailSVG = function DetailsEmailSVG({ children, className, ...props }) {
+  return (<EmailSVG className={className} {...props}>{children}</EmailSVG>)
+}
+
+Details.SunSVG = function DetailsSunSVG({ children, className, ...props }) {
+  return (<SunSVG className={className} {...props}>{children}</SunSVG>)
 }
 
 Details.DividerTopSVG = function DetailsDividerTopSVG({ children, className, ...props }) {

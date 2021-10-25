@@ -1,5 +1,5 @@
 // Imported dependencies 
-import React from 'react'
+import React, { useEffect, useCallback } from 'react'
 import styled, { css } from "styled-components/macro";
 import { Link as GatsbyLink } from "gatsby";
 // Imported helpers
@@ -33,14 +33,25 @@ const Link = ({
   fixed,
   ...props
 }) => {
-
+  // Checking to see if it's just a string
   const isString = typeof to === 'string'
   // Checking to see if the data is being dymanically imported via database/cms
   const hasSlug = typeof to === 'object' && to.current
   // Checking to see if the link is to be inside a dropdown
   const hasDropdown = typeof to === 'object' && to.hasDropdown
+  // Checking to see if it is a hash link
   const hasHash = typeof to === 'string' && to.includes('#')
 
+  // Adds and removes a class to the HTML tag for smooth scrolling
+  // We allow this only for Location Nav link and hash links
+
+  const smoothScroll = useCallback(() => {
+    (hasHash || hasDropdown)
+      ? document.querySelector('html').classList.add('smooth')
+      : document.querySelector('html').classList.remove('smooth')
+  }, [])
+
+  // Validation to ensure we don't get a button style link with an underline link
   if (lineColor && model) {
     console.error('You can\'t combine an underline and button style link, please choose one or the other')
   }
@@ -62,16 +73,15 @@ const Link = ({
         }
       }}
       color={capitilise(color)}
-      to={home
-        ? "/"
-        : to
-          ? hasHash ? `#${camalise(to)}`
-            // : isString ? `/${camalise(to)}`
+      to={home ? "/"
+        : to ?
+          hasHash ? `#${camalise(to)}`
             : isString ? to
               : hasSlug ? to.current
                 : hasDropdown ? `/#${camalise(to.title)}` : `/${camalise(to.title)}`
           : null
       }
+      onMouseDown={() => smoothScroll()}
       model={model}
       $tPad={tPad || yPad}
       $bPad={bPad || yPad}
@@ -152,6 +162,7 @@ const Container = styled(motion.custom(GatsbyLink))`
       outline-offset: 4px;
       z-index: 9;
       transition: transform .3s ease;
+      text-align: center;
       &&:active {
         transform: translateY(0);
         box-shadow: none;

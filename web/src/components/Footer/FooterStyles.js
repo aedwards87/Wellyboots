@@ -1,6 +1,5 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
-
 // Imported Components
 import {
   Frame as FrameMod,
@@ -9,9 +8,8 @@ import {
   Button as ButtonMod,
   TextHeading,
   TextParagraph,
-  TextLink,
+  Link as LinkOrigin,
 } from '../Reusable/index'
-
 import {
   Arrow,
   Phone,
@@ -23,7 +21,7 @@ import {
 } from '../../assets/svg'
 
 // Styles
-export const Container = styled.section`
+export const Container = styled.footer`
   font-size: var(--fontSizeFooter);
   ${({ sectionBgColor }) => sectionBgColor &&
     css`background-color: var(--sectionBgColor);`
@@ -98,7 +96,7 @@ export const ExternalLink = styled.a`
     color: rgb(var(--colorPink));
   }
 `
-export const Link = styled(TextLink)``
+export const Link = styled(LinkOrigin)``
 export const Button = styled(ButtonMod)`
   display: none;
   position: absolute;

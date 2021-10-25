@@ -51,7 +51,10 @@ const serializers = {
     code: (props) => console.log("code", props) || <code>{props.children}</code>,
     link: (props) =>
       props.mark.href.includes('www.') ? (
-        <a href={props.mark.href}>{props.children}</a>
+        <a
+          href={props.mark.href}
+          rel="noopener noreferrer"
+        >{props.children}</a>
       ) : (
         <Link to={props.mark.href}>{props.children}</Link>
       )

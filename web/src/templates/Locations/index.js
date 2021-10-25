@@ -6,13 +6,12 @@ import Hero from './1_Hero'
 import Staff from './2_Staff'
 import Routine from './3_Routine'
 import Details from './4_Details'
-import ReviewsPreview from '../../components/FrontPage/ReviewsPreview'
+import { ReviewsPreview } from '../../components/Pages/FrontPage'
 import Prospectus from '../../components/Prospectus'
 import { SEO } from '../../components/Reusable'
 
 // Component
 const LocationsTemplateIndex = ({ data }) => {
-  console.log(`Template:`, { data });
   return (
     <>
       {/* <SEO title="Location" /> */}
@@ -47,6 +46,10 @@ export const LocationsTemplateQuery = graphql`
         telephoneNumber
       }
       dailyRoutine {
+        time
+        title
+      }
+      lateAfternoonRoutine {
         time
         title
       }

@@ -9,5 +9,6 @@ export { default as TextHeading } from './TextHeading';
 export { default as Link } from './Link';
 export { default as TextLink } from './TextLink';
 export { default as TextParagraph } from './TextParagraph';
-export { default as LocationCard } from './Cards/LocationCard';
+// export { default as LocationCard } from './Cards/LocationCard/index';
+export { default as LocationCard } from './Cards/LocationCard/index';
 export { default as ProfileCard } from './Cards/ProfileCard';

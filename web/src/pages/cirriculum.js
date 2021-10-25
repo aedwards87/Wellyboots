@@ -1,10 +1,12 @@
 import React from 'react'
+import { ReviewsPreview } from '../components/Pages/FrontPage'
 
 const Cirriculum = () => {
   return (
-    <div>
-      Cirriculum
-    </div>
+    <>
+      {/* <Cirriculum /> */}
+      <ReviewsPreview />
+    </>
   )
 }
 

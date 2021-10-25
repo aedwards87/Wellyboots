@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-const FootPrints = ({ className, width = "25", height = "227", color = "dark pink", ...props }) => {
+const FootPrints = ({ className, width = "25", height = "227", color = "dark pink", delay = 0, ...props }) => {
   const variantSVG = {
     hidden: { opacity: 0 },
     show: {
@@ -10,7 +10,7 @@ const FootPrints = ({ className, width = "25", height = "227", color = "dark pin
       transition: {
         staggerChildren: 0.5,
         staggerDirection: -1,
-        delayChildren: 3
+        delayChildren: delay
       }
     }
   }

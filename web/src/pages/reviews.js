@@ -1,10 +1,12 @@
 import React from 'react'
+import { ReviewsPreview } from '../components/Pages/FrontPage'
 
 const Reviews = () => {
   return (
-    <div>
-      Reviews
-    </div>
+    <>
+      {/* <Feedback /> */}
+      <ReviewsPreview />
+    </>
   )
 }
 

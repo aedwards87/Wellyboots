@@ -15,7 +15,7 @@ import {
   Table,
 } from './RoutineStyles'
 // Imported helpers
-import { capitilise } from '../../../utils/helpers'
+import { capitilise, changeTimeFormat } from '../../../utils/helpers'
 
 
 export default function Routine({ children, className, bgColor, ...props }) {
@@ -66,10 +66,14 @@ Routine.Table = function RoutineTable({ children, className, time, lineColor, ro
   return (
     <Table className={className} lineColor={capitilise(lineColor)} {...props}>
       <tbody>
-        <tr>
-          <td>{time}</td>
-          <td>{routine}</td>
-        </tr>
+        {routine.map(r =>
+          <tr key={r.time}>
+            <td>{changeTimeFormat(r.time)}</td>
+            <td>{r.title}</td>
+          </tr>
+        )}
       </tbody>
-    </Table>)
+    </Table>
+  )
 }
+

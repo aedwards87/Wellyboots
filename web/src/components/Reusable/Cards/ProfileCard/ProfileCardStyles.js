@@ -24,19 +24,36 @@ export const Body = styled.div`
   justify-items: center;
   row-gap: var(--s5);
   padding: 7vw;
-  padding-bottom: 11vw;
   z-index: 1;
-  background-color: var(--sectionBgColor);
-  border-radius: 80px  160px 80px  80px;
-  border: var(--s2) solid white;
-  box-shadow: var(--level4), var(--level6);
+  /* background-color: var(--sectionBgColor);
+  border: var(--s2) solid white; */
+  border-radius: var(--s6);
+  background-color: rgba(var(--colorLight), .4);
+  /* border: min(max(8px, 2vw), 10px) solid rgb(var(--colorLight)); */
+  border: 8px solid rgb(var(--colorLight));
+  transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease,border-radius .3s ease;
   @media (min-width: 768px) {
-    padding: 5vw;
+    padding: min(max(var(--s4), 4vw), var(--s6));
   }
-  @media (min-width: 980px) {
-    padding: var(--s7);
+  @media (hover) {
+    :hover {
+      box-shadow: var(--level6);
+      transform: scale(1.01) translateY(-10px);
+      background-color: var(--sectionBgColor);
+      > div:first-child {
+        box-shadow: var(--level5);
+        border-radius: 150px 240px 180px 200px;
+      } 
+    }
   }
-  
+  @media (hover: none) {
+    background: var(--sectionBgColor);
+    box-shadow: var(--level6);
+    > div:first-child {
+      box-shadow: var(--level5);
+      border-radius: 150px 240px 180px 200px;
+    } 
+  }
 `
 export const Title = styled(TextHeading)``
 export const Text = styled(TextParagraph)``
@@ -49,17 +66,24 @@ export const ImageContainer = styled.div`
   width: 40vw;
   min-width: 150px;
   max-width: 350px;
+  min-height: 150px;
+  max-height: 350px;
   aspect-ratio: 1;
   margin-bottom: var(--s4);
   margin-top: -38px;
-  border-radius: 150px 240px 180px 200px;
-  border: var(--s2) solid rgb(var(--colorLight));
+  /* border-radius: 150px 240px 180px 200px; */
+  border-radius: 50%;
+  /* border: min(max(8px, 2vw), 10px) solid rgb(var(--colorLight)); */
+  border: 8px solid rgb(var(--colorLight));
   background: rgb(var(--colorLight));
-  box-shadow: var(--level4), var(--level6);
+  transition: box-shadow .3s ease, border-radius .3s ease;
   @media (min-width: 768px) {
     width: 20vw;
     max-width: 250px;
+    max-height: 250px;
+    /* aspect-ratio: 1.1; */
   }
+  
   
 `
 export const Image = styled(GatsbyImage)`

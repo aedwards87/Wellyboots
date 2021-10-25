@@ -30,6 +30,7 @@ const Column = ({ className, children, gap, xGap, yGap, columnOrder, xAlign = "s
 
 const Container = styled(motion.div)`
   display: grid;
+  position: relative;
   ${({ style }) => style['--columnYGap'][0] && css`grid-row-gap: ${style['--columnYGap'][0]};`}
   ${({ style }) => style['--columnXGap'][0] && css`grid-column-gap: ${style['--columnXGap'][0]};`}
   ${({ style }) => style['--columnGap'][0] && css`gap: ${style['--columnGap'][0]};`}

@@ -2,11 +2,13 @@
 import React from 'react'
 // Imported components
 import Prospectus from './Prospectus'
+import { useProspectusQuery } from '../../hooks'
 
 const ProspectusIndex = ({ color }) => {
+  const { sanityProspectus: { prospectus } } = useProspectusQuery()
   return (
     <Prospectus id="Prospectus">
-      <Prospectus.Frame yGap={3}>
+      <Prospectus.Frame yGap={5}>
         <Prospectus.Row>
           <Prospectus.Column xAlign="center">
             <Prospectus.Title>Download our digital prospectus</Prospectus.Title>
@@ -14,7 +16,10 @@ const ProspectusIndex = ({ color }) => {
         </Prospectus.Row>
         <Prospectus.Row>
           <Prospectus.Column xAlign="center">
-            <Prospectus.Link model={1} color={color}>Download</Prospectus.Link>
+            <Prospectus.ExternalLink
+              color={color || "dark green"}
+              href={`${prospectus?.asset.url}?dl=${prospectus?.asset.originalFilename}`}
+            >Download</Prospectus.ExternalLink>
           </Prospectus.Column>
         </Prospectus.Row>
       </Prospectus.Frame>

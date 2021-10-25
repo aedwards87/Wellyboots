@@ -2,10 +2,8 @@
 import React from 'react'
 // Imported components
 import Footer from './Footer'
-import { TextLink } from '../Reusable'
 // Imported hooks
 import { useLocationsQuery, useSiteDetailsQuery } from '../../hooks'
-
 // Temp data
 import footerLinks from '../../data/footerLinks'
 import { addSpaceToString, camalise, replaceAmpersand } from '../../utils/helpers'
@@ -36,29 +34,21 @@ const FooterIndex = () => {
           <Footer.Column yGap={4}>
             <Footer.Group columns={2}>
               <Footer.PhoneSVG />
-              {/* <Footer.ExternalLinkConainer>
-                {conactDetails.telephoneNumber && 
-                  <Footer.ExternalLink href={`tel:+44${conactDetails.telephoneNumber.slice(1)}`}>
-                    {addSpaceToString(conactDetails.telephoneNumber)}
-                  </Footer.ExternalLink>
-                } */}
-              <Footer.ExternalLink href={`tel:+44${conactDetails.mobileNumber.slice(1)}`}>
+              <Footer.ExternalLink
+                href={`tel:+44${conactDetails.mobileNumber.slice(1)}`}
+                rel="noopener noreferrer"
+              >
                 {addSpaceToString(conactDetails.mobileNumber)}
               </Footer.ExternalLink>
-              {/* </Footer.ExternalLinkConainer> */}
             </Footer.Group>
             <Footer.Group columns={2}>
               <Footer.EmailSVG />
-              {/* <Footer.ExternalLinkConainer>
-                {conactDetails.emailAddressTwo && 
-                  <Footer.ExternalLink href={`mailto:${conactDetails.emailAddressTwo}`}>
-                    {conactDetails.emailAddressTwo}
-                  </Footer.ExternalLink>
-                } */}
-              <Footer.ExternalLink href={`mailto:${conactDetails.emailAddressOne}`}>
+              <Footer.ExternalLink
+                href={`mailto:${conactDetails.emailAddressOne}`}
+                rel="noopener noreferrer"
+              >
                 {conactDetails.emailAddressOne}
               </Footer.ExternalLink>
-              {/* </Footer.ExternalLinkConainer> */}
             </Footer.Group>
             <Footer.Group columns={2}>
               <Footer.HomeSVG />
@@ -85,9 +75,9 @@ const FooterIndex = () => {
                 <Footer.LocationsSVG />
                 <Footer.Group>
                   {locations.map(({ name, title, slug, subBrandColors }) =>
-                    <TextLink key={name} to={`/locations/${slug.current}`} lineColor={subBrandColors}>
+                    <Footer.Link key={name} to={`/locations/${slug.current}`} lineColor={subBrandColors}>
                       {name || title}
-                    </TextLink>
+                    </Footer.Link>
                   )}
                 </Footer.Group>
               </Footer.Group>

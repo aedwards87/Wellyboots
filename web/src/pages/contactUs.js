@@ -1,11 +1,16 @@
+// Imported dependencies
 import React from 'react'
+// Imported components
+import Contact from '../components/Pages/Contact'
+import { ReviewsPreview } from '../components/Pages/FrontPage'
 
-const contactUs = () => {
+const ContactUs = () => {
   return (
-    <div>
-      Contact us
-    </div>
+    <>
+      <Contact />
+      <ReviewsPreview />
+    </>
   )
 }
 
-export default contactUs
+export default ContactUs

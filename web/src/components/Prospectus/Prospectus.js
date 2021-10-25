@@ -9,6 +9,7 @@ import {
   Column,
   Title,
   Link,
+  ExternalLink,
 } from './ProspectusStyles'
 
 
@@ -23,7 +24,6 @@ export default function Hero({ children, className, bgColor, ...props }) {
     </Container>
   )
 }
-
 
 Hero.Frame = function HeroFrame({ children, className, ...props }) {
   return (<Frame className={className} {...props}>{children}</Frame>)
@@ -43,4 +43,8 @@ Hero.Title = function HeroTitle({ children, className, ...props }) {
 
 Hero.Link = function HeroLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
+}
+
+Hero.ExternalLink = function HeroExternalLink({ children, className, ...props }) {
+  return (<ExternalLink className={className} {...props}> {children} </ExternalLink>)
 }

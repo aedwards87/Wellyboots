@@ -3,12 +3,15 @@ import React from 'react'
 // Imported components
 import Details from './Details'
 // Imported helpers
-import { capitilise } from '../../../utils/helpers'
+import { addSpaceToString, capitilise, changeTimeFormat } from '../../../utils/helpers'
+import { Sun } from '../../../assets/svg'
+
 
 const DetailsIndex = ({ data: { location: {
   shortName,
   name,
   address,
+  dayAndTime,
   contactDetails,
   geoLocation,
   subBrandColors
@@ -19,7 +22,7 @@ const DetailsIndex = ({ data: { location: {
       bgColor={subBrandColors[0].title}
     >
       <Details.DividerTopSVG bgColor={subBrandColors[0].title} />
-      <Details.Frame>
+      <Details.Frame bPad={9}>
 
         <Details.Row>
           <Details.Column>
@@ -27,16 +30,60 @@ const DetailsIndex = ({ data: { location: {
           </Details.Column>
         </Details.Row>
 
-        <Details.Row columns={2} xGap="94px" yGap={9}>
-          <Details.Column>
-            <Details.Text>
-              Details content
-            </Details.Text>
+        <Details.Row columns={2} xGap={5} yGap={5}>
+          <Details.Column xAlign="stretch">
+
+            <Details.Row columns={2} xGap={5} custom>
+
+              <Details.Column yAlign="start">
+                <Details.PhoneSVG colorOne="light" colorTwo="dark" />
+                <Details.Group>
+                  <Details.Text>
+                    {contactDetails.telephoneNumber &&
+                      <React.Fragment>
+                        <span>Direct:</span>
+                        <span>{addSpaceToString(contactDetails.telephoneNumber)}</span>
+                      </React.Fragment>
+                    }
+                    <span>Kelly Page:</span>
+                    <span>{addSpaceToString(contactDetails.mobileNumber)}</span>
+                  </Details.Text>
+                </Details.Group>
+                <Details.EmailSVG colorOne="light" colorTwo="dark" />
+                <Details.Group>
+                  <Details.Text>
+                    {contactDetails.emailAddressOne && contactDetails.emailAddressOne} <br />
+                    {contactDetails.emailAddressTwo && contactDetails.emailAddressTwo}
+                  </Details.Text>
+                </Details.Group>
+              </Details.Column>
+
+              <Details.Column yAlign="start" xAlign="stretch">
+                <Details.SunSVG />
+                <Details.ClockSVG colorOne="dark" colorTwo="light" />
+                <Details.Group>
+                  <Details.Text>
+                    {dayAndTime.map(dt =>
+                      <React.Fragment key={dt.day}>
+                        <span>{dt.day}</span>
+                        <span>{changeTimeFormat(dt.opensAt)} – {changeTimeFormat(dt.closesAt)}</span>
+                      </React.Fragment>
+                    )}
+                    {(dayAndTime.length === 4) && <><span>Friday</span><span>Closed</span></>}
+                    <span>Saturday</span><span>Closed</span>
+                    <span>Sunday</span><span>Closed</span>
+                  </Details.Text>
+                </Details.Group>
+              </Details.Column>
+
+            </Details.Row>
           </Details.Column>
-          <Details.Column>
-            <Details.Text>
-              Details map
-            </Details.Text>
+          <Details.Column custom>
+            <Details.GoogleMap
+              address={address}
+              center={{ lat: geoLocation.lat, lng: geoLocation.lng }}
+              colors={subBrandColors}
+            />
           </Details.Column>
         </Details.Row>
 

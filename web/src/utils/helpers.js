@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // Remove space and camalise text
 export const camalise = function camalise(str) {
   if (str === undefined) { return }
@@ -49,3 +51,11 @@ export function addSpaceToString(str, position = 5) {
   return `${str.slice(0, position)} ${str.slice(position, str.length)}`
 }
 
+// Converts 24 hour time to 12 hour
+export function changeTimeFormat(time) {
+  let timeString = time;
+  const hour = +timeString.substr(0, 2);
+  const convert = hour % 12 || 12;
+  const ampm = (hour < 12 || hour === 24) ? "am" : "pm";
+  return timeString = convert + timeString.substr(2, 3) + ampm;
+}
