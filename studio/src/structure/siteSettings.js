@@ -1,7 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder'
 
 import { RiSettings2Line, RiPagesLine } from 'react-icons/ri'
-import { BiCommentDots } from 'react-icons/bi'
+import { BiCommentDots, BiBookHeart } from 'react-icons/bi'
 import { FiBox } from 'react-icons/fi'
 import { GrContactInfo } from 'react-icons/gr'
 import { AiOutlineBgColors } from 'react-icons/Ai'
@@ -69,7 +69,17 @@ const siteSettings = S.listItem()
               .title('Social Media')
               .schemaType('socialMedia')
               .documentId('socialMedia')
-          )
+          ),
+        S.listItem()
+          .title('Prospectus')
+          .icon(BiBookHeart)
+          .child(
+            S.editor()
+              .id('prospectus')
+              .title('Prospectus')
+              .schemaType('prospectus')
+              .documentId('prospectus')
+          ),
       ])
   )
 

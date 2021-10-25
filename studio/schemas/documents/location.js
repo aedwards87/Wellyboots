@@ -7,6 +7,27 @@ const getPosition = () =>
     navigator.geolocation.getCurrentPosition(resolve, reject)
   })
 
+// Validation as to whether or not the location has a daily routine or late afternoon routine
+const verifyInput = ({ type, dailyRoutine, lateAfternoonRoutine }) => {
+  const preschoolAndChildminding = type.includes("Pre-school" || "Childminding")
+  const afterSchool = type.includes("After school club")
+  if (preschoolAndChildminding && !afterSchool) {
+    if (!dailyRoutine || dailyRoutine.length < 1) return "No daily routines have been entered"
+    if (lateAfternoonRoutine?.length > 0) return "Only daily routines are required, please remove the late afternoon routines"
+    return true
+  }
+  if (!preschoolAndChildminding && afterSchool) {
+    if (!lateAfternoonRoutine || lateAfternoonRoutine?.length < 1) return "No late afternoon routines have been entered"
+    if (dailyRoutine?.length > 0) return "Only late afternoon routines are required, please remove the daily routines"
+  }
+  if (preschoolAndChildminding && afterSchool) {
+    if ((!lateAfternoonRoutine || lateAfternoonRoutine?.length < 1) && (!dailyRoutine || dailyRoutine?.length < 1)) return "No daily or late afternoon routines have been entered"
+    if (!dailyRoutine || dailyRoutine?.length < 1) return "No daily routines have been entered"
+    if (!lateAfternoonRoutine || lateAfternoonRoutine?.length < 1) return "No late afternoon routines have been entered"
+  }
+  return true
+}
+
 export default {
   name: 'location',
   title: 'Location',
@@ -30,6 +51,7 @@ export default {
       }))
       .catch(error => console.error(error))
   }),
+  validation: Rule => Rule.custom(verifyInput),
   fields: [
     {
       name: 'name',
@@ -84,11 +106,6 @@ export default {
       validation: Rule => Rule.required()
     },
     {
-      name: 'introd',
-      title: `Introd`,
-      type: 'bodyPortableText',
-    },
-    {
       name: 'subBrandLogo',
       title: 'Sub-brand logo',
       description: 'Upload an SVG File of this locations logo',
@@ -127,11 +144,17 @@ export default {
     },
     {
       name: 'dailyRoutine',
-      title: `Daily routine`,
+      title: `Daily routine (Only if applicable)`,
       description: 'What is the daily routine laid out for this location',
       type: 'array',
       of: [{ type: 'dailyRoutine' }],
-      validation: Rule => Rule.required()
+    },
+    {
+      name: 'lateAfternoonRoutine',
+      title: `Late afternoon routine (Only if applicable)`,
+      description: 'What is the late afternoon routine laid out for this location',
+      type: 'array',
+      of: [{ type: 'dailyRoutine' }],
     },
     {
       name: 'mainImage',
@@ -219,8 +242,8 @@ export default {
             return 'It is important for parents to know the times the location starts and finishes'
           }
           return true
-        })
-    }
+        }),
+    },
   ],
   preview: {
     select: {

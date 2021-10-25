@@ -19,6 +19,8 @@ import policiesAndProcedures from './documents/policiesAndProcedures'
 import imageGallery from './documents/imageGallery'
 import brandColors from './documents/brandColors'
 import logo from './documents/logo'
+import prospectus from './documents/prospectus'
+
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -71,7 +73,8 @@ export default createSchema({
     logo,
     svgUploadPreview,
     address,
-    locationContactDetails
+    locationContactDetails,
+    prospectus,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])
