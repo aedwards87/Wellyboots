@@ -1,5 +1,5 @@
 import { HiOutlineLocationMarker as icon } from 'react-icons/hi'
-import svgUploadPreview from 'sanity-plugin-inline-svg';
+// import svgUploadPreview from 'sanity-plugin-inline-svg';
 // import client from 'part:@sanity/base/client'
 
 const getPosition = () =>
@@ -105,11 +105,17 @@ export default {
       description: 'Tell us a bit about the location',
       validation: Rule => Rule.required()
     },
+    // {
+    //   name: 'subBrandLogo',
+    //   title: 'Sub-brand logo',
+    //   description: 'Upload an SVG File of this locations logo',
+    //   type: 'svgUploadPreview',
+    // },
     {
-      name: 'subBrandLogo',
+      name: 'subBrandSVG',
       title: 'Sub-brand logo',
       description: 'Upload an SVG File of this locations logo',
-      type: 'svgUploadPreview',
+      type: 'imageModal',
     },
     {
       name: 'subBrandColors',

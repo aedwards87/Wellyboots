@@ -19,12 +19,24 @@ export default {
           {
             name: 'link',
             type: 'object',
-            title: 'URL',
+            title: 'External link',
             fields: [
               {
                 title: 'URL',
                 name: 'href',
                 type: 'url'
+              }
+            ]
+          },
+          {
+            name: 'internalLink',
+            type: 'object',
+            title: 'Internal link',
+            fields: [
+              {
+                title: 'Reference',
+                name: 'reference',
+                type: 'string',
               }
             ]
           }

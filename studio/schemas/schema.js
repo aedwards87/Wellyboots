@@ -4,7 +4,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
-import svgUploadPreview from 'sanity-plugin-inline-svg';
+// import svgUploadPreview from 'sanity-plugin-inline-svg';
 
 // document schemas
 import person from './documents/person'
@@ -20,7 +20,6 @@ import imageGallery from './documents/imageGallery'
 import brandColors from './documents/brandColors'
 import logo from './documents/logo'
 import prospectus from './documents/prospectus'
-
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -41,7 +40,7 @@ import locationContactDetails from './objects/locationContactDetails'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
-  name: 'blog',
+  name: 'wellyboots',
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
@@ -71,10 +70,10 @@ export default createSchema({
     brandColors,
     colors,
     logo,
-    svgUploadPreview,
-    address,
-    locationContactDetails,
     prospectus,
+    // svgUploadPreview,
+    address,
+    locationContactDetails
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ])

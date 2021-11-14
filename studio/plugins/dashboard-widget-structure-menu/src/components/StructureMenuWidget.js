@@ -11,6 +11,8 @@ function getIconComponent (item) {
 }
 
 function StructureMenuWidget (props) {
+  // Filter data that have a title 
+  const contentFilter = props.structure.items.filter(item => item.title)
   return (
     <div className={styles.root}>
       <div className={styles.header}>
@@ -18,7 +20,7 @@ function StructureMenuWidget (props) {
       </div>
 
       <div className={styles.content}>
-        {props.structure.items.map(item => {
+        {contentFilter.map(item => {
           const Icon = getIconComponent(item)
           return (
             <div key={item.id}>

@@ -134,7 +134,8 @@ export default () =>
             'socialMedia',
             'feedback',
             'policiesAndProcedures',
-            'imageGallery'
+            'imageGallery',
+            'prospectus'
           ].includes(
             listItem.getId()
           )

@@ -1,6 +1,8 @@
 /dist
 /node_modules
 
+.npmignore
+
 /config/@sanity/google-maps-input.json
 
 yarn.lock
