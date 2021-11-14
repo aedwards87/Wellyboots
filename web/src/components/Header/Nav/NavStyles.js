@@ -23,6 +23,9 @@ export const Logo = styled(GatsbyImage)`
   &.gatsby-image-wrapper {
     left: -5px;
   }
+  img {
+    background: none;
+  }
 `
 
 export const Menu = styled.div`
