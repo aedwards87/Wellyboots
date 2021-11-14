@@ -1,6 +1,6 @@
 // Imported dependencies
 import styled, { css } from 'styled-components/macro';
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion';
 // Imported Components
 import {
@@ -13,8 +13,8 @@ import ProfileBlob from '../../../../assets/svg/profileblob.svg';
 
 // Styles
 export const Container = styled.div`
-  padding-top: 20vw;
-  @media (min-width: 768px) {
+  padding-top: min(150px, 24vw);
+  @media (min-width: 980px) {
     padding-top: min(134px, 12vw);
   }
 `
@@ -23,16 +23,17 @@ export const Body = styled.div`
   display: grid;
   justify-items: center;
   row-gap: var(--s5);
-  padding: 7vw;
+  padding: min(max(var(--s5), 6vw), var(--s7));
   z-index: 1;
-  /* background-color: var(--sectionBgColor);
-  border: var(--s2) solid white; */
   border-radius: var(--s6);
   background-color: rgba(var(--colorLight), .4);
-  /* border: min(max(8px, 2vw), 10px) solid rgb(var(--colorLight)); */
   border: 8px solid rgb(var(--colorLight));
-  transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease,border-radius .3s ease;
-  @media (min-width: 768px) {
+  transition: 
+    transform .5s ease, 
+    background-color .5s ease, 
+    box-shadow .5s ease,
+    border-radius .5s ease;
+  @media (min-width: 980px) {
     padding: min(max(var(--s4), 4vw), var(--s6));
   }
   @media (hover) {
@@ -51,7 +52,7 @@ export const Body = styled.div`
     box-shadow: var(--level6);
     > div:first-child {
       box-shadow: var(--level5);
-      border-radius: 150px 240px 180px 200px;
+      /* border-radius: 150px 240px 180px 200px; */
     } 
   }
 `
@@ -64,27 +65,22 @@ export const ImageContainer = styled.div`
   transform: translateX(-50%) translateY(-35%);
   overflow: hidden;
   width: 40vw;
-  min-width: 150px;
-  max-width: 350px;
-  min-height: 150px;
-  max-height: 350px;
+  min-width: 175px;
+  min-height: 175px;
+  max-width: 250px;
+  max-height: 250px;
   aspect-ratio: 1;
   margin-bottom: var(--s4);
   margin-top: -38px;
-  /* border-radius: 150px 240px 180px 200px; */
   border-radius: 50%;
-  /* border: min(max(8px, 2vw), 10px) solid rgb(var(--colorLight)); */
   border: 8px solid rgb(var(--colorLight));
   background: rgb(var(--colorLight));
-  transition: box-shadow .3s ease, border-radius .3s ease;
-  @media (min-width: 768px) {
+  transition: box-shadow .5s ease, border-radius .5s ease;
+  @media (min-width: 980px) {
     width: 20vw;
     max-width: 250px;
     max-height: 250px;
-    /* aspect-ratio: 1.1; */
   }
-  
-  
 `
 export const Image = styled(GatsbyImage)`
   width: 100%;
@@ -100,9 +96,13 @@ export const Image = styled(GatsbyImage)`
   }
 `
 export const NamePlateContainer = styled.div`
-  padding-top: max(75px, 20vw);
-  @media (min-width: 768px) {
-    padding-top: min(134px, 10vw);
+  display: grid;
+  align-content: end;
+  height: 30vw;
+  min-height: var(--s18);
+  max-height: var(--s24);
+  @media (min-width: 980px) {
+    height: 15vw;
   }
   text-align: center;
   > p {

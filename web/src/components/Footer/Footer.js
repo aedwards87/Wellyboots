@@ -11,7 +11,6 @@ import {
   Title,
   Text,
   Link,
-  NewLink,
   ExternalLink,
   Button,
   ArrowSVG,
@@ -26,7 +25,6 @@ import {
 
 // Imported helpers
 import { capitilise } from '../../utils/helpers'
-import InView from 'react-intersection-observer'
 
 
 export default function Footer({ children, className, bgColor, ...props }) {
@@ -82,22 +80,7 @@ export const headingVariants = {
 }
 
 Footer.Title = function FooterTitle({ children, className, ...props }) {
-  return (
-    <InView threshold=".3">
-      {({ inView, ref }) =>
-        <Title
-          innerRef={ref}
-          className={className}
-          initial="initial"
-          animate={inView && "animate"}
-          variants={headingVariants}
-          {...props}
-        >
-          {children}
-        </Title>
-      }
-    </InView>
-  )
+  return (<Title className={className} {...props}>{children}</Title>)
 }
 
 Footer.Text = function FooterText({ children, className, ...props }) {

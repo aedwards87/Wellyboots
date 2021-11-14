@@ -1,6 +1,5 @@
-// Imported packages
+// Imported dependencies
 import styled, { css } from 'styled-components/macro'
-
 // Imported components
 import FrameOrigin from '../Reusable/Frame'
 

@@ -50,6 +50,6 @@ Accreditations.ImageContainer = function AccreditationsImageContainer({ children
   return (<ImageContainer className={className} {...props}> {children} </ImageContainer>)
 }
 
-Accreditations.Image = function AccreditationsImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}> {children} </Image>)
+Accreditations.Image = function AccreditationsImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }

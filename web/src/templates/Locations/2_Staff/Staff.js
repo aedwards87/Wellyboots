@@ -15,6 +15,7 @@ import {
   Link,
   DividerTopSVG,
   DividerBottomSVG,
+  GirlSVG,
 } from './StaffStyles'
 import { capitilise } from '../../../utils/helpers'
 
@@ -61,6 +62,10 @@ Staff.Text = function StaffText({ children, className, ...props }) {
 
 Staff.Link = function StaffLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
+}
+
+Staff.GirlSVG = function StaffGirlSVG({ children, className, ...props }) {
+  return (<GirlSVG className={className} {...props}>{children}</GirlSVG>)
 }
 
 Staff.DividerTopSVG = function StaffDividerTopSVG({ children, className, ...props }) {

@@ -11,7 +11,7 @@ const ProspectusIndex = ({ color }) => {
       <Prospectus.Frame yGap={5}>
         <Prospectus.Row>
           <Prospectus.Column xAlign="center">
-            <Prospectus.Title>Download our digital prospectus</Prospectus.Title>
+            <Prospectus.Title heading='h2'>Download our digital prospectus</Prospectus.Title>
           </Prospectus.Column>
         </Prospectus.Row>
         <Prospectus.Row>

@@ -1,6 +1,5 @@
 // Imported dependencies
-import React, { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
+import React from 'react'
 // Imported components
 import {
   Container,
@@ -15,22 +14,17 @@ import {
 } from './LocationCardStyles'
 // Imported animations
 import {
-  framerMotionAPI,
   LocationCardVariants,
   SpanVariants
 } from './LocationCardAnimations';
 // Imported hooks
-import { useHoverToggle, useIsSwiping } from '../../../../hooks';
+import { useIsSwiping } from '../../../../hooks';
 // Imported helpers
 import { camalise } from '../../../../utils/helpers';
-// import { useIsSwiping } from '../../../../hooks/useIsSwiping';
 
 
 const LocationCard = ({ className, children, to = '/', data, ...props }) => {
-  const [isHovered, toggle, bindToggle] = useHoverToggle()
   const [isSwiping, bindSwiping] = useIsSwiping()
-  const isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
-
   return (
     <Container
       className={className}
@@ -38,41 +32,38 @@ const LocationCard = ({ className, children, to = '/', data, ...props }) => {
       onDragStart={(e) => e.preventDefault()}
       onClick={(e) => isSwiping && e.preventDefault()}
       {...bindSwiping}
-      {...bindToggle}
       {...props}
     >
       <div>
         <Hero colors={data.subBrandColors}>
-          <SVGContainer isTouch={isTouch} dangerouslySetInnerHTML={{ __html: data.subBrandLogo }} />
-          <AnimatePresence>
-            {(isHovered || isTouch) &&
-              <ImageContainer
-                variants={LocationCardVariants}
-                {...framerMotionAPI}
-              >
-                <Image
-                  fluid={data.mainImage.image.asset.fluid}
-                  alt={data.mainImage.alt}
-                  onDragStart={(e) => e.preventDefault()}
-                />
-                <TextContainer variants={SpanVariants} {...framerMotionAPI}>
-                  {data.type.map(type =>
-                    <Text
-                      key={type}
-                      colors={data.subBrandColors}
-                      variants={SpanVariants}
-                      {...framerMotionAPI}
-                    >
-                      {type}
-                    </Text>
-                  )}
-                </TextContainer>
-              </ImageContainer>
-            }
-          </AnimatePresence>
+          <SVGContainer 
+            alt={data.subBrandSVG.alt} 
+            image={data.subBrandSVG.asset.gatsbyImageData}
+            objectFit="contain"
+           />
+            <ImageContainer
+              variants={LocationCardVariants}
+            >
+              <Image
+                image={data.mainImage.image.asset.gatsbyImageData}
+                alt={data.mainImage.alt}
+                onDragStart={(e) => e.preventDefault()}
+              />
+              <TextContainer variants={SpanVariants}>
+                {data.type.map(type =>
+                  <Text
+                    key={type}
+                    colors={data.subBrandColors}
+                    variants={SpanVariants}
+                  >
+                    {type}
+                  </Text>
+                )}
+              </TextContainer>
+            </ImageContainer>
         </Hero>
         <Footer>
-          <Title heading="h3" weight="medium">{data.shortName || data.name}</Title>
+          <Title heading="h3">{data.shortName || data.name}</Title>
         </Footer>
       </div>
     </Container>

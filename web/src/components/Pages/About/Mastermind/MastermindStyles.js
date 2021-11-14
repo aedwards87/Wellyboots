@@ -1,6 +1,6 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import PortableTextOrigin from "react-portable-text"
 // Imported Components
 import {
@@ -28,6 +28,7 @@ export const Column = styled(ColumnOrigin)`
 export const Image = styled(GatsbyImage)`
   object-fit: cover;
   width: 48vw;
+  min-width: 170px;
   max-width: 300px;
   aspect-ratio: 1;
   border-radius: 100%;
@@ -47,7 +48,9 @@ export const Title = styled(TextHeading)`
     }
   }
 `
-export const Text = styled(TextParagraph)``
+export const Text = styled(TextParagraph)`
+  text-align: center;
+`
 export const Link = styled(LinkOrigin)``
 export const DividerTopSVG = styled(WaveMastermindTop)``
 export const DividerBottomSVG = styled(WaveMastermindBottom)``

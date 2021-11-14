@@ -30,7 +30,7 @@ const LayoutIndex = ({ children }) => {
       <GlobalStyles brandColors={brandColors.nodes} />
       <Typography />
       <Header siteTitle={site.siteMetadata.title} location={location} />
-      <main >{children}</main>
+      <main>{children}</main>
       <Footer />
     </Layout>
   )

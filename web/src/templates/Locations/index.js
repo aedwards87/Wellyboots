@@ -8,13 +8,13 @@ import Routine from './3_Routine'
 import Details from './4_Details'
 import { ReviewsPreview } from '../../components/Pages/FrontPage'
 import Prospectus from '../../components/Prospectus'
-import { SEO } from '../../components/Reusable'
+import SEO from '../../components/seo'
 
 // Component
 const LocationsTemplateIndex = ({ data }) => {
   return (
     <>
-      {/* <SEO title="Location" /> */}
+      <SEO title={`${data.location.shortName}`} />
       <Hero data={data} />
       <Staff data={data} />
       <Routine data={data} />
@@ -61,7 +61,13 @@ export const LocationsTemplateQuery = graphql`
       subBrandColors {
         title
       }
-      subBrandLogo
+      subBrandSVG {
+        alt
+        asset {
+          url
+          gatsbyImageData
+        }
+      }
       type
       geoLocation {
         lat
@@ -85,9 +91,7 @@ export const LocationsTemplateQuery = graphql`
         alt
         image {
           asset {
-            fluid(maxWidth: 400) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData(width: 400)
           }
         }
       }
@@ -113,9 +117,7 @@ export const LocationsTemplateQuery = graphql`
           alt
           image {
             asset {
-              fluid(maxWidth: 400) {
-                ...GatsbySanityImageFluid
-              }
+              gatsbyImageData(width: 400)
             }
           }
         }
@@ -126,9 +128,7 @@ export const LocationsTemplateQuery = graphql`
         image {
           alt
           asset {
-            fluid(maxWidth: 400) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData(width: 400)
           }
         }
       }

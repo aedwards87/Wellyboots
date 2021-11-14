@@ -1,4 +1,4 @@
-import path from 'path';
+const path = require('path');
 
 const turnLocationsIntoPages = async ({ graphql, actions }) => {
   // 1. get a template for this page
@@ -30,7 +30,7 @@ const turnLocationsIntoPages = async ({ graphql, actions }) => {
   });
 };
 
-export const createPages = async (params) => {
+exports.createPages = async (params) => {
   // create pages dynamically
   // Wait for all promises to be resolved before finishing this function
   await Promise.all([

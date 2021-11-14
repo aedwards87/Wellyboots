@@ -1,10 +1,14 @@
 import React from 'react'
+import SEO from '../components/seo'
 
 const policiesAndProcedures = () => {
   return (
-    <div>
-      Policies and Procedures
-    </div>
+    <>
+      <SEO title="Policies and Procedures" />
+      <div>
+        Policies and Procedures
+      </div>
+    </>
   )
 }
 

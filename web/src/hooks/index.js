@@ -1,3 +1,4 @@
+// Hooks
 export * from './useStore';
 export * from './useClickOutside';
 export * from './useHoverToggle';
@@ -7,6 +8,8 @@ export * from './useStore';
 export * from './usePaginate';
 export * from './useIntersectionObserver';
 export * from './useIsSwiping';
+export * from './useResizeObserver';
+export * from './useWindowSize';
 
 
 // Context

@@ -64,7 +64,7 @@ Hero.ImageCarousel = function HeroImageCarousel({ children, className, src, alt,
         {...props}
       >
         <Image
-          fluid={images[carouselIndex].image.asset.fluid}
+          image={images[carouselIndex].image.asset.gatsbyImageData}
           alt={images[carouselIndex].image.alt}
         />
       </ImageCarousel>

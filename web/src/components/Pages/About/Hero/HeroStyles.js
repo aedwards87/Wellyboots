@@ -1,6 +1,6 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import PortableTextOrigin from "react-portable-text"
 // Imported Components
 import {
@@ -49,9 +49,9 @@ export const Image = styled(GatsbyImage)`
   height: 100%;
 `
 export const Title = styled(TextHeading)`
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     --heroFont:  var(--fontSizeHero) var(--fontSecondaryFamily);
-  }
+  } */
 `
 export const Text = styled(TextParagraph)``
 export const PortableText = styled(PortableTextOrigin)`
@@ -85,7 +85,7 @@ export const HeartSVG = styled(Heart)`
     width: 15vw;
     display: block;
     position: absolute;
-    right: calc(131% - 17vw);
+    right: calc(92% + 5vw);
     top: -20px;
 `
 export const CrownSVG = styled(Crown)`

@@ -15,9 +15,7 @@ export const useAboutUsQuery = () => {
                 staffPhoto {
                   image {
                     asset {
-                      fluid {
-                        base64
-                      }
+                      gatsbyImageData(width: 400)
                     }
                   }
                 }
@@ -32,9 +30,7 @@ export const useAboutUsQuery = () => {
             }
             accreditations {
               asset {
-                fluid {
-                  base64
-                }
+                gatsbyImageData(width: 400)
               }
             }
             ourAim {

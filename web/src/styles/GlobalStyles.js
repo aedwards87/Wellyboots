@@ -18,7 +18,7 @@ import { capitilise } from '../utils/helpers'
   }}
 */
 
-const space = [0, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 100, 128, 138, 154, 192, 256, 512]
+const space = [0, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192]
 
 const GlobalStyles = createGlobalStyle`
 
@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
     --colorDark: 35, 42, 49;
     --colorDark: 18, 33, 53;
     /* 
-      dynamically create variable colours from cms data
+      dynamically create variable colours from cms data, they are:
           --colorYellow, --colorDarkPink, --colorDarkBlue, --colorPurple, 
           --colorPink, --colorBlue, --colorGreen, --colorDarkPurple, --colorOrange
     */
@@ -59,6 +59,15 @@ const GlobalStyles = createGlobalStyle`
     --s14: ${space[14]}px;
     --s15: ${space[15]}px;
     --s16: ${space[16]}px;
+    --s17: ${space[17]}px;
+    --s18: ${space[18]}px;
+    --s19: ${space[19]}px;
+    --s20: ${space[20]}px;
+    --s21: ${space[21]}px;
+    --s22: ${space[22]}px;
+    --s23: ${space[23]}px;
+    --s24: ${space[24]}px;
+    --s25: ${space[25]}px;
 
     --colorGray: 135, 150, 165;
     --colorGrey: var(--colorGray);
@@ -78,10 +87,11 @@ const GlobalStyles = createGlobalStyle`
     /* Static Page Themes */
     --colorPlayTheory: var(--colorOrange);
     --colorLocations: var(--colorGreen);
-    --colorCirriculum: var(--colorBlue);
+    --colorCurriculum: var(--colorBlue);
     --colorReviews: var(--colorYellow);
     --colorAboutUs: var(--colorPink);
     --colorContactUs: var(--colorDarkGreen);
+    --colorBookAVisit: var(--colorDarkBlue);
     --colorPoliciesProcedures: var(--colorPurple);
 
     /* Elevations */

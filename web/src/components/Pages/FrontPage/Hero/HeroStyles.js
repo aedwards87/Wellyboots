@@ -1,7 +1,7 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
 import { motion } from 'framer-motion';
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 // Imported Components
 import {
   Frame as FrameOrigin,
@@ -30,7 +30,7 @@ export const Frame = styled(FrameOrigin)`
   @media(min-width: 980px) {
     overflow: unset;
     && {
-      padding-bottom: calc(var(--s15) - 4vw);
+      padding-bottom: calc(var(--s25) - 4vw);
     }
   }
 `
@@ -55,6 +55,7 @@ export const ImageCarousel = styled(motion.div)`
   width: 100%;
   transform: rotate(-3deg);
   border: var(--s2) solid rgb(var(--colorLight));
+  background: rgb(var(--colorLight));
   box-shadow: var(--level5);
   height: 120%;
   z-index: 2;
@@ -107,6 +108,7 @@ export const SVG = styled(Blob)`
 
 export const Title = styled(TextHeading)`
   text-align: center;
+  margin-bottom: 0%;
   @media(min-width: 980px) {
     text-align: left;
   }

@@ -7,7 +7,7 @@ import Aims from './Aims'
 export const AimsIndex = ({ aims }) => {
   return (
     <Aims>
-      <Aims.Frame tPad={6} bPad={8}>
+      <Aims.Frame tPad={6} bPad={4}>
 
         <Aims.Row columns={2} xGap='94px' yGap={6}>
           <Aims.Column xAlign="center" yAlign="center">
@@ -15,7 +15,7 @@ export const AimsIndex = ({ aims }) => {
               <Aims.Column>
                 <Aims.Row yGap={8}>
                   <Aims.Title heading="h2" lineColor="yellow">Our aims</Aims.Title>
-                  <Aims.PortableText blocks={aims} />
+                  <Aims.PortableText content={aims} />
                 </Aims.Row>
               </Aims.Column>
             </Aims.Row>

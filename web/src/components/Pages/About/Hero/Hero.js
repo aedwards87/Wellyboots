@@ -75,6 +75,6 @@ Hero.Link = function HeroLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
 }
 
-Hero.Image = function HeroImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}> {children} </Image>)
+Hero.Image = function HeroImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }

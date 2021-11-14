@@ -8,7 +8,7 @@ const navLinks = [
     hasDropdown: true
   },
   {
-    title: 'Cirriculum',
+    title: 'Curriculum',
     hasDropdown: false
   },
   {

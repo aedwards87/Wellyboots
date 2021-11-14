@@ -39,7 +39,7 @@ export const Frame = styled(FrameMod)`
     ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad)})`};
   }
   @media(min-width: 1100px) {
-    ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad - 1)})`};
+    ${({ bPad }) => bPad && css`padding-bottom: var(--s${(bPad - 4)})`};
   }
 `
 export const Row = styled(RowMod)`
@@ -146,6 +146,6 @@ export const Signature = styled.ul`
     right: 0;
   }
   @media(min-width: 1100px) {
-    bottom: -135px;
+    bottom: -138px;
   }
 `

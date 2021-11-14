@@ -2,7 +2,12 @@
 import React from 'react'
 // Imported components
 import SEO from '../components/seo'
-import { Hero, Locations, AboutUs, ReviewsPreview } from '../components/Pages/FrontPage'
+import { 
+  Hero, 
+  Locations, 
+  AboutUs, 
+  ReviewsPreview 
+} from '../components/Pages/FrontPage'
 
 
 const IndexPage = () => (
@@ -14,5 +19,7 @@ const IndexPage = () => (
     <ReviewsPreview />
   </>
 )
+
+
 
 export default IndexPage

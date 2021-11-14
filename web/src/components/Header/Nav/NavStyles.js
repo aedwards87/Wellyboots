@@ -1,11 +1,9 @@
 // Imported dependencies
 import styled, { css } from "styled-components/macro";
-import Image from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
 // Imported components
-import {
-  Link as LinkOrigin,
-} from '../../Reusable';
+import { Link as LinkOrigin } from '../../Reusable';
 // Imported helpers
 import { capitilise } from "../../../utils/helpers";
 
@@ -18,7 +16,7 @@ export const Container = styled.nav`
   font-size: var(--fontSizeNav, inherit);
 `
 
-export const Logo = styled(Image)`
+export const Logo = styled(GatsbyImage)`
   z-index: 2;
   height: 100%;
   width: 190px;
@@ -126,9 +124,7 @@ export const Link = styled(LinkOrigin)`
       }
       &:hover,
       &:focus {
-        svg {
-          transform: scale(1.25) rotate(-.03turn)
-        }
+        .gatsby-image-wrapper { transform: scale(1.25) rotate(-.03turn) }
         color: rgb(var(--color${capitilise(hoverColor[0].title)}))};
       }
     `
@@ -165,7 +161,7 @@ export const Burger = styled(Button)`
   &:focus {
     outline: none;
   }
-  > div {
+  > span {
     width: ${({ open }) => open ? '3rem' : '2.8rem'};
     height: 0.35rem;
     background: ${({ open }) => open ? '#0D0C1D' : '#EFFFFA'};
@@ -242,14 +238,13 @@ export const Body = styled.div`
   };
 `
 
-export const SVG = styled.div`
+export const Boot = styled(GatsbyImage)`
   display: flex;
-  > svg {
-    height: 40px;
-    width: 30px;
-    margin-left: -2px;
-    transition: transform ease .3s;
-  }
+  height: 40px;
+  width: 30px;
+  margin-left: -2px;
+  transition: transform ease .3s;
+  pointer-events: none;
 `
 
 export const Dropdown = styled(motion.div)`

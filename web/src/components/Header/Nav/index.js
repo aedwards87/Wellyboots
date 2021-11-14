@@ -12,7 +12,7 @@ import { camalise } from '../../../utils/helpers'
 const NavIndex = ({ siteTitle }) => {
   const data = useLocationsQuery()
   return (
-    <Nav>
+    <Nav aria-label="Primary nav">
       <Nav.Link home>
         <Nav.Logo title={siteTitle} />
       </Nav.Link>
@@ -31,7 +31,7 @@ const NavIndex = ({ siteTitle }) => {
                   {link.hasDropdown &&
                     <Nav.Dropdown title={link.title} data={data}>
                       {data[`${camalise(link.title)}`].nodes
-                        .map(({ name, title, slug, subBrandColors, subBrandLogo }) => {
+                        .map(({ name, title, slug, subBrandColors, subBrandSVG }) => {
                           return (
                             <Nav.Body key={name} dropdown>
                               <Nav.Link
@@ -39,7 +39,11 @@ const NavIndex = ({ siteTitle }) => {
                                 color={subBrandColors}
                                 dropdown
                               >
-                                <Nav.SVG subBrandLogo={subBrandLogo} />
+                                <Nav.Boot 
+                                  alt={subBrandSVG.alt} 
+                                  image={subBrandSVG.asset.gatsbyImageData} 
+                                  objectFit="contain"
+                                />
                                 {name || title}
                               </Nav.Link>
                             </Nav.Body>

@@ -1,6 +1,6 @@
 // Imported dependencies
 import styled, { css } from 'styled-components/macro';
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 // Imported Components
 import {
   Frame as FrameOrigin,
@@ -10,12 +10,12 @@ import {
   TextParagraph,
   Link as LinkOrigin,
 } from '../../../components/Reusable';
-import { motion } from 'framer-motion';
 
 
 // Styles
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
+  scroll-margin-top: 7vw;
   img {
     width: 100%;
     height: 100%;
@@ -34,28 +34,20 @@ export const Column = styled(ColumnOrigin)`
   font-size: var(--fontSizeSmall);
   ${({ conditionDaily, conditionAfternoon }) => (!conditionDaily && conditionAfternoon) && css`
       grid-row: 2;
-      @media (min-width: 980px) {
-        grid-row: 1
-      }
+      @media (min-width: 980px) { grid-row: 1; }
     `
   }
-  justify-content: center;
-  @media (min-width: 980px) {
-    justify-content: start;
-  }
+  justify-content: start;
+  @media (min-width: 542px) { justify-content: stretch; }
+  @media (min-width: 980px) { justify-content: start; }
 `
 export const Title = styled(TextHeading)`
-  text-align: center;
-  @media (min-width: 980px) {
-    text-align: revert;
-  }
+  text-align: left;
+  @media (min-width: 542px) { text-align: center; }
+  @media (min-width: 980px) { text-align: revert; }
   ${({ custom }) => custom && css`
     @media(max-width: 542px) {
-      > span:after {
-        width: 5.1ch;
-        left: 50%;
-        transform: translateX(-25%);
-      }
+      > span:after { width: 5.1ch; }
     }
   `}
 `
@@ -70,25 +62,29 @@ export const Table = styled.table`
     margin-left: -20px;
   }
   td {
-    padding: .63em;
-    padding-left: 20px;
+    padding: .8em;
     padding-right: 20px;
-    min-width: 100px;
+    min-width: max-content;
     @media (min-width: 420px) {
-      min-width: 108px;
+      padding-left: 20px;
+      :last-of-type {
+        padding-left: 25px;
+      }
     }
   }
-  td:first-of-type {
-    ${({ lineColor }) => css`
-      border-bottom: 1px solid rgba(var(--color${lineColor}), .2);
-      border-right: 1px solid rgba(var(--color${lineColor}), .2);
-    `};
-  }
-  td:last-of-type {
-    border-bottom: 1px solid ${({ lineColor }) => css`rgb(var(--color${lineColor}), .2)`};
-    width: 100%;
-    padding-left: 25px;
-  }
+  ${({ lineColor }) => {
+    const isDark = lineColor.includes('Dark') || lineColor.includes('dark')
+    return (css`
+    td:first-of-type {
+      border-bottom: 1px solid rgba(var(--color${lineColor}), ${isDark ? .2 : .5});
+      border-right: 1px solid rgba(var(--color${lineColor}), ${isDark ? .2 : .5});
+    }
+    td:last-of-type {
+      border-bottom: 1px solid ${({ lineColor }) => css`rgb(var(--color${lineColor}), ${isDark ? .2 : .5})`};
+      width: 100%;
+      padding-left: 20px;
+    }
+  `)}};
 `
 export const ImageContainer = styled.div``
 export const Image = styled(GatsbyImage)`

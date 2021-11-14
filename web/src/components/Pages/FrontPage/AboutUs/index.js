@@ -10,7 +10,6 @@ import { useALittleAboutUsQuery } from '../../../../hooks/Queries/useAlittleAbou
 const AboutUsIndex = () => {
   const { aLittleAboutUs: { nodes } } = useALittleAboutUsQuery()
   const aLittleAboutUs = nodes[0]
-  console.log({ aLittleAboutUs })
   return (
     <AboutUs>
       <AboutUs.Frame yPad={6} bPad={9}>
@@ -23,7 +22,7 @@ const AboutUsIndex = () => {
           <AboutUs.Column columnOrder={2}>
             <AboutUs.PortableText blocks={aLittleAboutUs.frontPageDescription[0]} />
             <AboutUs.LinkContainer>
-              <AboutUs.Link to="about us" model={1} color="dark pink">
+              <AboutUs.Link to="aboutUs" model={1} color="dark pink">
                 Read more
               </AboutUs.Link>
             </AboutUs.LinkContainer>
@@ -38,7 +37,7 @@ const AboutUsIndex = () => {
               {aLittleAboutUs.accreditations.map(image =>
                 <AboutUs.Image
                   key={image.alt}
-                  fluid={image.asset.fluid}
+                  image={image.asset.gatsbyImageData}
                   imgStyle={{ objectFit: `contain` }}
                   alt={image.alt}
                   title={image.alt}

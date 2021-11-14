@@ -39,12 +39,11 @@ const Link = ({
   const hasSlug = typeof to === 'object' && to.current
   // Checking to see if the link is to be inside a dropdown
   const hasDropdown = typeof to === 'object' && to.hasDropdown
-  // Checking to see if it is a hash link
+  // Checking to see if it contains that hashtag
   const hasHash = typeof to === 'string' && to.includes('#')
 
   // Adds and removes a class to the HTML tag for smooth scrolling
-  // We allow this only for Location Nav link and hash links
-
+  // It is allowed only for the Location link in the nav and Hash links
   const smoothScroll = useCallback(() => {
     (hasHash || hasDropdown)
       ? document.querySelector('html').classList.add('smooth')
@@ -97,9 +96,10 @@ const Link = ({
 }
 
 // Styles
-const Container = styled(motion.custom(GatsbyLink))`
+const Container = styled(motion(GatsbyLink))`
   text-decoration: var(--underline, none);
   font-weight: var(--fontWeight);
+  display: inline-block;
   color: ${({ color }) => `rgb(var(--color${capitilise(color)}))`};
   ${({ $pad }) => $pad && css`padding: var(--s${$pad})`};
   ${({ $tPad }) => $tPad && css`padding-top: var(--s${$tPad})`};
@@ -130,21 +130,21 @@ const Container = styled(motion.custom(GatsbyLink))`
             > span { display: inline-block; };
             > span::before {
               background: rgba(var(--lineColor), .7);
-              transform: translateY(.18em);
+              transform: translateY(.05em);
             }
           `
             : (style['--lineColor'] && !$fixed) ? css`
               &[aria-current="page"] {
                 > span::before {
                   background: rgba(var(--lineColor), .7);
-                  transform: translateY(.18em);
+                  transform: translateY(.15em);
                 }
               }
               &:hover,
               &:focus {
                 > span::before {
                   background: rgba(var(--lineColor), .7);
-                  transform: translateY(.18em);
+                  transform: translateY(.15em);
                 }
               }
             ` : null

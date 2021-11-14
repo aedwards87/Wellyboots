@@ -48,8 +48,8 @@ ProfileCard.ImageContainer = function ProfileCardImageContainer({ children, clas
   return (<ImageContainer className={className} {...props}>{children}</ImageContainer>)
 }
 
-ProfileCard.Image = function ProfileCardImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}>{children}</Image>)
+ProfileCard.Image = function ProfileCardImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }
 
 ProfileCard.NamePlateContainer = function ProfileCardNamePlateContainer({ children, className, ...props }) {

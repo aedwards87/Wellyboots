@@ -9,9 +9,7 @@ export const useALittleAboutUsQuery = () => {
             accreditations {
               alt
               asset {
-                fluid(maxWidth: 200) {
-                  ...GatsbySanityImageFluid
-                }
+                gatsbyImageData(width: 400)
               }
             }
             frontPageDescription {

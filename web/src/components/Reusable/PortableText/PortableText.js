@@ -10,6 +10,7 @@ const PortableText = ({ className, blocks, ...props }) => (
       blocks={blocks}
       serializers={Serializers}
       {...clientConfig.sanity}
+      {...props}
     />
   </Container>
 );

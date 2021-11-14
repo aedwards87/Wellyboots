@@ -1,7 +1,7 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro'
-import { default as GatsbyImage } from 'gatsby-image'
-import PortableTextOrigin from '../../../Reusable/PortableText/PortableText'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import PortableTextOrigin from "react-portable-text"
 // Imported Components
 import {
   Frame as FrameOrigin,
@@ -19,6 +19,7 @@ import {
 // Styles
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
+  overflow: hidden;
 `
 export const Frame = styled(FrameOrigin)``
 export const Row = styled(RowOrigin)`
@@ -29,7 +30,6 @@ export const Row = styled(RowOrigin)`
   img {
     width: 100%;
     max-width: 680px;
-    /* min-width: 550px; */
     padding-top: var(--s4);
     @media (min-width: 980px) {
       width: calc(100% + 8vw);
@@ -54,21 +54,13 @@ export const Text = styled(TextParagraph)``
 export const PortableText = styled(PortableTextOrigin)`
   max-width: 550px;
   P:first-child {
+    font-size: var(--fontSizeMedium);
     font-weight: var(--fontWeightMedium);
     padding-bottom: 10px;
   }
-  p + p:before {
-    content: counter(numered-counter) ".";
-    position: absolute;
-    left: 0;
-    font-size: 1.6rem;
-  }
-  p + p {
-    padding-left: 35px;
-    position: relative;
-    counter-increment: numered-counter;
-    /* font-size: 1.6rem; */
-  }
+  ol { margin-left: -2ch; }
+  li { padding-left: var(--s3); }
+  li + li { padding-top: var(--s3); }
 `
 export const Link = styled(LinkOrigin)``
 export const FootPrintsSVG = styled(FootPrints)``

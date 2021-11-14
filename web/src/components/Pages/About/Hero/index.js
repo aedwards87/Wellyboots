@@ -8,17 +8,15 @@ import Hero from './Hero'
 export const HeroIndex = ({ desc }) => {
   return (
     <Hero>
-      <Hero.Frame yPad={6}>
+      <Hero.Frame yPad={6} tPad={8}>
 
         <Hero.Row>
-
           <Hero.Column xAlign="center" xItemsAlign="center">
-            <Hero.Title heading="hero" lineColor="pink">About us</Hero.Title>
+            <Hero.Title heading="h1" lineColor="About us">About us</Hero.Title>
           </Hero.Column>
         </Hero.Row>
 
         <Hero.Row xGap='94px' yGap={8}>
-
           <Hero.Column yGap={3} xAlign="center" xItemsAlign="center">
             <Hero.SunSVG color="yellow" />
             <Hero.HeartSVG color="dark blue" />

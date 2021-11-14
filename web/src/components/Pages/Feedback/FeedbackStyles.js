@@ -1,6 +1,6 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 // Imported Components
 import {
   Frame as FrameOrigin,

@@ -1,13 +1,16 @@
 import React from 'react'
+import SEO from '../components/seo'
 import { ReviewsPreview } from '../components/Pages/FrontPage'
+import PlayTheory from '../components/Pages/PlayTheory'
 
-const PlayTheory = () => {
+const PlayTheoryIndex = () => {
   return (
     <>
-      {/* <PlayTheory /> */}
+      <SEO title="Play theory" />
+      <PlayTheory />
       <ReviewsPreview />
     </>
   )
 }
 
-export default PlayTheory
+export default PlayTheoryIndex

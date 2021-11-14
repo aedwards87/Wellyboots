@@ -23,11 +23,10 @@ import {
 // Styles
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
-  
+  scroll-margin-top: -5vw;
 `
 export const Frame = styled(FrameOrigin)` 
   position: relative;
-
 `
 export const Row = styled(RowOrigin)`
   grid-template-columns: 1fr;
@@ -87,13 +86,10 @@ export const SunSVG = styled(Sun)`
   position: absolute;
   bottom: 0;
   right: 0;
-  /* width: 150px;
-  height: 150px; */
-  top: -160px;
- 
+  top: -190px;
   @media (min-width: 1111px) {
-    top: -60px;
-    right: calc(70px - 13vw);
+    top: -100px;
+    right: -50px;
     width: revert;
     height: revert;
   }

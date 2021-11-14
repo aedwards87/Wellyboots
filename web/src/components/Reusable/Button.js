@@ -8,7 +8,7 @@ import { useScroll } from '../../hooks/useScroll'
 import { motion } from 'framer-motion'
 
 // One button to rule them all
-const Button = ({ className, children, to, pad, tPad, rPad, bPad, lPad, xPad, yPad, scrollTop, ...props }) => {
+const Button = ({ className, children, to, pad, tPad, rPad, bPad, lPad, xPad, yPad, scrollTop, role = 'button', type ='button', value, ariaLabel, ...props }) => {
   const scrollPos = scrollTop && useScroll()
   const scrollToTop = () => scrollTop && window.scrollTo({ top: 0, behavior: "smooth" })
   return (
@@ -19,8 +19,11 @@ const Button = ({ className, children, to, pad, tPad, rPad, bPad, lPad, xPad, yP
       rPad={rPad || xPad}
       lPad={lPad || xPad}
       pad={pad}
-      type="button"
+      type={type}
+      role={role}
       // Either navigate to specified target or if scrollTop prop is true, scroll to top of page
+      value={value}
+      aria-label={ariaLabel}
       onClick={() => to
         ? navigate(`/${camalise(to)}`)
         : (scrollTop && scrollPos >= 300)

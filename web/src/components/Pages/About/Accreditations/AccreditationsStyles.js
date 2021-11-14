@@ -1,6 +1,6 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro'
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 // Imported Components
 import {
   Frame as FrameOrigin,
@@ -29,9 +29,9 @@ export const ImageContainer = styled.div`
   gap: var(--s6);
   `
 export const Image = styled(GatsbyImage)`
-    width: min(max(65px, 18vw), 100px);
-    max-height: min(max(28px, 7vw), 50px);
-    @media(min-width: 980px) {
-      width: min(max(65px, 10vw), 100px);
-    }
-  `
+  width: min(max(65px, 18vw), 100px);
+  max-height: min(max(28px, 7vw), 50px);
+  @media(min-width: 980px) {
+    width: min(max(65px, 10vw), 100px);
+  }
+`

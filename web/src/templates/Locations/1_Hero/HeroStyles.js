@@ -1,8 +1,9 @@
 // Imported dependencies
 import styled, { css } from 'styled-components/macro';
 import { motion } from 'framer-motion';
+// import PortableTextOrigin from "../../../components/Reusable/PortableText/PortableText"
 import PortableTextOrigin from "react-portable-text"
-import GatsbyImage from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 // Imported components
 import {
   Frame as FrameOrigin,
@@ -24,7 +25,7 @@ export const Frame = styled(FrameOrigin)`
 `
 export const Row = styled(RowOrigin)`
   grid-template-rows: auto 1fr;
-  grid-column-gap: min(max(var(--s5), 9vw), var(--s8));
+  grid-column-gap: min(max(var(--s4), 9vw), var(--s8));
   @media (max-width: 768px) {
     grid-template-columns: auto 1fr;
   }
@@ -33,19 +34,19 @@ export const Column = styled(ColumnOrigin)`
   ${({ column }) =>
     column === 1 ? css`
         grid-column: 1;
-        width: 17.8vw;
+        width: 21.8vw;
         svg {
           width: 100%;
           height: 100%;
         }
         @media (min-width: 768px) {
-          width: unset;
           svg {
             width: unset;
             height: unset;
           }
         }
         @media (min-width: 980px) {
+          width: 100%;
           grid-row: 1;
         }
     ` : column === 2 ? css`
@@ -101,12 +102,19 @@ export const Column = styled(ColumnOrigin)`
   }
 `
 export const Title = styled(TextHeading)`
+  @media (max-width: 420px) {
+    margin: 0;
+  }
   ${({ small }) => small && css`
     font-size: 1.5rem;
     text-align: left;
   `}
 `
 export const Text = styled(TextParagraph)``
+export const Nav = styled.nav`
+  display: grid;
+  gap: var(--s3);
+`
 export const PortableText = styled(PortableTextOrigin)` z-index: 10;`
 export const Link = styled(LinkOrigin)`
   ${({ $custom }) => $custom && css`
@@ -146,11 +154,11 @@ export const Image = styled(GatsbyImage)`
     width: 425px;
     height: 285px;
   }
-  ${({ carouselImage }) =>
-    carouselImage && css`
+  ${({ $carouselImage }) =>
+    $carouselImage && css`
       cursor: pointer;
-      ${({ carouselImage }) =>
-        carouselImage === 1 ? css`
+      ${({ $carouselImage }) =>
+        $carouselImage === 1 ? css`
           top: -8px;
           left: -8px;
           transform: rotate(4deg);
@@ -163,7 +171,7 @@ export const Image = styled(GatsbyImage)`
             transform: rotate(-4deg);
           }
         ` :
-          carouselImage === 2 ? css`
+          $carouselImage === 2 ? css`
             top: 0;
             transform: rotate(4deg);
             left: 40px;
@@ -187,4 +195,8 @@ export const FootPrintsSVG = styled(FootPrints)`
   justify-content: center;
   bottom: -20%;
 `
-export const WellybootSVG = styled.div``
+export const WellybootSVG = styled(GatsbyImage)`
+  img {
+    object-fit: contain;
+  }
+`

@@ -2,12 +2,59 @@
 import styled, { css } from "styled-components/macro"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 // Imported components
 import { TextHeading } from "../../index"
 // Imported helpers
 import { capitilise } from "../../../../utils/helpers"
 
+
+
+export const TextContainer = styled(motion.div)`
+  position: absolute;
+  bottom: -7%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  padding-left: var(--s2);
+  padding-right: var(--s2);
+`
+
+export const ImageContainer = styled(motion.div)`
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  transition: opacity .6s ease;
+  justify-items: center;
+  > .gatsby-image-wrapper {
+    opacity: 0;
+    transition: opacity .6s ease, transform .6s ease;
+    transform: translateY(-30%);
+  }
+  > ${TextContainer} {
+    opacity: 0;
+    transition: opacity .5s ease .3s, transform .6s ease .3s;
+    transform: translateY(40%);
+  }
+  @media (hover: none) {
+    opacity: 1;
+    > .gatsby-image-wrapper {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    > ${TextContainer} {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`
 
 export const Container = styled(Link)`
   width: 90%;
@@ -52,6 +99,21 @@ export const Container = styled(Link)`
     justify-items: center;
     margin: 0 auto;
   }
+  @media (hover) {
+    :hover ${ImageContainer} {
+      opacity: 1;
+      > .gatsby-image-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      > ${TextContainer} {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  
+
 `
 
 export const Hero = styled.div`
@@ -98,33 +160,11 @@ export const Title = styled(TextHeading)`
   }
 `
 
-export const ImageContainer = styled(motion.div)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-`
-
-export const TextContainer = styled(motion.div)`
-  position: absolute;
-  bottom: -7%;
-  display: flex;
-  justify-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--s3);
-  padding-left: var(--s2);
-  padding-right: var(--s2);
-`
-
 export const Text = styled(motion.span)`
   padding: 6px 12px;
   color: ${({ colors }) =>
-    !colors[1].title.includes('Dark') || colors[1].title.includes('green') ? `rgb(var(--colorDark))` : `rgb(var(--colorLight))`
+    !colors[1].title.includes('Dark') || colors[1].title.includes('green') 
+      ? `rgb(var(--colorDark))` : `rgb(var(--colorLight))`
   };
   background-color: ${({ colors }) => `rgb(var(--color${capitilise(colors[1].title)}))`};
   border-radius: 5px;
@@ -138,25 +178,20 @@ export const Text = styled(motion.span)`
   }
 `
 
-export const SVGContainer = styled.div`
-  svg {
-    width: 42%;
-    height: 100%;
-  }
-  width: 100%;
+export const SVGContainer = styled(GatsbyImage)`
+  width: 42%;
   display: flex;
   justify-content: center;
-  ${({ isTouch }) => isTouch && css`
+  @media (hover: none) {
+    width: 14%;
     position: absolute;
     z-index: 9;
-    top: 0;
-    left: 0;
-    width: 25%;
+    top: 3px;
+    left: 12px;
     padding-top: 6%;
     padding-bottom: 8%;
     padding-right: 3%;
     border-top-left-radius: 10px;
-    border-bottom-right-radius: 50px;
     filter: drop-shadow(2px 2px 4px rgba(var(--colorDarkBlue), .7));
-  `}
+  }
 `

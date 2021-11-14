@@ -65,8 +65,8 @@ AboutUs.ImageContainer = function AboutUsImageContainer({ children, className, .
   return (<ImageContainer className={className} {...props}>{children}</ImageContainer>)
 }
 
-AboutUs.Image = function AboutUsImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}>{children}</Image>)
+AboutUs.Image = function AboutUsImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }
 
 AboutUs.Title = function AboutUsTitle({ children, className, ...props }) {

@@ -1,7 +1,6 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
 import { motion } from 'framer-motion';
-// import Image from 'gatsby-image';
 
 // Imported Components
 import {
@@ -27,7 +26,9 @@ import {
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
 `
-export const Frame = styled(FrameOrigin)``
+export const Frame = styled(FrameOrigin)`
+  position: relative;
+`
 export const Row = styled(RowOrigin)`
   position: relative;
   width: 100%;
@@ -101,10 +102,36 @@ export const ArrowSVG = styled(Arrow)`
 `
 export const SVGDividerTop = styled(WaveReviewsPreviewTop)``
 export const SVGDividerBottom = styled(WaveReviewsPreviewBottom)``
-export const CrownSVG = styled(Crown)``
-export const CarSVG = styled(Car)``
-export const GirlSVG = styled(Girl)``
-export const HeartSVG = styled(Heart)``
+export const CrownSVG = styled(Crown)`
+  display: none;
+  width: 115px;
+  @media (min-width:980px) {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: -5vw;
+    transform: rotate(-40deg);
+  }
+`
+export const CarSVG = styled(Car)`
+  display: none;
+  @media (min-width:980px) {
+    display: block;
+    position: absolute;
+    bottom: 80px;
+    right: 9vw;
+  }
+`
+export const GirlSVG = styled(Girl)`
+  position: absolute;
+  top: 0;
+  left: 0;
+`
+export const HeartSVG = styled(Heart)`
+  position: absolute;
+  top: 0;
+  left: 0;
+`
 export const SliderAnimation = styled(motion.div)`
   position: absolute;
   display: grid;

@@ -19,16 +19,20 @@ export const MastermindIndex = ({ mastermind }) => {
         <Mastermind.Row xGap='94px'>
           <Mastermind.Column yGap={4} custom xAlign="center" xItemsAlign="center">
             <Mastermind.Image
-              fluid={mastermind.owner.staffPhoto.image.asset.fluid}
+              image={mastermind.owner.staffPhoto.image.asset.gatsbyImageData}
               alt={mastermind.owner.staffPhoto.alt}
             />
             <Mastermind.Row yGap={7}>
               <Mastermind.Column xAlign="center" xItemsAlign="center">
-                <Mastermind.Title heading="h3" color="light" >{mastermind.owner.firstName} {mastermind.owner.lastName}</Mastermind.Title>
-                <Mastermind.Text color="light" weight="light">Founder, Owner, Manager (Mastermind)</Mastermind.Text>
+                <Mastermind.Title heading="h3" color="light" >
+                  {mastermind.owner.firstName} {mastermind.owner.lastName}
+                </Mastermind.Title>
+                <Mastermind.Text color="light" weight="light">
+                  Founder, Owner, Manager (Mastermind)
+                </Mastermind.Text>
               </Mastermind.Column>
               <Mastermind.Column>
-                <Mastermind.PortableText content={mastermind.ownerDescription} />
+                <Mastermind.PortableText content={mastermind._rawOwnerDescription} />
               </Mastermind.Column>
             </Mastermind.Row>
           </Mastermind.Column>

@@ -65,6 +65,6 @@ Mission.ImageContainer = function MissionImageContainer({ children, className, .
   return (<ImageContainer className={className} {...props}> {children} </ImageContainer>)
 }
 
-Mission.Image = function MissionImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}> {children} </Image>)
+Mission.Image = function MissionImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }

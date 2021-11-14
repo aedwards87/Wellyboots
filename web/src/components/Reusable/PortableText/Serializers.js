@@ -1,6 +1,7 @@
 import React from 'react';
 import BlockContent from "@sanity/block-content-to-react";
 import Link from '../Link';
+import { camalise } from '../../../utils/helpers';
 
 const serializers = {
   types: {
@@ -49,16 +50,17 @@ const serializers = {
       console.log("strong", props) || <strong>{props.children}</strong>,
     em: (props) => console.log("em", props) || <em>{props.children}</em>,
     code: (props) => console.log("code", props) || <code>{props.children}</code>,
-    link: (props) =>
-      props.mark.href.includes('www.') ? (
-        <a
-          href={props.mark.href}
-          rel="noopener noreferrer"
-        >{props.children}</a>
-      ) : (
-        <Link to={props.mark.href}>{props.children}</Link>
+    link: (props) => {
+      console.log('link:', props)
+      return (
+        <a href={props.mark.href} rel="noopener noreferrer">{props.children}</a>
       )
-    ,
+    },
+    internalLink: ({ mark, children, ...props }) => {
+      const { reference } = mark
+      console.log({props})
+      return <Link to={`/${camalise(reference)}`}>{children}</Link>
+    },
   }
 };
 

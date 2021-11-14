@@ -16,7 +16,7 @@ import {
   Span,
   Button,
   Dropdown,
-  SVG
+  Boot
 } from './NavStyles'
 import {
   ListVariants,
@@ -60,8 +60,10 @@ Nav.Logo = function NavLogo({ children, className, ...props }) {
   return (
     <Logo
       className={className}
-      fluid={logo.image.asset.fluid}
+      image={logo.image.asset.gatsbyImageData}
       alt={logo.alt}
+      loading="eager"
+      layout="fixed"
       {...props}
     >
       {children}
@@ -70,25 +72,23 @@ Nav.Logo = function NavLogo({ children, className, ...props }) {
 }
 
 Nav.Menu = function NavMenu({ children, className, ...props }) {
-  return (<Menu className={className} {...props}>{children}</Menu>)
+  return (<Laptop><Menu className={className} {...props}>{children}</Menu></Laptop>)
 }
 
 Nav.Burger = function NavBurger({ children, className, ...props }) {
   const [isOpen, toggle] = useNavMenuToggleContext()
   return (
-    <Laptop>
-      <Burger
-        className={className}
-        open={isOpen}
-        onClick={toggle}
-        aria-label="View navigation items"
-        {...props}
-      >
-        <div />
-        <div />
-        <div />
-      </Burger>
-    </Laptop>
+    <Burger
+      className={className}
+      open={isOpen}
+      onClick={toggle}
+      aria-label="View navigation items"
+      {...props}
+    >
+      <span />
+      <span />
+      <span />
+    </Burger>
   )
 }
 
@@ -133,8 +133,8 @@ Nav.ListItem = function NavListItem({ children, className, navLinks, ...props })
         className={className}
         variants={ListItemVariants}
         style={{ '--lineColor': `var(--color${capitilise(navLinks.title)})` }}
-        aria-haspopup={navLinks.hasDropdown}
-        aria-expanded={isHovered}
+        ariaHaspopup={navLinks.hasDropdown}
+        ariaExpanded={isHovered}
         onClick={toggle}
         {...bind}
         {...props}
@@ -184,11 +184,22 @@ Nav.Span = function NavSpan({ children, className, ...props }) {
   return (<Span className={className} {...props}>{children}</Span>)
 }
 
-Nav.SVG = function NavSVG({ children, className, subBrandLogo, ...props }) {
-  return (<SVG dangerouslySetInnerHTML={{ __html: subBrandLogo }} className={className} {...props} />)
+Nav.Boot = function NavBoot({ className, ...props }) {
+  return (<Boot className={className} {...props} />)
 }
 
-Nav.Dropdown = function NavDropdown({ children, className, background, pad, tPad, bPad, rPad, lPad, xPad, yPad, title, data, ...props }) {
+Nav.Dropdown = function NavDropdown({ 
+  children, 
+  className, 
+  background, 
+  pad, 
+  tPad, bPad, 
+  rPad, lPad, 
+  xPad, yPad, 
+  title, 
+  data, 
+  ...props 
+}) {
   const { isHovered } = useDropdownToggleContext()
   return (
     <Desktop>
@@ -196,9 +207,7 @@ Nav.Dropdown = function NavDropdown({ children, className, background, pad, tPad
         {isHovered &&
           <Dropdown
             className={className}
-            style={{
-              '--background': background,
-            }}
+            style={{ '--background': background }}
             tPad={tPad || yPad}
             bPad={bPad || yPad}
             rPad={rPad || xPad}

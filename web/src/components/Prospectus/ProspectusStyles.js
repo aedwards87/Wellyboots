@@ -16,14 +16,14 @@ import { capitilise } from '../../utils/helpers';
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
 `
-export const Frame = styled(FrameOrigin)`
-`
-export const Row = styled(RowOrigin)`
-`
+export const Frame = styled(FrameOrigin)``
+export const Row = styled(RowOrigin)``
 export const Column = styled(ColumnOrigin)`
   text-align: center;
 `
-export const Title = styled(TextHeading)``
+export const Title = styled(TextHeading)`
+  font-size: var(--fontSizeh2XL);
+`
 export const Link = styled(LinkOrigin)``
 export const ExternalLink = styled.a`
   padding: 14px 22px;

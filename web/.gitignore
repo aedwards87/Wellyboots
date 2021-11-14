@@ -41,6 +41,7 @@ typings/
 
 # Optional npm cache directory
 .npm
+.npmignore
 
 # Optional eslint cache
 .eslintcache
@@ -53,6 +54,7 @@ typings/
 
 # dotenv environment variable files
 .env*
+env*
 
 # gatsby files
 .cache/

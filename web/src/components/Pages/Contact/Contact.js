@@ -11,23 +11,25 @@ import {
   Text,
   Link,
   Image,
+  Group,
 } from './ContactStyles'
-
 
 export default function Contact({ children, className, bgColor, ...props }) {
   return (
-    <Container
-      className={className}
-      style={{ '--sectionBgColor': bgColor && `rgb(var(--color${capitilise(bgColor)}))` }}
-      {...props}
-    >
+      <Container
+        className={className}
+        style={{ '--sectionBgColor': bgColor && `rgb(var(--color${capitilise(bgColor)}))` }}
+        {...props}
+      >
       {children}
     </Container>
   )
 }
 
 Contact.Frame = function ContactFrame({ children, className, ...props }) {
-  return (<Frame className={className} {...props}>{children}</Frame>)
+  return (
+    <Frame className={className} {...props}>{children}</Frame>
+  )
 }
 
 Contact.Row = function ContactRow({ children, className, ...props }) {
@@ -49,6 +51,10 @@ Contact.Link = function ContactLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
 }
 
-Contact.Image = function ContactImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}> {children} </Image>)
+Contact.Image = function ContactImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
+}
+
+Contact.Group = function ContactGroup({ className, ...props }) {
+  return (<Group className={className} {...props} />)
 }

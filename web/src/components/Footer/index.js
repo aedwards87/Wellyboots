@@ -16,14 +16,21 @@ const FooterIndex = () => {
   const conactDetails = siteDetails.contactDetails.location.contactDetails
   const address = siteDetails.contactDetails.location.address
   return (
-    <Footer>
-      <Footer.Frame tPad={11} bPad={15}>
+    <Footer id="CompanyDetails">
+      <Footer.Frame tPad={12} bPad={25}>
         <Footer.Row columns={1}>
           <Footer.Column columns={2}>
             <Footer.Title heading="h2" lineColor="blue">
               Company details
             </Footer.Title>
-            <Footer.Button model={1} color="light" yPad={3} xPad={3} scrollTop>
+            <Footer.Button 
+              model={1} 
+              color="light" 
+              yPad={3} 
+              xPad={3} 
+              scrollTop
+              ariaLabel="Scroll to top"
+            >
               <Footer.ArrowSVG color="dark green" />
             </Footer.Button>
           </Footer.Column>

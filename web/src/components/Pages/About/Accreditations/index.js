@@ -7,7 +7,7 @@ import Accreditations from './Accreditations'
 export const AccreditationsIndex = ({ accreditations }) => {
   return (
     <Accreditations>
-      <Accreditations.Frame bPad={12}>
+      <Accreditations.Frame bPad={14}>
 
         <Accreditations.Row xGap='94px' yGap={6}>
           <Accreditations.Column xAlign="center" yAlign="center">
@@ -20,7 +20,7 @@ export const AccreditationsIndex = ({ accreditations }) => {
               {accreditations.map(image =>
                 <Accreditations.Image
                   key={image.alt}
-                  fluid={image.asset.fluid}
+                  image={image.asset.gatsbyImageData}
                   imgStyle={{ objectFit: `contain` }}
                   alt={image.alt}
                   title={image.alt}

@@ -54,8 +54,8 @@ Routine.ImageContainer = function RoutineImageContainer({ children, className, .
   return (<ImageContainer className={className} {...props}>{children}</ImageContainer>)
 }
 
-Routine.Image = function RoutineImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}>{children}</Image>)
+Routine.Image = function RoutineImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }
 
 Routine.Link = function RoutineLink({ children, className, ...props }) {

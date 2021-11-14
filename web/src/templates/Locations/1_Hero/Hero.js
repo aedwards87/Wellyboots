@@ -18,10 +18,12 @@ import {
   ButtonContainer,
   Button,
   Link,
+  Nav,
 } from './HeroStyles'
 // Imported hooks
 import { usePaginate } from '../../../hooks'
 import { camalise } from '../../../utils/helpers'
+import serializers from '../../../components/Reusable/PortableText/Serializers'
 
 
 export default function Hero({ children, className, bgColor, ...props }) {
@@ -48,8 +50,8 @@ Hero.Column = function HeroColumn({ children, className, ...props }) {
   return (<Column className={className} {...props}>{children}</Column>)
 }
 
-Hero.WellybootSVG = function HeroWellybootSVG({ children, className, subBrandLogo, ...props }) {
-  return (<WellybootSVG dangerouslySetInnerHTML={{ __html: subBrandLogo }} className={className} {...props}>{children}</WellybootSVG>)
+Hero.WellybootSVG = function HeroWellybootSVG({ className, ...props }) {
+  return (<WellybootSVG className={className} {...props} />)
 }
 
 Hero.FootPrintsSVG = function HeroFootPrintsSVG({ children, className, ...props }) {
@@ -64,15 +66,17 @@ Hero.Text = function HeroText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
 }
 
+Hero.Nav = function HeroNav({ children, className, ...props }) {
+  return (<Nav className={className} {...props}>{children}</Nav>)
+}
+
 Hero.PortableText = function HeroPortableText({ children, className, lineColor, ...props }) {
   return (
     <PortableText
       className={className}
       serializers={{
-        link: ({ children, href }) =>
-          href.includes('www.')
-            ? <a href={href} rel="noopener noreferrer">{children}</a>
-            : <Link to={`/${camalise(href)}`} lineColor={lineColor} fixed>{children}</Link>
+        internalLink: ({ children, reference }) => 
+          <Link to={`/${camalise(reference)}`} lineColor={lineColor} fixed>{children}</Link>
       }}
       {...props}
     >
@@ -85,7 +89,7 @@ Hero.ImageContainer = function HeroImageContainer({ children, className, ...prop
   return (<ImageContainer className={className} {...props}> {children} </ImageContainer>)
 }
 
-Hero.ImageCarousel = function HeroImageCarousel({ children, className, carousel, alt, images, ...props }) {
+Hero.ImageCarousel = function HeroImageCarousel({ className, carousel, alt, images, ...props }) {
   const [page, direction, paginate, carouselIndex] = usePaginate(images.nodes /*, timer */)
   const [pageTwo, directionTwo, paginateTwo, carouselIndexTwo, setPage] = usePaginate(images.nodes)
   // const x = carousel === 1 ? carouselIndex : carouselIndexTwo
@@ -114,13 +118,13 @@ Hero.ImageCarousel = function HeroImageCarousel({ children, className, carousel,
         {...props}
       >
         <Image
-          carouselImage={1}
-          fluid={images.nodes[carouselIndex].image.asset.fluid}
+          $carouselImage={1}
+          image={images.nodes[carouselIndex].image.asset.gatsbyImageData}
           alt={images.nodes[carouselIndex].image.alt}
         />
         <Image
-          carouselImage={2}
-          fluid={images.nodes[carouselIndexTwo].image.asset.fluid}
+          $carouselImage={2}
+          image={images.nodes[carouselIndexTwo].image.asset.gatsbyImageData}
           alt={images.nodes[carouselIndexTwo].image.alt}
         />
       </ImageCarousel>
@@ -128,8 +132,8 @@ Hero.ImageCarousel = function HeroImageCarousel({ children, className, carousel,
   )
 }
 
-Hero.Image = function HeroImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}> {children} </Image>)
+Hero.Image = function HeroImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }
 
 Hero.ButtonContainer = function HeroButtonContainer({ children, className, ...props }) {

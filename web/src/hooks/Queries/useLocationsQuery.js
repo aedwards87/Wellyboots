@@ -14,15 +14,18 @@ export const useLocationsQuery = () => {
             subBrandColors {
               title
             }
-            subBrandLogo
+            subBrandSVG {
+              alt
+              asset {
+                gatsbyImageData
+              }
+            }
             type
             mainImage {
               alt
               image {
                 asset {
-                  fluid(maxWidth: 400) {
-                    ...GatsbySanityImageFluid
-                  }
+                  gatsbyImageData(width: 400)
                 }
               }
             }

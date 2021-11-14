@@ -1,7 +1,7 @@
 const transition = {
   type: "spring",
   stiffness: 100,
-  damping: 50,
+  damping: 20,
 };
 
 export const titleVariants = {

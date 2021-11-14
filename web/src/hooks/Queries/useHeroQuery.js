@@ -14,9 +14,7 @@ export const useHeroQuery = () => {
               image {
                 alt
                 asset {
-                  fluid(maxWidth: 200) {
-                    ...GatsbySanityImageFluid
-                  }
+                  gatsbyImageData(width: 400)
                 }
               }
             }

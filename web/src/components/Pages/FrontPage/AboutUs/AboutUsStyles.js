@@ -1,7 +1,7 @@
 // Imported dependencies
 import styled, { css } from 'styled-components/macro';
 import { motion } from 'framer-motion';
-import { default as gasbyImage } from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 // Imported Components
 import {
   Frame as FrameOrigin,
@@ -38,7 +38,7 @@ export const ImageContainer = styled.div`
     width: 80%
   }
 `
-export const Image = styled(gasbyImage)`
+export const Image = styled(GatsbyImage)`
   width: min(max(65px, 18vw), 100px);
   max-height: min(max(28px, 7vw), 50px);
   @media(min-width: 980px) {

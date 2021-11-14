@@ -19,12 +19,14 @@ export {
 // export { default as About } from './About';
 // export { default as Contact } from './Contact';
 // export { default as Feedback } from './Feedback';
-export {
-  AboutUs,
-  Hero,
-  Locations,
-  ReviewsPreview,
-} from './FrontPage';
+// export {
+//   // AboutUs,
+//   // Hero,
+//   // Locations,
+//   ReviewsPreview,
+// } from './Pages/FrontPage/ReviewsPreview';
+export { default as PlayTheory } from './Pages/PlayTheory';
+
 
 
 

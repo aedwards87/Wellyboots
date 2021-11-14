@@ -2,24 +2,32 @@
 import React from 'react'
 import { graphql } from 'gatsby';
 // Imported components
-import { Hero, Mission, Aims, Mastermind, Accreditations } from '../components/Pages/About'
 import { ReviewsPreview } from '../components/Pages/FrontPage'
+import SEO from '../components/seo'
 import Prospectus from '../components/Prospectus';
+import { 
+  Hero, 
+  Mission, 
+  Aims, 
+  Mastermind, 
+  Accreditations 
+} from '../components/Pages/About'
+
 
 const AboutUs = ({ data }) => {
   const {
     aboutOwner,
     accreditations,
-    description,
-    ourAim,
-    ourMissionStatement,
+    _rawDescription,
+    _rawOurAim,
+    _rawOurMissionStatement
   } = data.about.nodes[0]
-  console.log({ accreditations });
   return (
     <>
-      <Hero desc={description} />
-      <Mission mission={ourMissionStatement} />
-      <Aims aims={ourAim} />
+      <SEO title="About us" />
+      <Hero desc={_rawDescription} />
+      <Mission mission={_rawOurMissionStatement} />
+      <Aims aims={_rawOurAim} />
       <Accreditations accreditations={accreditations} />
       <Mastermind mastermind={aboutOwner} />
       <Prospectus />
@@ -34,19 +42,7 @@ export const AboutQuery = graphql`
     about: allSanityAbout {
       nodes {
         aboutOwner {
-          ownerDescription {
-            style
-            list
-            _type
-            children {
-              _key
-              _type
-              marks
-              text
-            }
-            _rawChildren
-            _key
-          }
+          _rawOwnerDescription
           owner {
             firstName
             lastName
@@ -56,9 +52,7 @@ export const AboutQuery = graphql`
               alt
               image {
                 asset {
-                  fluid(maxWidth: 400) {
-                    ...GatsbySanityImageFluid
-                  }
+                  gatsbyImageData(width: 400)
                 }
               }
             }
@@ -67,50 +61,12 @@ export const AboutQuery = graphql`
         accreditations {
           alt
           asset {
-            fluid(maxWidth: 400) {
-              ...GatsbySanityImageFluid
-            }
+            gatsbyImageData(width: 400)
           }
         }
-        description {
-          style
-          list
-          children {
-            text
-            marks
-            _type
-            _key
-          }
-          _type
-          _rawChildren
-          _key
-        }
-        ourAim {
-          _key
-          _rawChildren
-          _type
-          children {
-            text
-            marks
-            _type
-            _key
-          }
-          list
-          style
-        }
-        ourMissionStatement {
-          style
-          list
-          children {
-            _key
-            _type
-            marks
-            text
-          }
-          _type
-          _rawChildren
-          _key
-        }
+        _rawDescription
+        _rawOurAim
+        _rawOurMissionStatement
       }
     }
   }

@@ -54,7 +54,15 @@ Aims.Text = function AimsText({ children, className, ...props }) {
 }
 
 Aims.PortableText = function AimsPortableText({ children, className, ...props }) {
-  return (<PortableText className={className} {...props}>{children}</PortableText>)
+  return (
+    <PortableText
+      serializers={{ li: ({children}) => <li>{children}</li> }}
+      className={className} 
+      {...props}
+    >
+      {children}
+    </PortableText>
+  )
 }
 
 Aims.Link = function AimsLink({ children, className, ...props }) {
@@ -65,6 +73,6 @@ Aims.ImageContainer = function AimsImageContainer({ children, className, ...prop
   return (<ImageContainer className={className} {...props}> {children} </ImageContainer>)
 }
 
-Aims.Image = function AimsImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}> {children} </Image>)
+Aims.Image = function AimsImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }

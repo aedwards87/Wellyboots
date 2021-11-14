@@ -7,7 +7,7 @@ const footerLinks = [
     hasDropdown: true
   },
   {
-    title: 'Cirriculum',
+    title: 'Curriculum',
   },
   {
     title: 'Reviews',

@@ -16,6 +16,7 @@ const Frame = ({
   lPad,
   xPad,
   yPad = 8,
+  innerRef,
   ...props
 }) => {
 
@@ -30,6 +31,7 @@ const Frame = ({
       xGap={xGap}
       yGap={yGap}
       gap={gap}
+      ref={innerRef}
       {...props}
     >
       {children}

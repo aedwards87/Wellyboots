@@ -24,6 +24,8 @@ const ReviewsPreviewIndex = () => {
     <ReviewsPreview bgColor="dark purple" /*innerRef={ref}*/>
       <ReviewsPreview.SVGDividerTop />
       <ReviewsPreview.Frame yPad={8} yGap={6}>
+        <ReviewsPreview.CrownSVG />
+        <ReviewsPreview.CarSVG />
         <ReviewsPreview.Row>
           <ReviewsPreview.Column
             xAlign="center"
@@ -70,6 +72,7 @@ const ReviewsPreviewIndex = () => {
                   color="purple"
                   yPad={3}
                   xPad={5}
+                  ariaLabel="Previous review"
                   onClick={() => paginate(-1)}
                 >
                   <ReviewsPreview.ArrowSVG direction="left" />
@@ -79,6 +82,7 @@ const ReviewsPreviewIndex = () => {
                   color="purple"
                   yPad={3}
                   xPad={5}
+                  ariaLabel="Next review"
                   onClick={() => paginate(1)}
                 >
                   <ReviewsPreview.ArrowSVG />

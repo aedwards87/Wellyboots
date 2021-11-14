@@ -8,7 +8,7 @@ const ProfileCardIndex = ({ person, bgColor = "dark" }) => {
       <ProfileCard.Body>
         <ProfileCard.ImageContainer>
           <ProfileCard.Image
-            fluid={person.staffPhoto.image.asset.fluid}
+            image={person.staffPhoto.image.asset.gatsbyImageData}
             alt={person.staffPhoto.alt}
           />
         </ProfileCard.ImageContainer>

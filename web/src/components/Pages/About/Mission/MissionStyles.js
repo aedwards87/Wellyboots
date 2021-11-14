@@ -1,6 +1,6 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
-import { default as GatsbyImage } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import PortableTextOrigin from "react-portable-text"
 // Imported Components
 import {
@@ -22,8 +22,8 @@ export const Container = styled.section`
 `
 export const Frame = styled(FrameOrigin)`
   @media (min-width: 980px) {
-    padding-top: var(--s12);
-    padding-bottom: var(--s12);
+    padding-top: var(--s17);
+    padding-bottom: var(--s17);
   }
 `
 export const Row = styled(RowOrigin)`

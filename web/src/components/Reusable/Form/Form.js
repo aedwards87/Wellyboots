@@ -1,15 +1,18 @@
 // Imported dependencies
-import React, { useState, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useController } from "react-hook-form";
 // Imported components
 import {
   Container,
   Field,
   Text,
+  Button,
 } from './FormStyles'
+import { camalise } from '../../../utils/helpers';
+import Warning from '../../../assets/svg/Warning'
 
-
-export default function Form({ children, className, bgColor, ...props }) {
+export default function Form({ children, className, bgColor,...props }) {
   return (
     <Container
       className={className}
@@ -22,24 +25,71 @@ export default function Form({ children, className, bgColor, ...props }) {
 }
 
 
-Form.Field = function FormField({ children, Element, type, name, value, label, disabled, className, ...props }) {
+Form.Field = function FormField({ 
+  children, 
+  Element = 'input',
+  control,
+  type, 
+  name, 
+  disabled, 
+  className,
+  value,
+  placeholder,
+  defaultValue = "",
+  rules,
+  maxLength,
+  options,
+}) {
+  const {
+    field: { ref, ...inputProps },
+    fieldState: { invalid, error },
+    formState: { errors }
+  } = useController({
+    name,
+    control,
+    rules,
+    defaultValue,
+  })
   return (
     <Field
       className={className}
-      id={name}
-      {...props}
+      htmlFor={camalise(name)}
     >
-      {children || label}
+      <Text>{children || name}</Text>
       <Element
+        id={camalise(name)}
+        ref={ref}
         type={type}
-        name={name}
         value={value}
+        placeholder={placeholder}
         disabled={disabled}
-      />
+        aria-invalid={invalid || error ? true : false}
+        maxLength={maxLength}
+        {...inputProps}
+      >
+        {options?.map(option => 
+          <Fragment key={option}>
+            <option value="" disabled hidden>Select a location...</option>
+            <option value={option}>
+              {option}
+            </option>
+          </Fragment>
+        )}
+      </Element>
+      {error && 
+        <div>
+          <Warning />
+          <Text invalid={error}>{errors[name]?.message}</Text>
+        </div>
+      }
     </Field>
   )
 }
 
 Form.Text = function FormText({ children, className, ...props }) {
   return (<Text className={className} {...props}>{children}</Text>)
+}
+
+Form.Button = function FormButton({ children, className, ...props }) {
+  return (<Button className={className} {...props}>{children}</Button>)
 }

@@ -55,8 +55,8 @@ Mastermind.Link = function MastermindLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
 }
 
-Mastermind.Image = function MastermindImage({ children, className, ...props }) {
-  return (<Image className={className} {...props}> {children} </Image>)
+Mastermind.Image = function MastermindImage({ className, ...props }) {
+  return (<Image className={className} {...props} />)
 }
 
 Mastermind.DividerTopSVG = function MastermindDividerTopSVG({ children, className, ...props }) {

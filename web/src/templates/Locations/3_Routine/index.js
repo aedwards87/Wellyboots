@@ -16,7 +16,7 @@ const RoutineIndex = ({ data: { location: {
     <Routine id="DailyRoutine">
       <Routine.Frame tPad={9}>
 
-        <Routine.Row columns={2} xGap="94px" yGap={10}>
+        <Routine.Row columns={2} xGap="94px" yGap={11}>
           <Routine.Column
             xAlign="stretch"
             xItemsAlign="center"
@@ -24,10 +24,10 @@ const RoutineIndex = ({ data: { location: {
             conditionDaily={conditionDaily}
             conditionAfternoon={conditionAfternoon}
           >
-            <Routine.Row yGap={8}>
+            <Routine.Row yGap={9}>
               {conditionDaily &&
                 <Routine.Column>
-                  <Routine.Title lineColor={subBrandColors[0].title} zIndex="1">
+                  <Routine.Title heading='h2' lineColor={subBrandColors[0].title} zIndex="1">
                     Daily routine
                   </Routine.Title>
                 </Routine.Column>
@@ -46,7 +46,7 @@ const RoutineIndex = ({ data: { location: {
             yAlign={conditionAfternoon ? 'start' : 'center'}
             columnOrder={2}
           >
-            <Routine.Row yGap={8}>
+            <Routine.Row yGap={9}>
               {conditionAfternoon &&
                 <Routine.Column>
                   <Routine.Title lineColor={subBrandColors[0].title} zIndex="1" custom>
@@ -56,8 +56,11 @@ const RoutineIndex = ({ data: { location: {
               }
               <Routine.Column>
                 {conditionAfternoon
-                  ? <Routine.Table routine={lateAfternoonRoutine} lineColor={subBrandColors[1].title} />
-                  : <img src="https://i.imgur.com/ZT1wnjc.png" />
+                  ? <Routine.Table 
+                    routine={lateAfternoonRoutine} 
+                    lineColor={subBrandColors[1].title}
+                  />
+                  : <img src="https://i.imgur.com/ZT1wnjc.png" alt="" />
                 }
               </Routine.Column>
             </Routine.Row>

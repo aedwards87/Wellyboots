@@ -4,12 +4,12 @@ import styled, { css } from 'styled-components/macro'
 import { regExpLetterChecker } from '../../utils/helpers'
 
 
-const Column = ({ className, children, gap, xGap, yGap, columnOrder, xAlign = "start", xItemsAlign, yAlign, yItemsAlign, rowOrder, innerRef, ...props }) => {
+const Column = ({ className, style, children, gap, xGap, yGap, columnOrder, xAlign = "start", xItemsAlign, yAlign, yItemsAlign, rowOrder, innerRef, ...props }) => {
   return (
     <Container
       className={className}
       ref={innerRef}
-      style={{
+      style={style, {
         '--columnXGap': regExpLetterChecker(xGap) ? [xGap] : [`var(--s${xGap})`, `var(--s${xGap + 2})`],
         '--columnYGap': regExpLetterChecker(yGap) ? [yGap] : [`var(--s${yGap})`, `var(--s${yGap + 2})`],
         '--columnYGap': regExpLetterChecker(yGap) ? [yGap] : [`var(--s${yGap})`, `var(--s${yGap + 2})`],

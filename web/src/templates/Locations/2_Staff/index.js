@@ -1,5 +1,6 @@
 // Imported dependencies
 import React from 'react'
+import { Girl } from '../../../assets/svg'
 // Imported components
 import Staff from './Staff'
 
@@ -11,11 +12,12 @@ const StaffIndex = ({ data: { location: {
   return (
     <Staff id="Staff" bgColor={subBrandColors[1].title}>
       <Staff.DividerTopSVG bgColor={subBrandColors[1].title} />
-      <Staff.Frame bPad={4} tPad={10}>
-
+      <Staff.Frame bPad={4} tPad={9}>
+      <Staff.GirlSVG />
         <Staff.Row>
           <Staff.Column>
             <Staff.Title
+              heading='h2'
               lineColor="light"
               zIndex="1"
               color={dark ? "light" : ""}

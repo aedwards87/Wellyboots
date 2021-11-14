@@ -22,18 +22,18 @@ const DetailsIndex = ({ data: { location: {
       bgColor={subBrandColors[0].title}
     >
       <Details.DividerTopSVG bgColor={subBrandColors[0].title} />
-      <Details.Frame bPad={9}>
+      <Details.Frame bPad={10} tPad={10}>
 
         <Details.Row>
           <Details.Column>
-            <Details.Title lineColor="light" zIndex="1">{shortName || name} details</Details.Title>
+            <Details.Title heading='h2' lineColor="light" zIndex="1">{shortName || name} details</Details.Title>
           </Details.Column>
         </Details.Row>
 
-        <Details.Row columns={2} xGap={5} yGap={5}>
+        <Details.Row columns={2} xGap={56} yGap={5}>
           <Details.Column xAlign="stretch">
 
-            <Details.Row columns={2} xGap={5} custom>
+            <Details.Row columns={2} xGap={6} custom>
 
               <Details.Column yAlign="start">
                 <Details.PhoneSVG colorOne="light" colorTwo="dark" />
