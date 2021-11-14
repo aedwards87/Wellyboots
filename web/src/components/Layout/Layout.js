@@ -29,7 +29,7 @@ const LayoutIndex = ({ children }) => {
     <Layout>
       <GlobalStyles brandColors={brandColors.nodes} />
       <Typography />
-      <Header siteTitle={site.siteMetadata.title} location={location} />
+      <Header siteTitle={site.siteMetadata.title} />
       <main>{children}</main>
       <Footer />
     </Layout>
