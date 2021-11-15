@@ -33,6 +33,7 @@ const Container = styled.div`
   svg {
     width: 100%;
     min-width: 700px;
+    margin-top: -2px;
   }
   .colorDetails {
       fill: rgb(var(--colorDetails))

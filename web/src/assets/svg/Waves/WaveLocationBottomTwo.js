@@ -26,6 +26,7 @@ const Container = styled.div`
   svg {
     width: 100%;
     min-width: 700px;
+    margin-bottom: -2px;
   }
   /* @media(min-width: 1100px) {
     margin-bottom: -4vw;

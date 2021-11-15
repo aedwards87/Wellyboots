@@ -31,6 +31,7 @@ const Container = styled.div`
   svg {
     width: 100%;
     min-width: 700px;
+    margin-bottom: -2px;
   }
   .colorStaff {
       fill: rgb(var(--colorStaff))

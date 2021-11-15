@@ -1,6 +1,6 @@
 // Imported dependencies
 import styled, { css } from "styled-components/macro";
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
 // Imported components
 import { Link as LinkOrigin } from '../../Reusable';

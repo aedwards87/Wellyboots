@@ -30,6 +30,7 @@ const Container = styled.div`
   > svg {
     min-width: 700px;
     width: 100%;
+    margin-top: -2px;
   }
   .colorDarkPurple {
     fill: rgb(var(--colorDarkPurple));
