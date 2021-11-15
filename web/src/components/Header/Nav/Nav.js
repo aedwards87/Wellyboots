@@ -62,9 +62,10 @@ Nav.Logo = function NavLogo({ children, className, ...props }) {
       className={className}
       image={logo.image.asset.gatsbyImageData}
       alt={logo.alt}
-      loading="eager"
-      layout="fixed"
+      // loading="eager"
+      // layout="fixed"
       backgroundColor="transparent"
+      placeholder="tracedSVG"
       {...props}
     >
       {children}

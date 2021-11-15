@@ -1,6 +1,6 @@
 // Imported dependencies
 import styled, { css } from "styled-components/macro";
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
 // Imported components
 import { Link as LinkOrigin } from '../../Reusable';
@@ -22,9 +22,6 @@ export const Logo = styled(GatsbyImage)`
   width: 190px;
   &.gatsby-image-wrapper {
     left: -5px;
-  }
-  img {
-    background: none;
   }
 `
 
