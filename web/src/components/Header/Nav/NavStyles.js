@@ -85,6 +85,7 @@ export const List = styled(motion.ul)`
 export const Link = styled(LinkOrigin)`
   padding: 10px;
   position: relative;
+  white-space: nowrap;
   transition: .3s ease;
   z-index: 2;
   width: 100%;
@@ -187,6 +188,8 @@ export const Burger = styled(Button)`
 
 export const Span = styled.span`
   position: relative;
+  white-space: nowrap;
+  display: inline-block;
   &::before {
     content: "";
     position: absolute;
