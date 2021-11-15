@@ -9,6 +9,7 @@ const WaveLocationTop = ({ className, ...props }) => {
         className={className}
         viewBox="0 0 1444 180"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
         {...props}
       >
         <rect y="4" className="colorLight" width="1444" height="176" />

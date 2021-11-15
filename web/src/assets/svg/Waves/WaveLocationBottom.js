@@ -29,6 +29,7 @@ const WaveLocationBottom = ({ className, ...props }) => {
         viewBox="0 0 1444 200"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
         {...props}
       >
         <rect className="white" x="0.4" y="2" width="1444" height="198" />

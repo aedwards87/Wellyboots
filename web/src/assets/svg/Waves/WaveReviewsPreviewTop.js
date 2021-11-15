@@ -10,6 +10,7 @@ const WaveReviewsPreviewTop = ({ className, ...props }) => {
         viewBox="0 0 1444 120"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
         {...props}
       >
         <rect className="colorLight" width="1444" height="117" />

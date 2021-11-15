@@ -13,6 +13,7 @@ const WaveStaffTop = ({ className, style, bgColor = 'dark', ...props }) => {
         fill="none"
         style={style, { '--colorStaff': `var(--color${capitilise(bgColor)})` }}
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
         {...props}
       >
         <rect width="1440" height="177" className="colorLight" />
