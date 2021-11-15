@@ -64,6 +64,7 @@ Nav.Logo = function NavLogo({ children, className, ...props }) {
       alt={logo.alt}
       loading="eager"
       layout="fixed"
+      backgroundColor="transparent"
       {...props}
     >
       {children}
