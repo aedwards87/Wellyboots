@@ -30,8 +30,9 @@ const Container = styled.div`
   position: relative;
   top: 1px;
   svg {
-    min-width: 700px;
     width: 100%;
+    height: 100%;
+    min-width: 700px;
     margin-bottom: -2px;
   }
   .colorDarkPurple {
