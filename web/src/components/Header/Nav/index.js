@@ -12,7 +12,7 @@ import { camalise } from '../../../utils/helpers'
 const NavIndex = ({ siteTitle }) => {
   const data = useLocationsQuery()
   return (
-    <Nav aria-label="Primary nav">
+    <Nav aria-label="Primary navigation">
       <Nav.Link home>
         <Nav.Logo title={siteTitle} />
       </Nav.Link>

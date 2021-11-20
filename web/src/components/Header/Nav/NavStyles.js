@@ -32,7 +32,7 @@ export const Menu = styled.div`
 `
 
 export const ListContainer = styled(motion.div)`
-  @media (max-width: 981px) {
+  @media (max-width: 980px) {
     position: fixed;
     background: rgba(255,255,255,.97);
     /* if backdrop support: very transparent and blurred */
@@ -63,7 +63,7 @@ export const List = styled(motion.ul)`
   padding-top: 2.2em;
   gap: 2em;
   z-index: 1;
-  @media (min-width: 981px) {
+  @media (min-width: 980px) {
     position: static;
     width: auto;
     height: auto;
@@ -75,7 +75,7 @@ export const List = styled(motion.ul)`
     padding-top: 0;
     gap: var(--navSpacing);
   }
-  @media (max-height: 540px) and (max-width: 980px) {
+  @media (max-height: 540px) and (max-width: 979px) {
     gap: 6vh;
     gap: min(max(2rem, 6vh), 40rem);
     min-height: 340px;
@@ -107,7 +107,7 @@ export const Link = styled(LinkOrigin)`
   @media (max-width: 979px) {
     font-size: 1.7em;
   }
-  @media (max-height: 540px) and (max-width: 980px) {
+  @media (max-height: 540px) and (max-width: 979px) {
     font-size: min(max(1.6rem, 6vh), 2.55rem);
     padding: 0;
   }
@@ -193,21 +193,21 @@ export const Span = styled.span`
   &::before {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 1px;
     left: 0;
-    height: 9px;
     width: 100%;
+    height: .5em;
+    transform: translateY(6px);
     transition: .3s ease-out;
-    transform: translateY(4px);
     z-index: -1;
   }
-  @media (max-width: 979px) {
+  @media (min-width: 980px) {
     &::before {
-      bottom: 1px;
+      bottom: 0;
       left: 0;
+      height: 9px;
       width: 100%;
-      height: .5em;
-      transform: translateY(6px);
+      transform: translateY(4px);
     }
   }
 `
