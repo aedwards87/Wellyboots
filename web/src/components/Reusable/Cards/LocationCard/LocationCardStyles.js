@@ -37,6 +37,7 @@ export const ImageContainer = styled(motion.div)`
     opacity: 0;
     transition: opacity .6s ease, transform .6s ease;
     transform: translateY(-30%);
+    z-index: -1;
   }
   > ${TextContainer} {
     opacity: 0;
@@ -127,7 +128,7 @@ export const Hero = styled.div`
     content: "";
     position: absolute;
     left: 0;
-    z-index: -1;
+    z-index: -3;
     width: 100%;
     background-color: ${({ colors }) => `rgb(var(--color${capitilise(colors[0].title)}))`};
   }
@@ -148,6 +149,7 @@ export const Image = styled(GatsbyImage)`
   height: 100%;
   width: 100%;
   object-fit: cover;
+  z-index: 1;
 `
 
 export const Title = styled(TextHeading)`
@@ -162,6 +164,7 @@ export const Title = styled(TextHeading)`
 
 export const Text = styled(motion.span)`
   padding: 6px 12px;
+  z-index: 9999;
   color: ${({ colors }) =>
     !colors[1].title.includes('Dark') || colors[1].title.includes('green') 
       ? `rgb(var(--colorDark))` : `rgb(var(--colorLight))`
@@ -182,6 +185,7 @@ export const SVGContainer = styled(GatsbyImage)`
   width: 42%;
   display: flex;
   justify-content: center;
+  z-index: -2;
   @media (hover: none) {
     width: 14%;
     position: absolute;
