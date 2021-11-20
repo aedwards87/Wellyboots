@@ -57,7 +57,7 @@ const HeroIndex = ({ data: { location: {
             >
               Jump to
             </Hero.Title>
-            <Hero.Nav aria-label="Secondary nav">
+            <Hero.Nav aria-label="Secondary navigation - Jump to a section on the page">
               <Hero.Link 
                 to="#Staff" 
                 lineColor={subBrandColors[1].title}
