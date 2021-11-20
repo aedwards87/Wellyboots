@@ -117,8 +117,11 @@ const ExternalLink = styled.a`
     const darkColor = colors.filter(c => c.title.includes("Dark"))
     if (colors) return (
       css`
-        :hover, :focus,
-        :hover p, :focus p {
+        &, p { transition: color .3s ease; }
+        :hover, 
+        :focus-visible,
+        :hover p, 
+        :focus-visible p {
           color: rgb(var(--color${capitilise(darkColor[0].title || colors[0])}));
         }
       `
