@@ -48,9 +48,9 @@ const Container = styled(motion.button)`
     z-index: 10;
   }
   &&:active {
-    transition: transform .1s ease, box-shadow .1s ease;
+    transition: transform .05s ease, box-shadow .05s ease;
   }
-  transition: transform .3s ease;
+  transition: transform .3s ease, box-shadow .3s ease;
   ${({ pad }) => pad && css`padding: var(--s${pad})`};
   ${({ tPad }) => tPad && css`padding-top: var(--s${tPad})`};
   ${({ bPad }) => bPad && css`padding-bottom: var(--s${bPad})`};
@@ -65,7 +65,7 @@ const Container = styled(motion.button)`
       transform: translateY(-10%)
     }
     :hover,
-    :focus {
+    :focus-visible {
       filter: brightness(110%);
     }
     :active {
@@ -82,7 +82,7 @@ const Container = styled(motion.button)`
         box-shadow: var(--level4);
         transform: translateY(-10%)
       }
-      :focus {
+      :focus-visible {
         background-color: rgb(var(--color${capitilise(color)}));
         color: rgb(var(--colorLight));
       }
