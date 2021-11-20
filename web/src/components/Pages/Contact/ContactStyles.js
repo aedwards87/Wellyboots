@@ -30,7 +30,7 @@ export const Image = styled(ImageOrigin)`
     position: sticky;
     overflow: unset;
     top: 160px;
-    height: 560px;
+    height: 500px;
     transition: top .5s ease;
   }
   @media (min-width: 1200px) {

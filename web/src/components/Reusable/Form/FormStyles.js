@@ -1,5 +1,6 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
+import { camalise, capitilise } from '../../../utils/helpers';
 // Imported Components
 import {
   TextHeading,
@@ -30,13 +31,13 @@ export const Container = styled.form`
     padding: var(--s3);
     border-radius: var(--s1);
     border: none;
-    background: rgba(var(--colorPurple), .25);
+    background: rgba(var(--color${({ fieldColor }) => capitilise(fieldColor) }), .25);
   }
   input:focus, 
   select:focus, 
   textarea:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgb(var(--colorDarkPurple));
+    box-shadow: 0 0 0 2px rgb(var(--color${({ fieldColor }) => `Dark${capitilise(fieldColor)}` }));
   }
   textarea {
     resize: vertical; 

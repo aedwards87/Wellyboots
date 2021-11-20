@@ -9,8 +9,8 @@ import pattern from '../../../data/patterns';
 
 // The component
 export const FormIndex = ({ 
-  subjectValue = 'Contact', 
-  color,
+  category = 'Contact us', 
+  fieldColor = 'Purple',
   options,
   ...props
 }) => {
@@ -18,21 +18,22 @@ export const FormIndex = ({
     handleSubmit, 
     control, 
     // formState: { isDirty, isValid },
-    // setFocus
+    setFocus
   } = useForm({ mode: 'onBlur' });
   const onSubmit = data => console.log(data);
   
-  // useEffect(() => {
-  //   setFocus("First name");
-  // }, [setFocus])
+  useEffect(() => {
+    setFocus("First name");
+  }, [setFocus])
 
-  return (
-    <Form onSubmit={handleSubmit(onSubmit)} {...props}>
+  return ( 
+    <Form onSubmit={handleSubmit(onSubmit)} fieldColor={fieldColor} {...props}>
       <div>
         <Form.Field
           Element="input"
           name="First name"
           control={control}
+          tabindex="0"
           rules={{
             required: "Please enter your first name",
             pattern: {
@@ -71,7 +72,7 @@ export const FormIndex = ({
           }}
           maxLength={320}
         />
-        {subjectValue === 'Contact' && 
+        {category === 'Contact us' && 
           <Form.Field 
             Element="input"
             name="Subject"
@@ -80,7 +81,7 @@ export const FormIndex = ({
             maxLength={99}
           />
         }
-        {subjectValue === 'Booking' && 
+        {category === 'Book a visit' && 
           <Form.Field 
             Element="select"
             name="Location"
@@ -103,7 +104,7 @@ export const FormIndex = ({
       
       <Form.Button 
         model={1}
-        color={color}
+        color={category}
         type="submit" 
         children="Submit"
         // disabled={!isDirty || !isValid}

@@ -16,11 +16,13 @@ export const BookAVisitIndex = () => {
       <BookAVisit.Frame bPad={10}>
         <BookAVisit.Row columns={2} xGap='94px' yGap={12}>
 
-          <BookAVisit.Column columnOrder={2} innerRef={ref}>
+          <BookAVisit.Column innerRef={ref}>
             <BookAVisit.Row yGap={8}>
 
               <BookAVisit.Column xAlign="stretch">
-                <BookAVisit.Title heading="hero" lineColor="Book a visit">Take a tour</BookAVisit.Title>
+                <BookAVisit.Title heading="hero" lineColor="Book a visit">
+                  Take a tour
+                </BookAVisit.Title>
               </BookAVisit.Column>
 
               <BookAVisit.Column yGap={8}>
@@ -30,18 +32,14 @@ export const BookAVisitIndex = () => {
                   </BookAVisit.Text>
                   <BookAVisit.Text>
                     Alternatively, for other ways to get in contact with us please&nbsp;
-                    <BookAVisit.Link 
-                      to="#company-details" 
-                      lineColor="Book a visit" 
-                      fixed
-                    >
+                    <BookAVisit.Link to="#company-details" lineColor="Book a visit" fixed>
                       click here
                     </BookAVisit.Link>.
                   </BookAVisit.Text>
                 </BookAVisit.Group>
                 <Form 
-                  subjectValue="Booking" 
-                  color="Book a visit" 
+                  category="Book a visit" 
+                  fieldColor="purple"
                   options={locationNames}
                 />
               </BookAVisit.Column>
@@ -51,8 +49,6 @@ export const BookAVisitIndex = () => {
 
           <BookAVisit.Column 
             yGap={3} 
-            columnOrder={1} 
-            rowOrder={1} 
             yAlign="start" 
             xAlign="center"
           >
@@ -60,7 +56,6 @@ export const BookAVisitIndex = () => {
               <BookAVisit.Column elementSize={elementSize[1]}>
                 <BookAVisit.Image 
                   name="kid-building-blocks" 
-                  // name="kid-splashing-in-puddle" 
                   alt="Girl stacking building blocks"
                   objectFit="contain"
                 />

@@ -18,7 +18,9 @@ export const ContactIndex = () => {
             <Contact.Row yGap={8}>
 
               <Contact.Column xAlign="stretch">
-                <Contact.Title heading="hero" lineColor="Contact us">Get in touch</Contact.Title>
+                <Contact.Title heading="hero" lineColor="Contact us">
+                  Get in touch
+                </Contact.Title>
               </Contact.Column>
 
               <Contact.Column yGap={8}>
@@ -27,10 +29,13 @@ export const ContactIndex = () => {
                     Please feel free to contact us about anything, at <strong>Wellyboots Daycare</strong> we are happy to receive any messages and answer any questions.
                   </Contact.Text>
                   <Contact.Text>
-                    Alternatively, for other ways to contact us please <Contact.Link to="#company-details" lineColor="Contact us" fixed>click here</Contact.Link>.
+                    Alternatively, for other ways to contact us please&nbsp;
+                    <Contact.Link to="#company-details" lineColor="Contact us" fixed>
+                      click here
+                    </Contact.Link>.
                   </Contact.Text>
                 </Contact.Group>
-                <Form color="Contact us" />
+                <Form category="Contact us" fieldColor="blue" />
               </Contact.Column>
               
             </Contact.Row>
@@ -40,15 +45,13 @@ export const ContactIndex = () => {
             yGap={3} 
             columnOrder={1} 
             rowOrder={1} 
-            yAlign="start" 
-            xAlign="center"
+            xAlign="stretch"
           >
             <Contact.Row>
-              <Contact.Column elementSize={elementSize[1]}>
+              <Contact.Column elementSize={elementSize[1]} xAlign="stretch">
                 <Contact.Image 
-                  name="kid-building-blocks" 
-                  // name="kid-splashing-in-puddle" 
-                  alt="Girl stacking building blocks"
+                  name="kid-splashing-in-puddle" 
+                  alt="Boy jumping in a puddle"
                   objectFit="contain"
                 />
               </Contact.Column>
