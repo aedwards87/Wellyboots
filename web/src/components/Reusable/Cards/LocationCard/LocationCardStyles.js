@@ -49,10 +49,12 @@ export const ImageContainer = styled(motion.div)`
     > .gatsby-image-wrapper {
       opacity: 1;
       transform: translateY(0);
+      z-index: -1;
     }
     > ${TextContainer} {
       opacity: 1;
       transform: translateY(0);
+      z-index: 1;
     }
   }
 `
