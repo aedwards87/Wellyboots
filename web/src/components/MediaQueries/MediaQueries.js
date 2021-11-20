@@ -1,12 +1,12 @@
 import { useMediaQuery } from 'react-responsive'
 
 const Desktop = ({ children }) => {
-  const matches = useMediaQuery({ minWidth: 981 })
+  const matches = useMediaQuery({ minWidth: 980 })
   return matches ? children : null
 }
 
 const Laptop = ({ children }) => {
-  const matches = useMediaQuery({ maxWidth: 980 })
+  const matches = useMediaQuery({ maxWidth: 979 })
   return matches ? children : null
 }
 
