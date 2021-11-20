@@ -8,10 +8,10 @@ import { TextHeading } from "../../index"
 // Imported helpers
 import { capitilise } from "../../../../utils/helpers"
 
-
-
+// TextConainer has to before ImageContainer, so it can be reference within ImageContainer.... but why?? Why not just put the css into TextContainer??
 export const TextContainer = styled(motion.div)`
   position: absolute;
+  z-index: 1;
   bottom: -7%;
   display: flex;
   justify-items: center;
