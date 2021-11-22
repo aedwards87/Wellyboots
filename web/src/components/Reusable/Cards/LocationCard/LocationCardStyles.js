@@ -119,6 +119,30 @@ export const Container = styled(Link)`
 
 `
 
+
+export const SVGContainer = styled(GatsbyImage)`
+  width: 42%;
+  display: flex;
+  justify-content: center;
+  z-index: -2;
+  @media (hover: none) {
+    width: 14%;
+    position: absolute;
+    z-index: 9;
+    top: 3px;
+    left: var(--s3);
+    padding-top: 6%;
+    padding-bottom: 8%;
+    padding-right: 3%;
+    border-top-left-radius: 10px;
+    /* filter: 
+      drop-shadow(0 0 6px rgba(var(--colorLight), .1))
+      drop-shadow(0 0 8px rgba(var(--colorLight), .2))
+      drop-shadow(0 0 10px rgba(var(--colorLight), .2))
+      drop-shadow(0 0 26px rgba(var(--colorLight), .3)) */
+  }
+`
+
 export const Hero = styled.div`
   position: relative;
   width: 100%;
@@ -143,6 +167,15 @@ export const Hero = styled.div`
     top: 80%;
     height: var(--s2);
     filter: brightness(70%);
+  }
+  ${SVGContainer} {
+    @media (hover: none) {
+      filter: 
+        drop-shadow(8px 8px 6px rgba(0, 85, 230, .16))
+        drop-shadow(8px 8px 8px rgba(0, 85, 230, .12))
+        drop-shadow(8px 8px 12px rgba(0, 85, 230, .08))
+        drop-shadow(8px 8px 20px rgba(0, 85, 230, .05));
+    }
   }
 `
 export const Footer = styled.div``
@@ -183,21 +216,3 @@ export const Text = styled(motion.span)`
   }
 `
 
-export const SVGContainer = styled(GatsbyImage)`
-  width: 42%;
-  display: flex;
-  justify-content: center;
-  z-index: -2;
-  @media (hover: none) {
-    width: 14%;
-    position: absolute;
-    z-index: 9;
-    top: 3px;
-    left: 12px;
-    padding-top: 6%;
-    padding-bottom: 8%;
-    padding-right: 3%;
-    border-top-left-radius: 10px;
-    filter: drop-shadow(2px 2px 4px rgba(var(--colorDarkBlue), .7));
-  }
-`
