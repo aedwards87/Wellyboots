@@ -4,14 +4,13 @@ export const framerMotionAPI = {
   exit: "exit"
 }
 
+// Note: When the X value was at 1000 : -1000, it made the screen jump up the page and 
+// the navigation would disappear briefly. Keeping the value lower seems to have fixed it.
 export const variants = {
   initial: (direction) => {
     return {
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 500 : -500,
       opacity: 0,
-      transition: {
-        staggerChildren: 0.5
-      }
     };
   },
   animate: {
@@ -21,21 +20,19 @@ export const variants = {
   },
   exit: (direction) => {
     return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
+      zIndex: 1,
+      x: direction < 0 ? 500 : -500,
       opacity: 0
     };
-  }
+  },
 };
 
-export const animateAPI = {
+export const carouselVariants = {
   variants: variants,
-  initial: "initial",
-  animate: "animate",
-  exit: "exit",
   transition: {
     x: {
-      type: "spring", stiffness: 700,
+      type: "spring", 
+      stiffness: 700,
       damping: 200,
     },
     opacity: { duration: 0.2 }

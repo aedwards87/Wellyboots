@@ -25,6 +25,7 @@ import {
 // Styles
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
+  z-index: 0;
 `
 export const Frame = styled(FrameOrigin)`
   position: relative;

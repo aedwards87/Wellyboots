@@ -27,8 +27,9 @@ import {
 // Imported helpers
 import { capitilise } from '../../../../utils/helpers'
 // Imported animations
-import { animateAPI, columnVariants, rowVariants } from './ReviewsPreviewAnimations'
+import { carouselVariants, columnVariants, rowVariants, framerMotionAPI } from './ReviewsPreviewAnimations'
 import { buttonContainerVariants } from './ReviewsPreviewAnimations'
+import { useInViewAnimation } from '../../../../hooks/useInViewAnimation'
 
 
 export default function ReviewsPreview({ children, className, innerRef, bgColor, ...props }) {
@@ -51,41 +52,23 @@ ReviewsPreview.Frame = function ReviewsPreviewFrame({ children, className, ...pr
 }
 
 ReviewsPreview.Row = function ReviewsPreviewRow({ children, className, ...props }) {
+  const { ref, inView } = useInViewAnimation({ threshold: 0.05 })
   return (
-    <InView threshold="0.05">
-      {({ inView, ref }) =>
-        <Row
-          innerRef={ref}
-          className={className}
-          initial="initial"
-          animate={inView && "animate"}
-          variants={rowVariants}
-          {...props}
-        >
-          {children}
-        </Row>
-      }
-    </InView>
+    <Row
+      innerRef={ref}
+      className={className}
+      initial="initial"
+      animate={inView && "animate"}
+      variants={rowVariants}
+      {...props}
+    >
+      {children}
+    </Row>
   )
 }
 
 ReviewsPreview.Column = function ReviewsPreviewColumn({ children, className, ...props }) {
-  return (
-    <InView threshold=".3">
-      {({ inView, ref }) =>
-        <Column
-          innerRef={ref}
-          className={className}
-          initial="initial"
-          animate={inView && "animate"}
-          variants={columnVariants}
-          {...props}
-        >
-          {children}
-        </Column>
-      }
-    </InView>
-  )
+  return (<Column className={className} {...props}>{children}</Column>)
 }
 
 ReviewsPreview.Title = function ReviewsPreviewTitle({ children, className, ...props }) {
@@ -120,21 +103,18 @@ ReviewsPreview.Line = function ReviewsPreviewLine({ children, className, ...prop
 }
 
 ReviewsPreview.ButtonContainer = function ReviewsPreviewButtonContainer({ children, className, ...props }) {
+  const { ref, inView } = useInViewAnimation({ threshold: 0.3 })
   return (
-    <InView threshold=".3">
-      {({ inView, ref }) =>
-        <ButtonContainer
-          ref={ref}
-          className={className}
-          initial="initial"
-          animate={inView && "animate"}
-          variants={buttonContainerVariants}
-          {...props}
-        >
-          {children}
-        </ButtonContainer>
-      }
-    </InView>
+    <ButtonContainer
+      ref={ref}
+      className={className}
+      initial="initial"
+      animate={inView && "animate"}
+      variants={buttonContainerVariants}
+      {...props}
+    >
+      {children}
+    </ButtonContainer>
   )
 }
 
@@ -179,26 +159,27 @@ ReviewsPreview.SliderAnimation = function ReviewsPreviewSliderAnimation({
   paginate,
   ...props
 }) {
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset, velocity) => {
-    return Math.abs(offset) * velocity;
-  };
+  const swipeConfidenceThreshold = 10000
+  const swipePower = (offset, velocity) =>  Math.abs(offset) * velocity
+  const onDragEnd = (e, { offset, velocity }) => {
+    const swipe = swipePower(offset.x, velocity.x);
+    if (swipe < -swipeConfidenceThreshold) { paginate(1); } 
+    else if (swipe > swipeConfidenceThreshold) { paginate(-1); }
+  }
   return (
-    <AnimatePresence initial={false} custom={direction}>
+    <AnimatePresence 
+      initial={false}
+      custom={direction}
+    >
       <SliderAnimation
         key={page}
         className={className}
         custom={direction}
-        className='grabbing'
-        onDragEnd={(e, { offset, velocity }) => {
-          const swipe = swipePower(offset.x, velocity.x);
-          if (swipe < -swipeConfidenceThreshold) {
-            paginate(1);
-          } else if (swipe > swipeConfidenceThreshold) {
-            paginate(-1);
-          }
-        }}
-        {...animateAPI}
+        className="grabbing"
+        draggable={true}
+        onDragEnd={onDragEnd}
+        {...framerMotionAPI}
+        {...carouselVariants}
         {...props}
       >
         {children}
