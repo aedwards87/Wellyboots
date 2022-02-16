@@ -40,12 +40,9 @@ export const ListContainer = styled(motion.div)`
       background: rgba(255,255,255,.85);
       backdrop-filter: blur(10px);
     }
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    right: 0;
     width: 100%;
-    height: 100vh;
+    inset: 0;
+    overflow: hidden; /* A precaution to ensure nothing moves the layout */
   }
 `
 
@@ -57,10 +54,11 @@ export const List = styled(motion.ul)`
   flex-direction: column;
   top: 0;
   left: 0;
+  inset: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   min-height: 568px;
-  padding-top: 2.2em;
+  padding-top: 4em;
   gap: 2em;
   z-index: 1;
   @media (min-width: 980px) {
@@ -221,7 +219,7 @@ export const ListItem = styled(motion.li)`
   ${Link}:focus {
     span::before {
       background: rgba(var(--lineColor), .8);
-      transform: translateY(0);
+      transform: translateY(-1.6px);
     }
   }
   @media (max-width: 979px) {

@@ -1,6 +1,7 @@
 // Hooks
 export * from './useStore';
 export * from './useClickOutside';
+export * from './useOnClickOutside';
 export * from './useHoverToggle';
 export * from './useToggle';
 export * from './useMediaQuery';
@@ -25,3 +26,4 @@ export * from './Queries/useAboutUsQuery';
 export * from './Queries/useReviewsQuery';
 export * from './Queries/useHeroQuery';
 export * from './Queries/useProspectusQuery';
+export * from './Queries/usePoliciesAndProceduresQuery';

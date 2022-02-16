@@ -15,14 +15,14 @@ export const ListVariants = {
   },
   open: {
     opacity: 1,
-    height: '100vh',
+    height: '100%',
     transition: {
       type: 'spring',
       stiffness: 700,
-      damping: 200,
+      damping: 150,
       duration: .3,
       staggerChildren: .2,
-      delayChildren: .3
+      delayChildren: .5
     }
   },
 }
@@ -42,7 +42,7 @@ export const ListItemVariants = {
     y: 0,
     transition: {
       type: 'spring',
-      stiffness: 700,
+      stiffness: 1500,
       damping: 200,
     }
   },

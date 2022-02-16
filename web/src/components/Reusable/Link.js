@@ -3,7 +3,7 @@ import React, { useEffect, useCallback } from 'react'
 import styled, { css } from "styled-components/macro";
 import { Link as GatsbyLink } from "gatsby";
 // Imported helpers
-import { camalise, capitilise } from '../../utils/helpers'
+import { camalise, capitilise, toLowerCaseAndHypen } from '../../utils/helpers'
 import { motion } from 'framer-motion';
 
 // Component
@@ -74,10 +74,10 @@ const Link = ({
       color={capitilise(color)}
       to={home ? "/"
         : to ?
-          hasHash ? `#${camalise(to)}`
+          hasHash ? toLowerCaseAndHypen(to)
             : isString ? to
               : hasSlug ? to.current
-                : hasDropdown ? `/#${camalise(to.title)}` : `/${camalise(to.title)}`
+                : hasDropdown ? `/#${toLowerCaseAndHypen(to.title)}` : `/${toLowerCaseAndHypen(to.title)}`
           : null
       }
       onMouseDown={() => smoothScroll()}

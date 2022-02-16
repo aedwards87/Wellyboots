@@ -6,30 +6,44 @@ import Footer from './Footer'
 import { useLocationsQuery, useSiteDetailsQuery } from '../../hooks'
 // Temp data
 import footerLinks from '../../data/footerLinks'
-import { addSpaceToString, camalise, replaceAmpersand } from '../../utils/helpers'
+import { addSpaceToString, replaceAmpersand, toLowerCaseAndHypen } from '../../utils/helpers'
 
 
 const FooterIndex = () => {
+  const googleMapURL = "https://www.google.com/maps/place/51%C2%B012'51.0%22N+0%C2%B006'51.1%22E/@51.2141732,0.1119981,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d51.2141732!4d0.1141868"
   const { locations: { nodes: locations } } = useLocationsQuery()
   const { siteDetails: { nodes } } = useSiteDetailsQuery()
-  const siteDetails = nodes[0]
-  const conactDetails = siteDetails.contactDetails.location.contactDetails
-  const address = siteDetails.contactDetails.location.address
+  const { location } = nodes[0].contactDetails
+  const conactDetails = location.contactDetails
+  const address = location.address
+  const hasDropdownOrIsReviews = (link) => {
+    const title = toLowerCaseAndHypen(replaceAmpersand(link.title))
+    if (link.hasDropdown) {
+      return `/#${title}`
+    } else if (title === 'reviews') {
+      return `#${title}`
+    } else if (title.includes('policies')) {
+      return `/${replaceAmpersand(title)}/website-policy`
+    } else {
+      return `/${replaceAmpersand(title)}`
+    }
+  }
   return (
-    <Footer id="CompanyDetails">
+    <Footer id="company-details">
       <Footer.Frame tPad={12} bPad={25}>
         <Footer.Row columns={1}>
           <Footer.Column columns={2}>
             <Footer.Title heading="h2" lineColor="blue">
               Company details
             </Footer.Title>
-            <Footer.Button 
+            <Footer.Button
               model={1} 
               color="light" 
               yPad={3} 
               xPad={3} 
               scrollTop
               ariaLabel="Scroll to top"
+              title="Scroll to top"
             >
               <Footer.ArrowSVG color="dark green" />
             </Footer.Button>
@@ -61,7 +75,7 @@ const FooterIndex = () => {
               <Footer.HomeSVG />
               <Footer.Group>
                 <Footer.ExternalLink
-                  href="https://www.google.com/maps/place/51%C2%B012'51.0%22N+0%C2%B006'51.1%22E/@51.2141732,0.1119981,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d51.2141732!4d0.1141868"
+                  href={googleMapURL}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -82,7 +96,11 @@ const FooterIndex = () => {
                 <Footer.LocationsSVG />
                 <Footer.Group>
                   {locations.map(({ name, title, slug, subBrandColors }) =>
-                    <Footer.Link key={name} to={`/locations/${slug.current}`} lineColor={subBrandColors}>
+                    <Footer.Link 
+                      key={name} 
+                      to={`/locations/${slug.current}`} 
+                      lineColor={subBrandColors}
+                    >
                       {name || title}
                     </Footer.Link>
                   )}
@@ -97,9 +115,7 @@ const FooterIndex = () => {
                   {footerLinks.map(link =>
                     <Footer.Link
                       key={link.title}
-                      to={link.hasDropdown
-                        ? `/#${camalise(link.title)}`
-                        : `/${camalise(replaceAmpersand(link.title))}`}
+                      to={hasDropdownOrIsReviews(link)}
                       lineColor={[link]}
                     >
                       {link.title}

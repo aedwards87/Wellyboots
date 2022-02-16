@@ -12,7 +12,15 @@ export const MastermindIndex = ({ mastermind }) => {
 
         <Mastermind.Row>
           <Mastermind.Column xAlign="center">
-            <Mastermind.Title heading="h2" lineColor="blue" zIndex="1" color="light" textAlign="center">Who’s the mastermind behind Wellyboots</Mastermind.Title>
+            <Mastermind.Title 
+              heading="h2" 
+              lineColor="blue" 
+              color="light" 
+              textAlign="center"
+              zIndex="1" 
+            >
+              Who’s the mastermind behind Wellyboots
+            </Mastermind.Title>
           </Mastermind.Column>
         </Mastermind.Row>
 

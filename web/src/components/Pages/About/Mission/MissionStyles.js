@@ -22,8 +22,8 @@ export const Container = styled.section`
 `
 export const Frame = styled(FrameOrigin)`
   @media (min-width: 980px) {
-    padding-top: var(--s17);
-    padding-bottom: var(--s17);
+    padding-top: var(--s15);
+    padding-bottom: var(--s15);
   }
 `
 export const Row = styled(RowOrigin)`

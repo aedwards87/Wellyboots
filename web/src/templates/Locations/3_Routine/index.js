@@ -13,7 +13,7 @@ const RoutineIndex = ({ data: { location: {
   const conditionDaily = dailyRoutine?.length > 0
   const conditionAfternoon = lateAfternoonRoutine?.length > 0
   return (
-    <Routine id="DailyRoutine">
+    <Routine id="daily-routine">
       <Routine.Frame tPad={9}>
 
         <Routine.Row columns={2} xGap="94px" yGap={11}>

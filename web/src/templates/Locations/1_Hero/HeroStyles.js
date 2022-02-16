@@ -25,7 +25,9 @@ export const Frame = styled(FrameOrigin)`
 `
 export const Row = styled(RowOrigin)`
   grid-template-rows: auto 1fr;
-  grid-column-gap: min(max(var(--s4), 9vw), var(--s8));
+  /* grid-column-gap: min(max(var(--s4), 9vw), var(--s8)); */
+  /* grid-column-gap: min(max(var(--s4),5vw),var(--s10)); */
+  grid-column-gap: min(max(var(--s3),4vw),var(--s10));
   @media (max-width: 768px) {
     grid-template-columns: auto 1fr;
   }
@@ -34,7 +36,8 @@ export const Column = styled(ColumnOrigin)`
   ${({ column }) =>
     column === 1 ? css`
         grid-column: 1;
-        width: 21.8vw;
+        /* width: 21.8vw; */
+        width: 18vw;
         svg {
           width: 100%;
           height: 100%;
@@ -46,7 +49,7 @@ export const Column = styled(ColumnOrigin)`
           }
         }
         @media (min-width: 980px) {
-          width: 100%;
+          width: var(--s21);
           grid-row: 1;
         }
     ` : column === 2 ? css`
@@ -56,7 +59,8 @@ export const Column = styled(ColumnOrigin)`
 
         }
         @media (min-width: 980px) {
-          grid-column: 2 / span 2;
+          /* grid-column: 2 / span 2; */
+          grid-column: 2 / span 3;
         }
     ` : column === 3 ? css`
         grid-column: span 2;
@@ -66,8 +70,9 @@ export const Column = styled(ColumnOrigin)`
         }
         @media (min-width: 980px) {
           grid-row: 2;
-          grid-column: 2 / span 2;
-          padding-bottom: var(--s6);
+          /* grid-column: 2 / span 2; */
+          grid-column: 2 / span 3;
+          padding-bottom: var(--s9);
         }
     ` : column === 4 ? css`
         grid-column: span 2;
@@ -83,7 +88,8 @@ export const Column = styled(ColumnOrigin)`
           margin-top: 0;
           grid-template-columns: 1fr;
           grid-row: 1 / span 2;
-          grid-column: 4 / span 2;
+          /* grid-column: 4 / span 2; */
+          grid-column: 5 / span 2;
           justify-content: start;
         }
     ` : column === 5 ? css`
@@ -133,7 +139,7 @@ export const ImageContainer = styled.div`
   }
   @media (min-width: 980px) {
     top: 0;
-    left: 45px;
+    left: 35px;
     transform: rotate(5deg);
   }
 `
@@ -167,14 +173,14 @@ export const Image = styled(GatsbyImage)`
             transform: rotate(10deg);
           }
           @media (min-width: 980px) {
-            left: 60px;
+            left: 50px;
             transform: rotate(-4deg);
           }
         ` :
           $carouselImage === 2 ? css`
             top: 0;
             transform: rotate(4deg);
-            left: 40px;
+            left: 30px;
             display: none;
             @media (min-width: 980px) {
               display: block;

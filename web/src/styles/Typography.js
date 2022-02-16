@@ -32,7 +32,7 @@ const Typography = createGlobalStyle`
 
     /* Line height */
     --headingLineHeight: 1.3;
-    --textLineHeight: 1.4;
+    --textLineHeight: 1.5;
     
     /* Coupled font styles min(max(38px, 12vw), 80px)*/
     --heroFont:  min(max(35px, 9vw), var(--fontSizeHero)) var(--fontSecondaryFamily);

@@ -130,6 +130,8 @@ const GlobalStyles = createGlobalStyle`
   button {
     background: transparent;
     border-radius: 5px;
+    padding: 0;
+    margin: 0;
     border: 2px solid var(--colorDark);
     transition: all .3s ease;
     :hover {
@@ -150,6 +152,10 @@ const GlobalStyles = createGlobalStyle`
     margin-top: 2rem;
   }
 
+  .scrollBarMargin {
+    margin-right: 15px;
+  }
+  
 `
 
 

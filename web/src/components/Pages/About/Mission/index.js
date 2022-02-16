@@ -13,8 +13,10 @@ export const MissionIndex = ({ mission }) => {
           <Mission.Column columnOrder={2} xAlign="center" yAlign="center">
             <Mission.Row>
               <Mission.Column>
-                <Mission.Row yGap={8}>
-                  <Mission.Title heading="h2" lineColor="orange">Our mission</Mission.Title>
+                <Mission.Row yGap={7}>
+                  <Mission.Title heading="h2" lineColor="orange">
+                    Our mission
+                  </Mission.Title>
                   <Mission.PortableText content={mission} />
                 </Mission.Row>
               </Mission.Column>

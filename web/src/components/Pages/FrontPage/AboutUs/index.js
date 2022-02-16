@@ -13,26 +13,47 @@ const AboutUsIndex = () => {
   return (
     <AboutUs>
       <AboutUs.Frame yPad={6} bPad={9}>
-        <AboutUs.Row columns={2} xGap='94px' yGap={9} rowOrder={1}>
+        <AboutUs.Row 
+          columns={2} 
+          xGap='94px' 
+          yGap={9} 
+          rowOrder={1}
+        >
           <AboutUs.Column columnOrder={2} custom>
             <AboutUs.Title heading="h2" lineColor="blue">
               A little about us
             </AboutUs.Title>
           </AboutUs.Column>
           <AboutUs.Column columnOrder={2}>
-            <AboutUs.PortableText blocks={aLittleAboutUs.frontPageDescription[0]} />
+            <AboutUs.PortableText 
+              blocks={aLittleAboutUs.frontPageDescription[0]} 
+            />
             <AboutUs.LinkContainer>
-              <AboutUs.Link to="aboutUs" model={1} color="dark pink">
+              <AboutUs.Link to="about-us" model={1} color="dark pink">
                 Read more
               </AboutUs.Link>
             </AboutUs.LinkContainer>
           </AboutUs.Column>
-          <AboutUs.Column rowOrder={1} xAlign="center" yItemsAlign="end">
-            <AboutUs.Title heading="h3" weight="medium" color="gray" small>
+          <AboutUs.Column 
+            rowOrder={1} 
+            xAlign="center" 
+            yItemsAlign="end"
+          >
+            <AboutUs.Title 
+              heading="h3" 
+              weight="medium" 
+              color="gray" 
+              small
+            >
               Our accreditations
             </AboutUs.Title>
           </AboutUs.Column>
-          <AboutUs.Column rowOrder={2} xAlign="center" xItemsAlign="center" yAlign="start">
+          <AboutUs.Column 
+            rowOrder={2} 
+            xAlign="center" 
+            xItemsAlign="center" 
+            yAlign="start"
+          >
             <AboutUs.ImageContainer>
               {aLittleAboutUs.accreditations.map(image =>
                 <AboutUs.Image

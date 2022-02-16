@@ -11,7 +11,7 @@ import {
 } from './HeroAnimations'
 // Imported hooks
 import { useHeroQuery } from '../../../../hooks'
-import { camalise } from '../../../../utils/helpers'
+import { toLowerCaseAndHypen } from '../../../../utils/helpers'
 
 // The component
 export const HeroIndex = () => {
@@ -30,14 +30,14 @@ export const HeroIndex = () => {
             <Hero.LinkContainer {...buttonVariants}>
               <Hero.Link
                 model={1}
-                to={camalise(hero.primaryCTA)}
+                to={toLowerCaseAndHypen(hero.primaryCTA)}
                 color="dark green"
               >
                 {hero.primaryCTA}
               </Hero.Link>
               <Hero.Link
                 model={2}
-                to={camalise(hero.secondaryCTA)}
+                to={toLowerCaseAndHypen(hero.secondaryCTA)}
                 color="dark blue"
               >
                 {hero.secondaryCTA}

@@ -10,7 +10,7 @@ const StaffIndex = ({ data: { location: {
 } } }) => {
   const dark = subBrandColors[1].title.includes("Dark")
   return (
-    <Staff id="Staff" bgColor={subBrandColors[1].title}>
+    <Staff id="staff" bgColor={subBrandColors[1].title}>
       <Staff.DividerTopSVG bgColor={subBrandColors[1].title} />
       <Staff.Frame bPad={4} tPad={9}>
       <Staff.GirlSVG />
@@ -20,7 +20,7 @@ const StaffIndex = ({ data: { location: {
               heading='h2'
               lineColor="light"
               zIndex="1"
-              color={dark ? "light" : ""}
+              // color={dark ? "light" : ""}
             >
               Meet our staff
             </Staff.Title>
@@ -30,18 +30,24 @@ const StaffIndex = ({ data: { location: {
         <Staff.Row>
           <Staff.Columns>
             <Staff.Group>
-              <Staff.Text color={dark ? "light" : ""}>
+              <Staff.Text 
+                // color={dark ? "light" : ""}
+              >
                 All our staff have significant experience and hold
                 relevant qualifications required for working with
                 children and young people, and comply with EYFS
                 requirements for registered childcare.
               </Staff.Text>
-              <Staff.Text color={dark ? "light" : ""}>
+              <Staff.Text 
+                // color={dark ? "light" : ""}
+              >
                 All the Staff are expected to undertake professional
                 development training regularly and are checked through
                 the Disclosure and barring service (D.B.S).
               </Staff.Text>
-              <Staff.Text color={dark ? "light" : ""}>
+              <Staff.Text 
+                // color={dark ? "light" : ""}
+              >
                 First aid, food hygiene and safe guarding children
                 courses are updated as required.
               </Staff.Text>

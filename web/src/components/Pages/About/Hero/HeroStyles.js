@@ -31,7 +31,7 @@ export const Row = styled(RowOrigin)`
 `
 export const Column = styled(ColumnOrigin)`
   > img {
-    margin-top: -40px;
+    /* margin-top: min(-4vw, 2rem); */
     margin-left: 20px;
     width: 110%;
     z-index: 1;
@@ -48,16 +48,12 @@ export const Image = styled(GatsbyImage)`
   width: 100%;
   height: 100%;
 `
-export const Title = styled(TextHeading)`
-  /* @media (min-width: 768px) {
-    --heroFont:  var(--fontSizeHero) var(--fontSecondaryFamily);
-  } */
-`
+export const Title = styled(TextHeading)``
 export const Text = styled(TextParagraph)``
 export const PortableText = styled(PortableTextOrigin)`
-  max-width: 550px;
+  max-width: 55ch;
   @media (min-width: 980px) {
-    min-width: 600px;
+    min-width: 65ch;
   }
 `
 export const Link = styled(LinkOrigin)``

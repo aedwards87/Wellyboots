@@ -16,8 +16,8 @@ export const BookAVisitIndex = () => {
       <BookAVisit.Frame bPad={10}>
         <BookAVisit.Row columns={2} xGap='94px' yGap={12}>
 
-          <BookAVisit.Column innerRef={ref}>
-            <BookAVisit.Row yGap={8}>
+          <BookAVisit.Column innerRef={ref} yAlign="start">
+            <BookAVisit.Row yGap={8}  >
 
               <BookAVisit.Column xAlign="stretch">
                 <BookAVisit.Title heading="hero" lineColor="Book a visit">

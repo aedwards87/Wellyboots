@@ -55,9 +55,9 @@ export const Link = styled(LinkOrigin)``
 export const DividerTopSVG = styled(WaveMastermindTop)``
 export const DividerBottomSVG = styled(WaveMastermindBottom)``
 export const PortableText = styled(PortableTextOrigin)`
-  max-width: 550px;
+  max-width: 55ch;
   color: rgb(var(--colorLight));
   @media (min-width: 980px) {
-    max-width: 650px;
+    max-width: 65ch;
   }
 `

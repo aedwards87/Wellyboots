@@ -12,7 +12,6 @@ const Column = ({ className, style, children, gap, xGap, yGap, columnOrder, xAli
       style={style, {
         '--columnXGap': regExpLetterChecker(xGap) ? [xGap] : [`var(--s${xGap})`, `var(--s${xGap + 2})`],
         '--columnYGap': regExpLetterChecker(yGap) ? [yGap] : [`var(--s${yGap})`, `var(--s${yGap + 2})`],
-        '--columnYGap': regExpLetterChecker(yGap) ? [yGap] : [`var(--s${yGap})`, `var(--s${yGap + 2})`],
         '--columnGap': regExpLetterChecker(gap) ? [gap] : [`var(--s${gap})`, `var(--s${gap + 2})`],
         '--xAlign': xAlign,
         '--xItemsAlign': xItemsAlign,

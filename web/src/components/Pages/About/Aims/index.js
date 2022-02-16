@@ -5,6 +5,7 @@ import Aims from './Aims'
 
 // The component
 export const AimsIndex = ({ aims }) => {
+  console.log({aims});
   return (
     <Aims>
       <Aims.Frame tPad={6} bPad={4}>
@@ -13,7 +14,7 @@ export const AimsIndex = ({ aims }) => {
           <Aims.Column xAlign="center" yAlign="center">
             <Aims.Row>
               <Aims.Column>
-                <Aims.Row yGap={8}>
+                <Aims.Row yGap={7}>
                   <Aims.Title heading="h2" lineColor="yellow">Our aims</Aims.Title>
                   <Aims.PortableText content={aims} />
                 </Aims.Row>

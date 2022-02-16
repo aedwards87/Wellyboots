@@ -11,7 +11,8 @@ import Prospectus from '../../components/Prospectus'
 import SEO from '../../components/seo'
 
 // Component
-const LocationsTemplateIndex = ({ data }) => {
+const LocationsTemplateIndex = ({ data, ...props }) => {
+  console.log({ props });
   return (
     <>
       <SEO title={`${data.location.shortName}`} />

@@ -13,3 +13,5 @@ export { default as TextParagraph } from './TextParagraph';
 export { default as LocationCard } from './Cards/LocationCard/index';
 export { default as ProfileCard } from './Cards/ProfileCard';
 export { default as Image } from './image';
+export { default as VisuallyHidden } from './VisuallyHidden';
+export { default as SideNav } from './SideNav';

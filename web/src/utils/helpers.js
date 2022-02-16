@@ -14,6 +14,9 @@ export const capitilise = function capitilise(str) {
   }).replace(/\s/g, "");
 }
 
+// Remove spacing and replace with a hypen and convert to lowercase
+export const toLowerCaseAndHypen = (str) => str.replace(/\s/g, '-').toLowerCase()
+
 // Using .test on regExp searches for any letter found (e.g. 'px, vw') within input, to help determine whether it's a strict value or a selection from a CSS variable value 
 export const regExpLetterChecker = (str) => /[a-zA-Z]/g.test(str)
 

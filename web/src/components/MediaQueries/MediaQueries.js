@@ -11,12 +11,12 @@ const Laptop = ({ children }) => {
 }
 
 const LargeScreen = ({ children }) => {
-  const matches = useMediaQuery({ minWidth: 769 })
+  const matches = useMediaQuery({ minWidth: 768 })
   return matches ? children : null
 }
 
 const SmallScreen = ({ children }) => {
-  const matches = useMediaQuery({ maxWidth: 768 })
+  const matches = useMediaQuery({ maxWidth: 767 })
   return matches ? children : null
 }
 

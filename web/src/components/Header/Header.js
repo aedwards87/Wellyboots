@@ -10,6 +10,8 @@ import {
 
 export default function Header({ classname, color, background, height, position, children, ...props }) {
   const scrollPos = useScroll()
+  // console.log({ scrollPos });
+  
   return (
     <Container
       classname={classname}

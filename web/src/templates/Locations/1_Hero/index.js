@@ -1,5 +1,6 @@
 // Imported packages
 import React from 'react'
+import { toLowerCaseAndHypen } from '../../../utils/helpers';
 // Imported components
 import Hero from './Hero'
 
@@ -15,28 +16,40 @@ const HeroIndex = ({ data: { location: {
   subBrandColors
 }, imageGallery
 } }) => {
-  console.log({subBrandSVG})
+  
   return (
     <Hero>
       <Hero.Frame>
-        <Hero.Row columns={5} xGap={8} yGap={8}>
+        <Hero.Row 
+          // columns={5} 
+          columns={6} 
+          xGap={8} 
+          yGap={8}
+        >
 
           <Hero.Column column={1}>
             <Hero.WellybootSVG 
               alt={subBrandSVG.alt} 
               image={subBrandSVG.asset.gatsbyImageData} 
               objectFit="contain"
-              />
+            />
           </Hero.Column>
 
           <Hero.Column column={2}>
-            <Hero.Title heading='h2' heading="hero" lineColor={subBrandColors[0].title} >
+            <Hero.Title 
+              heading='h2' 
+              heading="hero" 
+              lineColor={subBrandColors[0].title} 
+            >
               {shortName || name}
             </Hero.Title>
           </Hero.Column>
 
           <Hero.Column column={3}>
-            <Hero.PortableText content={_rawIntroduction} lineColor={subBrandColors[1].title} />
+            <Hero.PortableText 
+              content={_rawIntroduction} 
+              lineColor={subBrandColors[1].title}
+            />
           </Hero.Column>
 
           <Hero.Column column={4} yAlign="start">
@@ -49,7 +62,11 @@ const HeroIndex = ({ data: { location: {
             <Hero.ImageCarousel images={imageGallery} />
           </Hero.Column>
 
-          <Hero.Column column={5} yAlign="start" gap={3}>
+          <Hero.Column 
+            column={5} 
+            yAlign="start" 
+            gap={3}
+          >
             <Hero.Title 
               heading="h2" 
               color="gray" 
@@ -59,21 +76,21 @@ const HeroIndex = ({ data: { location: {
             </Hero.Title>
             <Hero.Nav aria-label="Secondary navigation - Jump to a section on the page">
               <Hero.Link 
-                to="#Staff" 
+                to={`/locations/${toLowerCaseAndHypen(name)}#staff`}
                 lineColor={subBrandColors[1].title}
                 $custom
               >
                 Staff
               </Hero.Link>
               <Hero.Link 
-                to="#Daily Routine" 
+                to={`/locations/${toLowerCaseAndHypen(name)}#daily-routine`}
                 lineColor={subBrandColors[0].title} 
                 $custom
               >
                 Daily Routine
               </Hero.Link>
               <Hero.Link 
-                to={`#${shortName || name} details`} 
+                to={`/locations/${toLowerCaseAndHypen(name)}#${shortName || name} details`} 
                 lineColor={subBrandColors[1].title} 
                 $custom
               >

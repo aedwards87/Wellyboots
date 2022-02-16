@@ -21,7 +21,7 @@ const ReviewsPreviewIndex = () => {
   // console.log({ inViewport });
 
   return (
-    <ReviewsPreview bgColor="dark purple" /*innerRef={ref}*/>
+    <ReviewsPreview id="reviews" bgColor="dark purple" /*innerRef={ref}*/>
       <ReviewsPreview.SVGDividerTop />
       <ReviewsPreview.Frame yPad={8} yGap={6}>
         <ReviewsPreview.CrownSVG />

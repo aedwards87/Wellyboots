@@ -1,6 +1,8 @@
 import { useAnimation } from "framer-motion";
 import { useLayoutEffect } from "react";
 import { useInView } from "react-intersection-observer";
+
+
 export const useInViewAnimation = ({ threshold = 0 }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({

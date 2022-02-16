@@ -19,8 +19,17 @@ const footerLinks = [
     title: 'Contact us',
   },
   {
+    title: 'Book a visit'
+  },
+  {
     title: 'Policies & Procedures',
   },
+  // {
+  //   title: 'Disclaimer',
+  // },
+  // {
+  //   title: 'Terms & Conditions',
+  // },
 ]
 
 export default footerLinks

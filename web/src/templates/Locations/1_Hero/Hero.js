@@ -22,7 +22,7 @@ import {
 } from './HeroStyles'
 // Imported hooks
 import { usePaginate } from '../../../hooks'
-import { camalise } from '../../../utils/helpers'
+import { toLowerCaseAndHypen } from '../../../utils/helpers'
 import serializers from '../../../components/Reusable/PortableText/Serializers'
 
 
@@ -76,7 +76,7 @@ Hero.PortableText = function HeroPortableText({ children, className, lineColor, 
       className={className}
       serializers={{
         internalLink: ({ children, reference }) => 
-          <Link to={`/${camalise(reference)}`} lineColor={lineColor} fixed>{children}</Link>
+          <Link to={`/${toLowerCaseAndHypen(reference)}`} lineColor={lineColor} fixed>{children}</Link>
       }}
       {...props}
     >

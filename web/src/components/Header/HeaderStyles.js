@@ -12,14 +12,22 @@ export const Container = styled.header`
   top: 0;
   left: 0;
   color: var(--color, var(--textColor));
-  background: transparent;
-  ${({ scrollPos }) => scrollPos >= 40 &&
-    css`
-      background: rgb(var(--colorLight));
-    `
-  }
+  background: rgb(var(--colorLight));
   z-index: 11;
-  transition: margin .5s ease, background 1s ease;
+  transition: margin .3s ease, background 1s ease, box-shadow .3s ease;
+  /* ${({ scrollPos }) => scrollPos >= 40 &&
+    css`
+      box-shadow: 0 5px 10px rgba(var(--colorBlue), .2);
+    `
+  } */
+  @media (min-width: 768px) {
+    background: transparent;
+    ${({ scrollPos }) => scrollPos >= 40 &&
+      css`
+        background: rgb(var(--colorLight));
+      `
+    }
+  }
   @media (min-width: 980px) {
     margin-top: 20px;
   }

@@ -3,9 +3,7 @@ import React from 'react'
 // Imported components
 import Details from './Details'
 // Imported helpers
-import { addSpaceToString, capitilise, changeTimeFormat } from '../../../utils/helpers'
-import { Sun } from '../../../assets/svg'
-
+import { addSpaceToString, changeTimeFormat, toLowerCaseAndHypen } from '../../../utils/helpers'
 
 const DetailsIndex = ({ data: { location: {
   shortName,
@@ -18,7 +16,7 @@ const DetailsIndex = ({ data: { location: {
 } } }) => {
   return (
     <Details
-      id={`${capitilise(shortName || name)}Details`}
+      id={toLowerCaseAndHypen(`${shortName || name} details`)}
       bgColor={subBrandColors[0].title}
     >
       <Details.DividerTopSVG bgColor={subBrandColors[0].title} />
@@ -26,7 +24,13 @@ const DetailsIndex = ({ data: { location: {
 
         <Details.Row>
           <Details.Column>
-            <Details.Title heading='h2' lineColor="light" zIndex="1">{shortName || name} details</Details.Title>
+            <Details.Title 
+              heading='h2' 
+              lineColor="light" 
+              zIndex="1"
+            >
+              {shortName || name} details
+            </Details.Title>
           </Details.Column>
         </Details.Row>
 
