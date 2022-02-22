@@ -4,10 +4,11 @@ import { useToggle, useOnClickOutside } from '../../../hooks';
 import { SmallScreen, LargeScreen } from '../../MediaQueries/MediaQueries';
 import SideNav from './SideNav'
 
-const SideNavIndex = ({ name, data, fullscreen }) => {
+const SideNavIndex = ({ name, page, data, lineColor, fullscreen }) => {
   const [isOpen, toggle] = useToggle(false, fullscreen)
   const ref = useOnClickOutside(isOpen && toggle)
-  console.log({fullscreen});
+
+  console.log({data});
 
   return (
     <SideNav 
@@ -18,7 +19,7 @@ const SideNavIndex = ({ name, data, fullscreen }) => {
       fullscreen={fullscreen}
       className="sidenav"
     >
-      <SideNav.InnerContainer>
+      <SideNav.InnerContainer isOpen={isOpen}>
 
         <SmallScreen>
           <SideNav.Frame isOpen={isOpen}>
@@ -33,13 +34,14 @@ const SideNavIndex = ({ name, data, fullscreen }) => {
             </SideNav.Button>
             {isOpen && 
               <SideNav.List>
-                {data.map(({ title, slug }) => 
-                  <SideNav.ListItem key={title}>
+                {data.map(d => 
+                  <SideNav.ListItem key={d.title}>
                     <SideNav.Link 
-                      to={`/policies-and-procedures/${slug.current}`} 
-                      lineColor="purple"
+                      to={`/${page}/${d.slug.current}`} 
+                      lineColor={d.lineColor || lineColor}
+                      onClick={toggle}
                     >
-                      {title}
+                      {d.title} {console.log(d.lineColor, lineColor)}
                     </SideNav.Link>
                   </SideNav.ListItem>
                 )}
@@ -49,25 +51,25 @@ const SideNavIndex = ({ name, data, fullscreen }) => {
         </SmallScreen>
 
         <LargeScreen>
-            <SideNav.Title 
-              heading="h3" 
-              color="grey" 
-              small
-            >
-              {name}
-            </SideNav.Title>
-            <SideNav.List>
-              {data.map(({ title, slug }) => 
-                <SideNav.ListItem key={title}>
-                  <SideNav.Link 
-                    to={`/policies-and-procedures/${slug.current}`} 
-                    lineColor="purple"
-                  >
-                    {title}
-                  </SideNav.Link>
-                </SideNav.ListItem>
-              )}
-            </SideNav.List>
+          <SideNav.Title 
+            heading="h3" 
+            color="grey" 
+            small
+          >
+            {name}
+          </SideNav.Title>
+          <SideNav.List>
+            {data.map(d => 
+              <SideNav.ListItem key={d.title}>
+                <SideNav.Link 
+                  to={`/${page}/${d.slug.current}`} 
+                  lineColor={d.lineColor || lineColor}
+                >
+                  {d.title} {console.log(d.lineColor || lineColor)}
+                </SideNav.Link>
+              </SideNav.ListItem>
+            )}
+          </SideNav.List>
         </LargeScreen>
 
       </SideNav.InnerContainer>

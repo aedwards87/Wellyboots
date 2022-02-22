@@ -82,7 +82,7 @@ PoliciesAndProcedures.Button = function PoliciesAndProceduresButton({ children, 
 PoliciesAndProcedures.PortableText = function PoliciesAndProceduresPortableText({ children, className, ...props }) {
   return (
     <PortableText
-      serializers={{ li: ({children}) => <li>{children}</li> }}
+      serializers={{ cite: ({children}) => <cite>{children}</cite> }}
       className={className} 
       {...props}
     >

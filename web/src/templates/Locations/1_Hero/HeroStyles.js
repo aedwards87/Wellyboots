@@ -1,9 +1,8 @@
 // Imported dependencies
 import styled, { css } from 'styled-components/macro';
 import { motion } from 'framer-motion';
-// import PortableTextOrigin from "../../../components/Reusable/PortableText/PortableText"
-import PortableTextOrigin from "react-portable-text"
 import { GatsbyImage } from 'gatsby-plugin-image';
+import PortableTextOrigin from "react-portable-text"
 // Imported components
 import {
   Frame as FrameOrigin,
@@ -13,8 +12,10 @@ import {
   TextParagraph,
   Link as LinkOrigin,
   Button as ButtonOrigin,
+  SideNav as SideNavOrigin,
 } from '../../../components/Reusable';
 import { FootPrints } from '../../../assets/svg';
+
 
 // Styles
 export const Container = styled.section`
@@ -27,7 +28,7 @@ export const Row = styled(RowOrigin)`
   grid-template-rows: auto 1fr;
   /* grid-column-gap: min(max(var(--s4), 9vw), var(--s8)); */
   /* grid-column-gap: min(max(var(--s4),5vw),var(--s10)); */
-  grid-column-gap: min(max(var(--s3),4vw),var(--s10));
+  grid-column-gap: min(max(var(--s4), 5vw), var(--s10));
   @media (max-width: 768px) {
     grid-template-columns: auto 1fr;
   }
@@ -37,7 +38,7 @@ export const Column = styled(ColumnOrigin)`
     column === 1 ? css`
         grid-column: 1;
         /* width: 21.8vw; */
-        width: 18vw;
+        width: clamp(60px, 18vw, 130px);
         svg {
           width: 100%;
           height: 100%;
@@ -93,13 +94,8 @@ export const Column = styled(ColumnOrigin)`
           justify-content: start;
         }
     ` : column === 5 ? css`
-        grid-row: 2;
-        grid-column: 1;
-        display: none;
         @media (min-width: 768px) {
           display: grid;
-        }
-        @media (min-width: 980px) {
           grid-row: 2;
           grid-column: 1;
         }
@@ -147,13 +143,14 @@ export const ImageCarousel = styled(motion.div)`
   position: relative;
 `
 export const Image = styled(GatsbyImage)`
+  --colorShadow: var(--colorDarkBlue);
   width: 80vw;
   height: 50vw;
   min-width: 275px;
   min-height: 180px;
   border: min(max(8px,2vw),10px) solid rgb(var(--colorLight));
   background: rgb(var(--colorLight));
-  box-shadow: var(--level6);
+  box-shadow: var(--level7);
   z-index: 2;
   position: relative;  
   @media (min-width: 700px) {
@@ -191,18 +188,21 @@ export const Image = styled(GatsbyImage)`
   }
 
 `
-export const ButtonContainer = styled(motion.div)`
-`
+export const ButtonContainer = styled(motion.div)``
 export const Button = styled(ButtonOrigin)``
 export const FootPrintsSVG = styled(FootPrints)`
-  position: relative;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  bottom: -20%;
+  display: none;
+  @media (min-width: 768px) {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    bottom: -20%;
+  }
 `
 export const WellybootSVG = styled(GatsbyImage)`
   img {
     object-fit: contain;
   }
 `
+export const SideNav = styled(SideNavOrigin)``

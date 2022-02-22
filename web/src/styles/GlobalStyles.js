@@ -40,6 +40,10 @@ const GlobalStyles = createGlobalStyle`
       )
     )
   }}
+
+  --colorDarkBlue: 68, 119, 186;
+  --colorDarkPurple: 132, 106, 174;
+  /* --colorDarkPink: 205, 72, 85; */
   
     /* Space */
     --s0: ${space[0]}px;
@@ -76,13 +80,14 @@ const GlobalStyles = createGlobalStyle`
     --colorError: 255, 71, 71;
     --colorSuccess: rgb(--colorGreen);
     --colorHighlight: var(--colorYellow);
+    --colorShadow: 12, 43, 84;
 
     /* Measurements */
     --viewportWidthLarge: 800px;
     --desktopMaxWidth: 1200px;
     --navHeight: var(--s10);
     --dropdownMenuSpacing: var(--s6);
-    --navSpacing: min(max(var(--s3),1.85vw), 27px);
+    --navSpacing: clamp(var(--s2), 1vw, var(--s4));
 
     /* Static Page Themes */
     --colorPlayTheory: var(--colorOrange);
@@ -101,7 +106,19 @@ const GlobalStyles = createGlobalStyle`
     --level4: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --level5: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --level6: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-
+    --level7: 
+      0.3px 0.5px 0.7px rgba(var(--colorDarkBlue) , 0.14),
+      1.5px 2.9px 3.7px -0.4px rgba(var(--colorDarkBlue) , 0.14),
+      2.7px 5.4px 6.8px -0.7px rgba(var(--colorDarkBlue) , 0.14),
+      4.5px 8.9px 11.2px -1.1px rgba(var(--colorDarkBlue) , 0.14),
+      7.1px 14.3px 18px -1.4px rgba(var(--colorDarkBlue) , 0.14),
+      11.2px 22.3px 28.1px -1.8px rgba(var(--colorDarkBlue) , 0.14),
+      0 25px 60px -12px rgba(var(--colorDarkBlue), 0.25);
+    --level8: 
+      0px 4px 4.3px -4.5px rgba(var(--colorDarkBlue), 0.15),
+      0px 6px 6.3px -6.5px rgba(var(--colorDarkBlue), 0.15),
+      0px 8px 8.3px -8px rgba(var(--colorDarkBlue), 0.15),
+      0px 10px 10.3px -10px rgba(var(--colorDarkBlue), 0.15)
   }
 
   html {

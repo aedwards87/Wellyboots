@@ -14,12 +14,18 @@ export const Container = styled.header`
   color: var(--color, var(--textColor));
   background: rgb(var(--colorLight));
   z-index: 11;
-  transition: margin .3s ease, background 1s ease, box-shadow .3s ease;
-  /* ${({ scrollPos }) => scrollPos >= 40 &&
+  transition: margin .3s ease, background 1s ease, box-shadow .3s ease, z-index .5s ease;
+  ${({ scrollPos }) => scrollPos >= 40 &&
     css`
-      box-shadow: 0 5px 10px rgba(var(--colorBlue), .2);
+      box-shadow: var(--level8);
     `
-  } */
+  }
+  ${({ isOpen }) => isOpen &&
+    css`
+      z-index: 12;
+      box-shadow: none;
+    `
+  }
   @media (min-width: 768px) {
     background: transparent;
     ${({ scrollPos }) => scrollPos >= 40 &&

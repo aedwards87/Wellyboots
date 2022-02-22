@@ -19,6 +19,7 @@ import {
   Button,
   Link,
   Nav,
+  SideNav,
 } from './HeroStyles'
 // Imported hooks
 import { usePaginate } from '../../../hooks'
@@ -146,4 +147,8 @@ Hero.Button = function HeroButton({ children, className, ...props }) {
 
 Hero.Link = function HeroLink({ children, className, ...props }) {
   return (<Link className={className} {...props}> {children} </Link>)
+}
+
+Hero.SideNav = function HeroSideNav({ children, className, ...props }) {
+  return (<SideNav className={className} {...props}> {children} </SideNav>)
 }

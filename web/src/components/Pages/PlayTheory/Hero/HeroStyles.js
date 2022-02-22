@@ -39,7 +39,7 @@ export const Column = styled(ColumnOrigin)`
         margin-top: 2rem;
         grid-row: 1;
         width: 16vw;
-        display: none;
+        /* display: none; */
         @media (min-width: 768px) {
           display: grid;
         }
@@ -92,17 +92,9 @@ export const Title = styled(TextHeading)`
       background: rgb(var(--colorGreen));
     }
   }
-  ${({ small }) => small && css`
-    font-size: 1.5rem;
-    text-align: left;
-  `}
 `
 export const Text = styled(TextParagraph)``
-export const Link = styled(LinkOrigin)`
-  ${({ $custom }) => $custom && css`
-    font-size: 1.4rem;
-  `}
-`
+export const Link = styled(LinkOrigin)``
 export const FootPrintsSVG = styled(FootPrints)`
   display: none;
   @media (min-width: 768px) {

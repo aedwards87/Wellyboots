@@ -31,6 +31,7 @@ export const Column = styled(ColumnOrigin)`
 `
 export const Image = styled(ImageOrigin)``
 export const Title = styled(TextHeading)`
+  max-width: 17ch;
   ${({ small }) => small && css`
     margin-top: 1rem;
   `}
@@ -93,12 +94,24 @@ export const PortableText = styled(PortableTextOrigin)`
   li { padding-left: var(--s2); }
   li + li { padding-top: var(--s2); }
   p + * { margin-top: 2rem; }
+  h3:first-child {
+    padding-top: 0;
+  }
   h3 {
     padding-top: var(--s5);
     margin-bottom: var(--s4);
-    /* color: rgb(var(--colorGrey)); */
+    /* color: rgb(var(--colorDarkPurple)); */
+  }
+  h4 {
+    padding-top: var(--s3);
+    padding-bottom: var(--s3);
   }
   strong {
     font-weight: var(--fontWeightBold);
+  }
+  cite {
+    display: block;
+    margin-top: var(--s10);
+    font-style: normal;
   }
 `

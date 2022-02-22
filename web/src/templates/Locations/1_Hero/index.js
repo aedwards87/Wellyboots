@@ -1,8 +1,33 @@
 // Imported packages
 import React from 'react'
-import { toLowerCaseAndHypen } from '../../../utils/helpers';
 // Imported components
 import Hero from './Hero'
+// Imported utilities
+import { toLowerCaseAndHypen } from '../../../utils/helpers';
+
+
+// Data to be used and sent to the sidenav component
+const location = (name) => [
+  {
+    title: "Staff",
+    slug: {
+      current: "#staff"
+    },
+  },
+  {
+    title: "Routine",
+    slug: {
+      current: "#routine"
+    },
+  },
+  {
+    title: `${name} details`,
+    slug: {
+      current: `#${toLowerCaseAndHypen(name)}-details`
+    },
+  },
+]
+
 
 // Component
 const HeroIndex = ({ data: { location: {
@@ -19,14 +44,12 @@ const HeroIndex = ({ data: { location: {
   
   return (
     <Hero>
-      <Hero.Frame>
+      <Hero.Frame tPad={10}>
         <Hero.Row 
-          // columns={5} 
           columns={6} 
           xGap={8} 
           yGap={8}
         >
-
           <Hero.Column column={1}>
             <Hero.WellybootSVG 
               alt={subBrandSVG.alt} 
@@ -67,39 +90,14 @@ const HeroIndex = ({ data: { location: {
             yAlign="start" 
             gap={3}
           >
-            <Hero.Title 
-              heading="h2" 
-              color="gray" 
-              small
-            >
-              Jump to
-            </Hero.Title>
-            <Hero.Nav aria-label="Secondary navigation - Jump to a section on the page">
-              <Hero.Link 
-                to={`/locations/${toLowerCaseAndHypen(name)}#staff`}
-                lineColor={subBrandColors[1].title}
-                $custom
-              >
-                Staff
-              </Hero.Link>
-              <Hero.Link 
-                to={`/locations/${toLowerCaseAndHypen(name)}#daily-routine`}
-                lineColor={subBrandColors[0].title} 
-                $custom
-              >
-                Daily Routine
-              </Hero.Link>
-              <Hero.Link 
-                to={`/locations/${toLowerCaseAndHypen(name)}#${shortName || name} details`} 
-                lineColor={subBrandColors[1].title} 
-                $custom
-              >
-                {shortName || name} details
-              </Hero.Link>
-              <Hero.FootPrintsSVG />
-            </Hero.Nav>
+            <Hero.SideNav 
+              name="Jump to"
+              page={`locations/${toLowerCaseAndHypen(name)}`}
+              data={location(shortName || name)}
+              lineColor={subBrandColors[0].title}
+            />
+            <Hero.FootPrintsSVG />
           </Hero.Column>
-
         </Hero.Row>
       </Hero.Frame>
     </Hero>

@@ -5,13 +5,14 @@ import { motion } from 'framer-motion';
 // Imported helpers 
 import { capitilise } from '../../utils/helpers';
 
-const TextHeading = ({ className, children, style, heading, lineColor, weight, color, textAlign, small, zIndex, innerRef, as, font, ...props }) => {
+const TextHeading = ({ id, className, children, style, heading, lineColor, weight, color, textAlign, small, zIndex, innerRef, as, font, ...props }) => {
   const htmlElement = heading === 'Hero' || heading === 'hero' ? 'h1' : heading
   const topHeading = heading === 'Hero' || heading === 'hero' || lineColor
   const h2XL = heading === 'h2' && lineColor
   return (
     <motion.div {...props}>
       <Container
+        id={id}
         className={className}
         ref={innerRef}
         as={htmlElement || as}
@@ -48,6 +49,12 @@ const Container = styled(motion.h1)`
       display: inline-block;
     }
   `};
+  ${({ id }) => id && css`
+    scroll-margin-top: 4em;
+    @media (min-width: 980px) {
+      scroll-margin-top: 3em;
+    }
+  `}
   font-weight: var(--headingFontWeight);
   z-index: -1;
   span {
@@ -59,8 +66,8 @@ const Container = styled(motion.h1)`
     position: absolute;
     background-color: ${({ style }) =>
     (style['--lineColor'] && style['--lineColor'].includes("Light"))
-      ? css`rgba(var(--lineColor), .5);`
-      : css`rgba(var(--lineColor), .7);`
+      ? css`rgba(var(--lineColor), .4);`
+      : css`rgba(var(--lineColor), .5);`
   };
     width: 100%;
     height: .4em;
@@ -76,6 +83,7 @@ const Container = styled(motion.h1)`
     text-align: center;
     align-self: end;
   `}
+  
 `
 
 export default TextHeading

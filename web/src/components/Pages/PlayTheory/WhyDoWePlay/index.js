@@ -6,12 +6,13 @@ import WhyDoWePlay from './WhyDoWePlay'
 // The component
 export const WhyDoWePlayIndex = () => {
   return (
-    <WhyDoWePlay id="why-do-we-play" bgColor="yellow">
+    <WhyDoWePlay bgColor="yellow">
       <WhyDoWePlay.SVGDividerTop />
       <WhyDoWePlay.Frame>
         <WhyDoWePlay.Row custom xGap={8}>
           <WhyDoWePlay.Column column={2} xAlign="center">
             <WhyDoWePlay.Title 
+              id="why-do-we-play"
               heading="h2" 
               lineColor="light"
               textAlign="center"

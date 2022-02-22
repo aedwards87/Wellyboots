@@ -1,5 +1,6 @@
 // Imported packages
 import React from 'react'
+import { useNavMenuToggleContext } from '../../hooks'
 import { useScroll } from '../../hooks/useScroll'
 
 // Imported components
@@ -10,8 +11,7 @@ import {
 
 export default function Header({ classname, color, background, height, position, children, ...props }) {
   const scrollPos = useScroll()
-  // console.log({ scrollPos });
-  
+  const [isOpen] = useNavMenuToggleContext()
   return (
     <Container
       classname={classname}
@@ -21,6 +21,7 @@ export default function Header({ classname, color, background, height, position,
         '--height': height,
         '--position': position,
       }}
+      isOpen={isOpen}
       scrollPos={scrollPos}
       {...props}
     >

@@ -3,7 +3,7 @@ import React from 'react'
 // Imported components
 import Details from './Details'
 // Imported helpers
-import { addSpaceToString, changeTimeFormat, toLowerCaseAndHypen } from '../../../utils/helpers'
+import { addSpaceToString, changeTimeFormat, determineTextColor, toLowerCaseAndHypen } from '../../../utils/helpers'
 
 const DetailsIndex = ({ data: { location: {
   shortName,
@@ -14,19 +14,22 @@ const DetailsIndex = ({ data: { location: {
   geoLocation,
   subBrandColors
 } } }) => {
+  const colorOne = determineTextColor(subBrandColors[0].title)
+  const colorTwo = determineTextColor(subBrandColors[1].title)
+
   return (
-    <Details
-      id={toLowerCaseAndHypen(`${shortName || name} details`)}
-      bgColor={subBrandColors[0].title}
-    >
+    <Details bgColor={subBrandColors[0].title}>
       <Details.DividerTopSVG bgColor={subBrandColors[0].title} />
       <Details.Frame bPad={10} tPad={10}>
 
         <Details.Row>
           <Details.Column>
-            <Details.Title 
+            <Details.Title
+              id={toLowerCaseAndHypen(`${shortName || name} details`)}
               heading='h2' 
-              lineColor="light" 
+              lineColor={subBrandColors[1].title} 
+              lineColor="light"
+              color={colorOne}
               zIndex="1"
             >
               {shortName || name} details
@@ -40,9 +43,14 @@ const DetailsIndex = ({ data: { location: {
             <Details.Row columns={2} xGap={6} custom>
 
               <Details.Column yAlign="start">
-                <Details.PhoneSVG colorOne="light" colorTwo="dark" />
+                <Details.PhoneSVG
+                  colorOne={subBrandColors[1].title}
+                  // colorOne={colorTwo}
+                  colorTwo={colorOne}
+                  colorThree={subBrandColors[0].title}
+                />
                 <Details.Group>
-                  <Details.Text>
+                  <Details.Text color={colorOne}>
                     {contactDetails.telephoneNumber &&
                       <React.Fragment>
                         <span>Direct:</span>
@@ -53,9 +61,13 @@ const DetailsIndex = ({ data: { location: {
                     <span>{addSpaceToString(contactDetails.mobileNumber)}</span>
                   </Details.Text>
                 </Details.Group>
-                <Details.EmailSVG colorOne="light" colorTwo="dark" />
+                <Details.EmailSVG 
+                  colorOne={subBrandColors[1].title}
+                  // colorOne={colorTwo}
+                  colorTwo={colorOne}
+                />
                 <Details.Group>
-                  <Details.Text>
+                  <Details.Text color={colorOne}>
                     {contactDetails.emailAddressOne && contactDetails.emailAddressOne} <br />
                     {contactDetails.emailAddressTwo && contactDetails.emailAddressTwo}
                   </Details.Text>
@@ -64,9 +76,14 @@ const DetailsIndex = ({ data: { location: {
 
               <Details.Column yAlign="start" xAlign="stretch">
                 <Details.SunSVG />
-                <Details.ClockSVG colorOne="dark" colorTwo="light" />
+                <Details.ClockSVG 
+                  colorOne={colorOne}
+                  colorTwo={subBrandColors[1].title}
+                  // colorTwo={colorTwo}
+                  colorThree={subBrandColors[0].title}
+                />
                 <Details.Group>
-                  <Details.Text>
+                  <Details.Text color={colorOne}>
                     {dayAndTime.map(dt =>
                       <React.Fragment key={dt.day}>
                         <span>{dt.day}</span>

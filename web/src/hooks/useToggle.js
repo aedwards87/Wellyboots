@@ -5,18 +5,16 @@ export function useToggle(initialValue = false, fullscreen) {
   const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches
 
   useEffect(() => {
+    const sidenavElement = document.getElementsByClassName('sidenav')[0]
+    const htmlElement = document.getElementsByTagName('html')[0]
     if (value && fullscreen)  {
       // To stop the page from scrolling whilst menu is open
-      document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
+      htmlElement.style.overflowY = 'hidden';
       // Allows users to scroll through the list in the menu
-      if (document.getElementsByClassName('sidenav')[0]) {
-        document.getElementsByClassName('sidenav')[0].style.overflowY = 'scroll';
-      }
+      if (sidenavElement) { sidenavElement.style.overflowY = 'scroll' }
     } else {
-      document.getElementsByTagName('html')[0].style.overflowY = '';
-      if (document.getElementsByClassName('sidenav')[0]) {
-        document.getElementsByClassName('sidenav')[0].style.overflowY = ''
-      }
+      htmlElement.style.overflowY = ''
+      if (sidenavElement) { sidenavElement.style.overflowY = '' }
     }
     // Ensures the elements don't fill the space when the scrollbar
     // is hidden, otherwise elements on the page will fill the

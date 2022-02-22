@@ -1,8 +1,32 @@
 // Imported dependencies
 import React from 'react'
-import { VisuallyHidden } from '../../../Reusable'
+import { SideNav, VisuallyHidden } from '../../../Reusable'
 // Imported components
 import Hero from './Hero'
+
+const playTheory = [
+  {
+    title: "What is play?",
+    slug: {
+      current: "#what-is-play"
+    },
+    lineColor: "blue",
+  },
+  {
+    title: "Why do we play?",
+    slug: {
+      current: "#why-do-we-play"
+    },
+    lineColor: "yellow",
+  },
+  {
+    title: "The Playwork Principles",
+    slug: {
+      current: "#the-playwork-principles"
+    },
+    lineColor: "green",
+  },
+]
 
 // The component
 export const HeroIndex = () => {
@@ -44,37 +68,12 @@ export const HeroIndex = () => {
             yAlign="start" 
             gap={3}
           >
-            <Hero.Title 
-              heading="h2" 
-              color="gray" 
-              small
-            >
-              Jump to
-            </Hero.Title>
-            <Hero.Nav aria-label="Secondary navigation - Jump to a section on the page">
-              <Hero.Link 
-                to="/play-theory#what-is-play" 
-                lineColor="blue"
-                $custom
-              >
-                What is play?
-              </Hero.Link>
-              <Hero.Link 
-                to="/play-theory#why-do-we-play" 
-                lineColor="yellow" 
-                $custom
-              >
-                Why do we play?
-              </Hero.Link>
-              <Hero.Link 
-                to={`/play-theory#the-playwork-principles`} 
-                lineColor="green"
-                $custom
-              >
-                The Playwork Principles
-              </Hero.Link>
-              <Hero.FootPrintsSVG />
-            </Hero.Nav>
+            <SideNav 
+              name="Jump to"
+              page="play-theory"
+              data={playTheory}
+            />
+            {/* <Hero.FootPrintsSVG /> */}
           </Hero.Column>
         </Hero.Row>
 

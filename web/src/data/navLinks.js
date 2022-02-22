@@ -23,6 +23,10 @@ const navLinks = [
     title: 'Contact us',
     hasDropdown: false
   },
+  {
+    title: 'Book a visit',
+    hasDropdown: false
+  },
 ]
 
 export default navLinks

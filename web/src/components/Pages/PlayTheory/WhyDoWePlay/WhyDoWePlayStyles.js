@@ -19,7 +19,6 @@ import {
 // Styles
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
-  /* scroll-margin-top: 4em; */
 `
 export const Frame = styled(FrameOrigin)``
 export const Row = styled(RowOrigin)`

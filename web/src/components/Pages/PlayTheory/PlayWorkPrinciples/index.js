@@ -42,12 +42,13 @@ const content = [
 // The component
 export const PlayWorkPrinciplesIndex = () => {
   return (
-    <PlayWorkPrinciples id="the-playwork-principles">
+    <PlayWorkPrinciples>
       <PlayWorkPrinciples.Frame yGap={8} bPad={14}>
 
         <PlayWorkPrinciples.Row custom xGap={8}>
           <PlayWorkPrinciples.Column column={2} xAlign="center">
             <PlayWorkPrinciples.Title 
+              id="the-playwork-principles"
               heading="h2" 
               lineColor="green"
               textAlign="center"

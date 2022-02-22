@@ -125,7 +125,8 @@ const Container = styled(motion(GatsbyLink))`
             z-index: -1;
           }
         }
-        ${({ style, $fixed }) =>
+        /* fixed is used when you want the line to 'fixed', always showing */
+        ${({ style, $fixed, color }) =>
           (style['--lineColor'] && $fixed) ? css`
             > span { display: inline-block; };
             > span::before {

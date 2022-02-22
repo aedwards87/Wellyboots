@@ -62,3 +62,16 @@ export function changeTimeFormat(time) {
   const ampm = (hour < 12 || hour === 24) ? "am" : "pm";
   return timeString = convert + timeString.substr(2, 3) + ampm;
 }
+
+// Used to determine what colour the text should be from the background
+export function determineTextColor(color) {
+  if (color.includes("Dark")) {
+    if (color.includes("green")) {
+      return 'Dark'
+    } else {
+      return 'Light'
+    }
+  } else {
+    return 'Dark'
+  }
+}

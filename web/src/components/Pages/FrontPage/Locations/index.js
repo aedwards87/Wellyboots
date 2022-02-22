@@ -8,12 +8,17 @@ import { useLocationsQuery } from '../../../../hooks'
 const LocationsIndex = () => {
   const data = useLocationsQuery()
   return (
-    <Locations id="locations" bgColor="yellow">
+    <Locations bgColor="yellow">
       <Locations.SVGDividerTop />
       <Locations.Frame yPad={0} tPad={8} yGap={3}>
         <Locations.Row rGap={5}>
           <Locations.Column>
-            <Locations.Title heading="h2" lineColor="light" zIndex="1">
+            <Locations.Title 
+              id="locations" 
+              heading="h2" 
+              lineColor="light"
+              zIndex="1"
+            >
               Our locations
             </Locations.Title>
           </Locations.Column>

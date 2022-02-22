@@ -25,13 +25,15 @@ export const Column = styled(ColumnOrigin)`
     }
   `}
 `
+
 export const Image = styled(ImageOrigin)`
   @media (min-width: 980px) {
     position: sticky;
-    overflow: unset;
+    margin-top: var(--s3);
     top: 160px;
     height: 500px;
     transition: top .5s ease;
+    overflow: unset;
   }
   @media (min-width: 1200px) {
     top: 184px;

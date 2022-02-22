@@ -13,7 +13,7 @@ const RoutineIndex = ({ data: { location: {
   const conditionDaily = dailyRoutine?.length > 0
   const conditionAfternoon = lateAfternoonRoutine?.length > 0
   return (
-    <Routine id="daily-routine">
+    <Routine>
       <Routine.Frame tPad={9}>
 
         <Routine.Row columns={2} xGap="94px" yGap={11}>
@@ -27,7 +27,12 @@ const RoutineIndex = ({ data: { location: {
             <Routine.Row yGap={9}>
               {conditionDaily &&
                 <Routine.Column>
-                  <Routine.Title heading='h2' lineColor={subBrandColors[0].title} zIndex="1">
+                  <Routine.Title
+                    id="routine"
+                    heading='h2' 
+                    lineColor={subBrandColors[0].title} 
+                    zIndex="1"
+                  >
                     Daily routine
                   </Routine.Title>
                 </Routine.Column>
@@ -49,7 +54,12 @@ const RoutineIndex = ({ data: { location: {
             <Routine.Row yGap={9}>
               {conditionAfternoon &&
                 <Routine.Column>
-                  <Routine.Title lineColor={subBrandColors[0].title} zIndex="1" custom>
+                  <Routine.Title 
+                    id="routine" 
+                    lineColor={subBrandColors[0].title} 
+                    zIndex="1" 
+                    custom
+                  >
                     Late afternoon routine
                   </Routine.Title>
                 </Routine.Column>

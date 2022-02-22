@@ -1,26 +1,28 @@
 // Imported dependencies
 import React from 'react'
 import { Girl } from '../../../assets/svg'
+import { determineTextColor } from '../../../utils/helpers'
 // Imported components
 import Staff from './Staff'
 
-const StaffIndex = ({ data: { location: {
-  person,
-  subBrandColors
-} } }) => {
-  const dark = subBrandColors[1].title.includes("Dark")
+const StaffIndex = ({ data }) => {
+  const { person, subBrandColors } = data.location
+  const colorOne = determineTextColor(subBrandColors[0].title)
+  const colorTwo = determineTextColor(subBrandColors[1].title)
+
   return (
-    <Staff id="staff" bgColor={subBrandColors[1].title}>
+    <Staff bgColor={subBrandColors[1].title}>
       <Staff.DividerTopSVG bgColor={subBrandColors[1].title} />
       <Staff.Frame bPad={4} tPad={9}>
       <Staff.GirlSVG />
         <Staff.Row>
           <Staff.Column>
             <Staff.Title
+              id="staff"
               heading='h2'
-              lineColor="light"
+              lineColor='Light'
+              color={colorTwo}
               zIndex="1"
-              // color={dark ? "light" : ""}
             >
               Meet our staff
             </Staff.Title>
@@ -30,30 +32,17 @@ const StaffIndex = ({ data: { location: {
         <Staff.Row>
           <Staff.Columns>
             <Staff.Group>
-              <Staff.Text 
-                // color={dark ? "light" : ""}
-              >
-                All our staff have significant experience and hold
-                relevant qualifications required for working with
-                children and young people, and comply with EYFS
-                requirements for registered childcare.
+              <Staff.Text color={colorTwo}>
+                All our staff have significant experience and hold relevant qualifications required for working with children and young people, and comply with EYFS requirements for registered childcare.
               </Staff.Text>
-              <Staff.Text 
-                // color={dark ? "light" : ""}
-              >
-                All the Staff are expected to undertake professional
-                development training regularly and are checked through
-                the Disclosure and barring service (D.B.S).
+              <Staff.Text color={colorTwo}>
+                All the Staff are expected to undertake professional development training regularly and are checked through the Disclosure and barring service (D.B.S).
               </Staff.Text>
-              <Staff.Text 
-                // color={dark ? "light" : ""}
-              >
-                First aid, food hygiene and safe guarding children
-                courses are updated as required.
+              <Staff.Text color={colorTwo}>
+                First aid, food hygiene and safe guarding children courses are updated as required.
               </Staff.Text>
             </Staff.Group>
             {person.map((p, i) => {
-              {/* console.log('pp', p) */ }
               return (
                 <Staff.Group key={i}>
                   <Staff.ProfileCard person={p} bgColor={subBrandColors[0].title} />

@@ -69,7 +69,7 @@ const Typography = createGlobalStyle`
     font-size: var(--fontSizeBody);
   }
 
-  p, a, li, span, td, blockquote {
+  p, a, li, span, td, blockquote, cite {
     letter-spacing: 0.3px;
     line-height: var(--textLineHeight);
   }

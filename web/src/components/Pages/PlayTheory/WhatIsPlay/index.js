@@ -31,7 +31,7 @@ const content = [
 // The component
 export const WhatIsPlayIndex = () => {
   return (
-    <WhatIsPlay id="what-is-play">
+    <WhatIsPlay>
       <WhatIsPlay.Frame yGap={8}>
 
         <WhatIsPlay.FootPrintsSVG />
@@ -39,6 +39,7 @@ export const WhatIsPlayIndex = () => {
         <WhatIsPlay.Row>
           <WhatIsPlay.Column xAlign="center">
             <WhatIsPlay.Title 
+              id="what-is-play"
               heading="h2" 
               lineColor="blue"
             >

@@ -19,7 +19,13 @@ export const PoliciesAndProceduresIndex = ({ data }) => {
         <PoliciesAndProcedures.Row yGap={8} columns={2}>
 
           <PoliciesAndProcedures.Column yAlign="start">
-            <SideNav name="Policies" data={policiesAndProcedures} fullscreen />
+            <SideNav 
+              name="Policies"
+              page="policies-and-procedures"
+              data={policiesAndProcedures}
+              lineColor="Purple"
+              fullscreen
+            />
           </PoliciesAndProcedures.Column>
 
           <PoliciesAndProcedures.Column yAlign="start" yGap={7}>
@@ -28,7 +34,10 @@ export const PoliciesAndProceduresIndex = ({ data }) => {
                 Policies and Procedures
               </PoliciesAndProcedures.Title>
             </VisuallyHidden>
-            <PoliciesAndProcedures.Title heading="hero" /* TO BE H2 and hero */ lineColor="Purple">
+            <PoliciesAndProcedures.Title 
+              heading="hero" /* TO BE H2 and hero */ 
+              lineColor="Purple"
+            >
               {title}
             </PoliciesAndProcedures.Title>
             <PoliciesAndProcedures.PortableText content={_rawDescription} />

@@ -1,5 +1,6 @@
 // Imported dependencies
 import React from 'react'
+import { useScroll } from '../../../hooks/useScroll'
 import { capitilise } from '../../../utils/helpers'
 // Imported components
 import {
@@ -31,7 +32,8 @@ export default function SideNav({ children, className, bgColor, innerRef, ...pro
 }
 
 SideNav.InnerContainer = function SideNavInnerContainer({ children, className, ...props }) {
-  return (<InnerContainer className={className} {...props}>{children}</InnerContainer>)
+  const scrollPos = useScroll()
+  return (<InnerContainer className={className} scrollPos={scrollPos} {...props}>{children}</InnerContainer>)
 }
 
 SideNav.Frame = function SideNavFrame({ children, className, ...props }) {

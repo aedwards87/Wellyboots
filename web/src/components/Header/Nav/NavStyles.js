@@ -37,7 +37,7 @@ export const ListContainer = styled(motion.div)`
     background: rgba(255,255,255,.97);
     /* if backdrop support: very transparent and blurred */
     @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-      background: rgba(255,255,255,.85);
+      background: rgba(var(--colorLight), .85);
       backdrop-filter: blur(10px);
     }
     width: 100%;
@@ -61,6 +61,7 @@ export const List = styled(motion.ul)`
   padding-top: 4em;
   gap: 2em;
   z-index: 1;
+  padding-left: calc(100vw - 100%);
   @media (min-width: 980px) {
     position: static;
     width: auto;
@@ -72,6 +73,7 @@ export const List = styled(motion.ul)`
     align-items: baseline;
     padding-top: 0;
     gap: var(--navSpacing);
+    padding-left: 0;
   }
   @media (max-height: 540px) and (max-width: 979px) {
     gap: 6vh;
@@ -265,6 +267,7 @@ export const Dropdown = styled(motion.div)`
   background: var(--background, rgb(var(--colorLight)));
   border-radius: 10px;
   box-shadow: 0 25px 45px 5px rgba(0, 0, 0, 0.1), 0 6px 12px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--level7);
   z-index: 2;
   transform-style: preserve-3d;
   ${Body}:first-of-type {
