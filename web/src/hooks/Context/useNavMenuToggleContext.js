@@ -3,9 +3,13 @@ import { useStore } from '../'
 
 export function useNavMenuToggleContext() {
   const [{ isNavMenuOpen }, setOpen] = useStore()
+  let isTouchDevice
+  let isSmallScreen
   // Check if device has touch capability
-  const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches
-  const isSmallScreen = window.matchMedia('(max-width: 980px)').matches
+  if (typeof window!== 'undefined') {
+    isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches
+    isSmallScreen = window.matchMedia('(max-width: 980px)').matches
+  }  
 
   useEffect(() => {
     const sidenav = document.getElementsByClassName('sidenav')[0]
