@@ -6,7 +6,7 @@ export function useNavMenuToggleContext() {
   let isTouchDevice
   let isSmallScreen
   // Check if device has touch capability
-  if (typeof window!== 'undefined') {
+  if (typeof window !== 'undefined') {
     isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches
     isSmallScreen = window.matchMedia('(max-width: 980px)').matches
   }  

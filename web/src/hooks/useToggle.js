@@ -2,7 +2,11 @@ import { useState, useCallback, useEffect } from 'react';
 
 export function useToggle(initialValue = false, fullscreen) {
   const [value, setValue] = useState(initialValue);
-  const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches
+  let isTouchDevice
+  // Check if device has touch capability
+  if (typeof window !== 'undefined') {
+    isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches
+  }  
 
   useEffect(() => {
     const sidenavElement = document.getElementsByClassName('sidenav')[0]
