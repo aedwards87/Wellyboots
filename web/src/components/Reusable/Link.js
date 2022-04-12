@@ -132,6 +132,13 @@ const Container = styled(motion(GatsbyLink))`
             > span::before {
               background: rgba(var(--lineColor), .7);
               transform: translateY(.05em);
+              transition: height .2s ease-out;
+            }
+            &:hover,
+            &:focus {
+              > span::before {
+                height: 100%;
+              }
             }
           `
             : (style['--lineColor'] && !$fixed) ? css`

@@ -16,6 +16,7 @@ import {
 
 const AboutUs = ({ data }) => {
   const {
+    image,
     aboutOwner,
     accreditations,
     _rawDescription,
@@ -25,7 +26,7 @@ const AboutUs = ({ data }) => {
   return (
     <>
       <SEO title="About us" />
-      <Hero desc={_rawDescription} />
+      <Hero desc={_rawDescription} image={image} />
       <Mission mission={_rawOurMissionStatement} />
       <Aims aims={_rawOurAim} />
       <Accreditations accreditations={accreditations} />
@@ -41,6 +42,12 @@ export const AboutQuery = graphql`
   query AboutQuery {
     about: allSanityAbout {
       nodes {
+        image {
+          alt
+          asset {
+            gatsbyImageData(width: 1000)
+          }
+        }
         aboutOwner {
           _rawOwnerDescription
           owner {

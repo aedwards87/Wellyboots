@@ -8,7 +8,7 @@ const SideNavIndex = ({ name, page, data, lineColor, fullscreen }) => {
   const [isOpen, toggle] = useToggle(false, fullscreen)
   const ref = useOnClickOutside(isOpen && toggle)
 
-  console.log({data});
+  // console.log({data});
 
   return (
     <SideNav 
@@ -41,7 +41,7 @@ const SideNavIndex = ({ name, page, data, lineColor, fullscreen }) => {
                       lineColor={d.lineColor || lineColor}
                       onClick={toggle}
                     >
-                      {d.title} {console.log(d.lineColor, lineColor)}
+                      {d.title}
                     </SideNav.Link>
                   </SideNav.ListItem>
                 )}
@@ -65,7 +65,7 @@ const SideNavIndex = ({ name, page, data, lineColor, fullscreen }) => {
                   to={`/${page}/${d.slug.current}`} 
                   lineColor={d.lineColor || lineColor}
                 >
-                  {d.title} {console.log(d.lineColor || lineColor)}
+                  {d.title}
                 </SideNav.Link>
               </SideNav.ListItem>
             )}

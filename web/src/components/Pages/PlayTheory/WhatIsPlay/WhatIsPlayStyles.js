@@ -18,10 +18,6 @@ import { capitilise } from '../../../../utils/helpers';
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
   position: relative;
-  /* scroll-margin-top: 6em;
-  @media (min-width: 980px) {
-    scroll-margin-top: 5em;
-  } */
 `
 export const Frame = styled(FrameOrigin)``
 export const Row = styled(RowOrigin)`

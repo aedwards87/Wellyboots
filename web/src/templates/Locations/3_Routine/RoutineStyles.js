@@ -15,7 +15,6 @@ import {
 // Styles
 export const Container = styled.section`
   background-color: var(--sectionBgColor);
-  scroll-margin-top: 7vw;
   img {
     width: 100%;
     height: 100%;

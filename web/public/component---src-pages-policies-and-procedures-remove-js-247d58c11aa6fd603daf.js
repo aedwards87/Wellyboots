@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwellyboots_daycare_ltd=self.webpackChunkwellyboots_daycare_ltd||[]).push([[303],{9448:function(e,t,l){l.r(t);l(5444);var a=l(7294),n=l(3751),c=l(811),r=l(6700);t.default=function(e){var t=e.data;return console.log({data:t}),a.createElement(a.Fragment,null,a.createElement(n.Z,{title:"Policies and Procedures - Website policy"}),a.createElement(r.Z,{data:t}),a.createElement(c._V,null))}}}]);
+//# sourceMappingURL=component---src-pages-policies-and-procedures-remove-js-247d58c11aa6fd603daf.js.map

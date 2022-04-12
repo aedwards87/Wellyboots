@@ -9,7 +9,7 @@ import { ReviewsPreview } from '../../components/Pages/FrontPage'
 
 // The component
 const PoliciesAndProceduresIndex = ({ data }) => {
-  console.log({data});
+  // console.log({data});
   return (
     <>
       {/* <SEO title="Policies and Procedures - Website policy" /> */}

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwellyboots_daycare_ltd=self.webpackChunkwellyboots_daycare_ltd||[]).push([[883],{9616:function(e,t,l){l.r(t);var n=l(7294),a=l(3751);t.default=function(){return n.createElement(n.Fragment,null,n.createElement(a.Z,{title:"404: Not found"}),n.createElement("h1",null,"404: Not Found"),n.createElement("p",null,"You just hit a route that doesn't exist... the sadness."))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-e1265399e7463266cc4e.js.map

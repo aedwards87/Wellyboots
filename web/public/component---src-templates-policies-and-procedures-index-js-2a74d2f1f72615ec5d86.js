@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwellyboots_daycare_ltd=self.webpackChunkwellyboots_daycare_ltd||[]).push([[46],{8234:function(e,t,a){a.r(t);var l=a(7294),n=a(6700),r=a(811);t.default=function(e){var t=e.data;return console.log({data:t}),l.createElement(l.Fragment,null,l.createElement(n.Z,{data:t}),l.createElement(r._V,null))}}}]);
+//# sourceMappingURL=component---src-templates-policies-and-procedures-index-js-2a74d2f1f72615ec5d86.js.map

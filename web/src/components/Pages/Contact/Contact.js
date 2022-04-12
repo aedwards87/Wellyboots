@@ -52,7 +52,49 @@ Contact.Link = function ContactLink({ children, className, ...props }) {
 }
 
 Contact.Image = function ContactImage({ className, ...props }) {
-  return (<Image className={className} {...props} />)
+  let randNumArr = [0]
+  // let lastNumber
+  let arr = Array(10)
+  // // const rand = () => Math.floor(Math.random() * arr.length) + 1
+  
+  // const getRandNumber = () => {
+  //   const rand = Math.floor(Math.random() * arr.length) + 1
+  //   randNumArr.map(res => {
+  //     console.log(rand == res);
+  //     if (rand == res) {
+  //       return getRandNumber()
+  //     }
+  //     return console.log(rand)
+  //   })
+  // }
+
+  // const handleClick = () => {
+  //   const number = getRandNumber()
+  //   console.log({number})
+  //   console.log(getRandNumber())
+  //   lastNumber = number 
+  //   randNumArr.push(number)
+  // }
+
+  // useEffect(() => {
+  //   console.log({randNumArr, lastNumber})
+  // }, [randNumArr, lastNumber])
+  
+  let lastRoll = 0;
+  function myFunction() {
+    lastRoll = 0
+    let thisRoll = lastRoll;
+    randNumArr.filter(res => {
+      if (thisRoll === res) {
+        thisRoll = Math.floor(Math.random() * arr.length) + 1
+      }
+      return lastRoll = thisRoll;
+    })
+    console.log(lastRoll);
+  }
+
+
+  return (<Image className={className} onClick={myFunction} {...props} />)
 }
 
 Contact.Group = function ContactGroup({ className, ...props }) {

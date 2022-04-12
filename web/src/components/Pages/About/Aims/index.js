@@ -5,7 +5,7 @@ import Aims from './Aims'
 
 // The component
 export const AimsIndex = ({ aims }) => {
-  console.log({aims});
+  // console.log({aims});
   return (
     <Aims>
       <Aims.Frame tPad={6} bPad={4}>

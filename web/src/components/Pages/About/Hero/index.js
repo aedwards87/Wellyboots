@@ -5,10 +5,10 @@ import Hero from './Hero'
 
 
 // The component
-export const HeroIndex = ({ desc }) => {
+export const HeroIndex = ({ desc, image }) => {
   return (
     <Hero>
-      <Hero.Frame yGap={1} yPad={6} tPad={8}>
+      <Hero.Frame yGap={5} yPad={6} tPad={8}>
 
         <Hero.Row>
           <Hero.Column xAlign="center" xItemsAlign="center">
@@ -21,7 +21,10 @@ export const HeroIndex = ({ desc }) => {
             <Hero.SunSVG color="yellow" />
             <Hero.HeartSVG color="dark blue" />
             <Hero.FootPrintsSVG />
-            <img src="https://i.imgur.com/pZruOtV.png" />
+            <Hero.Image 
+              image={image.asset.gatsbyImageData}
+              alt={image.alt}
+            />
           </Hero.Column>
           <Hero.Column yGap={3} xAlign="center" xItemsAlign="center">
             <Hero.PortableText content={desc} />

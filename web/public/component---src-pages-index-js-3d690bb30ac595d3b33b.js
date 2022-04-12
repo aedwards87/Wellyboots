@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwellyboots_daycare_ltd=self.webpackChunkwellyboots_daycare_ltd||[]).push([[678],{7704:function(e,l,t){t.r(l);var n=t(7294),a=t(3751),c=t(811);l.default=function(){return n.createElement(n.Fragment,null,n.createElement(a.Z,{title:"Home"}),n.createElement(c.VM,null),n.createElement(c.tY,null),n.createElement(c.gc,null),n.createElement(c._V,null))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-3d690bb30ac595d3b33b.js.map

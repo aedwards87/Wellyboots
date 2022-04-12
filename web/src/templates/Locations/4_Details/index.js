@@ -27,7 +27,7 @@ const DetailsIndex = ({ data: { location: {
             <Details.Title
               id={toLowerCaseAndHypen(`${shortName || name} details`)}
               heading='h2' 
-              lineColor={subBrandColors[1].title} 
+              // lineColor={subBrandColors[1].title} 
               lineColor="light"
               color={colorOne}
               zIndex="1"
@@ -44,8 +44,8 @@ const DetailsIndex = ({ data: { location: {
 
               <Details.Column yAlign="start">
                 <Details.PhoneSVG
-                  colorOne={subBrandColors[1].title}
-                  // colorOne={colorTwo}
+                  // colorOne={subBrandColors[1].title}
+                  colorOne={colorTwo}
                   colorTwo={colorOne}
                   colorThree={subBrandColors[0].title}
                 />
@@ -62,8 +62,8 @@ const DetailsIndex = ({ data: { location: {
                   </Details.Text>
                 </Details.Group>
                 <Details.EmailSVG 
-                  colorOne={subBrandColors[1].title}
-                  // colorOne={colorTwo}
+                  // colorOne={subBrandColors[1].title}
+                  colorOne={colorTwo}
                   colorTwo={colorOne}
                 />
                 <Details.Group>
@@ -78,8 +78,8 @@ const DetailsIndex = ({ data: { location: {
                 <Details.SunSVG />
                 <Details.ClockSVG 
                   colorOne={colorOne}
-                  colorTwo={subBrandColors[1].title}
-                  // colorTwo={colorTwo}
+                  // colorTwo={subBrandColors[1].title}
+                  colorTwo={colorTwo}
                   colorThree={subBrandColors[0].title}
                 />
                 <Details.Group>

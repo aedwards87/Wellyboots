@@ -114,11 +114,37 @@ const GlobalStyles = createGlobalStyle`
       7.1px 14.3px 18px -1.4px rgba(var(--colorDarkBlue) , 0.14),
       11.2px 22.3px 28.1px -1.8px rgba(var(--colorDarkBlue) , 0.14),
       0 25px 60px -12px rgba(var(--colorDarkBlue), 0.25);
+    --level7-Reverse: 
+      -0.3px 0.5px 0.7px rgba(var(--colorDarkBlue) , 0.14),
+      -1.5px 2.9px 3.7px -0.4px rgba(var(--colorDarkBlue) , 0.14),
+      -2.7px 5.4px 6.8px -0.7px rgba(var(--colorDarkBlue) , 0.14),
+      -4.5px 8.9px 11.2px -1.1px rgba(var(--colorDarkBlue) , 0.14),
+      -7.1px 14.3px 18px -1.4px rgba(var(--colorDarkBlue) , 0.14),
+      -11.2px 22.3px 28.1px -1.8px rgba(var(--colorDarkBlue) , 0.14),
+      -0 25px 60px -12px rgba(var(--colorDarkBlue), 0.25);
     --level8: 
       0px 4px 4.3px -4.5px rgba(var(--colorDarkBlue), 0.15),
       0px 6px 6.3px -6.5px rgba(var(--colorDarkBlue), 0.15),
       0px 8px 8.3px -8px rgba(var(--colorDarkBlue), 0.15),
-      0px 10px 10.3px -10px rgba(var(--colorDarkBlue), 0.15)
+      0px 10px 10.3px -10px rgba(var(--colorDarkBlue), 0.15);
+    --level9: 
+      0.3px 0.5px 0.7px rgba(var(--colorDarkBlue), 0.34),
+      1.5px 2.9px 3.7px -0.4px rgba(var(--colorDarkBlue), 0.34),
+      2.7px 5.4px 6.8px -0.7px rgba(var(--colorDarkBlue), 0.34),
+      4.5px 8.9px 11.2px -1.1px rgba(var(--colorDarkBlue), 0.34),
+      7.1px 14.3px 18px -1.4px rgba(var(--colorDarkBlue), 0.34),
+      11.2px 22.3px 28.1px -1.8px rgba(var(--colorDarkBlue), 0.34),
+      17px 33.9px 42.7px -2.1px rgba(var(--colorDarkBlue), 0.34),
+      25px 50px 62.9px -2.5px rgba(var(--colorDarkBlue), 0.34);
+    --level9-Reverse: 
+      -0.3px 0.5px 0.7px rgba(var(--colorDarkBlue), 0.34),
+      -1.5px 2.9px 3.7px -0.4px rgba(var(--colorDarkBlue), 0.34),
+      -2.7px 5.4px 6.8px -0.7px rgba(var(--colorDarkBlue), 0.34),
+      -4.5px 8.9px 11.2px -1.1px rgba(var(--colorDarkBlue), 0.34),
+      -7.1px 14.3px 18px -1.4px rgba(var(--colorDarkBlue), 0.34),
+      -11.2px 22.3px 28.1px -1.8px rgba(var(--colorDarkBlue), 0.34),
+      -17px 33.9px 42.7px -2.1px rgba(var(--colorDarkBlue), 0.34),
+      -25px 50px 62.9px -2.5px rgba(var(--colorDarkBlue), 0.34);
   }
 
   html {

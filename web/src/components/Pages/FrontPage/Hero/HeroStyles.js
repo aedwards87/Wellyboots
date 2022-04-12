@@ -56,7 +56,7 @@ export const ImageCarousel = styled(motion.div)`
   transform: rotate(-3deg);
   border: var(--s2) solid rgb(var(--colorLight));
   background: rgb(var(--colorLight));
-  box-shadow: var(--level5);
+  box-shadow: var(--level7-Reverse);
   height: 120%;
   z-index: 2;
   cursor: pointer;
