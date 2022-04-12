@@ -48,8 +48,8 @@ Hero.Column = function HeroColumn({ children, className, ...props }) {
 }
 
 Hero.ImageCarousel = function HeroImageCarousel({ children, className, src, alt, images, ...props }) {
-  const [page, direction, paginate, carouselIndex] = usePaginate(images /*, timer */)
-  // console.log({carouselIndex});
+  const [page, direction, paginate, carouselIndex] = usePaginate(images, 5000 /* timer, start */)
+  console.log({images, carouselIndex});
   const [number] = useRandomNumberGenerator(images, page)
   return (
     <AnimatePresence>

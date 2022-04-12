@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { wrap } from 'popmotion';
 
-export const usePaginate = (data, start = 0, timer) => {
+export const usePaginate = (data, timer, start = 0) => {
   const [[page, direction], setPage] = useState([0, 0]);
   const carouselIndex = wrap(start, data.length, page);
   const paginate = (newDirection) => {
