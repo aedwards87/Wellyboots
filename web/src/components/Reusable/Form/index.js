@@ -20,7 +20,7 @@ export const FormIndex = ({
     // formState: { isDirty, isValid },
     setFocus
   } = useForm({ mode: 'onBlur' });
-  // const onSubmit = data => console.log(data);
+  const onSubmit = data => console.log(data);
   
   useEffect(() => {
     setFocus("First name");
