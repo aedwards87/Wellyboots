@@ -24,7 +24,6 @@ import {
 // Imported hooks
 import { usePaginate } from '../../../hooks'
 import { toLowerCaseAndHypen } from '../../../utils/helpers'
-import serializers from '../../../components/Reusable/PortableText/Serializers'
 
 
 export default function Hero({ children, className, bgColor, ...props }) {
