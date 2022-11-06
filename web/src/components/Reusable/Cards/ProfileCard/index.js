@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { capitilise } from '../../../../utils/helpers';
-import ProfileCard from './ProfileCard'
+import ProfileCard from './ProfileCard';
 
-const ProfileCardIndex = ({ person, bgColor = "dark" }) => {
+const ProfileCardIndex = ({ person, bgColor = "dark", color }) => {
   return (
     <ProfileCard bgColor={capitilise(bgColor)}>
       <ProfileCard.Body>
@@ -13,12 +13,12 @@ const ProfileCardIndex = ({ person, bgColor = "dark" }) => {
           />
         </ProfileCard.ImageContainer>
         <ProfileCard.NamePlateContainer>
-          <ProfileCard.Title heading="h3">
+          <ProfileCard.Title heading="h3" color={color}>
             {person.firstName} {person.lastName}
           </ProfileCard.Title>
-          <ProfileCard.Text>{person.role}</ProfileCard.Text>
+          <ProfileCard.Text color={color}>{person.role}</ProfileCard.Text>
         </ProfileCard.NamePlateContainer>
-        <ProfileCard.PortableText blocks={person.description} />
+        {/* <ProfileCard.PortableText blocks={person.description} /> */}
       </ProfileCard.Body>
     </ProfileCard>
   )

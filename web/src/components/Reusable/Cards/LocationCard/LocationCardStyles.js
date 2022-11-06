@@ -185,6 +185,7 @@ export const Image = styled(GatsbyImage)`
   width: 100%;
   object-fit: cover;
   z-index: 1;
+  pointer-events: none;
 `
 
 export const Title = styled(TextHeading)`

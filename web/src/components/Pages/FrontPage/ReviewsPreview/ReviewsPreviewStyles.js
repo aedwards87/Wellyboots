@@ -1,26 +1,17 @@
 // Imported Packages
-import styled, { css } from 'styled-components/macro';
 import { motion } from 'framer-motion';
+import styled, { css } from 'styled-components/macro';
 
 // Imported Components
 import {
-  Frame as FrameOrigin,
-  Row as RowOrigin,
-  Column as ColumnOrigin,
-  TextHeading,
-  TextParagraph,
-  Button as ButtonOrigin,
-} from '../../../Reusable';
-import {
-  QuoteMark,
-  Crown,
-  Car,
-  Girl,
-  Heart,
-  Arrow,
-  WaveReviewsPreviewTop,
-  WaveReviewsPreviewBottom
+  Arrow, Car, Crown, Girl,
+  Heart, QuoteMark, WaveReviewsPreviewBottom, WaveReviewsPreviewTop
 } from '../../../../assets/svg';
+import {
+  Button as ButtonOrigin, Column as ColumnOrigin, Frame as FrameOrigin,
+  Row as RowOrigin, TextHeading,
+  TextParagraph
+} from '../../../Reusable';
 
 // Styles
 export const Container = styled.section`
@@ -29,6 +20,11 @@ export const Container = styled.section`
 `
 export const Frame = styled(FrameOrigin)`
   position: relative;
+  overflow: hidden; 
+  // When a new slide is requested, it is produced off the screen which create a horizontal scroll.
+  // We use autoflow to hide this.
+  // It was also having a knock on effect with the 'jump to' nav, where the nav would
+  // briefly take on this new width and become larger than the screen size. Overflow solves this.
 `
 export const Row = styled(RowOrigin)`
   position: relative;

@@ -1,12 +1,10 @@
 // Imported Packages
 import styled, { css } from 'styled-components/macro';
-import { camalise, capitilise } from '../../../utils/helpers';
+import { capitilise } from '../../../utils/helpers';
 // Imported Components
 import {
-  TextHeading,
-  TextParagraph,
-  Link as LinkOrigin,
-  Button as ButtonOrigin,
+  Button as ButtonOrigin, Link as LinkOrigin, TextHeading,
+  TextParagraph
 } from '../../Reusable';
 
 
@@ -64,15 +62,15 @@ export const Field = styled.label`
   > *[aria-invalid=true]:focus {
     box-shadow: 0 0 0 2px rgb(var(--colorError));
   }
-  > *[aria-invalid=true] + div {
-    display: flex;
-    padding-left: calc(var(--s3) + 2px);
-    padding-right: calc(var(--s3) + 2px);
-    padding-top: var(--s2);
-    svg {
-      width: 20px;
-      height: 100%;
-    }
+`
+export const ErrorMessage = styled.div`
+  display: flex;
+  padding-left: calc(var(--s3) + 2px);
+  padding-right: calc(var(--s3) + 2px);
+  padding-top: var(--s2);
+  svg {
+    width: 20px;
+    height: 100%;
   }
 `
 export const Title = styled(TextHeading)``

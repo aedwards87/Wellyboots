@@ -1,16 +1,16 @@
 // Imported dependencies
-import React, { Fragment } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import React, { Fragment } from 'react';
 import { useController } from "react-hook-form";
 // Imported components
-import {
-  Container,
-  Field,
-  Text,
-  Button,
-} from './FormStyles'
+import Warning from '../../../assets/svg/Warning';
 import { camalise } from '../../../utils/helpers';
-import Warning from '../../../assets/svg/Warning'
+import {
+  Button,
+  Container,
+  ErrorMessage,
+  Field,
+  Text
+} from './FormStyles';
 
 export default function Form({ children, className, bgColor,...props }) {
   return (
@@ -77,10 +77,10 @@ Form.Field = function FormField({
         )}
       </Element>
       {error && 
-        <div>
+        <ErrorMessage>
           <Warning />
           <Text invalid={error}>{errors[name]?.message}</Text>
-        </div>
+        </ErrorMessage>
       }
     </Field>
   )

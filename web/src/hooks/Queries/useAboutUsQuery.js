@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 export const useAboutUsQuery = () => {
   const data = useStaticQuery(
@@ -10,7 +10,6 @@ export const useAboutUsQuery = () => {
               owner {
                 firstName
                 lastName
-                qualifications
                 role
                 staffPhoto {
                   image {

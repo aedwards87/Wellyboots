@@ -1,17 +1,13 @@
 // Imported dependencies
-import React from 'react'
 import { graphql } from 'gatsby';
+import React from 'react';
 // Imported components
-import { ReviewsPreview } from '../components/Pages/FrontPage'
-import SEO from '../components/seo'
+import {
+  Accreditations, Aims, Hero, Mastermind, Mission
+} from '../components/Pages/About';
+import { ReviewsPreview } from '../components/Pages/FrontPage';
 import Prospectus from '../components/Prospectus';
-import { 
-  Hero, 
-  Mission, 
-  Aims, 
-  Mastermind, 
-  Accreditations 
-} from '../components/Pages/About'
+import SEO from '../components/seo';
 
 
 const AboutUs = ({ data }) => {
@@ -53,7 +49,6 @@ export const AboutQuery = graphql`
           owner {
             firstName
             lastName
-            qualifications
             role
             staffPhoto {
               alt

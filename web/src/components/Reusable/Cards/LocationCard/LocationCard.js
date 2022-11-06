@@ -1,5 +1,5 @@
 // Imported dependencies
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 // Imported components
 import {
   Container,
@@ -29,9 +29,7 @@ const LocationCard = ({ className, children, to = '/', data, ...props }) => {
     <Container
       className={className}
       to={`/locations/${data.slug.current}` || `/locations/${camalise(to)}`}
-      onDragStart={(e) => e.preventDefault()}
-      onClick={(e) => isSwiping && e.preventDefault()}
-      {...bindSwiping}
+      onDragStart={() => e.preventDefault()}
       {...props}
     >
       <div>
@@ -47,7 +45,7 @@ const LocationCard = ({ className, children, to = '/', data, ...props }) => {
               <Image
                 image={data.mainImage.image.asset.gatsbyImageData}
                 alt={data.mainImage.alt}
-                onDragStart={(e) => e.preventDefault()}
+                onDrag={(e) => e.preventDefault()}
               />
               <TextContainer variants={SpanVariants}>
                 {data.type.map(type =>

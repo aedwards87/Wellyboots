@@ -1,6 +1,7 @@
 // Imported dependencies
 import React, { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 // Imported components
 import {
   Container,
@@ -48,7 +49,7 @@ Hero.Column = function HeroColumn({ children, className, ...props }) {
 }
 
 Hero.ImageCarousel = function HeroImageCarousel({ children, className, src, alt, images, ...props }) {
-  const [page, direction, paginate, carouselIndex] = usePaginate(images, 5000 /* timer, start */)
+  const [page, direction, paginate, carouselIndex] = usePaginate(images, 5000 /*, start */)
   // console.log({images, carouselIndex});
   const [number] = useRandomNumberGenerator(images, page)
   return (

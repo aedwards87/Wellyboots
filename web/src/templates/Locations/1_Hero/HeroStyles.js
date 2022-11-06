@@ -1,20 +1,14 @@
 // Imported dependencies
-import styled, { css } from 'styled-components/macro';
 import { motion } from 'framer-motion';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import PortableTextOrigin from "react-portable-text"
+import PortableTextOrigin from "react-portable-text";
+import styled, { css } from 'styled-components/macro';
 // Imported components
-import {
-  Frame as FrameOrigin,
-  Row as RowOrigin,
-  Column as ColumnOrigin,
-  TextHeading,
-  TextParagraph,
-  Link as LinkOrigin,
-  Button as ButtonOrigin,
-  SideNav as SideNavOrigin,
-} from '../../../components/Reusable';
 import { FootPrints } from '../../../assets/svg';
+import {
+  Button as ButtonOrigin, Column as ColumnOrigin, Frame as FrameOrigin, Link as LinkOrigin, Row as RowOrigin, SideNav as SideNavOrigin, TextHeading,
+  TextParagraph
+} from '../../../components/Reusable';
 
 
 // Styles
@@ -198,6 +192,9 @@ export const FootPrintsSVG = styled(FootPrints)`
     width: 100%;
     justify-content: center;
     bottom: -20%;
+    
+    position: absolute;
+    top: 190px;
   }
 `
 export const WellybootSVG = styled(GatsbyImage)`

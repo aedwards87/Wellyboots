@@ -1,14 +1,10 @@
 // Imported dependencies
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled, { css } from 'styled-components/macro';
-import { GatsbyImage } from 'gatsby-plugin-image'
 // Imported Components
 import {
-  Frame as FrameOrigin,
-  Row as RowOrigin,
-  Column as ColumnOrigin,
-  TextHeading,
-  TextParagraph,
-  Link as LinkOrigin,
+  Column as ColumnOrigin, Frame as FrameOrigin, Link as LinkOrigin, Row as RowOrigin, TextHeading,
+  TextParagraph
 } from '../../../components/Reusable';
 
 
@@ -22,9 +18,10 @@ export const Container = styled.section`
     max-width: 550px;
   }
 `
-export const Frame = styled(FrameOrigin)`
-`
+export const Frame = styled(FrameOrigin)``
 export const Row = styled(RowOrigin)`
+  position: sticky;
+  top: 100px;
 `
 export const Column = styled(ColumnOrigin)`
   tr:last-of-type td {

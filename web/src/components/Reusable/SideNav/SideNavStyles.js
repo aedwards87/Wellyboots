@@ -2,21 +2,19 @@
 import styled, { css } from 'styled-components/macro';
 // Imported Components
 import {
-  Frame as FrameOrigin,
-  TextHeading,
-  TextParagraph,
-  Link as LinkOrigin,
+  Frame as FrameOrigin, Link as LinkOrigin, TextHeading,
+  TextParagraph
 } from '../../Reusable';
 
 // Styles
 
 export const List = styled.ul`
   display: grid;
-  gap: var(--s4);
+  gap: var(--s3);
   list-style: none;
   z-index: 0;
   @media (min-width: 768px) {
-    gap: var(--s3);
+    gap: var(--s2);
   }
 `
 export const Container = styled.div`
@@ -83,19 +81,19 @@ export const InnerContainer = styled.nav`
   }
 `
 export const Frame = styled(FrameOrigin)`
-  padding-top: var(--s3);
+  padding-top: var(--s1);
   padding-bottom: var(--s3);
-  row-gap: var(--s6);
+  row-gap: var(--s5);
   ${({ isOpen }) => isOpen && css`
     padding-bottom: var(--s5);
   `}
 `
 export const Title = styled(TextHeading)`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   @media (min-width: 768px) {
     margin-top: 1rem;
     text-align: left;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 `
 export const Text = styled(TextParagraph)``

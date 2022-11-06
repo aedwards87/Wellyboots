@@ -49,7 +49,8 @@ Locations.Row = function LocationsRow({ children, className, ...props }) {
 Locations.Column = function LocationsColumn({ children, className, ...props }) {
   return (
     <InView threshold=".2">
-      {({ inView, ref }) =>
+      {({ inView, ref }) => {
+        return (
         <Column
           className={className}
           innerRef={ref}
@@ -60,7 +61,7 @@ Locations.Column = function LocationsColumn({ children, className, ...props }) {
         >
           {children}
         </Column>
-      }
+      )}}
     </InView>
   )
 }
@@ -156,6 +157,7 @@ Locations.ButtonContainer = function LocationsButtonContainer({ children, classN
 }
 
 Locations.Slider = function LocationsSlider({ children, className, data, ...props }) {
+  // Change number of cards showing at different screen sizes
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 769 },

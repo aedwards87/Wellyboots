@@ -6,8 +6,14 @@ export const useIsSwiping = (state = false) => {
   const bind = useMemo(() => {
     return {
       onMouseDown: () => setSwiping(false),
-      onMouseMove: () => setSwiping(true),
+      // onMouseUp: () => setSwiping(true),
+      // onDragEnd: () => setSwiping(false),
+      // onDragStart: () => setSwiping(true),
+      // onDrag: () => setSwiping(true),
+      // onDragEnd: () => setSwiping(true),
+      // onMouseMove: () => setSwiping(true),
       onTouchStart: () => setSwiping(false),
+      // onTouchEnd: () => setSwiping(true),
       onTouchMove: () => setSwiping(true),
     }
   }, [])

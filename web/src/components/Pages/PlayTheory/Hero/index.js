@@ -69,7 +69,7 @@ export const HeroIndex = () => {
             gap={3}
           >
             <SideNav 
-              name="Jump to"
+              name="Contents"
               page="play-theory"
               data={playTheory}
             />

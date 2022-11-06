@@ -3,16 +3,11 @@
 import styled, { css } from 'styled-components/macro';
 
 // Imported Components
+import { Girl, WaveStaffBottom, WaveStaffTop } from '../../../assets/svg';
 import {
-  Frame as FrameOrigin,
-  Row as RowOrigin,
-  Column as ColumnOrigin,
-  TextHeading,
-  TextParagraph,
-  ProfileCard as ProfileCardOrigin,
-  Link as LinkOrigin,
+  Column as ColumnOrigin, Frame as FrameOrigin, Link as LinkOrigin, ProfileCard as ProfileCardOrigin, Row as RowOrigin, TextHeading,
+  TextParagraph
 } from '../../../components/Reusable';
-import { WaveStaffTop, WaveStaffBottom, Girl } from '../../../assets/svg';
 
 
 // Styles
@@ -30,37 +25,49 @@ export const Frame = styled(FrameOrigin)`
     place-items: start;
   }
 `
-export const Row = styled(RowOrigin)``
-export const Column = styled(ColumnOrigin)``
-export const Columns = styled.div`
-  max-width: 650px;
+export const Row = styled(RowOrigin)`
+  ${({ custom }) => custom && css`
+    position: sticky;
+    top: 100px;
+  `}
+`
+export const Column = styled(ColumnOrigin)`
   display: grid;
-  /* gap: var(--s7); */
-  > * {
-    padding-bottom: var(--s7);
-    padding-top: 10px;
-  }
+  align-content: start;
+  /* ${({ custom }) => custom && css`
+    @media (max-width: 980px) {
+      text-align: left;
+    }
+  `} */
   @media (min-width: 980px) {
-    display: block;
-    column-count: 2;
-    column-gap: min(max(40px, 6vw), 94px);
-    max-width: revert;
+    justify-content: start;
   }
 `
 export const Group = styled.div`
-  width: 100%;
-  column-break-inside: avoid;
-  max-width: 600px;
+  /* width: 100%; */
+  /* column-break-inside: avoid; */
+  /* max-width: 600px; */
+  --gap: var(--s6);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--gap);
+
+  row-gap: var(--s9);
+  max-width: 460px;
 `
 export const Title = styled(TextHeading)`
-${({ color }) => color === "light" && css`
-  > span:after {
-    opacity: .5;
-  }
-`}
-  
+  ${({ color }) => color === "light" && css`
+    > span:after {
+      opacity: .5;
+    }
+  `}
 `
-export const Text = styled(TextParagraph)``
+export const Text = styled(TextParagraph)`
+  @media (max-width: 980px) {
+    text-align: center;
+  }
+`
 export const Link = styled(LinkOrigin)``
 export const DividerTopSVG = styled(WaveStaffTop)``
 export const DividerBottomSVG = styled(WaveStaffBottom)``
@@ -69,9 +76,12 @@ export const GirlSVG = styled(Girl)`
   @media (min-width: 768px) {
     display: block;
     position: absolute;
-    top: 40px;
+    top: 20px;
     right: 10vw;
     transform: rotate(22deg);
+  }
+  @media (min-width: 980px) {
+    top: -60px;
   }
 `
 export const ProfileCard = styled(ProfileCardOrigin)``

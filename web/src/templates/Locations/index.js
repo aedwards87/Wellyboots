@@ -1,14 +1,14 @@
 // Imported packages
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
 // Imported components
+import { ReviewsPreview } from '../../components/Pages/FrontPage'
+import Prospectus from '../../components/Prospectus'
+import SEO from '../../components/seo'
 import Hero from './1_Hero'
 import Staff from './2_Staff'
 import Routine from './3_Routine'
 import Details from './4_Details'
-import { ReviewsPreview } from '../../components/Pages/FrontPage'
-import Prospectus from '../../components/Prospectus'
-import SEO from '../../components/seo'
 
 // Component
 const LocationsTemplateIndex = ({ data, ...props }) => {
@@ -100,20 +100,6 @@ export const LocationsTemplateQuery = graphql`
         firstName
         lastName
         role
-        qualifications
-        description {
-          _key
-          _rawChildren
-          _type
-          children {
-            text
-            marks
-            _type
-            _key
-          }
-          list
-          style
-        }
         staffPhoto {
           alt
           image {
@@ -136,5 +122,20 @@ export const LocationsTemplateQuery = graphql`
     }
   }
 `
+//-----Person
+// qualifications
+// description {
+//   _key
+//   _rawChildren
+//   _type
+//   children {
+//     text
+//     marks
+//     _type
+//     _key
+//   }
+//   list
+//   style
+// }
 
 export default LocationsTemplateIndex

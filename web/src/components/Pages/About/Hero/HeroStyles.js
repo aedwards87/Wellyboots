@@ -1,22 +1,16 @@
 // Imported Packages
+import { GatsbyImage } from 'gatsby-plugin-image';
+import PortableTextOrigin from "react-portable-text";
 import styled, { css } from 'styled-components/macro';
-import { GatsbyImage } from 'gatsby-plugin-image'
-import PortableTextOrigin from "react-portable-text"
 // Imported Components
 import {
-  Frame as FrameOrigin,
-  Row as RowOrigin,
-  Column as ColumnOrigin,
-  TextHeading,
-  TextParagraph,
-  Link as LinkOrigin,
-} from '../../../Reusable';
-import {
-  FootPrints,
-  Heart,
-  Crown,
-  Sun,
+  Crown, FootPrints,
+  Heart, Sun
 } from '../../../../assets/svg';
+import {
+  Column as ColumnOrigin, Frame as FrameOrigin, Link as LinkOrigin, Row as RowOrigin, TextHeading,
+  TextParagraph
+} from '../../../Reusable';
 
 
 // Styles
@@ -60,10 +54,11 @@ export const Link = styled(LinkOrigin)``
 export const FootPrintsSVG = styled(FootPrints)`
   display: none;
   ${({ second }) => !second && css`
-    @media (min-width: 980px) {
+    @media (min-width: 768px) {
       display: block;
       position: absolute;
       right: calc(-10% + -3vw);
+      right: -3vw;
       top: 35%;
     }
   `}

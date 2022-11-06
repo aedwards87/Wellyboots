@@ -1,14 +1,10 @@
 // Imported Packages
-import styled, { css } from 'styled-components/macro';
-import { GatsbyImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image';
+import styled from 'styled-components/macro';
 // Imported Components
 import {
-  Frame as FrameOrigin,
-  Row as RowOrigin,
-  Column as ColumnOrigin,
-  TextHeading,
-  TextParagraph,
-  Link as LinkOrigin,
+  Column as ColumnOrigin, Frame as FrameOrigin, Link as LinkOrigin, Row as RowOrigin, TextHeading,
+  TextParagraph
 } from '../../../Reusable';
 
 

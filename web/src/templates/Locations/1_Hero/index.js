@@ -1,7 +1,7 @@
 // Imported packages
-import React from 'react'
+import React from 'react';
 // Imported components
-import Hero from './Hero'
+import Hero from './Hero';
 // Imported utilities
 import { toLowerCaseAndHypen } from '../../../utils/helpers';
 
@@ -60,7 +60,7 @@ const HeroIndex = ({ data: { location: {
 
           <Hero.Column column={2}>
             <Hero.Title 
-              heading='h2' 
+              // heading='h2' 
               heading="hero" 
               lineColor={subBrandColors[0].title} 
             >
@@ -91,7 +91,7 @@ const HeroIndex = ({ data: { location: {
             gap={3}
           >
             <Hero.SideNav 
-              name="Jump to"
+              name="Contents"
               page={`locations/${toLowerCaseAndHypen(name)}`}
               data={location(shortName || name)}
               lineColor={subBrandColors[0].title}

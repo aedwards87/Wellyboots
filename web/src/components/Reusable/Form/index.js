@@ -1,8 +1,8 @@
 // Imported dependencies
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 // Imported components
-import Form from './Form'
+import Form from './Form';
 // Imported helpers
 import pattern from '../../../data/patterns';
 
@@ -27,7 +27,17 @@ export const FormIndex = ({
   }, [setFocus])
 
   return ( 
-    <Form onSubmit={handleSubmit(onSubmit)} fieldColor={fieldColor} {...props}>
+    <Form
+      name={category}
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      fieldColor={fieldColor} 
+      onSubmit={handleSubmit(onSubmit)} 
+      {...props}
+    >
+      <input type="hidden" name="wellyboots-form" value={category} />
+      <div hidden><input name="bot-field" /></div>
+
       <div>
         <Form.Field
           Element="input"

@@ -1,6 +1,6 @@
 // Imported packages
-import { createGlobalStyle, css } from 'styled-components'
 import 'normalize.css'
+import { createGlobalStyle, css } from 'styled-components'
 import { capitilise } from '../utils/helpers'
 
 /* 
@@ -114,6 +114,11 @@ const GlobalStyles = createGlobalStyle`
       7.1px 14.3px 18px -1.4px rgba(var(--colorDarkBlue) , 0.14),
       11.2px 22.3px 28.1px -1.8px rgba(var(--colorDarkBlue) , 0.14),
       0 25px 60px -12px rgba(var(--colorDarkBlue), 0.25);
+    --level7-Dark: 
+      0 0.5px 0.7px rgba(var(--colorDark) , 0.14),
+      0 2.9px 3.7px -0.4px rgba(var(--colorDark) , 0.14),
+      0 5.4px 6.8px -0.7px rgba(var(--colorDark) , 0.14),
+      0 25px 60px -12px rgba(var(--colorDark), 0.18);
     --level7-Reverse: 
       -0.3px 0.5px 0.7px rgba(var(--colorDarkBlue) , 0.14),
       -1.5px 2.9px 3.7px -0.4px rgba(var(--colorDarkBlue) , 0.14),
