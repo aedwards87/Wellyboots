@@ -29,10 +29,11 @@ export const FormIndex = ({
   return ( 
     <Form
       name={category}
+      method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       fieldColor={fieldColor} 
-      onSubmit={handleSubmit(onSubmit)} 
+      onSubmit="submit" 
       {...props}
     >
       <input type="hidden" name="wellyboots-form" value={category} />

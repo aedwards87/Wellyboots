@@ -1,23 +1,10 @@
 // Imported dependencies
-import React, { useState, useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import React from 'react'
 // Imported components
-import {
-  Container,
-  Frame,
-  Row,
-  Column,
-  Columns,
-  Title,
-  Text,
-  Group,
-  ProfileCard,
-  Link,
-  DividerTopSVG,
-  DividerBottomSVG,
-  GirlSVG,
-} from './StaffStyles'
 import { capitilise } from '../../../utils/helpers'
+import {
+  Column, Container, DividerBottomSVG, DividerTopSVG, Frame, GirlSVG, Group, Link, ProfileCard, Row, Text, Title
+} from './StaffStyles'
 
 
 export default function Staff({ children, className, bgColor, ...props }) {
@@ -42,10 +29,6 @@ Staff.Row = function StaffRow({ children, className, ...props }) {
 
 Staff.Column = function StaffColumn({ children, className, ...props }) {
   return (<Column className={className} {...props}>{children}</Column>)
-}
-
-Staff.Columns = function StaffColumns({ children, className, ...props }) {
-  return (<Columns className={className} {...props}>{children}</Columns>)
 }
 
 Staff.Group = function StaffGroup({ children, className, ...props }) {
