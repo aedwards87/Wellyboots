@@ -20,7 +20,7 @@ export const FormIndex = ({
     // formState: { isDirty, isValid },
     setFocus
   } = useForm({ mode: 'onBlur' });
-  const onSubmit = data => console.log(data);
+  // const onSubmit = data => console.log(data);
   
   useEffect(() => {
     setFocus("First name");
@@ -107,6 +107,7 @@ export const FormIndex = ({
         Element="textarea"
         htmlFor="message"
         name="Message"
+        placeholder={category = 'Book a visit' && 'Please leave a date/time that best suits you'}
         control={control}
         rules={{ 
           required: "Please enter a message or question" 
