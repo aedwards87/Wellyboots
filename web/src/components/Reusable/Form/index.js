@@ -37,7 +37,7 @@ export const FormIndex = ({
       {...props}
     >
       <input type="hidden" name="wellyboots-form" value={category} />
-      <div hidden><input name="bot-field" /></div>
+      <input type="hidden" name="bot-field" />
 
       <div>
         <Form.Field
