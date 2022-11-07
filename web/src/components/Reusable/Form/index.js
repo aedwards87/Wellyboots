@@ -21,7 +21,7 @@ export const FormIndex = ({
     setFocus
   } = useForm({ mode: 'onBlur' });
   // const onSubmit = data => console.log(data);
-  
+  console.log({category});
   useEffect(() => {
     setFocus("First name");
   }, [setFocus])
@@ -107,7 +107,7 @@ export const FormIndex = ({
         Element="textarea"
         htmlFor="message"
         name="Message"
-        placeholder={category = 'Book a visit' && 'Please leave a date/time that best suits you'}
+        // placeholder={category = 'Book a visit' ? 'Please leave a date/time that best suits you' : ''}
         control={control}
         rules={{ 
           required: "Please enter a message or question" 
