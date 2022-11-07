@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import Form from './Form';
 // Imported helpers
 import pattern from '../../../data/patterns';
+import { toLowerCaseAndHypen } from '../../../utils/helpers';
 
 
 // The component
@@ -36,7 +37,7 @@ export const FormIndex = ({
       onSubmit="submit" 
       {...props}
     >
-      <input type="hidden" name="wellyboots-form" value={category} />
+      <input type="hidden" name={`wellyboots-${toLowerCaseAndHypen(category)}-form`} value={category} />
       <input type="hidden" name="bot-field" />
 
       <div>

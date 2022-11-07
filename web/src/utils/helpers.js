@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 // Remove space and camalise text
 export const camalise = function camalise(str) {
@@ -13,6 +12,9 @@ export const capitilise = function capitilise(str) {
     return txt.charAt(0).toUpperCase() + txt.substr(1);
   }).replace(/\s/g, "");
 }
+
+// Remove spaces
+export const removeSpaces = (str) => str.replace(/\s/g, '')
 
 // Remove spacing and replace with a hypen and convert to lowercase
 export const toLowerCaseAndHypen = (str) => str.replace(/\s/g, '-').toLowerCase()
