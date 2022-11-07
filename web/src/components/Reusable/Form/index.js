@@ -37,7 +37,6 @@ export const FormIndex = ({
       {...props}
     >
       <input hidden name="form-name" value={category} />
-      {/* <input hidden name={`wellyboots-${toLowerCaseAndHypen(category)}-form`} value={category} /> */}
       <input type="hidden" name="bot-field" />
 
       <div>

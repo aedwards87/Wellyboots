@@ -58,6 +58,7 @@ Form.Field = function FormField({
       <Text>{children || name}</Text>
       <Element
         id={camalise(name)}
+        name={camalise(name)}
         ref={ref}
         type={type}
         value={value}
