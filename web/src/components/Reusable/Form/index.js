@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import Form from './Form';
 // Imported helpers
 import pattern from '../../../data/patterns';
-import { toLowerCaseAndHypen } from '../../../utils/helpers';
 
 
 // The component
@@ -22,7 +21,7 @@ export const FormIndex = ({
     setFocus
   } = useForm({ mode: 'onBlur' });
   // const onSubmit = data => console.log(data);
-  console.log({category});
+
   useEffect(() => {
     setFocus("First name");
   }, [setFocus])
@@ -37,7 +36,8 @@ export const FormIndex = ({
       onSubmit="submit" 
       {...props}
     >
-      <input type="hidden" name={`wellyboots-${toLowerCaseAndHypen(category)}-form`} value={category} />
+      <input hidden name="form-name" value={category} />
+      {/* <input hidden name={`wellyboots-${toLowerCaseAndHypen(category)}-form`} value={category} /> */}
       <input type="hidden" name="bot-field" />
 
       <div>
