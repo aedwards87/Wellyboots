@@ -31,7 +31,7 @@ Form.Field = function FormField({
   control,
   type, 
   name, 
-  disabled, 
+  // disabled, 
   className,
   value,
   placeholder,
@@ -50,6 +50,7 @@ Form.Field = function FormField({
     rules,
     defaultValue,
   })
+  
   return (
     <Field
       className={className}
@@ -58,12 +59,12 @@ Form.Field = function FormField({
       <Text>{children || name}</Text>
       <Element
         id={camalise(name)}
-        name={camalise(name)}
+        name={Element !== 'select' ? camalise(name) : `${camalise(name)}[]`}
         ref={ref}
         type={type}
         value={value}
         placeholder={placeholder}
-        disabled={disabled}
+        // disabled={disabled}
         aria-invalid={invalid || error ? true : false}
         maxLength={maxLength}
         {...inputProps}
